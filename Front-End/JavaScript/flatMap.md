@@ -11,7 +11,7 @@
   
   우선 filter와 map 을 사용한 코드를 보자.
  
-```
+```js
 // using filterAndMap
  console.time("filterAndMap")
  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -26,7 +26,7 @@
   해당 코드는 단순히 numbers 배열 값 중 홀수인 값의 제곱 값을 squaredOddNumbers 에 추가하는 코드이다.
 
   다음으로 같은 기능을 하지만 filter/map 이 아닌 flatMap 을 적용한 코드를 보자.
-```
+```js
 console.time("filterAndMap")
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -42,7 +42,7 @@ console.timeEnd("filterAndMap")
 
 그것은 바로 squaredOddNumbers 배열에 값이 저장하는 코드의 Line 이 달라졌다.
 
-```
+```js
 const squaredOddNumbers = numbers
     .filter(num => num % 2 !== 0)
     .map(num => num * num)
