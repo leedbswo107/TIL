@@ -63,7 +63,7 @@ console.log(text.length);
 // Expected Output : 18;
 
 console.log(text.trimEnd().length);
-// Expected Output : 14;
+// Expected Output : 16;
 ```
 
 ## :bulb: trim 메서드의 장/단점
