@@ -26,6 +26,8 @@
 
 ### 출력 결과
 
+<img src="https://github.com/leedbswo107/TIL/blob/main/Front-End/images/h_tag.png" width="300px" height="350px">
+
 ## :guardsman: 느낀점
 
 추후에 다룰 section, article, main 영역에는 h 태그가 출력되진 않아도 그 부분이 어떤 부분인지를 알려주는 h 태그가 있는것이 mdn에 정리된 html 규칙에 맞는 것으로 알고 있다. h 태그가 항상 출력되는것은 아니고 또한, 이미지가 h태그로 들어갈 수 도 있음을 잊지말자.
