@@ -195,9 +195,28 @@
 // }
 // console.log(resultTime);
 
-const input = parseInt(
-  require('fs').readFileSync('./input.txt').toString().trim()
-);
-for(let i = 0; i < input; i++){
-  for(let j = input; )
-}
+// 187142번 문제
+// const input = parseInt(
+//   require('fs').readFileSync('./input.txt').toString().trim()
+// );
+// let result = '';
+// for (let i = 0; i < input; i++) {
+//   for (let j = 1; j < input - i; j++) {
+//     result += ' ';
+//   }
+//   for (let k = input; k >= input - i * 2; k--) {
+//     result += '*';
+//   }
+//   result += '\n';
+// }
+// for (let i = 1; i < input; i++) {
+//   // let result = '';
+//   for (let j = 0; j < i; j++) {
+//     result += ' ';
+//   }
+//   for (let k = 0; k < input * 2 - i * 2 - 1; k++) {
+//     result += '*';
+//   }
+//   result += '\n';
+// }
+// console.log(result);
