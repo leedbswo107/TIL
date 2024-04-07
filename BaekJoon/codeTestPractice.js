@@ -220,3 +220,18 @@
 //   result += '\n';
 // }
 // console.log(result);
+
+// 10988번 문제
+// const input = require('fs')
+//   .readFileSync('./input.txt')
+//   .toString()
+//   .trim()
+//   .split('');
+// let result = 1;
+// for (let i = 0; i < input.length / 2; i++) {
+//   if (input[i] !== input[input.length - i - 1]) {
+//     result = 0;
+//     break;
+//   }
+// }
+// console.log(result);
