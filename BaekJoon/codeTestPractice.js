@@ -235,3 +235,31 @@
 //   }
 // }
 // console.log(result);
+
+// 1157번 문제
+const input = require('fs')
+  .readFileSync('./input.txt')
+  .toString()
+  .toUpperCase()
+  .trim()
+  .split('')
+  .sort();
+const alpha = Array(26)
+  .fill()
+  .map((_, i) => String.fromCharCode(i + 65));
+let result = new Array(26).fill(0);
+let resultNum = result.indexOf(Math.max(...result));
+let count = 0;
+for (let i = 0; i < alpha.length; i++) {
+  input.forEach((e) => {
+    if (alpha[i] === e) result[i] += 1;
+  });
+}
+result.filter((e) => {
+  if (e === Math.max(...result)) count += 1;
+});
+if (count > 1) {
+  console.log('?');
+  return;
+}
+console.log(alpha[resultNum]);
