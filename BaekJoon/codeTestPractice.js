@@ -265,8 +265,11 @@
 // console.log(alpha[resultNum]);
 
 // 10699번 문제
-const time = new Date();
-let year = time.toLocaleString('default', { year: 'numeric' });
-let month = time.toLocaleString('default', { month: '2-digit' });
-let date = time.toLocaleString('default', { day: '2-digit' });
-console.log(`${year}-${month}-${date}`);
+// const time = new Date();
+// let year = time.toLocaleString('default', { year: 'numeric' });
+// let month = time.toLocaleString('default', { month: '2-digit' });
+// let date = time.toLocaleString('default', { day: '2-digit' });
+// console.log(`${year}-${month}-${date}`);
+
+// 7287번 문제
+// console.log('66\nleedbswo107');
