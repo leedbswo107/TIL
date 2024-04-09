@@ -275,10 +275,27 @@
 // console.log('66\nleedbswo107');
 
 // 2420번 문제
-const input = require('fs')
-  .readFileSync('./input.txt')
-  .toString()
-  .trim()
-  .split(' ')
-  .map(Number);
-console.log(Math.abs(input[0] - input[1]));
+// const input = require('fs')
+//   .readFileSync('./input.txt')
+//   .toString()
+//   .trim()
+//   .split(' ')
+//   .map(Number);
+// console.log(Math.abs(input[0] - input[1]));
+
+// const input = require('fs').readFileSync('./input.txt').toString().trim();
+// let result = '';
+// for (let i = 1; i <= parseInt(input); i++) {
+//   result += i + '\n';
+// }
+// console.log(result);
+
+// 10872번 문제
+// const input = parseInt(
+//   require('fs').readFileSync('./input.txt').toString().trim()
+// );
+// let result = 1;
+// for (let i = 1; i <= input; i++) {
+//   result *= i;
+// }
+// console.log(result);
