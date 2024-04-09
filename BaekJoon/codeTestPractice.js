@@ -273,3 +273,12 @@
 
 // 7287번 문제
 // console.log('66\nleedbswo107');
+
+// 2420번 문제
+const input = require('fs')
+  .readFileSync('./input.txt')
+  .toString()
+  .trim()
+  .split(' ')
+  .map(Number);
+console.log(Math.abs(input[0] - input[1]));
