@@ -275,10 +275,50 @@
 // console.log('66\nleedbswo107');
 
 // 2420번 문제
-const input = require('fs')
-  .readFileSync('./input.txt')
-  .toString()
-  .trim()
-  .split(' ')
-  .map(Number);
-console.log(Math.abs(input[0] - input[1]));
+// const input = require('fs')
+//   .readFileSync('./input.txt')
+//   .toString()
+//   .trim()
+//   .split(' ')
+//   .map(Number);
+// console.log(Math.abs(input[0] - input[1]));
+
+// const input = require('fs').readFileSync('./input.txt').toString().trim();
+// let result = '';
+// for (let i = 1; i <= parseInt(input); i++) {
+//   result += i + '\n';
+// }
+// console.log(result);
+
+// 10872번 문제
+// const input = parseInt(
+//   require('fs').readFileSync('./input.txt').toString().trim()
+// );
+// let result = 1;
+// for (let i = 1; i <= input; i++) {
+//   result *= i;
+// }
+// console.log(result);
+
+// 2941번 문제
+// const input = require('fs')
+//   .readFileSync('./input.txt')
+//   .toString()
+//   .trim()
+//   .split('');
+// let result = 0;
+// for (let i = 0; i < input.length; i++) {
+//   if (input[i] === 'd' && input[i + 1] === 'z' && input[i + 2] === '=') i += 2;
+//   else if (
+//     (input[i] === 'c' && input[i + 1] === '=') ||
+//     (input[i] === 'c' && input[i + 1] === '-') ||
+//     (input[i] === 'd' && input[i + 1] === '-') ||
+//     (input[i] === 'l' && input[i + 1] === 'j') ||
+//     (input[i] === 'n' && input[i + 1] === 'j') ||
+//     (input[i] === 's' && input[i + 1] === '=') ||
+//     (input[i] === 'z' && input[i + 1] === '=')
+//   )
+//     i++;
+//   result++;
+// }
+// console.log(result);
