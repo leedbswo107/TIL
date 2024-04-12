@@ -322,3 +322,16 @@
 //   result++;
 // }
 // console.log(result);
+
+// 2744번 문제
+// const input = require('fs')
+//   .readFileSync('./input.txt')
+//   .toString()
+//   .trim()
+//   .split('');
+// for (let i = 0; i < input.length; i++) {
+//   input[i] === input[i].toUpperCase()
+//     ? (input[i] = input[i].toLowerCase())
+//     : (input[i] = input[i].toUpperCase());
+// }
+// console.log(input.join(''));
