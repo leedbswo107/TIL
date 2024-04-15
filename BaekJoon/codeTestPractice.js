@@ -335,3 +335,42 @@
 //     : (input[i] = input[i].toUpperCase());
 // }
 // console.log(input.join(''));
+
+// 1316번 문제
+const input = require('fs')
+  .readFileSync('./input.txt')
+  .toString()
+  .trim()
+  .split('\n');
+const N = parseInt(input[0]);
+const arr = new Array(N).fill(0).map((_, index) => input[index + 1].split(''));
+let resultCount = 0;
+arr.forEach((e) => {
+  let cloneE = [...e];
+  let sortedE = cloneE.filter((element, index) => {
+    return cloneE.indexOf(element) === index;
+  });
+  let count = 0;
+  if (e.length === 1) {
+    resultCount++;
+  } else {
+    let result = [];
+    sortedE.forEach((element) => {
+      for (let j = 0; j < e.length; j++) {
+        if (e[j] === element) result.push(j);
+      }
+    });
+    for (let k = 0; k < result.length; k++) {
+      if (result.length === 1) count++;
+      else if (k < result.length - 1) {
+        if (result[k + 1] - result[k] !== 1) {
+          count = -1;
+          break;
+        }
+        count++;
+      }
+    }
+    if (count > 0) resultCount++;
+  }
+});
+console.log(resultCount);
