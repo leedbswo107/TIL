@@ -337,40 +337,92 @@
 // console.log(input.join(''));
 
 // 1316번 문제
-const input = require('fs')
-  .readFileSync('./input.txt')
-  .toString()
-  .trim()
-  .split('\n');
-const N = parseInt(input[0]);
-const arr = new Array(N).fill(0).map((_, index) => input[index + 1].split(''));
-let resultCount = 0;
-arr.forEach((e) => {
-  let cloneE = [...e];
-  let sortedE = cloneE.filter((element, index) => {
-    return cloneE.indexOf(element) === index;
-  });
-  let count = 0;
-  if (e.length === 1) {
-    resultCount++;
-  } else {
-    let result = [];
-    sortedE.forEach((element) => {
-      for (let j = 0; j < e.length; j++) {
-        if (e[j] === element) result.push(j);
-      }
-    });
-    for (let k = 0; k < result.length; k++) {
-      if (result.length === 1) count++;
-      else if (k < result.length - 1) {
-        if (result[k + 1] - result[k] !== 1) {
-          count = -1;
-          break;
-        }
-        count++;
-      }
-    }
-    if (count > 0) resultCount++;
-  }
-});
-console.log(resultCount);
+// const input = require('fs')
+//   .readFileSync('./input.txt')
+//   .toString()
+//   .trim()
+//   .split('\n');
+// const N = parseInt(input[0]);
+// const arr = new Array(N).fill(0).map((_, index) => input[index + 1].split(''));
+// let resultCount = 0;
+// arr.forEach((e) => {
+//   let cloneE = [...e];
+//   let sortedE = cloneE.filter((element, index) => {
+//     return cloneE.indexOf(element) === index;
+//   });
+//   let count = 0;
+//   if (e.length === 1) {
+//     resultCount++;
+//   } else {
+//     let result = [];
+//     sortedE.forEach((element) => {
+//       for (let j = 0; j < e.length; j++) {
+//         if (e[j] === element) result.push(j);
+//       }
+//     });
+//     for (let k = 0; k < result.length; k++) {
+//       if (result.length === 1) count++;
+//       else if (k < result.length - 1) {
+//         if (result[k + 1] - result[k] !== 1) {
+//           count = -1;
+//           break;
+//         }
+//         count++;
+//       }
+//     }
+//     if (count > 0) resultCount++;
+//   }
+// });
+// console.log(resultCount);
+
+// A+: 4.3, A0: 4.0, A-: 3.7
+
+// B+: 3.3, B0: 3.0, B-: 2.7
+
+// C+: 2.3, C0: 2.0, C-: 1.7
+
+// D+: 1.3, D0: 1.0, D-: 0.7
+
+// F: 0.0
+
+// 2754번 문제
+// const input = require('fs').readFileSync('./input.txt').toString().trim();
+// const grade = [
+//   'A+',
+//   'A0',
+//   'A-',
+//   'B+',
+//   'B0',
+//   'B-',
+//   'C+',
+//   'C0',
+//   'C-',
+//   'D+',
+//   'D0',
+//   'D-',
+//   'F',
+// ];
+// const score = [4.3, 4.0, 3.7, 3.3, 3.0, 2.7, 2.3, 2.0, 1.7, 1.3, 1.0, 0.7, 0.0];
+// const index = grade.indexOf(input);
+// console.log(score[index].toFixed(1));
+
+// 15964번 문제
+// (A+B)×(A-B)
+// const input = require('fs')
+//   .readFileSync('./input.txt')
+//   .toString()
+//   .trim()
+//   .split(' ')
+//   .map(Number);
+// console.log((input[0] + input[1]) * (input[0] - input[1]));
+
+// 2475번 문제
+// const input = require('fs')
+//   .readFileSync('./input.txt')
+//   .toString()
+//   .trim()
+//   .split(' ')
+//   .map(Number);
+// let result = 0;
+// input.forEach((e) => (result += e ** 2));
+// console.log(result % 10);
