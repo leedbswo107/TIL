@@ -426,3 +426,86 @@
 // let result = 0;
 // input.forEach((e) => (result += e ** 2));
 // console.log(result % 10);
+
+// 2738번 문제
+// const input = require('fs')
+//   .readFileSync('./input.txt')
+//   .toString()
+//   .trim()
+//   .split('\n');
+// const [N, M] = input[0].split(' ').map(Number);
+// let result = [];
+// for (let i = 1; i < input.length; i++) {
+//   result.push(input[i].split(' ').map(Number));
+// }
+// console.log(result);
+
+// 25206번 문제
+// const input = require('fs')
+//   .readFileSync('./input.txt')
+//   .toString()
+//   .trim()
+//   .split('\n');
+// const grade = ['A+', 'A0', 'B+', 'B0', 'C+', 'C0', 'D+', 'D0', 'F'];
+// const gradeScore = [4.5, 4.0, 3.5, 3.0, 2.5, 2.0, 1.5, 1.0, 0];
+// let totalGPA = 0;
+// let totalScore = 0;
+// let GPA = [];
+// let score = [];
+// let scoreIndex = [];
+// for (let i = 0; i < input.length; i++) input[i] = input[i].split(' ');
+// input.forEach((e) => {
+//   totalGPA += parseInt(e[1]);
+//   GPA.push(parseInt(e[1]));
+//   scoreIndex.push(grade.indexOf(e[2]));
+// });
+// scoreIndex.forEach((e) => {
+//   score.push(gradeScore[e]);
+// });
+// for (let j = 0; j < score.length; j++) {
+//   if (isNaN(score[j] * GPA[j])) {
+//     totalScore += 0;
+//     totalGPA -= GPA[j];
+//   } else {
+//     totalScore += score[j] * GPA[j];
+//   }
+// }
+// console.log(totalScore / totalGPA);
+
+// const input = require("fs")
+//   .readFileSync("/dev/stdin")
+//   .toString()
+//   .trim()
+//   .split("\n");
+
+// const rating = ["A+", "A0", "B+", "B0", "C+", "C0", "D+", "D0", "F"];
+// const grade = [4.5, 4.0, 3.5, 3.0, 2.5, 2.0, 1.5, 1.0, 0];
+
+// let total = 0;
+// let result = 0;
+// for (let i = 0; i < input.length; i++) {
+//   const [s, p, g] = input[i].trim().split(" ");
+//   if (g != "P") {
+//     total += Number(p);
+//     result += Number(p) * grade[rating.indexOf(g)];
+//   }
+// }
+// 대박...
+// console.log(result / total);
+
+// 2738번 문제
+// const input = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('\n');
+// const [N, M] = input[0].split(' ').map(Number);
+// let A = [];
+// let B = [];
+// for (let i = 1; i < input.length; i++)
+//   i <= N
+//     ? A.push(input[i].split(' ').map(Number))
+//     : B.push(input[i].split(' ').map(Number));
+// for (let j = 0; j < N; j++) {
+//   for (let k = 0; k < M; k++) A[j][k] += B[j][k];
+//   console.log(A[j].join(' '));
+// }
