@@ -509,3 +509,50 @@
 //   for (let k = 0; k < M; k++) A[j][k] += B[j][k];
 //   console.log(A[j].join(' '));
 // }
+
+// 2566번 문제
+// const input = require('fs')
+//   .readFileSync('./input.txt')
+//   .toString()
+//   .trim()
+//   .split('\n');
+// let arr = [];
+// input.forEach((e) => arr.push(e.split(' ').map(Number)));
+// let flatArr = arr.flat();
+// let maxData = Math.max(...flatArr);
+// let result = [];
+// console.log(maxData);
+// for (let i = 0; i < arr.length; i++) {
+//   if (arr[i].indexOf(maxData) === -1) continue;
+//   else {
+//     result[0] = i + 1;
+//     result[1] = arr[i].indexOf(maxData) + 1;
+//   }
+// }
+// console.log(result.join(' '));
+
+// 10798번 문제
+// const input = require('fs')
+//   .readFileSync('./input.txt')
+//   .toString()
+//   .trim()
+//   .split('\n');
+// let arr = [];
+// let arrLen = [];
+// let result = '';
+// let max = 0;
+// console.log(input);
+// input.forEach((e) => {
+//   arr.push(e.split(''));
+//   arrLen.push(e.length);
+// });
+// max = Math.max(...arrLen);
+// for (let i = 0; i < arr.length; i++) {
+//   for (let j = 0; j < arr.length; j++) {
+//     // console.log('arr : ', arr[j][i]);
+//     if (arr[j][i] === undefined) continue;
+//     else result += arr[j][i];
+//     // arr[j][i] === undefined ? j++ : (result += arr[j][i]);
+//   }
+// }
+// console.log(result);
