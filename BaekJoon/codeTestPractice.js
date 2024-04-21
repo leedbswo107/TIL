@@ -553,3 +553,26 @@
 //   }
 // }
 // console.log(result);
+
+// 2563번 문제
+// const input = require('fs')
+//   .readFileSync('./input.txt')
+//   .toString()
+//   .trim()
+//   .split('\n');
+// const N = parseInt(input[0]);
+// const arr = [];
+// for (let i = 1; i < input.length; i++)
+//   arr.push(input[i].split(' ').map(Number));
+// console.log(arr);
+
+// 2440번 문제
+const input = parseInt(
+  require('fs').readFileSync('./input.txt').toString().trim()
+);
+
+for (let i = 0; i < input; i++) {
+  let result = '';
+  for (let j = input - i; j > 0; j--) result += '*';
+  console.log(result);
+}
