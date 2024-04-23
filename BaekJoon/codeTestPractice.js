@@ -567,12 +567,48 @@
 // console.log(arr);
 
 // 2440번 문제
-const input = parseInt(
-  require('fs').readFileSync('./input.txt').toString().trim()
-);
+// const input = parseInt(
+//   require('fs').readFileSync('./input.txt').toString().trim()
+// );
 
-for (let i = 0; i < input; i++) {
-  let result = '';
-  for (let j = input - i; j > 0; j--) result += '*';
-  console.log(result);
-}
+// for (let i = 0; i < input; i++) {
+//   let result = '';
+//   for (let j = input - i; j > 0; j--) result += '*';
+//   console.log(result);
+// }
+
+// 10989번 문제
+// const input = require('fs')
+//   .readFileSync('./input.txt')
+//   .toString()
+//   .trim()
+//   .split('\n')
+//   .map(Number);
+// const N = input[0];
+// input.shift();
+// input.sort().forEach((e) => {
+//   console.log(e);
+// });
+
+// 1357번 문제
+// function rev(num) {
+//   return parseInt(num.reverse().join(''));
+// }
+// const input = require('fs')
+//   .readFileSync('./input.txt')
+//   .toString()
+//   .trim()
+//   .split(' ');
+// x = input[0].split('');
+// y = input[1].split('');
+// result = (rev(x) + rev(y)).toString();
+// console.log(rev(result.split('')));
+
+// 2751번 문제
+// const [N, ...input] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('\n')
+//   .map(Number);
+// input.sort((a, b) => a - b);
+// console.log(input.join('\n'));
