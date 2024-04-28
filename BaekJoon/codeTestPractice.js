@@ -612,3 +612,47 @@
 //   .map(Number);
 // input.sort((a, b) => a - b);
 // console.log(input.join('\n'));
+
+// 7785번 문제
+// const [N, ...input] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('\n');
+// let name = [];
+// let status = [];
+// for (let i = 0; i < input.length; i++) {
+//   [name[i], status[i]] = input[i].split(' ');
+// }
+// console.log(name);
+// console.log(status);
+
+// 2869번 문제
+const [A, B, V] = require('fs')
+  .readFileSync('./input.txt', 'utf-8')
+  .trim()
+  .split(' ')
+  .map(Number);
+console.log(Math.ceil((V - B) / (A - B)));
+
+// 2558번 문제 풀어야함
+// const [a, b] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('\n')
+//   .map(Number);
+// console.log(a + b);
+
+// 1181번 문제 풀어야함
+// const [N, ...input] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('\n');
+
+// const lenArr = [];
+// console.log(input);
+
+// input.forEach((e) => {
+//   lenArr.push(e.length);
+// });
+
+// console.log(lenArr);
