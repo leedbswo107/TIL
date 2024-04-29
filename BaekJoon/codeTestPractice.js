@@ -635,17 +635,30 @@
 // console.log(Math.ceil((V - B) / (A - B)));
 
 // 2441번 문제
-const N = parseInt(require('fs').readFileSync('./input.txt', 'utf-8').trim());
-for (let i = 0; i < N; i++) {
-  let result = '';
-  for(let j = 0; j < i; j++){
-    result += ' ';
-  }
-  for (let k = 0; k < N - i; k++) {
-    result += '*';
-  }
-  console.log(result);
+// const N = parseInt(require('fs').readFileSync('./input.txt', 'utf-8').trim());
+// for (let i = 0; i < N; i++) {
+//   let result = '';
+//   for(let j = 0; j < i; j++){
+//     result += ' ';
+//   }
+//   for (let k = 0; k < N - i; k++) {
+//     result += '*';
+//   }
+//   console.log(result);
+// }
+// 2442번 문제
+// const N = parseInt(require('fs').readFileSync('./input.txt', 'utf-8').trim());
+// for (let i = 0; i < N; i++) {
+//   let result = '';
+//   for (let j = 1; j < N - i; j++) {
+//     result += ' ';
+//   }
+//   for (let k = N-i; k <= N + i ; k++) {
+//     result += '*';
+//   }
+//   console.log(result);
 }
+
 
 // 2558번 문제 풀어야함
 // const [a, b] = require('fs')
