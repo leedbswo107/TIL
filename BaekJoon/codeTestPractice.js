@@ -634,6 +634,7 @@
 //   .map(Number);
 // console.log(Math.ceil((V - B) / (A - B)));
 
+// 2441번 문제
 const N = parseInt(require('fs').readFileSync('./input.txt', 'utf-8').trim());
 for (let i = 0; i < N; i++) {
   let result = '';
