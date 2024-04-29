@@ -627,12 +627,24 @@
 // console.log(status);
 
 // 2869번 문제
-const [A, B, V] = require('fs')
-  .readFileSync('./input.txt', 'utf-8')
-  .trim()
-  .split(' ')
-  .map(Number);
-console.log(Math.ceil((V - B) / (A - B)));
+// const [A, B, V] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split(' ')
+//   .map(Number);
+// console.log(Math.ceil((V - B) / (A - B)));
+
+const N = parseInt(require('fs').readFileSync('./input.txt', 'utf-8').trim());
+for (let i = 0; i < N; i++) {
+  let result = '';
+  for(let j = 0; j < i; j++){
+    result += ' ';
+  }
+  for (let k = 0; k < N - i; k++) {
+    result += '*';
+  }
+  console.log(result);
+}
 
 // 2558번 문제 풀어야함
 // const [a, b] = require('fs')
