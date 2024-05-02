@@ -657,7 +657,55 @@
 //     result += '*';
 //   }
 //   console.log(result);
-}
+// }
+
+// 2742번 문제
+// let N = parseInt(require('fs').readFileSync('./input.txt','utf-8').trim());
+// let r = '';
+// for (; N > 0; N-=1) r += (N +'\n');
+// console.log(r);
+
+// 5543번 문제
+// const input = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(Number);
+// const bugger = [];
+// const drinks = [];
+// for (let i = 0; i < input.length; i++) {
+//   if(i <= 2) bugger.push(input[i]);
+//   else drinks.push(input[i]);
+// }
+// console.log(Math.min(...bugger)+Math.min(...drinks)-50);
+
+// 10817번 문제
+// const arr = require('fs').readFileSync('./input.txt', 'utf-8').trim().split(' ').map(Number);
+// arr.sort((a,b) => b-a);
+// console.log(arr);
+// console.log(arr[1]);
+
+// 1085번 문제
+// const [x,y,w,h] = require('fs').readFileSync('./input.txt','utf-8').trim().split(' ').map(Number);
+// const result = [x,y,w-x,h-y];
+// // x<(w-x) ? result.push(x) : result.push(w-x);
+// // y<(h-y) ? result.push(y) : result.push(h-y);
+// console.log(Math.min(...result)); 
+
+// 2750번 문제
+// const [N, ...arr] = require('fs').readFileSync('./input.txt','utf-8').trim().split('\n').map(Number);
+// let result = '';
+// arr.sort((a,b) => a-b);
+// arr.forEach(e => result += (e + '\n'));
+// console.log(result);
+
+// 10039번 문제
+// const score = require('fs').readFileSync('./input.txt','utf-8').trim().split('\n').map(Number);
+// let result = 0;
+// score.forEach(score => score < 40 ? result += 40 : result += score);
+// console.log(result/5);
+
+// 3046번 문제
+// const [R1, S] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split(' ').map(Number);
+// const R2 = S*2 - R1;
+// console.log(R2);
+
 
 
 // 2558번 문제 풀어야함
