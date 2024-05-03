@@ -706,6 +706,34 @@
 // const R2 = S*2 - R1;
 // console.log(R2);
 
+// 2587번 문제
+// const input = require('fs').readFileSync('./input.txt','utf-8').trim().split('\n').map(Number);
+// input.sort((a,b) => a-b);
+// const sumNum = input.reduce((acc,cur) => {return (acc + cur)},0);
+// console.log(sumNum/5+'\n'+input[2]);
+
+// 11728번 문제
+// const input = require('fs').readFileSync('./input.txt','utf-8').trim().split('\n');
+// const [N,M] = input[0].split(' ').map(Number);
+// const [A,B] = [input[1].split(' ').map(Number),input[2].split(' ').map(Number)];
+// const result = A.concat(B).sort((a,b)=>a-b).join(' ');
+// console.log(result);
+
+// 11004번 문제
+// const input = require('fs').readFileSync('./input.txt','utf-8').trim().split('\n');
+// const [N,K] = input[0].split(' ').map(Number);
+// const A = [...input[1].split(' ').map(Number)].sort((a,b)=> a-b);
+// console.log(A[K-1]);
+
+// 2822번 문제
+const score = require('fs').readFileSync('./input.txt','utf-8').trim().split('\n').map(Number);
+const A = [...score];
+A.sort((a,b)=>b-a).splice(5,3);
+const B = [];
+A.forEach(e => B.push(score.indexOf(e)+1));
+const total = A.reduce((acc,cur)=>{return acc + cur},0);
+const result = total + '\n' + B.sort((a,b)=>a-b).join(' ');
+console.log(result);
 
 
 // 2558번 문제 풀어야함
