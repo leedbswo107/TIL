@@ -736,24 +736,50 @@
 // console.log(result);
 
 // 2167번 문제 (코드 효율 개선 필요)
-const input = require('fs').readFileSync('./input.txt','utf-8').trim().split('\n');
-const [N,M] = input.shift().split(' ').map(Number);
-const arr = input.splice(0,N);
-const K = parseInt(input.shift());
-// const splitArr = (arr) => arr.map(e => arr[arr.indexOf(e)] = e.split(' ').map(Number))
-arr.map(e => arr[arr.indexOf(e)] = e.split(' ').map(Number));
-input.map(e => input[input.indexOf(e)] = e.split(' ').map(Number))
-const result = [];
-input.forEach(e => {
-  let [i,j,x,y] = e.map(Number);
-  let total = 0;
-  for (let a = i; a <= x; a++) {
-    for (let b = j; b <= y; b++) {
-      total += arr[a-1][b-1]; 
-    }
-  } result.push(total);
-});
-console.log(result.join('\n'));
+// const input = require('fs').readFileSync('./input.txt','utf-8').trim().split('\n');
+// const [N,M] = input.shift().split(' ').map(Number);
+// const arr = input.splice(0,N);
+// const K = parseInt(input.shift());
+// // const splitArr = (arr) => arr.map(e => arr[arr.indexOf(e)] = e.split(' ').map(Number))
+// arr.map(e => arr[arr.indexOf(e)] = e.split(' ').map(Number));
+// input.map(e => input[input.indexOf(e)] = e.split(' ').map(Number))
+// const result = [];
+// input.forEach(e => {
+//   let [i,j,x,y] = e.map(Number);
+//   let total = 0;
+//   for (let a = i; a <= x; a++) {
+//     for (let b = j; b <= y; b++) {
+//       total += arr[a-1][b-1]; 
+//     }
+//   } result.push(total);
+// });
+// console.log(result.join('\n'));
+
+// 10867번 문제
+// const input = require('fs').readFileSync('./input.txt','utf-8').trim().split('\n');
+// const N = parseInt(input.shift());
+// const arr = input[0].trim().split(' ').map(Number).sort((a,b)=>a-b);
+// const result = [];
+
+// for (let i = 0; i < arr.length; i++) {
+//   if(arr[i] !== arr[i+1]) result.push(arr[i])
+// }
+// console.log(result.join(' '));
+
+// const input = require('fs').readFileSync('./input.txt','utf-8').trim().split('\n');
+// const N = parseInt(input.shift());
+// let arr = input[0].trim().split(' ').map(Number);
+// arr = new Set(arr);
+// console.log(Array.from(arr).sort((a,b)=>a-b).join(' '));
+
+// console.log(Array.from(arr).sort((a,b)=>a-b));
+// console.log(arr.sort((a,b)=>a-b));
+
+// 11931번 문제
+// const [N, ...arr] = require('fs').readFileSync('./input.txt','utf-8').trim().split('\n').map(Number);
+// console.log(arr.sort((a,b)=>b-a).join('\n'));
+
+
 // 2558번 문제 풀어야함
 // const [a, b] = require('fs')
 //   .readFileSync('./input.txt', 'utf-8')
