@@ -726,16 +726,34 @@
 // console.log(A[K-1]);
 
 // 2822번 문제
-const score = require('fs').readFileSync('./input.txt','utf-8').trim().split('\n').map(Number);
-const A = [...score];
-A.sort((a,b)=>b-a).splice(5,3);
-const B = [];
-A.forEach(e => B.push(score.indexOf(e)+1));
-const total = A.reduce((acc,cur)=>{return acc + cur},0);
-const result = total + '\n' + B.sort((a,b)=>a-b).join(' ');
-console.log(result);
+// const score = require('fs').readFileSync('./input.txt','utf-8').trim().split('\n').map(Number);
+// const A = [...score];
+// A.sort((a,b)=>b-a).splice(5,3);
+// const B = [];
+// A.forEach(e => B.push(score.indexOf(e)+1));
+// const total = A.reduce((acc,cur)=>{return acc + cur},0);
+// const result = total + '\n' + B.sort((a,b)=>a-b).join(' ');
+// console.log(result);
 
-
+// 2167번 문제 (코드 효율 개선 필요)
+const input = require('fs').readFileSync('./input.txt','utf-8').trim().split('\n');
+const [N,M] = input.shift().split(' ').map(Number);
+const arr = input.splice(0,N);
+const K = parseInt(input.shift());
+// const splitArr = (arr) => arr.map(e => arr[arr.indexOf(e)] = e.split(' ').map(Number))
+arr.map(e => arr[arr.indexOf(e)] = e.split(' ').map(Number));
+input.map(e => input[input.indexOf(e)] = e.split(' ').map(Number))
+const result = [];
+input.forEach(e => {
+  let [i,j,x,y] = e.map(Number);
+  let total = 0;
+  for (let a = i; a <= x; a++) {
+    for (let b = j; b <= y; b++) {
+      total += arr[a-1][b-1]; 
+    }
+  } result.push(total);
+});
+console.log(result.join('\n'));
 // 2558번 문제 풀어야함
 // const [a, b] = require('fs')
 //   .readFileSync('./input.txt', 'utf-8')
