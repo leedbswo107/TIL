@@ -779,6 +779,55 @@
 // const [N, ...arr] = require('fs').readFileSync('./input.txt','utf-8').trim().split('\n').map(Number);
 // console.log(arr.sort((a,b)=>b-a).join('\n'));
 
+// 17478번 문제
+// const N = parseInt(require('fs').readFileSync('./input.txt','utf-8').trim(),10);
+// const text = [
+//   '어느 한 컴퓨터공학과 학생이 유명한 교수님을 찾아가 물었다.\n',
+//   '"재귀함수가 뭔가요?"\n',
+//   '"잘 들어보게. 옛날옛날 한 산 꼭대기에 이세상 모든 지식을 통달한 선인이 있었어.\n',
+//   '마을 사람들은 모두 그 선인에게 수많은 질문을 했고, 모두 지혜롭게 대답해 주었지.\n',
+//   '그의 답은 대부분 옳았다고 하네. 그런데 어느 날, 그 선인에게 한 선비가 찾아와서 물었어."\n',
+//   '"재귀함수는 자기 자신을 호출하는 함수라네"\n',
+//   '라고 답변하였지.\n',
+//   '____'
+// ]
+// let result = text[0];
+// const ansFunc = (i) => {
+//   let undLine = '';
+//   for (let j = 0; j < i; j++) {
+//     undLine += text[7];
+//   }
+//   if(i < N){
+//     result += (
+//       undLine + text[1] + undLine + text[2] + undLine + text[3] + undLine + text[4]
+//     );
+//     ansFunc(i+=1);
+//     result += (undLine + text[6]);
+//   } else {
+//     result += (undLine + text[1]+undLine + text[5] + undLine + text[6]);
+//     return result;
+//   }
+// }
+// ansFunc(0);
+// console.log(result);
+
+// 2161번 문제
+const N = parseInt(require('fs').readFileSync('./input.txt','utf-8').trim(),10);
+const arr = new Array(N).fill(0).map((e,i) => i+1);
+for (let i = 0; i < arr.length; i++) {
+  arr.push(arr[i+1]);
+  arr.splice(i+1,1);
+}
+console.log(arr.join(' '));
+
+
+
+// 1629번 문제 풀어야함. 근데 왜 틀린거짘ㅋ..
+// const [A,B,C] = require('fs').readFileSync('./input.txt','utf-8').trim().split(' ').map(Number);
+// console.log(Math.pow(A,B)%C);
+
+// const testNum = Math.pow(2,52);
+
 
 // 2558번 문제 풀어야함
 // const [a, b] = require('fs')
