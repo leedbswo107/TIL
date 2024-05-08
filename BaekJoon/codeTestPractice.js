@@ -812,14 +812,18 @@
 // console.log(result);
 
 // 2161번 문제
-const N = parseInt(require('fs').readFileSync('./input.txt','utf-8').trim(),10);
-const arr = new Array(N).fill(0).map((e,i) => i+1);
-for (let i = 0; i < arr.length; i++) {
-  arr.push(arr[i+1]);
-  arr.splice(i+1,1);
-}
-console.log(arr.join(' '));
+// const N = parseInt(require('fs').readFileSync('./input.txt','utf-8').trim(),10);
+// const arr = new Array(N).fill(0).map((e,i) => i+1);
+// for (let i = 0; i < arr.length; i++) {
+//   arr.push(arr[i+1]);
+//   arr.splice(i+1,1);
+// }
+// console.log(arr.join(' '));
 
+// 10757번 문제
+const [ A, B ] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split(' ').map(BigInt);
+console.log((A+B).toString());
+// console.log(A+B);
 
 
 // 1629번 문제 풀어야함. 근데 왜 틀린거짘ㅋ..
