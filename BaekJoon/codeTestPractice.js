@@ -821,10 +821,14 @@
 // console.log(arr.join(' '));
 
 // 10757번 문제
-const [ A, B ] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split(' ').map(BigInt);
-console.log((A+B).toString());
+// const [ A, B ] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split(' ').map(BigInt);
+// console.log((A+B).toString());
 // console.log(A+B);
 
+// 2693번 문제
+
+const [T, ...arr] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n');
+arr.map((e) => console.log(e.split(' ').map(Number).sort((a,b) => b-a)[2]));
 
 // 1629번 문제 풀어야함. 근데 왜 틀린거짘ㅋ..
 // const [A,B,C] = require('fs').readFileSync('./input.txt','utf-8').trim().split(' ').map(Number);
