@@ -686,7 +686,7 @@
 // const result = [x,y,w-x,h-y];
 // // x<(w-x) ? result.push(x) : result.push(w-x);
 // // y<(h-y) ? result.push(y) : result.push(h-y);
-// console.log(Math.min(...result)); 
+// console.log(Math.min(...result));
 
 // 2750번 문제
 // const [N, ...arr] = require('fs').readFileSync('./input.txt','utf-8').trim().split('\n').map(Number);
@@ -749,7 +749,7 @@
 //   let total = 0;
 //   for (let a = i; a <= x; a++) {
 //     for (let b = j; b <= y; b++) {
-//       total += arr[a-1][b-1]; 
+//       total += arr[a-1][b-1];
 //     }
 //   } result.push(total);
 // });
@@ -827,15 +827,45 @@
 
 // 2693번 문제
 
-const [T, ...arr] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n');
-arr.map((e) => console.log(e.split(' ').map(Number).sort((a,b) => b-a)[2]));
+// const [T, ...arr] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n');
+// arr.map((e) => console.log(e.split(' ').map(Number).sort((a,b) => b-a)[2]));
+
+// 10808번 문제
+// const S = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('');
+// const alphabet = new Array(26)
+//   .fill()
+//   .map((_, i) => String.fromCharCode(i + 97));
+// const result = new Array(26).fill(0);
+// S.forEach((e) => {
+//   if (alphabet.includes(e)) result[alphabet.indexOf(e)] += 1;
+// });
+// console.log(result.join(' '));
+
+// 4153번 문제
+// const input = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('\n');
+// input.pop();
+// const arr = input.map((e) =>
+//   e
+//     .split(' ')
+//     .map(Number)
+//     .sort((a, b) => b - a)
+// );
+// const result = [];
+// arr.map((e) => {
+//   e[0] ** 2 === e[1] ** 2 + e[2] ** 2
+//     ? result.push('right')
+//     : result.push('wrong');
+// });
+// console.log(result.join('\n'));
 
 // 1629번 문제 풀어야함. 근데 왜 틀린거짘ㅋ..
 // const [A,B,C] = require('fs').readFileSync('./input.txt','utf-8').trim().split(' ').map(Number);
 // console.log(Math.pow(A,B)%C);
 
 // const testNum = Math.pow(2,52);
-
 
 // 2558번 문제 풀어야함
 // const [a, b] = require('fs')
