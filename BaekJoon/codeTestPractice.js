@@ -861,6 +861,30 @@
 // });
 // console.log(result.join('\n'));
 
+// 2839번 문제
+let N = parseInt(require('fs').readFileSync('./input.txt', 'utf-8').trim(), 10);
+
+let p = 0;
+if (N % 5 === 0) console.log(N / 5);
+else {
+  while (N > 0) {
+    N -= 3;
+    p += 1;
+    if (N % 5 === 0) {
+      p += N / 5;
+      break;
+    } else if (N === 1 || N === 2) {
+      p = -1;
+      break;
+    } else if (N === 0) {
+      console.log(p);
+      break;
+    }
+  }
+  console.log(p);
+}
+// }
+
 // 1629번 문제 풀어야함. 근데 왜 틀린거짘ㅋ..
 // const [A,B,C] = require('fs').readFileSync('./input.txt','utf-8').trim().split(' ').map(Number);
 // console.log(Math.pow(A,B)%C);
