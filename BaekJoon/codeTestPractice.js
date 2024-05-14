@@ -862,28 +862,82 @@
 // console.log(result.join('\n'));
 
 // 2839번 문제
-let N = parseInt(require('fs').readFileSync('./input.txt', 'utf-8').trim(), 10);
+// let N = parseInt(require('fs').readFileSync('./input.txt', 'utf-8').trim(), 10);
 
-let p = 0;
-if (N % 5 === 0) console.log(N / 5);
-else {
-  while (N > 0) {
-    N -= 3;
-    p += 1;
-    if (N % 5 === 0) {
-      p += N / 5;
-      break;
-    } else if (N === 1 || N === 2) {
-      p = -1;
-      break;
-    } else if (N === 0) {
-      console.log(p);
-      break;
-    }
-  }
-  console.log(p);
-}
+// let p = 0;
+// if (N % 5 === 0) console.log(N / 5);
+// else {
+//   while (N > 0) {
+//     N -= 3;
+//     p += 1;
+//     if (N % 5 === 0) {
+//       p += N / 5;
+//       break;
+//     } else if (N === 1 || N === 2) {
+//       p = -1;
+//       break;
+//     } else if (N === 0) {
+//       console.log(p);
+//       break;
+//     }
+//   }
+//   console.log(p);
 // }
+
+// 14916번 문제
+// let n = parseInt(require('fs').readFileSync('./input.txt', 'utf-8').trim(), 10);
+// let count = 0;
+// if (n === 3 || n === 1) {
+//   console.log(-1);
+// } else if (n % 5 === 0) {
+//   console.log(n / 5);
+// } else {
+//   while (n > 0) {
+//     n -= 2;
+//     count += 1;
+//     if (n % 5 === 0) {
+//       console.log(n / 5 + count);
+//       break;
+//     }
+//     if (n === 1) {
+//       console.log(-1);
+//       break;
+//     }
+//     if (n === 0) {
+//       console.log(count);
+//       break;
+//     }
+//   }
+// }
+
+// 4101번 문제
+// const input = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('\n');
+// input.pop();
+// const arr = input.map((e) => e.split(' ').map(Number));
+// const result = arr.map((e) => (e[0] > e[1] ? 'Yes' : 'No'));
+// console.log(result.join('\n'));
+
+// 1264번 문제
+const input = require('fs')
+  .readFileSync('./input.txt', 'utf-8')
+  .trim()
+  .toLowerCase()
+  .split('\n');
+input.pop();
+const arr = input.map((e) => e.split(''));
+const gather = ['a', 'e', 'i', 'o', 'u'];
+const result = [];
+arr.forEach((e) => {
+  let count = 0;
+  for (let i = 0; i < e.length; i++) {
+    if (gather.includes(e[i])) count++;
+  }
+  result.push(count);
+});
+console.log(result.join('\n'));
 
 // 1629번 문제 풀어야함. 근데 왜 틀린거짘ㅋ..
 // const [A,B,C] = require('fs').readFileSync('./input.txt','utf-8').trim().split(' ').map(Number);
