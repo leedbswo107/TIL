@@ -921,23 +921,61 @@
 // console.log(result.join('\n'));
 
 // 1264번 문제
-const input = require('fs')
+// const input = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .toLowerCase()
+//   .split('\n');
+// input.pop();
+// const arr = input.map((e) => e.split(''));
+// const gather = ['a', 'e', 'i', 'o', 'u'];
+// const result = [];
+// arr.forEach((e) => {
+//   let count = 0;
+//   for (let i = 0; i < e.length; i++) {
+//     if (gather.includes(e[i])) count++;
+//   }
+//   result.push(count);
+// });
+// console.log(result.join('\n'));
+
+// 1225번 문제
+// const [A, B] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split(' ')
+//   .map((e) => e.split('').map(Number));
+// const sumA = A.reduce((a, b) => a + b);
+// let result = 0;
+// B.forEach((e) => (result += e * sumA));
+// console.log(result);
+
+// const _A = A.split('').map(Number);
+// const _B = B.split('').map(Number);
+// let result = 0;
+// _A.forEach((e1) => _B.forEach((e2) => (result += e1 * e2)));
+// console.log(result);
+
+// 1076번 문제
+const [A, B, C] = require('fs')
   .readFileSync('./input.txt', 'utf-8')
   .trim()
-  .toLowerCase()
   .split('\n');
-input.pop();
-const arr = input.map((e) => e.split(''));
-const gather = ['a', 'e', 'i', 'o', 'u'];
-const result = [];
-arr.forEach((e) => {
-  let count = 0;
-  for (let i = 0; i < e.length; i++) {
-    if (gather.includes(e[i])) count++;
-  }
-  result.push(count);
-});
-console.log(result.join('\n'));
+const resist = [
+  'black',
+  'brown',
+  'red',
+  'orange',
+  'yellow',
+  'green',
+  'blue',
+  'violet',
+  'grey',
+  'white',
+];
+const result =
+  (resist.indexOf(A) * 10 + resist.indexOf(B)) * 10 ** resist.indexOf(C);
+console.log(result);
 
 // 1629번 문제 풀어야함. 근데 왜 틀린거짘ㅋ..
 // const [A,B,C] = require('fs').readFileSync('./input.txt','utf-8').trim().split(' ').map(Number);
