@@ -957,25 +957,70 @@
 // console.log(result);
 
 // 1076번 문제
-const [A, B, C] = require('fs')
-  .readFileSync('./input.txt', 'utf-8')
-  .trim()
-  .split('\n');
-const resist = [
-  'black',
-  'brown',
-  'red',
-  'orange',
-  'yellow',
-  'green',
-  'blue',
-  'violet',
-  'grey',
-  'white',
-];
-const result =
-  (resist.indexOf(A) * 10 + resist.indexOf(B)) * 10 ** resist.indexOf(C);
-console.log(result);
+// const [A, B, C] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('\n');
+// const resist = [
+//   'black',
+//   'brown',
+//   'red',
+//   'orange',
+//   'yellow',
+//   'green',
+//   'blue',
+//   'violet',
+//   'grey',
+//   'white',
+// ];
+// const result =
+//   (resist.indexOf(A) * 10 + resist.indexOf(B)) * 10 ** resist.indexOf(C);
+// console.log(result);
+
+// 15688번 문제
+// const [N, ...arr] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('\n')
+//   .map(Number);
+// console.log(arr.sort((a, b) => a - b).join('\n'));
+
+// 15719번 문제 메모리 초과로 풀지 못한 문제임
+// const [N, A] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('\n');
+// const R = A.split(' ')
+//   .map(Number)
+//   .sort((a, b) => a - b);
+// let result = 0;
+// for (let i = 0; i < N; i++) {
+//   const CUR = R[i];
+//   const NEXT = R[i + 1];
+//   if (i + 1 !== N - 1) {
+//     if (CUR === NEXT) {
+//       result = CUR;
+//       break;
+//     }
+//   }
+// }
+// console.log(result);
+
+// const [N, A] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('\n');
+// const R = A.split(' ').map(Number);
+// const seen = new Set();
+// let result = 0;
+// for (const num of R) {
+//   if (seen.has(num)) {
+//     result = num;
+//     break;
+//   }
+//   seen.add(num);
+// }
+// console.log(result);
 
 // 1629번 문제 풀어야함. 근데 왜 틀린거짘ㅋ..
 // const [A,B,C] = require('fs').readFileSync('./input.txt','utf-8').trim().split(' ').map(Number);
