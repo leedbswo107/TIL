@@ -24,6 +24,8 @@
 // }
 // console.log(arr.join(' '));
 
+const { count } = require('console');
+
 // 10810번 문제
 // const fs = require('fs');
 // const input = fs.readFileSync('./input.txt').toString().trim().split('\n');
@@ -984,6 +986,50 @@
 //   .split('\n')
 //   .map(Number);
 // console.log(arr.sort((a, b) => a - b).join('\n'));
+
+// 9012번 문제
+
+const [T, ...arr] = require('fs')
+  .readFileSync('./input.txt', 'utf-8')
+  .trim()
+  .split('\n');
+const arr2 = arr.map((e) => e.split(''));
+const result = [];
+arr2.forEach((e) => {
+  let count = 0;
+  e.unshift(0);
+  for (let i = 0; i < e.length; i++) {
+    if (e[i] === '(' && e[i + 1] === ')') {
+      e.splice(i, 2);
+      i = 0;
+    }
+  }
+  e.forEach((a) => (a === 0 ? count++ : count));
+  result.push(count === e.length ? 'YES' : 'NO');
+});
+console.log(result.join('\n'));
+
+// 1463번 문제 -> DP 알고리즘 디자인으로 푸는 문제. 추가 학습후 다시 풀어볼것.
+// let N = +require('fs').readFileSync('./input.txt', 'utf-8').trim();
+// const minFuncToOne = (N) => {
+//   const dp = new Array(N + 1).fill(0);
+//   for (let i = 2; i < dp.length; i++) {
+//     console.log(dp);
+//     dp[i] = dp[i - 1] + 1;
+//     console.log(dp[i]);
+//     if (i % 2 === 0) {
+//       dp[i] = Math.min(dp[i], dp[i / 2] + 1);
+//       console.log('test1 : ', dp[i]);
+//     }
+//     if (i % 3 === 0) {
+//       dp[i] = Math.min(dp[i], dp[i / 3] + 1);
+//       console.log('test2 : ', dp[i]);
+//     }
+//   }
+//   console.log('dp', dp);
+//   return dp[N];
+// };
+// console.log(minFuncToOne(N));
 
 // 15719번 문제 메모리 초과로 풀지 못한 문제임
 // const [N, A] = require('fs')
