@@ -989,26 +989,54 @@ const { count } = require('console');
 
 // 9012번 문제
 
-const [T, ...arr] = require('fs')
+// const [T, ...arr] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('\n');
+// const arr2 = arr.map((e) => e.split(''));
+// const result = [];
+// arr2.forEach((e) => {
+//   let count = 0;
+//   e.unshift(0);
+//   for (let i = 0; i < e.length; i++) {
+//     if (e[i] === '(' && e[i + 1] === ')') {
+//       e.splice(i, 2);
+//       i = 0;
+//     }
+//   }
+//   e.forEach((a) => (a === 0 ? count++ : count));
+//   result.push(count === e.length ? 'YES' : 'NO');
+// });
+// console.log(result.join('\n'));
+
+// 10828번 문제
+const [N, ...arr] = require('fs')
   .readFileSync('./input.txt', 'utf-8')
   .trim()
   .split('\n');
-const arr2 = arr.map((e) => e.split(''));
-const result = [];
-arr2.forEach((e) => {
-  let count = 0;
-  e.unshift(0);
-  for (let i = 0; i < e.length; i++) {
-    if (e[i] === '(' && e[i + 1] === ')') {
-      e.splice(i, 2);
-      i = 0;
-    }
+const arr2 = [];
+let result = '';
+arr.forEach((e) => {
+  switch (e) {
+    case 'pop':
+      result += (arr2.length !== 0 ? arr2.shift() : -1) + '\n';
+      break;
+    case 'size':
+      result += arr2.length + '\n';
+      break;
+    case 'empty':
+      result += (arr2.length === 0 ? 1 : 0) + '\n';
+      break;
+    case 'top':
+      result += (arr2.length === 0 ? -1 : arr2[0]) + '\n';
+      break;
+    default:
+      const [_, num] = e.split(' ');
+      arr2.unshift(num);
+      break;
   }
-  e.forEach((a) => (a === 0 ? count++ : count));
-  result.push(count === e.length ? 'YES' : 'NO');
 });
-console.log(result.join('\n'));
-
+console.log(result);
 // 1463번 문제 -> DP 알고리즘 디자인으로 푸는 문제. 추가 학습후 다시 풀어볼것.
 // let N = +require('fs').readFileSync('./input.txt', 'utf-8').trim();
 // const minFuncToOne = (N) => {
