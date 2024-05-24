@@ -1053,27 +1053,29 @@
 // console.log(result);
 
 // 1312번 문제
-const [A, B, N] = require('fs')
-  .readFileSync('./input.txt', 'utf-8')
-  .trim()
-  .split(' ')
-  .map(Number);
-let result = A % B;
-for (let i = 0; i < N - 1; i++) {
-  result *= 10;
-  result %= B;
+// const [A, B, N] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split(' ')
+//   .map(Number);
+// let result = A % B;
+// for (let i = 0; i < N - 1; i++) {
+//   result *= 10;
+//   result %= B;
+// }
+// result *= 10;
+// console.log(parseInt(result / B, 10));
+
+// 1789번 문제
+let S = parseInt(require('fs').readFileSync('./input.txt', 'utf-8').trim(), 10);
+let a = 0;
+while (S >= 0) {
+  if (S - a <= 0) break;
+  a += 1;
+  S -= a;
 }
-result *= 10;
-console.log(parseInt(result / B, 10));
-// console.log(divNum);
-// const divNum = (A / B).toString();
-// const [_, R] = divNum.split('.');
-// console.log(R[N - 1]);
+console.log(a);
 
-// const setArr = new Map(arr.map((e, e.length) => [e.length, e]));
-
-// console.log(result.length);
-// console.log(count);
 // 1463번 문제 -> DP 알고리즘 디자인으로 푸는 문제. 추가 학습후 다시 풀어볼것.
 // let N = +require('fs').readFileSync('./input.txt', 'utf-8').trim();
 // const minFuncToOne = (N) => {
