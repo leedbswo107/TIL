@@ -24,8 +24,6 @@
 // }
 // console.log(arr.join(' '));
 
-const { count } = require('console');
-
 // 10810번 문제
 // const fs = require('fs');
 // const input = fs.readFileSync('./input.txt').toString().trim().split('\n');
@@ -1039,20 +1037,43 @@ const { count } = require('console');
 // console.log(result);
 
 // 1620번 문제
-const input = require('fs')
+// const input = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('\n');
+// const [N, M] = input.shift().split(' ').map(Number);
+// const arr = input.splice(N, M);
+// const mapArr = new Map(input.map((e, i) => [e, i + 1]));
+
+// console.log(mapArr);
+// let result = '';
+// arr.map((e) =>
+//   isNaN(e) ? (result += mapArr.get(e) + '\n') : (result += input[e - 1] + '\n')
+// );
+// console.log(result);
+
+// 1312번 문제
+const [A, B, N] = require('fs')
   .readFileSync('./input.txt', 'utf-8')
   .trim()
-  .split('\n');
-const [N, M] = input.shift().split(' ').map(Number);
-const arr = input.splice(N, M);
-const mapArr = new Map(input.map((e, i) => [e, i + 1]));
+  .split(' ')
+  .map(Number);
+let result = A % B;
+for (let i = 0; i < N - 1; i++) {
+  result *= 10;
+  result %= B;
+}
+result *= 10;
+console.log(parseInt(result / B, 10));
+// console.log(divNum);
+// const divNum = (A / B).toString();
+// const [_, R] = divNum.split('.');
+// console.log(R[N - 1]);
 
-console.log(mapArr);
-let result = '';
-arr.map((e) =>
-  isNaN(e) ? (result += mapArr.get(e) + '\n') : (result += input[e - 1] + '\n')
-);
-console.log(result);
+// const setArr = new Map(arr.map((e, e.length) => [e.length, e]));
+
+// console.log(result.length);
+// console.log(count);
 // 1463번 문제 -> DP 알고리즘 디자인으로 푸는 문제. 추가 학습후 다시 풀어볼것.
 // let N = +require('fs').readFileSync('./input.txt', 'utf-8').trim();
 // const minFuncToOne = (N) => {
