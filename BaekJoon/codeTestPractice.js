@@ -1067,14 +1067,45 @@
 // console.log(parseInt(result / B, 10));
 
 // 1789번 문제
-let S = parseInt(require('fs').readFileSync('./input.txt', 'utf-8').trim(), 10);
-let a = 0;
-while (S >= 0) {
-  if (S - a <= 0) break;
-  a += 1;
-  S -= a;
+// let S = parseInt(require('fs').readFileSync('./input.txt', 'utf-8').trim(), 10);
+// let a = 0;
+// while (S >= 0) {
+//   if (S - a <= 0) break;
+//   a += 1;
+//   S -= a;
+// }
+// console.log(a);
+
+// 2576번 문제
+// let N = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('\n')
+//   .map(Number);
+// N.sort((a, b) => a - b);
+// N = N.filter((e) => e % 2 !== 0);
+// const result =
+//   N.length > 0 ? N.reduce((acc, cur) => acc + cur) + '\n' + N[0] : -1;
+// console.log(result);
+
+// 1247번 문제
+const input = require('fs')
+  .readFileSync('./input.txt', 'utf-8')
+  .trim()
+  .split('\n');
+const A = [];
+for (let i = 0; i < 3; i++) {
+  const N = input.shift();
+  const B = input.splice(0, N);
+  A.push(B);
 }
-console.log(a);
+const result = A.map((e) => {
+  let C = e.reduce((acc, cur) => BigInt(acc) + BigInt(cur));
+  if (C === 0n) return 0;
+  if (C < 0) return '-';
+  if (C > 0) return '+';
+});
+console.log(result.join('\n'));
 
 // 1463번 문제 -> DP 알고리즘 디자인으로 푸는 문제. 추가 학습후 다시 풀어볼것.
 // let N = +require('fs').readFileSync('./input.txt', 'utf-8').trim();
