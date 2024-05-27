@@ -1089,23 +1089,52 @@
 // console.log(result);
 
 // 1247번 문제
-const input = require('fs')
+// const input = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('\n');
+// const A = [];
+// for (let i = 0; i < 3; i++) {
+//   const N = input.shift();
+//   const B = input.splice(0, N);
+//   A.push(B);
+// }
+// const result = A.map((e) => {
+//   let C = e.reduce((acc, cur) => BigInt(acc) + BigInt(cur));
+//   if (C === 0n) return 0;
+//   if (C < 0) return '-';
+//   if (C > 0) return '+';
+// });
+// console.log(result.join('\n'));
+
+// 1292번 문제
+let [A, B] = require('fs')
   .readFileSync('./input.txt', 'utf-8')
   .trim()
-  .split('\n');
-const A = [];
-for (let i = 0; i < 3; i++) {
-  const N = input.shift();
-  const B = input.splice(0, N);
-  A.push(B);
+  .split(' ')
+  .map(Number);
+let i = 0;
+let _B = B;
+const arr = [];
+while (_B > 0) {
+  if (_B === 0) {
+    break;
+  }
+  if (_B - i < 0) {
+    for (let j = 0; j < _B; j++) {
+      arr.push(i);
+    }
+    break;
+  }
+  _B -= i;
+  for (let j = 0; j < i; j++) {
+    arr.push(i);
+  }
+  i++;
 }
-const result = A.map((e) => {
-  let C = e.reduce((acc, cur) => BigInt(acc) + BigInt(cur));
-  if (C === 0n) return 0;
-  if (C < 0) return '-';
-  if (C > 0) return '+';
-});
-console.log(result.join('\n'));
+const arr2 = arr.splice(A - 1, B - A + 1);
+const result = arr2.reduce((acc, cur) => acc + cur);
+console.log(result);
 
 // 1463번 문제 -> DP 알고리즘 디자인으로 푸는 문제. 추가 학습후 다시 풀어볼것.
 // let N = +require('fs').readFileSync('./input.txt', 'utf-8').trim();
