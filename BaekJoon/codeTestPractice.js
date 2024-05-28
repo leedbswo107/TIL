@@ -1108,33 +1108,84 @@
 // console.log(result.join('\n'));
 
 // 1292번 문제
-let [A, B] = require('fs')
-  .readFileSync('./input.txt', 'utf-8')
-  .trim()
-  .split(' ')
-  .map(Number);
-let i = 0;
-let _B = B;
-const arr = [];
-while (_B > 0) {
-  if (_B === 0) {
-    break;
-  }
-  if (_B - i < 0) {
-    for (let j = 0; j < _B; j++) {
-      arr.push(i);
-    }
-    break;
-  }
-  _B -= i;
-  for (let j = 0; j < i; j++) {
-    arr.push(i);
-  }
-  i++;
-}
-const arr2 = arr.splice(A - 1, B - A + 1);
-const result = arr2.reduce((acc, cur) => acc + cur);
-console.log(result);
+// let [A, B] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split(' ')
+//   .map(Number);
+// let i = 0;
+// let _B = B;
+// const arr = [];
+// while (_B > 0) {
+//   if (_B === 0) {
+//     break;
+//   }
+//   if (_B - i < 0) {
+//     for (let j = 0; j < _B; j++) {
+//       arr.push(i);
+//     }
+//     break;
+//   }
+//   _B -= i;
+//   for (let j = 0; j < i; j++) {
+//     arr.push(i);
+//   }
+//   i++;
+// }
+// const arr2 = arr.splice(A - 1, B - A + 1);
+// const result = arr2.reduce((acc, cur) => acc + cur);
+// console.log(result);
+
+// 1032번 문제
+// const [N, ...input] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('\n');
+// const arr = input.map((e) => e.split(''));
+// const offset = [...arr[0]];
+// const result = new Array(offset.length).fill('');
+// offset.forEach((e, j) => {
+//   for (let i = 0; i < N; i++) {
+//     arr[i].shift() !== e
+//       ? (result[j] = '?')
+//       : result[j] !== '?' && (result[j] = e);
+//   }
+// });
+// console.log(result.join(''));
+
+// 1373번 문제 푸는중 -> 왜 틀른겨
+
+// const A = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('')
+//   .map(Number)
+//   .reverse();
+// if (A.length % 3 !== 0) {
+//   for (let i = 0; i < A.length % 3; i++) {
+//     A.push(0);
+//   }
+// }
+// let result = 0;
+// for (let i = 1; i <= A.length / 3; i++) {
+//   result +=
+//     10 ** (i - 1) * (1 * A[3 * i - 3] + 2 * A[3 * i - 2] + 4 * A[3 * i - 1]);
+// }
+// console.log(result);
+
+const A = parseInt(
+  require('fs').readFileSync('./input.txt', 'utf-8').trim(),
+  10
+);
+const B = Number('0b' + A);
+console.log(B.toString(8));
+
+// for (let j = 0; j < A.length; j += 3) {
+//   result.unshift(1 * A[j] + 2 * A[j + 1] + 4 * A[j + 2]);
+// }
+// console.log(result.join(''));
+// arr.forEach((e) => result.unshift(1 * e[0] + 2 * e[1] + 4 * e[2]));
+// console.log(result.join(''));
 
 // 1463번 문제 -> DP 알고리즘 디자인으로 푸는 문제. 추가 학습후 다시 풀어볼것.
 // let N = +require('fs').readFileSync('./input.txt', 'utf-8').trim();
