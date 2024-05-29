@@ -1153,6 +1153,89 @@
 // });
 // console.log(result.join(''));
 
+// 1271번 문제
+// const [n, m] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split(' ')
+// .map(BigInt);
+// console.log(`${n / m}\n${n % m}`);
+
+// 1809번 문제
+// console.log(
+//   String.fromCharCode(40),
+//   String.fromCharCode(95),
+//   String.fromCharCode(95),
+//   String.fromCharCode(95),
+//   String.fromCharCode(41) + '\n' + String.fromCharCode(40),
+//   String.fromCharCode(111),
+//   String.fromCharCode(0),
+//   String.fromCharCode(111),
+//   String.fromCharCode(41),
+//   String.fromCharCode(95),
+//   String.fromCharCode(95),
+//   String.fromCharCode(95),
+//   String.fromCharCode(47) + '\n' + String.fromCharCode(0),
+//   String.fromCharCode(64),
+//   String.fromCharCode(64),
+//   String.fromCharCode(0),
+//   String.fromCharCode(0),
+//   String.fromCharCode(0),
+//   String.fromCharCode(0),
+//   String.fromCharCode(0),
+//   String.fromCharCode(0),
+//   String.fromCharCode(92) + '\n' + String.fromCharCode(0),
+//   String.fromCharCode(0),
+//   String.fromCharCode(92),
+//   String.fromCharCode(0),
+//   String.fromCharCode(95),
+//   String.fromCharCode(95),
+//   String.fromCharCode(95),
+//   String.fromCharCode(95),
+//   String.fromCharCode(44),
+//   String.fromCharCode(47) + '\n' + String.fromCharCode(0),
+//   String.fromCharCode(0),
+//   String.fromCharCode(47),
+//   String.fromCharCode(47),
+//   String.fromCharCode(0),
+//   String.fromCharCode(0),
+//   String.fromCharCode(0),
+//   String.fromCharCode(47),
+//   String.fromCharCode(47) + '\n' + String.fromCharCode(0),
+//   String.fromCharCode(94),
+//   String.fromCharCode(94),
+//   String.fromCharCode(0),
+//   String.fromCharCode(0),
+//   String.fromCharCode(0),
+//   String.fromCharCode(94),
+//   String.fromCharCode(94)
+// );
+
+// 2338번 문제
+// const [n, m] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('\n')
+//   .map(BigInt);
+// console.log(`${n + m}\n${n - m}\n${n * m}`);
+
+// 9653번 문제 STAR WARS
+// console.log(
+//   '    8888888888  888    88888\n   88     88   88 88   88  88\n    8888  88  88   88  88888\n       88 88 888888888 88   88\n88888888  88 88     88 88    888888\n\n88  88  88   888    88888    888888\n88  88  88  88 88   88  88  88\n88 8888 88 88   88  88888    8888\n 888  888 888888888 88  88      88\n  88  88  88     88 88   88888888\n'
+// );
+
+// console.log(
+//   "       _.-;;-._\n'-..-'|   ||   |\n'-..-'|_.-;;-._|\n'-..-'|   ||   |\n'-..-'|_.-''-._|"
+// );
+
+// 27323번 문제
+const [A, B] = require('fs')
+  .readFileSync('./input.txt', 'utf-8')
+  .trim()
+  .split('\n')
+  .map(Number);
+console.log(A * B);
+
 // 1373번 문제 푸는중 -> 왜 틀른겨
 
 // const A = require('fs')
@@ -1173,12 +1256,12 @@
 // }
 // console.log(result);
 
-const A = parseInt(
-  require('fs').readFileSync('./input.txt', 'utf-8').trim(),
-  10
-);
-const B = Number('0b' + A);
-console.log(B.toString(8));
+// const A = parseInt(
+//   require('fs').readFileSync('./input.txt', 'utf-8').trim(),
+//   10
+// );
+// const B = Number('0b' + A);
+// console.log(B.toString(8));
 
 // for (let j = 0; j < A.length; j += 3) {
 //   result.unshift(1 * A[j] + 2 * A[j + 1] + 4 * A[j + 2]);
