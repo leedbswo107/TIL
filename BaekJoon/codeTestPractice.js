@@ -1229,12 +1229,42 @@
 // );
 
 // 27323번 문제
-const [A, B] = require('fs')
-  .readFileSync('./input.txt', 'utf-8')
-  .trim()
-  .split('\n')
-  .map(Number);
-console.log(A * B);
+// const [A, B] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('\n')
+//   .map(Number);
+// console.log(A * B);
+
+// 5596번 문제
+// const [A, B] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('\n');
+// const arr1 = A.split(' ')
+//   .map(Number)
+//   .reduce((acc, cur) => acc + cur);
+// const arr2 = B.split(' ')
+//   .map(Number)
+//   .reduce((acc, cur) => acc + cur);
+
+// console.log(arr1 < arr2 ? arr2 : arr1);
+
+// 10953번 문제
+// const [T, ...arr] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('\n');
+// let result = '';
+// arr.forEach((e) => {
+//   const [A, B] = e.split(',').map(Number);
+//   result += A + B + '\n';
+// });
+// console.log(result);
+
+// 1550번 문제
+const A = require('fs').readFileSync('./input.txt', 'utf-8').trim();
+console.log(parseInt(A, 16));
 
 // 1373번 문제 푸는중 -> 왜 틀른겨
 
