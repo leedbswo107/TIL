@@ -1263,8 +1263,21 @@
 // console.log(result);
 
 // 1550번 문제
-const A = require('fs').readFileSync('./input.txt', 'utf-8').trim();
-console.log(parseInt(A, 16));
+// const A = require('fs').readFileSync('./input.txt', 'utf-8').trim();
+// console.log(parseInt(A, 16));
+
+// 1212번 문제
+const [D, H, W] = require('fs')
+  .readFileSync('./input.txt', 'utf-8')
+  .trim()
+  .split(' ')
+  .map(Number);
+const ratio = D / Math.sqrt(H ** 2 + W ** 2);
+const _H = Math.floor(H * ratio);
+const _W = Math.floor(W * ratio);
+console.log(_H, _W);
+
+// console.log(D, H, W);
 
 // 1373번 문제 푸는중 -> 왜 틀른겨
 
