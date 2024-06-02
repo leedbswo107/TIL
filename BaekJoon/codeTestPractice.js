@@ -1267,17 +1267,92 @@
 // console.log(parseInt(A, 16));
 
 // 1212번 문제
-const [D, H, W] = require('fs')
-  .readFileSync('./input.txt', 'utf-8')
-  .trim()
-  .split(' ')
-  .map(Number);
-const ratio = D / Math.sqrt(H ** 2 + W ** 2);
-const _H = Math.floor(H * ratio);
-const _W = Math.floor(W * ratio);
-console.log(_H, _W);
+// const [D, H, W] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split(' ')
+//   .map(Number);
+// const ratio = D / Math.sqrt(H ** 2 + W ** 2);
+// const _H = Math.floor(H * ratio);
+// const _W = Math.floor(W * ratio);
+// console.log(_H, _W);
 
-// console.log(D, H, W);
+// 500엔, 100엔, 50엔, 10엔, 5엔, 1엔
+// 5585번 문제
+// let B =
+//   1000 -
+//   parseInt(require('fs').readFileSync('./input.txt', 'utf-8').trim(), 10);
+// let count = 0;
+// const coin = [500, 100, 50, 10, 5, 1];
+// coin.forEach((e) => {
+//   count += parseInt(B / e, 10);
+//   B %= e;
+// });
+// console.log(count);
+
+// while (B > 0) {
+// switch (B) {
+//   case B >= 500:
+//     B -= 500;
+//   count++;
+//     break;
+//     case B < 500 && B >= 100:
+//       B -= 100;
+//       count++;
+//     break;
+//     case B < 100 && B >= 50:
+//       B -= 50;
+//       count++;
+//     break;
+//     case B < 50 && B >= 10:
+//       B -= 10;
+//       count++;
+//     break;
+//     case B < 10 && B >= 5:
+
+//     break;
+//     case B:
+//     B -= 5;
+//   count++;
+//     break;
+//   default:
+//     B -= 1;
+//   count++;
+//     break;
+// }
+//   if (B >= 500) {
+//     B -= 500;
+//     count++;
+//   }
+//   if (B < 500 && B >= 100) {
+//     B -= 100;
+//     count++;
+//   }
+//   if (B < 100 && B >= 50) {
+//     B -= 50;
+//     count++;
+//   }
+//   if (B < 50 && B >= 10) {
+//     B -= 10;
+//     count++;
+//   }
+//   if (B < 10 && B >= 5) {
+//     B -= 5;
+//     count++;
+//   }
+//   if (B < 5 && B >= 1) {
+//     B -= 1;
+//     count++;
+//   }
+// }
+// console.log(count);
+
+// 2745번 문제
+// const [N, B] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split(' ');
+// console.log(parseInt(N, B));
 
 // 1373번 문제 푸는중 -> 왜 틀른겨
 
