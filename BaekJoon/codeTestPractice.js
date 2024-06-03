@@ -1354,6 +1354,67 @@
 //   .split(' ');
 // console.log(parseInt(N, B));
 
+// 1212번 문제
+const A = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('');
+const result = [];
+A.forEach((e) => {
+  const B = [];
+  while (e > 0) {
+    if (e === 0) break;
+    if (e % 2 === 0) {
+      B.unshift(0);
+      e /= 2;
+    } else {
+      B.unshift(1);
+      e = (e - 1) / 2;
+    }
+  }
+  if (B.length !== 3) {
+    const C = 3 - B.length;
+    for (let i = 0; i < C; i++) {
+      B.unshift(0);
+    }
+  }
+  result.push(...B);
+});
+while (1) {
+  if (
+    (result.length > 1 && result[0] !== 0) ||
+    (result.length === 1 && result[0] === 0)
+  )
+    break;
+  result.shift();
+}
+console.log(result.join(''));
+// 1252번 문제????????????? 뭐여
+
+// const [A, B] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split(' ');
+// let C = parseInt(A, 2) + parseInt(B, 2);
+// let result = [];
+// while (C > 0) {
+//   if (C === 0) {
+//     break;
+//   }
+//   if (C % 2 === 0) {
+//     result.unshift(0);
+//     C /= 2;
+//   }
+//   if (C % 2 === 1) {
+//     result.unshift(1);
+//     C = (C - 1) / 2;
+//   }
+// }
+// while (1) {
+//   if (result[0] !== 0) {
+//     break;
+//   }
+//   result.shift();
+// }
+// console.log(result.join(''));
+
 // 1373번 문제 푸는중 -> 왜 틀른겨
 
 // const A = require('fs')
