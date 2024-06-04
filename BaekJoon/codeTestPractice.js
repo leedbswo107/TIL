@@ -1355,37 +1355,48 @@
 // console.log(parseInt(N, B));
 
 // 1212번 문제
-const A = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('');
-const result = [];
-A.forEach((e) => {
-  const B = [];
-  while (e > 0) {
-    if (e === 0) break;
-    if (e % 2 === 0) {
-      B.unshift(0);
-      e /= 2;
-    } else {
-      B.unshift(1);
-      e = (e - 1) / 2;
-    }
-  }
-  if (B.length !== 3) {
-    const C = 3 - B.length;
-    for (let i = 0; i < C; i++) {
-      B.unshift(0);
-    }
-  }
-  result.push(...B);
-});
-while (1) {
-  if (
-    (result.length > 1 && result[0] !== 0) ||
-    (result.length === 1 && result[0] === 0)
-  )
-    break;
-  result.shift();
+// const A = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('');
+// const result = [];
+// A.forEach((e) => {
+//   const B = [];
+//   while (e > 0) {
+//     if (e === 0) break;
+//     if (e % 2 === 0) {
+//       B.unshift(0);
+//       e /= 2;
+//     } else {
+//       B.unshift(1);
+//       e = (e - 1) / 2;
+//     }
+//   }
+//   if (B.length !== 3) {
+//     const C = 3 - B.length;
+//     for (let i = 0; i < C; i++) {
+//       B.unshift(0);
+//     }
+//   }
+//   result.push(...B);
+// });
+// while (1) {
+//   if (
+//     (result.length > 1 && result[0] !== 0) ||
+//     (result.length === 1 && result[0] === 0)
+//   )
+//     break;
+//   result.shift();
+// }
+// console.log(result.join(''));
+
+// 1748번 문제
+let N = parseInt(require('fs').readFileSync('./input.txt', 'utf-8').trim(), 10);
+const a = Math.floor(Math.log10(N));
+const b = 10 ** a - 1;
+let result = (N - b) * (a + 1);
+for (let i = 0; i < a; i++) {
+  result += ((b % 10 ** (i + 1)) - (10 ** i - 1)) * (i + 1);
 }
-console.log(result.join(''));
+console.log(result);
+
 // 1252번 문제????????????? 뭐여
 
 // const [A, B] = require('fs')
