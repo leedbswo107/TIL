@@ -1388,15 +1388,73 @@
 // console.log(result.join(''));
 
 // 1748번 문제
-let N = parseInt(require('fs').readFileSync('./input.txt', 'utf-8').trim(), 10);
-const a = Math.floor(Math.log10(N));
-const b = 10 ** a - 1;
-let result = (N - b) * (a + 1);
-for (let i = 0; i < a; i++) {
-  result += ((b % 10 ** (i + 1)) - (10 ** i - 1)) * (i + 1);
-}
-console.log(result);
+// let N = parseInt(require('fs').readFileSync('./input.txt', 'utf-8').trim(), 10);
+// let result = 0;
+// for (let i = 1; i < N; i *= 10) {
+//   result += N - i + 1;
+// }
+// console.log(result);
 
+// const a = Math.floor(Math.log10(N));
+// const b = 10 ** a - 1;
+// let result = (N - b) * (a + 1);
+// for (let i = 0; i < a; i++) {
+//   result += ((b % 10 ** (i + 1)) - (10 ** i - 1)) * (i + 1);
+// }
+// console.log(result);
+
+// 11399번 문제
+// const input = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('\n');
+// const N = Number(input[0]);
+// const P = input[1]
+//   .split(' ')
+//   .map(Number)
+//   .sort((a, b) => a - b);
+// let result = 0;
+// for (let i = P.length; i > 0; i--) {
+//   result += P.reduce((acc, cur) => acc + cur);
+//   P.pop();
+// }
+// console.log(result);
+
+// 11047번 문제
+const input = require('fs')
+  .readFileSync('./input.txt', 'utf-8')
+  .trim()
+  .split('\n');
+let [N, K] = input.shift().split(' ').map(Number);
+const A = input.map(Number).sort((a, b) => b - a);
+let count = 0;
+let i = 0;
+while (K > 0) {
+  if (K === 0) break;
+  if (K < A[i]) {
+    i++;
+  } else {
+    count += Math.floor(K / A[i]);
+    K %= A[i];
+  }
+}
+console.log(count);
+// 2164번 문제 아직 못품..
+// const N = parseInt(
+//   require('fs').readFileSync('./input.txt', 'utf-8').trim(),
+//   10
+// );
+// console.time();
+// const card = new Array(N).fill(0).map((e, i) => (e += i + 1));
+// while (1) {
+//   if (card.length === 1) break;
+//   card.shift();
+//   const end = card.splice(0, 1);
+//   card.push(...end);
+//   console.log(card);
+// }
+// console.log(card.join(''));
+// console.timeEnd();
 // 1252번 문제????????????? 뭐여
 
 // const [A, B] = require('fs')
