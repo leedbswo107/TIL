@@ -1421,24 +1421,41 @@
 // console.log(result);
 
 // 11047번 문제
+// const input = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('\n');
+// let [N, K] = input.shift().split(' ').map(Number);
+// const A = input.map(Number).sort((a, b) => b - a);
+// let count = 0;
+// let i = 0;
+// while (K > 0) {
+//   if (K === 0) break;
+//   if (K < A[i]) {
+//     i++;
+//   } else {
+//     count += Math.floor(K / A[i]);
+//     K %= A[i];
+//   }
+// }
+// console.log(count);
+
+// 1920번 문제
 const input = require('fs')
   .readFileSync('./input.txt', 'utf-8')
   .trim()
   .split('\n');
-let [N, K] = input.shift().split(' ').map(Number);
-const A = input.map(Number).sort((a, b) => b - a);
-let count = 0;
-let i = 0;
-while (K > 0) {
-  if (K === 0) break;
-  if (K < A[i]) {
-    i++;
-  } else {
-    count += Math.floor(K / A[i]);
-    K %= A[i];
-  }
-}
-console.log(count);
+const A = new Map(
+  input[1]
+    .split(' ')
+    .map(Number)
+    .sort((a, b) => a - b)
+    .map((e) => [e, e])
+);
+const B = input[3].split(' ').map(Number);
+let result = [];
+B.forEach((e) => (A.get(e) ? result.push(1) : result.push(0)));
+console.log(result.join('\n'));
 // 2164번 문제 아직 못품..
 // const N = parseInt(
 //   require('fs').readFileSync('./input.txt', 'utf-8').trim(),
