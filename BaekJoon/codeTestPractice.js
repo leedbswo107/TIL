@@ -24,6 +24,8 @@
 // }
 // console.log(arr.join(' '));
 
+const { captureRejectionSymbol } = require('events');
+
 // 10810번 문제
 // const fs = require('fs');
 // const input = fs.readFileSync('./input.txt').toString().trim().split('\n');
@@ -1441,20 +1443,69 @@
 // console.log(count);
 
 // 1920번 문제
-const input = require('fs')
+// const input = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('\n');
+// const A = new Map(
+//   input[1]
+//     .split(' ')
+//     .map(Number)
+//     .sort((a, b) => a - b)
+//     .map((e) => [e, e])
+// );
+// const B = input[3].split(' ').map(Number);
+// let result = [];
+// B.forEach((e) => (A.get(e) ? result.push(1) : result.push(0)));
+// console.log(result.join('\n'));
+
+// 10773번 문제
+// const [K, ...A] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('\n')
+//   .map(Number);
+// const B = [];
+// A.forEach((e) => (e === 0 ? B.pop() : B.push(e)));
+// const result = B.length === 0 ? 0 : B.reduce((acc, cur) => acc + cur);
+// console.log(result);
+
+// 10845번 문제
+const [N, ...A] = require('fs')
   .readFileSync('./input.txt', 'utf-8')
   .trim()
   .split('\n');
-const A = new Map(
-  input[1]
-    .split(' ')
-    .map(Number)
-    .sort((a, b) => a - b)
-    .map((e) => [e, e])
-);
-const B = input[3].split(' ').map(Number);
-let result = [];
-B.forEach((e) => (A.get(e) ? result.push(1) : result.push(0)));
+const queue = [];
+const result = [];
+let ans;
+A.forEach((e) => {
+  switch (e) {
+    case 'pop':
+      ans = queue.length === 0 ? -1 : queue.shift();
+      result.push(ans);
+      break;
+    case 'size':
+      ans = queue.length;
+      result.push(ans);
+      break;
+    case 'empty':
+      ans = queue.length === 0 ? 1 : 0;
+      result.push(ans);
+      break;
+    case 'front':
+      ans = queue.length === 0 ? -1 : queue[0];
+      result.push(ans);
+      break;
+    case 'back':
+      ans = queue.length === 0 ? -1 : queue[queue.length - 1];
+      result.push(ans);
+      break;
+    default:
+      const [_, X] = e.split(' ').map(Number);
+      queue.push(X);
+      break;
+  }
+});
 console.log(result.join('\n'));
 // 2164번 문제 아직 못품..
 // const N = parseInt(
