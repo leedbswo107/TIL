@@ -1471,42 +1471,118 @@ const { captureRejectionSymbol } = require('events');
 // console.log(result);
 
 // 10845번 문제
-const [N, ...A] = require('fs')
+// const [N, ...A] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('\n');
+// const queue = [];
+// const result = [];
+// let ans;
+// A.forEach((e) => {
+//   switch (e) {
+//     case 'pop':
+//       ans = queue.length === 0 ? -1 : queue.shift();
+//       result.push(ans);
+//       break;
+//     case 'size':
+//       ans = queue.length;
+//       result.push(ans);
+//       break;
+//     case 'empty':
+//       ans = queue.length === 0 ? 1 : 0;
+//       result.push(ans);
+//       break;
+//     case 'front':
+//       ans = queue.length === 0 ? -1 : queue[0];
+//       result.push(ans);
+//       break;
+//     case 'back':
+//       ans = queue.length === 0 ? -1 : queue[queue.length - 1];
+//       result.push(ans);
+//       break;
+//     default:
+//       const [_, X] = e.split(' ').map(Number);
+//       queue.push(X);
+//       break;
+//   }
+// });
+// console.log(result.join('\n'));
+
+// 2577번 문제
+// const [A, B, C] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('\n')
+//   .map(Number);
+// const M = (A * B * C)
+//   .toString()
+//   .split('')
+//   .map(Number)
+//   .sort((a, b) => a - b);
+// const R = new Array(10).fill(0);
+// let [i, j] = [0, 0];
+// while (i < 10) {
+//   if (M[j] === i) {
+//     R[i] += 1;
+//     j++;
+//   } else {
+//     i++;
+//   }
+// }
+// console.log(R.join('\n'));
+
+// 31403번 문제
+// const [A, B, C] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('\n');
+// const _A = +A;
+// const _B = +B;
+// const _C = +C;
+// const R1 = _A + _B - _C;
+// const R2 = A + B - C;
+// console.log(R1 + '\n' + R2);
+
+// 2920번 문제
+// const scales = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split(' ')
+//   .map(Number);
+// let result = '';
+// if (scales[0] === 1) {
+//   result = 'ascending';
+// }
+// if (scales[0] === 8) {
+//   result = 'descending';
+//   scales.reverse();
+// }
+// for (let i = 0; i < scales.length; i++) {
+//   if (scales[i] === i + 1) {
+//     continue;
+//   } else {
+//     result = 'mixed';
+//     break;
+//   }
+// }
+// console.log(result);
+
+// 10250번 문제 풀어야함.
+const [T, ...Q] = require('fs')
   .readFileSync('./input.txt', 'utf-8')
   .trim()
   .split('\n');
-const queue = [];
-const result = [];
-let ans;
-A.forEach((e) => {
-  switch (e) {
-    case 'pop':
-      ans = queue.length === 0 ? -1 : queue.shift();
-      result.push(ans);
-      break;
-    case 'size':
-      ans = queue.length;
-      result.push(ans);
-      break;
-    case 'empty':
-      ans = queue.length === 0 ? 1 : 0;
-      result.push(ans);
-      break;
-    case 'front':
-      ans = queue.length === 0 ? -1 : queue[0];
-      result.push(ans);
-      break;
-    case 'back':
-      ans = queue.length === 0 ? -1 : queue[queue.length - 1];
-      result.push(ans);
-      break;
-    default:
-      const [_, X] = e.split(' ').map(Number);
-      queue.push(X);
-      break;
-  }
+const position = [];
+Q.forEach((e) => {
+  const [H, W, N] = e.split(' ').map(Number);
+  const layer = N % H === 0 ? H : N % H;
+  let room = N % H === 0 ? Math.floor(N / H) - 1 : Math.floor(N / H);
+  let roomNum = 1 + room;
+  roomNum = roomNum < 10 ? '0' + roomNum : roomNum;
+  position.push(layer + roomNum);
 });
-console.log(result.join('\n'));
+console.log(position.join('\n'));
+
 // 2164번 문제 아직 못품..
 // const N = parseInt(
 //   require('fs').readFileSync('./input.txt', 'utf-8').trim(),
