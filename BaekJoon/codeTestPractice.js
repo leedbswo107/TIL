@@ -1567,21 +1567,35 @@ const { captureRejectionSymbol } = require('events');
 // }
 // console.log(result);
 
-// 10250번 문제 풀어야함.
-const [T, ...Q] = require('fs')
+// 11005번 문제
+const [N, B] = require('fs')
   .readFileSync('./input.txt', 'utf-8')
   .trim()
-  .split('\n');
-const position = [];
-Q.forEach((e) => {
-  const [H, W, N] = e.split(' ').map(Number);
-  const layer = N % H === 0 ? H : N % H;
-  let room = N % H === 0 ? Math.floor(N / H) - 1 : Math.floor(N / H);
-  let roomNum = 1 + room;
-  roomNum = roomNum < 10 ? '0' + roomNum : roomNum;
-  position.push(layer + roomNum);
-});
-console.log(position.join('\n'));
+  .split(' ')
+  .map(Number);
+console.log(N.toString(B).toUpperCase());
+
+// 11650번 문제 풀어야함.
+// const [N, ...Q] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('\n');
+// const _Q = [];
+// Q.forEach((e) => _Q.push(e.split(' ').map(Number)));
+// console.log(_Q);
+// console.log(_Q.sort());
+
+// 10250번 문제 풀어야함.
+// const [T, ...Q] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('\n');
+// Q.forEach((e) => {
+//   const [H, W, N] = e.split(' ').map(Number);
+//   const layer = N % H === 0 ? H : N % H;
+//   let room = Math.ceil(N / H) < 10 ? '0' + Math.ceil(N / H) : Math.ceil(N / H);
+//   console.log(layer + room);
+// });
 
 // 2164번 문제 아직 못품..
 // const N = parseInt(
