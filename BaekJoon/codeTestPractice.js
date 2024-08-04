@@ -24,7 +24,7 @@
 // }
 // console.log(arr.join(' '));
 
-const { captureRejectionSymbol } = require('events');
+const { captureRejectionSymbol } = require("events");
 
 // 10810번 문제
 // const fs = require('fs');
@@ -1568,13 +1568,84 @@ const { captureRejectionSymbol } = require('events');
 // console.log(result);
 
 // 11005번 문제
-const [N, B] = require('fs')
-  .readFileSync('./input.txt', 'utf-8')
-  .trim()
-  .split(' ')
-  .map(Number);
-console.log(N.toString(B).toUpperCase());
+// const [N, B] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split(' ')
+//   .map(Number);
+// console.log(N.toString(B).toUpperCase());
 
+// const [N, M] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split(' ')
+//   .map(Number);
+// const arr = new Array(N).fill(0).map((e, i) => (e = i + 1));
+
+// const result = [];
+// while(1){
+//   if (arr[0] === i + 1)
+// }
+// for (let i = 0; i < arr.length; i++) {
+//   if (arr[0] === i + 1) {
+//     arr.push(...arr.splice(1, 1));
+//     result.push(arr);
+//     if (arr[1] === i + 2) {
+//       arr.push(...arr.splice(0, 1));
+//       continue;
+//     }
+//   }
+// }
+// arr.push(...arr.splice(0, 1));
+// console.log(arr);
+// console.log(result);
+
+// 2609번 문제
+let [A, B] = require("fs")
+  .readFileSync("./input.txt", "utf-8")
+  .trim()
+  .split(" ")
+  .map(Number);
+let [a, b] = [A, B];
+if (A < B) [A, B] = [B, A];
+while (A % B !== 0) {
+  let R = A % B;
+  if (R !== 0) [A, B] = [B, R];
+}
+console.log(`${B}\n${(a * b) / B}`);
+
+// 18258번 문제 단순 큐 문제가 아닌가봄 틀렸음
+// const [N, ...Q] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('\n');
+// const queue = [];
+// let result = '';
+// for (let i = 0; i < N; i++) {
+//   const qLen = queue.length;
+//   switch (Q[i]) {
+//     case 'pop':
+//       result = qLen !== 0 ? queue.shift() : -1;
+//       break;
+//     case 'size':
+//       result = qLen;
+//       break;
+//     case 'empty':
+//       result = qLen !== 0 ? 0 : 1;
+//       break;
+//     case 'front':
+//       result = qLen !== 0 ? queue[0] : -1;
+//       break;
+//     case 'back':
+//       result = qLen !== 0 ? queue[qLen - 1] : -1;
+//       break;
+//     default:
+//       const [_, num] = Q[i].split(' ');
+//       queue.push(num);
+//       break;
+//   }
+//   result !== '' ? console.log(result) : '';
+// }
 // 11650번 문제 풀어야함.
 // const [N, ...Q] = require('fs')
 //   .readFileSync('./input.txt', 'utf-8')
