@@ -24,8 +24,6 @@
 // }
 // console.log(arr.join(' '));
 
-const { captureRejectionSymbol } = require("events");
-
 // 10810번 문제
 // const fs = require('fs');
 // const input = fs.readFileSync('./input.txt').toString().trim().split('\n');
@@ -1601,18 +1599,29 @@ const { captureRejectionSymbol } = require("events");
 // console.log(result);
 
 // 2609번 문제
-let [A, B] = require("fs")
+// let [A, B] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(Number);
+// let [a, b] = [A, B];
+// if (A < B) [A, B] = [B, A];
+// while (A % B !== 0) {
+//   let R = A % B;
+//   if (R !== 0) [A, B] = [B, R];
+// }
+// console.log(`${B}\n${(a * b) / B}`);
+
+// 1181번 문제 풀어야함
+const [_, ...input] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
-  .split(" ")
-  .map(Number);
-let [a, b] = [A, B];
-if (A < B) [A, B] = [B, A];
-while (A % B !== 0) {
-  let R = A % B;
-  if (R !== 0) [A, B] = [B, R];
-}
-console.log(`${B}\n${(a * b) / B}`);
+  .split("\n");
+const setInput = new Set(input);
+const filteredInput = [...setInput];
+filteredInput.sort();
+filteredInput.sort((a, b) => a.length - b.length);
+console.log(filteredInput.join("\n"));
 
 // 18258번 문제 단순 큐 문제가 아닌가봄 틀렸음
 // const [N, ...Q] = require('fs')
@@ -1819,18 +1828,3 @@ console.log(`${B}\n${(a * b) / B}`);
 //   .split('\n')
 //   .map(Number);
 // console.log(a + b);
-
-// 1181번 문제 풀어야함
-// const [N, ...input] = require('fs')
-//   .readFileSync('./input.txt', 'utf-8')
-//   .trim()
-//   .split('\n');
-
-// const lenArr = [];
-// console.log(input);
-
-// input.forEach((e) => {
-//   lenArr.push(e.length);
-// });
-
-// console.log(lenArr);
