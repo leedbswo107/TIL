@@ -1613,16 +1613,32 @@
 // console.log(`${B}\n${(a * b) / B}`);
 
 // 1181번 문제 풀어야함
-const [_, ...input] = require("fs")
-  .readFileSync("./input.txt", "utf-8")
-  .trim()
-  .split("\n");
-const setInput = new Set(input);
-const filteredInput = [...setInput];
-filteredInput.sort();
-filteredInput.sort((a, b) => a.length - b.length);
-console.log(filteredInput.join("\n"));
+// const [_, ...input] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const setInput = new Set(input);
+// const filteredInput = [...setInput];
+// filteredInput.sort();
+// filteredInput.sort((a, b) => a.length - b.length);
+// console.log(filteredInput.join("\n"));
 
+// 11653번 문제
+const N = Number(require("fs").readFileSync("./input.txt", "utf-8").trim());
+let n = N;
+let i = 2;
+let result = "";
+while (true) {
+  if (n === 1) break;
+  if (n % i === 0) {
+    n /= i;
+    result += `${i}\n`;
+    i = 2;
+  } else {
+    i++;
+  }
+}
+console.log(result);
 // 18258번 문제 단순 큐 문제가 아닌가봄 틀렸음
 // const [N, ...Q] = require('fs')
 //   .readFileSync('./input.txt', 'utf-8')
