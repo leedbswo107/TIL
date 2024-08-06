@@ -1624,21 +1624,31 @@
 // console.log(filteredInput.join("\n"));
 
 // 11653번 문제
-const N = Number(require("fs").readFileSync("./input.txt", "utf-8").trim());
-let n = N;
-let i = 2;
-let result = "";
-while (true) {
-  if (n === 1) break;
-  if (n % i === 0) {
-    n /= i;
-    result += `${i}\n`;
-    i = 2;
-  } else {
-    i++;
-  }
-}
-console.log(result);
+// const N = Number(require("fs").readFileSync("./input.txt", "utf-8").trim());
+// let n = N;
+// let i = 2;
+// let result = "";
+// while (true) {
+//   if (n === 1) break;
+//   if (n % i === 0) {
+//     n /= i;
+//     result += `${i}\n`;
+//     i = 2;
+//   } else {
+//     i++;
+//   }
+// }
+// console.log(result);
+
+// 10814번 문제
+const [_, ...arr] = require("fs")
+  .readFileSync("./input.txt", "utf-8")
+  .trim()
+  .split("\n");
+const newArr = arr.map((e) => e.split(" "));
+newArr.sort((a, b) => a[0] - b[0]);
+console.log(newArr.map((e) => e.join(" ")).join("\n"));
+
 // 18258번 문제 단순 큐 문제가 아닌가봄 틀렸음
 // const [N, ...Q] = require('fs')
 //   .readFileSync('./input.txt', 'utf-8')
