@@ -1641,13 +1641,21 @@
 // console.log(result);
 
 // 10814번 문제
-const [_, ...arr] = require("fs")
+// const [_, ...arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const newArr = arr.map((e) => e.split(" "));
+// newArr.sort((a, b) => a[0] - b[0]);
+// console.log(newArr.map((e) => e.join(" ")).join("\n"));
+
+// 1427번 문제
+const N = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
-  .split("\n");
-const newArr = arr.map((e) => e.split(" "));
-newArr.sort((a, b) => a[0] - b[0]);
-console.log(newArr.map((e) => e.join(" ")).join("\n"));
+  .split("")
+  .map(Number);
+console.log(N.sort((a, b) => b - a).join(""));
 
 // 18258번 문제 단순 큐 문제가 아닌가봄 틀렸음
 // const [N, ...Q] = require('fs')
