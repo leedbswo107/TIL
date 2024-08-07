@@ -1650,12 +1650,12 @@
 // console.log(newArr.map((e) => e.join(" ")).join("\n"));
 
 // 1427번 문제
-const N = require("fs")
-  .readFileSync("./input.txt", "utf-8")
-  .trim()
-  .split("")
-  .map(Number);
-console.log(N.sort((a, b) => b - a).join(""));
+// const N = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("")
+//   .map(Number);
+// console.log(N.sort((a, b) => b - a).join(""));
 
 // 18258번 문제 단순 큐 문제가 아닌가봄 틀렸음
 // const [N, ...Q] = require('fs')
@@ -1690,15 +1690,16 @@ console.log(N.sort((a, b) => b - a).join(""));
 //   result !== '' ? console.log(result) : '';
 // }
 // 11650번 문제 풀어야함.
-// const [N, ...Q] = require('fs')
-//   .readFileSync('./input.txt', 'utf-8')
-//   .trim()
-//   .split('\n');
-// const _Q = [];
-// Q.forEach((e) => _Q.push(e.split(' ').map(Number)));
-// console.log(_Q);
-// console.log(_Q.sort());
-
+const [_, ...Q] = require("fs")
+  .readFileSync("./input.txt", "utf-8")
+  .trim()
+  .split("\n");
+const newQ = Q.map((e) => e.split(" "));
+newQ.sort((a, b) => {
+  if (a[0] === b[0]) return a[1] - b[1];
+  return a[0] - b[0];
+});
+console.log(newQ.map((e) => e.join(" ")).join("\n"));
 // 10250번 문제 풀어야함.
 // const [T, ...Q] = require('fs')
 //   .readFileSync('./input.txt', 'utf-8')
