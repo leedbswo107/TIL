@@ -1689,15 +1689,27 @@
 //   }
 //   result !== '' ? console.log(result) : '';
 // }
-// 11650번 문제 풀어야함.
+// 11650번 문제
+// const [_, ...Q] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const newQ = Q.map((e) => e.split(" "));
+// newQ.sort((a, b) => {
+//   if (a[0] === b[0]) return a[1] - b[1];
+//   return a[0] - b[0];
+// });
+// console.log(newQ.map((e) => e.join(" ")).join("\n"));
+
+//11651번 문제
 const [_, ...Q] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
 const newQ = Q.map((e) => e.split(" "));
 newQ.sort((a, b) => {
-  if (a[0] === b[0]) return a[1] - b[1];
-  return a[0] - b[0];
+  if (a[1] === b[1]) return a[0] - b[0];
+  return a[1] - b[1];
 });
 console.log(newQ.map((e) => e.join(" ")).join("\n"));
 // 10250번 문제 풀어야함.
