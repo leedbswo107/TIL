@@ -1702,16 +1702,57 @@
 // console.log(newQ.map((e) => e.join(" ")).join("\n"));
 
 //11651번 문제
+// const [_, ...Q] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const newQ = Q.map((e) => e.split(" "));
+// newQ.sort((a, b) => {
+//   if (a[1] === b[1]) return a[0] - b[0];
+//   return a[1] - b[1];
+// });
+// console.log(newQ.map((e) => e.join(" ")).join("\n"));
+
+// 10866번 문제
 const [_, ...Q] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
 const newQ = Q.map((e) => e.split(" "));
-newQ.sort((a, b) => {
-  if (a[1] === b[1]) return a[0] - b[0];
-  return a[1] - b[1];
-});
-console.log(newQ.map((e) => e.join(" ")).join("\n"));
+const deQue = [];
+
+const check = (e) => {
+  switch (e[0]) {
+    case "push_front":
+      deQue.unshift(e[1]);
+      break;
+    case "push_back":
+      deQue.push(e[1]);
+      break;
+    case "pop_front":
+      deQue.length > 0 ? console.log(deQue.shift()) : console.log("-1");
+      break;
+    case "pop_back":
+      deQue.length > 0 ? console.log(deQue.pop()) : console.log("-1");
+      break;
+    case "size":
+      console.log(deQue.length);
+      break;
+    case "front":
+      deQue.length > 0 ? console.log(deQue[0]) : console.log("-1");
+      break;
+    case "back":
+      deQue.length > 0
+        ? console.log(deQue[deQue.length - 1])
+        : console.log("-1");
+      break;
+    default:
+      deQue.length > 0 ? console.log(0) : console.log(1);
+      break;
+  }
+};
+newQ.forEach((e) => check(e));
+
 // 10250번 문제 풀어야함.
 // const [T, ...Q] = require('fs')
 //   .readFileSync('./input.txt', 'utf-8')
