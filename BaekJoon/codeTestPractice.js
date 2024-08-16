@@ -1754,25 +1754,72 @@
 // newQ.forEach((e) => check(e));
 
 // 1934번 문제
-const [_, ...Q] = require("fs")
+// const [_, ...Q] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const newQ = Q.map((e) => e.split(" "));
+// const result = [];
+// newQ.map((e) => {
+//   let a = Number(e[0]);
+//   let b = Number(e[1]);
+//   if (a < b) [a, b] = [b, a];
+//   while (true) {
+//     if (b === 0) {
+//       result.push((e[0] * e[1]) / a);
+//       break;
+//     }
+//     [a, b] = [b, a % b];
+//   }
+// });
+// console.log(result.join("\n"));
+
+// 2851번 문제
+// const score = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n")
+//   .map(Number);
+// let compare = 0;
+// let offset = 0;
+// let result = 0;
+// for (let i = 0; i < score.length; i++) {
+//   compare = offset;
+//   offset += score[i];
+//   if (offset >= 100) {
+//     if (Math.abs(100 - compare) >= Math.abs(100 - offset)) {
+//       result = offset;
+//       break;
+//     } else if (Math.abs(100 - compare) < Math.abs(100 - offset)) {
+//       result = compare;
+//       break;
+//     }
+//   }
+// }
+// console.log(result);
+// 위는 왜 오답인지 모르겠음
+const solution = (score) => {
+  let offset = 0;
+  let targetScore = 100;
+  let min = Number.MAX_SAFE_INTEGER;
+  let diff = 0;
+  let result = 0;
+  score.forEach((e) => {
+    offset += e;
+    diff = Math.abs(offset - targetScore);
+    if (diff <= min) {
+      min = diff;
+      result = Math.max(result, offset);
+    }
+  });
+  return result;
+};
+let score = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
-  .split("\n");
-const newQ = Q.map((e) => e.split(" "));
-const result = [];
-newQ.map((e) => {
-  let a = Number(e[0]);
-  let b = Number(e[1]);
-  if (a < b) [a, b] = [b, a];
-  while (true) {
-    if (b === 0) {
-      result.push((e[0] * e[1]) / a);
-      break;
-    }
-    [a, b] = [b, a % b];
-  }
-});
-console.log(result.join("\n"));
+  .split("\n")
+  .map(Number);
+console.log(solution(score));
 
 // 10250번 문제 풀어야함.
 // const [T, ...Q] = require('fs')
@@ -1833,10 +1880,10 @@ console.log(result.join("\n"));
 
 // 1373번 문제 푸는중 -> 왜 틀른겨
 
-// const A = require('fs')
-//   .readFileSync('./input.txt', 'utf-8')
+// const A = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
 //   .trim()
-//   .split('')
+//   .split("")
 //   .map(Number)
 //   .reverse();
 // if (A.length % 3 !== 0) {
