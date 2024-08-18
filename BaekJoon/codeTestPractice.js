@@ -1798,28 +1798,43 @@
 // }
 // console.log(result);
 // 위는 왜 오답인지 모르겠음
-const solution = (score) => {
-  let offset = 0;
-  let targetScore = 100;
-  let min = Number.MAX_SAFE_INTEGER;
-  let diff = 0;
-  let result = 0;
-  score.forEach((e) => {
-    offset += e;
-    diff = Math.abs(offset - targetScore);
-    if (diff <= min) {
-      min = diff;
-      result = Math.max(result, offset);
-    }
-  });
-  return result;
-};
-let score = require("fs")
-  .readFileSync("./input.txt", "utf-8")
-  .trim()
-  .split("\n")
-  .map(Number);
-console.log(solution(score));
+// const solution = (score) => {
+//   let offset = 0;
+//   let targetScore = 100;
+//   let min = Number.MAX_SAFE_INTEGER;
+//   let diff = 0;
+//   let result = 0;
+//   score.forEach((e) => {
+//     offset += e;
+//     diff = Math.abs(offset - targetScore);
+//     if (diff <= min) {
+//       min = diff;
+//       result = Math.max(result, offset);
+//     }
+//   });
+//   return result;
+// };
+// let score = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n")
+//   .map(Number);
+// console.log(solution(score));
+
+// 1193번 문제
+const X = Number(require("fs").readFileSync("./input.txt", "utf-8").trim());
+let k = 1;
+let kStack = 1;
+while (true) {
+  if (X <= kStack) break;
+  k++;
+  kStack += k;
+}
+k % 2
+  ? console.log(kStack - X + 1 + "/" + (k - (kStack - X)))
+  : console.log(k - (kStack - X) + "/" + (kStack - X + 1));
+// if (k % 2) console.log(kStack - X + 1 + "/" + (k - (kStack - X)));
+// else console.log(k - (kStack - X) + "/" + (kStack - X + 1));
 
 // 10250번 문제 풀어야함.
 // const [T, ...Q] = require('fs')
