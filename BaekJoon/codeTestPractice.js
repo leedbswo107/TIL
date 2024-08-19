@@ -1837,23 +1837,23 @@
 // else console.log(k - (kStack - X) + "/" + (kStack - X + 1));
 
 // 1676번 문제
-const N = BigInt(require("fs").readFileSync("./input.txt", "utf-8").trim());
-let factorial = BigInt(1);
-let count = 0;
-const factorialCalc = (N) => {
-  if (N === BigInt(0)) {
-    return;
-  }
-  factorial *= N;
-  factorialCalc(N - BigInt(1));
-};
-factorialCalc(N);
-const strFactorial = factorial.toString().split("").reverse();
-for (let i = 0; i < strFactorial.length; i++) {
-  if (strFactorial[i] === "0") count++;
-  else break;
-}
-console.log(count);
+// const N = BigInt(require("fs").readFileSync("./input.txt", "utf-8").trim());
+// let factorial = BigInt(1);
+// let count = 0;
+// const factorialCalc = (N) => {
+//   if (N === BigInt(0)) {
+//     return;
+//   }
+//   factorial *= N;
+//   factorialCalc(N - BigInt(1));
+// };
+// factorialCalc(N);
+// const strFactorial = factorial.toString().split("").reverse();
+// for (let i = 0; i < strFactorial.length; i++) {
+//   if (strFactorial[i] === "0") count++;
+//   else break;
+// }
+// console.log(count);
 
 // const N = Number(require("fs").readFileSync("./input.txt", "utf-8").trim());
 // const a = N >= 5 ? parseInt(N / 5, 10) : 0;
@@ -1861,9 +1861,19 @@ console.log(count);
 // const c = parseInt(N / 125, 10) || 0;
 // console.log(a + b + c);
 
-// while (true) {
-//   if()
-// }
+// 13241번 문제
+const [A, B] = require("fs")
+  .readFileSync("./input.txt", "utf-8")
+  .trim()
+  .split(" ")
+  .map(Number);
+let [C, D] = [A, B];
+if (C < D) [C, D] = [D, C];
+while (true) {
+  if (D === 0) break;
+  [C, D] = [D, C % D];
+}
+console.log((A * B) / C);
 
 // 10250번 문제 풀어야함.
 // const [T, ...Q] = require('fs')
