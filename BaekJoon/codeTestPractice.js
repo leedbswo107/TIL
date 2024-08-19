@@ -1822,19 +1822,48 @@
 // console.log(solution(score));
 
 // 1193번 문제
-const X = Number(require("fs").readFileSync("./input.txt", "utf-8").trim());
-let k = 1;
-let kStack = 1;
-while (true) {
-  if (X <= kStack) break;
-  k++;
-  kStack += k;
-}
-k % 2
-  ? console.log(kStack - X + 1 + "/" + (k - (kStack - X)))
-  : console.log(k - (kStack - X) + "/" + (kStack - X + 1));
+// const X = Number(require("fs").readFileSync("./input.txt", "utf-8").trim());
+// let k = 1;
+// let kStack = 1;
+// while (true) {
+//   if (X <= kStack) break;
+//   k++;
+//   kStack += k;
+// }
+// k % 2
+//   ? console.log(kStack - X + 1 + "/" + (k - (kStack - X)))
+//   : console.log(k - (kStack - X) + "/" + (kStack - X + 1));
 // if (k % 2) console.log(kStack - X + 1 + "/" + (k - (kStack - X)));
 // else console.log(k - (kStack - X) + "/" + (kStack - X + 1));
+
+// 1676번 문제
+const N = BigInt(require("fs").readFileSync("./input.txt", "utf-8").trim());
+let factorial = BigInt(1);
+let count = 0;
+const factorialCalc = (N) => {
+  if (N === BigInt(0)) {
+    return;
+  }
+  factorial *= N;
+  factorialCalc(N - BigInt(1));
+};
+factorialCalc(N);
+const strFactorial = factorial.toString().split("").reverse();
+for (let i = 0; i < strFactorial.length; i++) {
+  if (strFactorial[i] === "0") count++;
+  else break;
+}
+console.log(count);
+
+// const N = Number(require("fs").readFileSync("./input.txt", "utf-8").trim());
+// const a = N >= 5 ? parseInt(N / 5, 10) : 0;
+// const b = parseInt(a / 5, 10);
+// const c = parseInt(N / 125, 10) || 0;
+// console.log(a + b + c);
+
+// while (true) {
+//   if()
+// }
 
 // 10250번 문제 풀어야함.
 // const [T, ...Q] = require('fs')
