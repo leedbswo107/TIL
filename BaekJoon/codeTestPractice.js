@@ -1862,18 +1862,50 @@
 // console.log(a + b + c);
 
 // 13241번 문제
-const [A, B] = require("fs")
+// const [A, B] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(Number);
+// let [C, D] = [A, B];
+// if (C < D) [C, D] = [D, C];
+// while (true) {
+//   if (D === 0) break;
+//   [C, D] = [D, C % D];
+// }
+// console.log((A * B) / C);
+
+// 7785번 문제
+// const [_, ...check] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const checkInfo = check.map((e) => e.split(" "));
+// const remain = [];
+// checkInfo.forEach((e) => {
+//   if (e[1] === "enter") remain.push(e[0]);
+//   if (e[1] === "leave") {
+//     remain.splice(
+//       remain.find((name) => name === e[0]),
+//       1
+//     );
+//   }
+// });
+// remain.sort().reverse();
+// console.log(remain.join("\n"));
+
+const [_, ...check] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
-  .split(" ")
-  .map(Number);
-let [C, D] = [A, B];
-if (C < D) [C, D] = [D, C];
-while (true) {
-  if (D === 0) break;
-  [C, D] = [D, C % D];
+  .split("\n");
+const result = [];
+const list = check.map((e) => e.split(" "));
+const checkList = new Map(list.map((e) => [e[0], e[1]]));
+for (const key of checkList.keys()) {
+  if (checkList.get(key) === "enter") result.push(key);
 }
-console.log((A * B) / C);
+result.sort().reverse();
+console.log(result.join("\n"));
 
 // 10250번 문제 풀어야함.
 // const [T, ...Q] = require('fs')
