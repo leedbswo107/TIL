@@ -1894,18 +1894,76 @@
 // remain.sort().reverse();
 // console.log(remain.join("\n"));
 
-const [_, ...check] = require("fs")
-  .readFileSync("./input.txt", "utf-8")
-  .trim()
-  .split("\n");
-const result = [];
-const list = check.map((e) => e.split(" "));
-const checkList = new Map(list.map((e) => [e[0], e[1]]));
-for (const key of checkList.keys()) {
-  if (checkList.get(key) === "enter") result.push(key);
+// const [_, ...check] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const result = [];
+// const list = check.map((e) => e.split(" "));
+// const checkList = new Map(list.map((e) => [e[0], e[1]]));
+// for (const key of checkList.keys()) {
+//   if (checkList.get(key) === "enter") result.push(key);
+// }
+// result.sort().reverse();
+// console.log(result.join("\n"));
+
+// 2446번 문제
+// const N = Number(require("fs").readFileSync("./input.txt", "utf-8").trim());
+// for (let i = 0; i < 2 * N - 1; i++) {
+//   let result = "";
+//   if (i < N) {
+//     for (let k = 0; k < i; k++) {
+//       result += " ";
+//     }
+//     for (let j = 0; j < 2 * (N - i) - 1; j++) {
+//       result += "*";
+//     }
+//     console.log(result);
+//   } else {
+//     for (let k = 0; k < 2 * N - i - 2; k++) {
+//       result += " ";
+//     }
+//     for (let j = 0; j < 2 * (i - N) + 3; j++) {
+//       result += "*";
+//     }
+//     console.log(result);
+//   }
+// }
+
+// 2018번 문제
+
+const N = Number(require("fs").readFileSync("./input.txt", "utf-8").trim());
+let sum = 0;
+let j = 1;
+let count = 0;
+while (true) {
+  if (j > N) break;
+  for (let i = j; i <= N + 1; i++) {
+    if (sum === N) {
+      count++;
+      break;
+    } else if (sum > N) {
+      break;
+    }
+    sum += i;
+  }
+  j++;
+  sum = 0;
 }
-result.sort().reverse();
-console.log(result.join("\n"));
+console.log(count);
+// console.log(test);
+
+// 피보나치 5 다시 풀어야함..
+// const N = Number(require("fs").readFileSync("./input.txt", "utf-8").trim());
+// const arr = [0, 1];
+// if (N > 2) {
+//   for (let i = 2; i <= N; i++) {
+//     const newNum = arr[i - 2] + arr[i - 1];
+//     arr.push(newNum);
+//   }
+// }
+// console.log(arr);
+// console.log(arr[N]);
 
 // 10250번 문제 풀어야함.
 // const [T, ...Q] = require('fs')
