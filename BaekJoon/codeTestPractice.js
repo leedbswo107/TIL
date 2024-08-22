@@ -1931,27 +1931,58 @@
 // }
 
 // 2018번 문제
+// const N = Number(require("fs").readFileSync("./input.txt", "utf-8").trim());
+// let sum = 0;
+// let j = 1;
+// let count = 0;
+// while (true) {
+//   if (j > N) break;
+//   for (let i = j; i <= N + 1; i++) {
+//     if (sum === N) {
+//       count++;
+//       break;
+//     } else if (sum > N) {
+//       break;
+//     }
+//     sum += i;
+//   }
+//   j++;
+//   sum = 0;
+// }
+// console.log(count);
 
-const N = Number(require("fs").readFileSync("./input.txt", "utf-8").trim());
+// 1769번 문제
+let X = require("fs")
+  .readFileSync("./input.txt", "utf-8")
+  .trim()
+  .split("")
+  .map(Number);
 let sum = 0;
-let j = 1;
 let count = 0;
-while (true) {
-  if (j > N) break;
-  for (let i = j; i <= N + 1; i++) {
-    if (sum === N) {
-      count++;
-      break;
-    } else if (sum > N) {
-      break;
-    }
-    sum += i;
-  }
-  j++;
-  sum = 0;
+while (X.length > 1) {
+  sum = X.reduce((acc, cur) => acc + cur, 0);
+  X = sum.toString().split("").map(Number);
+  count++;
 }
 console.log(count);
-// console.log(test);
+console.log(X % 3 ? "NO" : "YES");
+
+// 2057번 문제 푸는중
+// let N = Number(require("fs").readFileSync("./input.txt", "utf-8").trim());
+// let i = 0;
+// let sum = 0;
+
+// while (i < N) {
+//   let factorial = 1;
+//   for (let j = 1; j <= i; j++) {
+//     factorial *= j;
+//   }
+//   sum += factorial;
+//   i++;
+// }
+// console.log(sum === N ? "YES" : "NO");
+// console.log(factorial);
+// console.log(N);
 
 // 피보나치 5 다시 풀어야함..
 // const N = Number(require("fs").readFileSync("./input.txt", "utf-8").trim());
