@@ -1952,20 +1952,45 @@
 // console.log(count);
 
 // 1769번 문제
-let X = require("fs")
+// let X = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("")
+//   .map(Number);
+// let sum = 0;
+// let count = 0;
+// while (X.length > 1) {
+//   sum = X.reduce((acc, cur) => acc + cur, 0);
+//   X = sum.toString().split("").map(Number);
+//   count++;
+// }
+// console.log(count);
+// console.log(X % 3 ? "NO" : "YES");
+
+// 16435번 문제
+const [A, H] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
-  .split("")
-  .map(Number);
-let sum = 0;
-let count = 0;
-while (X.length > 1) {
-  sum = X.reduce((acc, cur) => acc + cur, 0);
-  X = sum.toString().split("").map(Number);
-  count++;
-}
-console.log(count);
-console.log(X % 3 ? "NO" : "YES");
+  .split("\n");
+let [_, L] = A.split(" ").map(Number);
+const h = H.split(" ")
+  .map(Number)
+  .sort((a, b) => a - b);
+h.forEach((e) => L >= e && L++);
+console.log(L);
+// 1822번 문제 풀어야함.
+// const [_, ...arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const [A, B] = arr.map((e) => e.split(" ").map(Number));
+// let elRmv = [...A];
+// B.forEach((e) => {
+//   A.forEach((el) => e === el && elRmv.splice(elRmv.indexOf(e), 1));
+// });
+// console.log(
+//   elRmv.length !== 0 ? `${elRmv.length}\n${elRmv.join(" ")}` : elRmv.length
+// );
 
 // 2057번 문제 푸는중
 // let N = Number(require("fs").readFileSync("./input.txt", "utf-8").trim());
@@ -1981,8 +2006,6 @@ console.log(X % 3 ? "NO" : "YES");
 //   i++;
 // }
 // console.log(sum === N ? "YES" : "NO");
-// console.log(factorial);
-// console.log(N);
 
 // 피보나치 5 다시 풀어야함..
 // const N = Number(require("fs").readFileSync("./input.txt", "utf-8").trim());
