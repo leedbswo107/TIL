@@ -1968,16 +1968,74 @@
 // console.log(X % 3 ? "NO" : "YES");
 
 // 16435번 문제
-const [A, H] = require("fs")
+// const [A, H] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// let [_, L] = A.split(" ").map(Number);
+// const h = H.split(" ")
+//   .map(Number)
+//   .sort((a, b) => a - b);
+// h.forEach((e) => L >= e && L++);
+// console.log(L);
+
+// 14730번 문제
+const [_, ...nums] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-let [_, L] = A.split(" ").map(Number);
-const h = H.split(" ")
-  .map(Number)
-  .sort((a, b) => a - b);
-h.forEach((e) => L >= e && L++);
-console.log(L);
+const differential = nums.map((e) => e.split(" ").map(Number));
+const result = differential.reduce((acc, cur) => acc + cur[0] * cur[1], 0);
+console.log(result);
+
+// 2057번 문제 풀어야함
+// const N = Number(require("fs").readFileSync("./input.txt", "utf-8").trim());
+// if (N <= Number.MAX_SAFE_INTEGER) {
+//   let i = 0;
+//   let sum = 0;
+
+//   while (i < N) {
+//     let factorial = 1;
+//     if (sum > N) {
+//       break;
+//     }
+//     if (sum === N) {
+//       break;
+//     }
+//     for (let j = 1; j <= i; j++) {
+//       factorial *= j;
+//     }
+//     console.log(factorial);
+//     sum += factorial;
+//     i++;
+//   }
+//   console.log(sum === N ? "YES" : "NO");
+// } else {
+//   let i = BigInt(0);
+//   let sum = BigInt(0);
+//   let bigN = BigInt(N);
+//   while (i < bigN) {
+//     let factorial = BigInt(1);
+//     if (sum > bigN) {
+//       break;
+//     }
+//     if (sum === bigN) {
+//       break;
+//     }
+//     for (let j = BigInt(1); j <= i; j++) {
+//       factorial *= j;
+//     }
+//     console.log(factorial);
+//     sum += factorial;
+//     i++;
+//   }
+//   console.log(sum === bigN ? "YES" : "NO");
+// }
+
+// console.log(arrA);
+// console.log(setA);
+// console.log(sortedA);
+
 // 1822번 문제 풀어야함.
 // const [_, ...arr] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
