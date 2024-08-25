@@ -1980,13 +1980,29 @@
 // console.log(L);
 
 // 14730번 문제
-const [_, ...nums] = require("fs")
+// const [_, ...nums] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const differential = nums.map((e) => e.split(" ").map(Number));
+// const result = differential.reduce((acc, cur) => acc + cur[0] * cur[1], 0);
+// console.log(result);
+
+// 11866번 문제
+const [N, K] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
-  .split("\n");
-const differential = nums.map((e) => e.split(" ").map(Number));
-const result = differential.reduce((acc, cur) => acc + cur[0] * cur[1], 0);
-console.log(result);
+  .split(" ")
+  .map(Number);
+let arr = new Array(N).fill(0).map((e, i) => i + 1);
+let result = [];
+while (arr.length !== 0) {
+  for (let i = 0; i < K - 1; i++) {
+    arr.push(arr.shift());
+  }
+  result.push(arr.shift());
+}
+console.log(`<${result.flat().join(", ")}>`);
 
 // 2057번 문제 풀어야함
 // const N = Number(require("fs").readFileSync("./input.txt", "utf-8").trim());
