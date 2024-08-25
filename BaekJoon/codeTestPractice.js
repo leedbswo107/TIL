@@ -2005,28 +2005,46 @@
 // console.log(`<${result.flat().join(", ")}>`);
 
 // 28278번 문제
-const [_, ...qna] = require("fs")
+// const [_, ...qna] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const filteredQna = qna.map((e) => e.split(" ").map(Number));
+// const stack = [];
+// let outputTxt;
+// let result = [];
+// filteredQna.forEach((e) => {
+//   if (e[0] === 1) {
+//     stack.push(e[1]);
+//   } else {
+//     if (e[0] === 2) outputTxt = stack.length !== 0 ? stack.pop() : -1;
+//     else if (e[0] === 3) outputTxt = stack.length;
+//     else if (e[0] === 4) outputTxt = stack.length !== 0 ? 0 : 1;
+//     else if (e[0] === 5)
+//       outputTxt = stack.length !== 0 ? stack[stack.length - 1] : -1;
+//     result.push(outputTxt);
+//   }
+// });
+// console.log(result.join("\n"));
+
+// 3036번 문제
+const [_, O] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-const filteredQna = qna.map((e) => e.split(" ").map(Number));
-const stack = [];
-let outputTxt;
-let result = [];
-filteredQna.forEach((e) => {
-  if (e[0] === 1) {
-    stack.push(e[1]);
-  } else {
-    if (e[0] === 2) outputTxt = stack.length !== 0 ? stack.pop() : -1;
-    else if (e[0] === 3) outputTxt = stack.length;
-    else if (e[0] === 4) outputTxt = stack.length !== 0 ? 0 : 1;
-    else if (e[0] === 5)
-      outputTxt = stack.length !== 0 ? stack[stack.length - 1] : -1;
-    result.push(outputTxt);
+const [first, ...arrO] = O.split(" ").map(Number);
+const result = [];
+arrO.forEach((e) => {
+  let [A, B] = [first, e];
+  while (true) {
+    if (B === 0) break;
+    [A, B] = [B, A % B];
   }
+  result.push(`${first / A}/${e / A}`);
 });
 console.log(result.join("\n"));
-
+// console.log(first);
+// console.log(arrO);
 // 2057번 문제 풀어야함
 // const N = Number(require("fs").readFileSync("./input.txt", "utf-8").trim());
 // if (N <= Number.MAX_SAFE_INTEGER) {
