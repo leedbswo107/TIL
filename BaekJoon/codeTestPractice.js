@@ -1989,20 +1989,43 @@
 // console.log(result);
 
 // 11866번 문제
-const [N, K] = require("fs")
+// const [N, K] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(Number);
+// let arr = new Array(N).fill(0).map((e, i) => i + 1);
+// let result = [];
+// while (arr.length !== 0) {
+//   for (let i = 0; i < K - 1; i++) {
+//     arr.push(arr.shift());
+//   }
+//   result.push(arr.shift());
+// }
+// console.log(`<${result.flat().join(", ")}>`);
+
+// 28278번 문제
+const [_, ...qna] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
-  .split(" ")
-  .map(Number);
-let arr = new Array(N).fill(0).map((e, i) => i + 1);
+  .split("\n");
+const filteredQna = qna.map((e) => e.split(" ").map(Number));
+const stack = [];
+let outputTxt;
 let result = [];
-while (arr.length !== 0) {
-  for (let i = 0; i < K - 1; i++) {
-    arr.push(arr.shift());
+filteredQna.forEach((e) => {
+  if (e[0] === 1) {
+    stack.push(e[1]);
+  } else {
+    if (e[0] === 2) outputTxt = stack.length !== 0 ? stack.pop() : -1;
+    else if (e[0] === 3) outputTxt = stack.length;
+    else if (e[0] === 4) outputTxt = stack.length !== 0 ? 0 : 1;
+    else if (e[0] === 5)
+      outputTxt = stack.length !== 0 ? stack[stack.length - 1] : -1;
+    result.push(outputTxt);
   }
-  result.push(arr.shift());
-}
-console.log(`<${result.flat().join(", ")}>`);
+});
+console.log(result.join("\n"));
 
 // 2057번 문제 풀어야함
 // const N = Number(require("fs").readFileSync("./input.txt", "utf-8").trim());
