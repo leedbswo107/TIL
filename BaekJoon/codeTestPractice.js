@@ -2028,23 +2028,43 @@
 // console.log(result.join("\n"));
 
 // 3036번 문제
-const [_, O] = require("fs")
+// const [_, O] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const [first, ...arrO] = O.split(" ").map(Number);
+// const result = [];
+// arrO.forEach((e) => {
+//   let [A, B] = [first, e];
+//   while (true) {
+//     if (B === 0) break;
+//     [A, B] = [B, A % B];
+//   }
+//   result.push(`${first / A}/${e / A}`);
+// });
+// console.log(result.join("\n"));
+
+// 1735번 문제
+const [ONE, TWO] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-const [first, ...arrO] = O.split(" ").map(Number);
-const result = [];
-arrO.forEach((e) => {
-  let [A, B] = [first, e];
-  while (true) {
-    if (B === 0) break;
-    [A, B] = [B, A % B];
-  }
-  result.push(`${first / A}/${e / A}`);
-});
-console.log(result.join("\n"));
-// console.log(first);
-// console.log(arrO);
+const numeratorFunc = (a, b, l) => (a * l) / b;
+const [A1, B1] = ONE.split(" ").map(Number);
+const [A2, B2] = TWO.split(" ").map(Number);
+let [b1, b2] = B1 < B2 ? [B2, B1] : [B1, B2];
+while (b2 !== 0) [b1, b2] = [b2, b1 % b2];
+const G = b1;
+const L = (B1 * B2) / G;
+const numeratorOne = numeratorFunc(A1, B1, L);
+const numeratorTwo = numeratorFunc(A2, B2, L);
+let numerator = numeratorOne + numeratorTwo;
+let denominator = L;
+let [n1, n2] =
+  numerator < denominator ? [denominator, numerator] : [numerator, denominator];
+while (n2 !== 0) [n1, n2] = [n2, n1 % n2];
+console.log(numerator / n1, denominator / n1);
+
 // 2057번 문제 풀어야함
 // const N = Number(require("fs").readFileSync("./input.txt", "utf-8").trim());
 // if (N <= Number.MAX_SAFE_INTEGER) {
