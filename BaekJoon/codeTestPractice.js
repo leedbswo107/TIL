@@ -2045,25 +2045,99 @@
 // console.log(result.join("\n"));
 
 // 1735번 문제
-const [ONE, TWO] = require("fs")
+// const [ONE, TWO] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const numeratorFunc = (a, b, l) => (a * l) / b;
+// const [A1, B1] = ONE.split(" ").map(Number);
+// const [A2, B2] = TWO.split(" ").map(Number);
+// let [b1, b2] = B1 < B2 ? [B2, B1] : [B1, B2];
+// while (b2 !== 0) [b1, b2] = [b2, b1 % b2];
+// const G = b1;
+// const L = (B1 * B2) / G;
+// const numeratorOne = numeratorFunc(A1, B1, L);
+// const numeratorTwo = numeratorFunc(A2, B2, L);
+// let numerator = numeratorOne + numeratorTwo;
+// let denominator = L;
+// let [n1, n2] =
+//   numerator < denominator ? [denominator, numerator] : [numerator, denominator];
+// while (n2 !== 0) [n1, n2] = [n2, n1 % n2];
+// console.log(numerator / n1, denominator / n1);
+
+// 5800번 문제
+const [_, ...CLASS] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-const numeratorFunc = (a, b, l) => (a * l) / b;
-const [A1, B1] = ONE.split(" ").map(Number);
-const [A2, B2] = TWO.split(" ").map(Number);
-let [b1, b2] = B1 < B2 ? [B2, B1] : [B1, B2];
-while (b2 !== 0) [b1, b2] = [b2, b1 % b2];
-const G = b1;
-const L = (B1 * B2) / G;
-const numeratorOne = numeratorFunc(A1, B1, L);
-const numeratorTwo = numeratorFunc(A2, B2, L);
-let numerator = numeratorOne + numeratorTwo;
-let denominator = L;
-let [n1, n2] =
-  numerator < denominator ? [denominator, numerator] : [numerator, denominator];
-while (n2 !== 0) [n1, n2] = [n2, n1 % n2];
-console.log(numerator / n1, denominator / n1);
+const arr = CLASS.map((e) => e.split(" ").map(Number));
+const result = [];
+arr.forEach((e) => {
+  let minMaxGap = [];
+  let gap = [];
+  e.shift();
+  e.sort((a, b) => b - a);
+  for (let i = 1; i < e.length; i++) gap.push(e[i - 1] - e[i]);
+  minMaxGap = [Math.max(...e), Math.min(...e), Math.max(...gap)];
+  result.push(minMaxGap);
+});
+result.forEach((e, i) => {
+  console.log(`Class ${i + 1}`);
+  console.log(`Max ${e[0]}, Min ${e[1]}, Largest gap ${e[2]}`);
+});
+
+// 1699번 문제 푸는중
+// const N = Number(require("fs").readFileSync("./input.txt", "utf-8").trim());
+// let num = N;
+// let result = 0;
+// let count = 0;
+// while (result !== N) {
+//   if (result + num * num > N) {
+//     num -= 1;
+//   } else {
+//     result += num * num;
+//     num = N - result;
+//     count++;
+//   }
+// }
+// console.log(count);
+
+// let factorial = (function () {
+//   let save = {};
+//   let fact = function (number) {
+//     if (number > 0) {
+//       let saved = save[number - 1] || fact(number - 1);
+//       let result = number * saved;
+//       save[number] = result;
+
+//       console.log(saved, result);
+//       return result;
+//     } else {
+//       return 1;
+//     }
+//   };
+//   return fact;
+// })();
+// factorial(7); // 1 1, 1 2, 2 6, 6 24, 24 120, 120 720, 720 5040
+// factorial(7); // 720 5040-
+// var fibonacci = (function () {
+//   var save = {};
+//   var fibo = function (number) {
+//     if (number < 2) {
+//       return number;
+//     } else {
+//       var saved1 = save[number - 1] || fibo(number - 1);
+//       var saved2 = save[number - 2] || fibo(number - 2);
+//       var result = saved1 + saved2;
+//       save[number] = result;
+//       console.log(saved1, saved2, result);
+//       return result;
+//     }
+//   };
+//   return fibo;
+// })();
+// fibonacci(5); // 1 0 1, 1 1 2, 2 1 3, 3 2 5, 5
+// fibonacci(5);
 
 // 2057번 문제 풀어야함
 // const N = Number(require("fs").readFileSync("./input.txt", "utf-8").trim());
