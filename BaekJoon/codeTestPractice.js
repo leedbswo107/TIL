@@ -2066,25 +2066,69 @@
 // console.log(numerator / n1, denominator / n1);
 
 // 5800번 문제
-const [_, ...CLASS] = require("fs")
+// const [_, ...CLASS] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const arr = CLASS.map((e) => e.split(" ").map(Number));
+// const result = [];
+// arr.forEach((e) => {
+//   let minMaxGap = [];
+//   let gap = [];
+//   e.shift();
+//   e.sort((a, b) => b - a);
+//   for (let i = 1; i < e.length; i++) gap.push(e[i - 1] - e[i]);
+//   minMaxGap = [Math.max(...e), Math.min(...e), Math.max(...gap)];
+//   result.push(minMaxGap);
+// });
+// result.forEach((e, i) => {
+//   console.log(`Class ${i + 1}`);
+//   console.log(`Max ${e[0]}, Min ${e[1]}, Largest gap ${e[2]}`);
+// });
+
+// 1158번 문제
+const [N, K] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
-  .split("\n");
-const arr = CLASS.map((e) => e.split(" ").map(Number));
-const result = [];
-arr.forEach((e) => {
-  let minMaxGap = [];
-  let gap = [];
-  e.shift();
-  e.sort((a, b) => b - a);
-  for (let i = 1; i < e.length; i++) gap.push(e[i - 1] - e[i]);
-  minMaxGap = [Math.max(...e), Math.min(...e), Math.max(...gap)];
-  result.push(minMaxGap);
-});
-result.forEach((e, i) => {
-  console.log(`Class ${i + 1}`);
-  console.log(`Max ${e[0]}, Min ${e[1]}, Largest gap ${e[2]}`);
-});
+  .split(" ")
+  .map(Number);
+let arr = new Array(N).fill(0).map((e, i) => i + 1);
+let result = [];
+while (arr.length !== 0) {
+  for (let i = 0; i < K - 1; i++) {
+    arr.push(arr.shift());
+  }
+  result.push(arr.shift());
+}
+console.log(`<${result.flat().join(", ")}>`);
+// 8979번 문제 8점 받음.. 다시 풀기
+// const [standard, ...nation] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const [N, K] = standard.split(" ").map(Number);
+// // const result = [];
+// const result = new Array(N);
+// const mapResult = {};
+// nation.sort();
+// const scoreNation = nation.map((e) => e.split(" ").map(Number));
+// scoreNation.map((e, i) => {
+//   // e.shift();
+//   result[i] = Number(e.join(""));
+//   // result.push(Number(e.join("")));
+// });
+// result.sort((a, b) => (b % 1000) - (a % 1000));
+// // console.log(result);
+// let j = 1;
+// for (let i = 0; i < result.length; i++) {
+//   let prev = result[i - 1] % 1000;
+//   let cur = result[i] % 1000;
+//   mapResult[parseInt(result[i] / 1000, 10)] = prev === cur ? j - 1 : j;
+//   j++;
+// }
+// console.log(result);
+// console.log(mapResult);
+// console.log(mapResult[K]);
 
 // 1699번 문제 푸는중
 // const N = Number(require("fs").readFileSync("./input.txt", "utf-8").trim());
