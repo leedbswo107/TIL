@@ -2087,20 +2087,31 @@
 // });
 
 // 1158번 문제
-const [N, K] = require("fs")
-  .readFileSync("./input.txt", "utf-8")
-  .trim()
-  .split(" ")
-  .map(Number);
-let arr = new Array(N).fill(0).map((e, i) => i + 1);
-let result = [];
-while (arr.length !== 0) {
-  for (let i = 0; i < K - 1; i++) {
-    arr.push(arr.shift());
-  }
-  result.push(arr.shift());
-}
-console.log(`<${result.flat().join(", ")}>`);
+// const [N, K] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(Number);
+// let arr = new Array(N).fill(0).map((e, i) => i + 1);
+// let result = [];
+// while (arr.length !== 0) {
+//   for (let i = 0; i < K - 1; i++) {
+//     arr.push(arr.shift());
+//   }
+//   result.push(arr.shift());
+// }
+// console.log(`<${result.flat().join(", ")}>`);
+
+// 1259번 문제
+let qus = require("fs").readFileSync("./input.txt", "utf-8").trim().split("\n");
+const result = [];
+qus.pop();
+qus = qus.map((e) => e.split(""));
+qus.forEach((e) =>
+  e.join("") === e.reverse().join("") ? result.push("yes") : result.push("no")
+);
+console.log(result.join("\n"));
+
 // 8979번 문제 8점 받음.. 다시 풀기
 // const [standard, ...nation] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
