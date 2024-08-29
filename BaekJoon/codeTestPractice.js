@@ -24,6 +24,8 @@
 // }
 // console.log(arr.join(' '));
 
+const { link } = require("fs");
+
 // 10810번 문제
 // const fs = require('fs');
 // const input = fs.readFileSync('./input.txt').toString().trim().split('\n');
@@ -2103,14 +2105,41 @@
 // console.log(`<${result.flat().join(", ")}>`);
 
 // 1259번 문제
-let qus = require("fs").readFileSync("./input.txt", "utf-8").trim().split("\n");
-const result = [];
-qus.pop();
-qus = qus.map((e) => e.split(""));
-qus.forEach((e) =>
-  e.join("") === e.reverse().join("") ? result.push("yes") : result.push("no")
-);
-console.log(result.join("\n"));
+// let qus = require("fs").readFileSync("./input.txt", "utf-8").trim().split("\n");
+// const result = [];
+// qus.pop();
+// qus = qus.map((e) => e.split(""));
+// qus.forEach((e) =>
+//   e.join("") === e.reverse().join("") ? result.push("yes") : result.push("no")
+// );
+// console.log(result.join("\n"));
+
+// 2740번 문제
+const arr = require("fs")
+  .readFileSync("./input.txt", "utf-8")
+  .trim()
+  .split("\n");
+const NM = (arr) => arr.shift().split(" ").map(Number);
+const Splice = (arr, N) => arr.splice(0, N);
+const Split = (arr) => arr.map((e) => e.split(" ").map(Number));
+const [N1, M1] = NM(arr);
+let A = Splice(arr, N1);
+const [N2, M2] = NM(arr);
+let B = Splice(arr, N2);
+let result = Array.from(Array(N1), () => new Array(M2));
+A = Split(A);
+B = Split(B);
+A.forEach((e, k) => {
+  for (let i = 0; i < M2; i++) {
+    let sum = 0;
+    for (let j = 0; j < N2; j++) {
+      sum += e[j] * B[j][i];
+    }
+    result[k][i] = sum;
+  }
+});
+result = result.map((e) => e.join(" ")).join("\n");
+console.log(result);
 
 // 8979번 문제 8점 받음.. 다시 풀기
 // const [standard, ...nation] = require("fs")
