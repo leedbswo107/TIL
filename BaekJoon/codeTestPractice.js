@@ -2141,6 +2141,29 @@ const { link } = require("fs");
 // result = result.map((e) => e.join(" ")).join("\n");
 // console.log(result);
 
+// 2164번
+// const N = Number(require("fs").readFileSync("./input.txt", "utf-8").trim());
+// let i = 0;
+// while (2 ** i < N) i++;
+// console.log(2 ** i - 2 * (2 ** i - N));
+
+// 5086번 문제
+const arr = require("fs")
+  .readFileSync("./input.txt", "utf-8")
+  .trim()
+  .split("\n");
+arr.pop();
+const newArr = arr.map((e) => e.split(" ").map(Number));
+const result = new Array(newArr.length).fill();
+newArr.forEach((e, i) => {
+  result[i] = !(e[0] % e[1])
+    ? "multiple"
+    : !(e[1] % e[0])
+    ? "factor"
+    : "neither";
+});
+console.log(result.join("\n"));
+
 // 1972번 문제 풀어야함. map을 활용할것.
 // const problem = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
@@ -2362,19 +2385,6 @@ const { link } = require("fs");
 //   let room = Math.ceil(N / H) < 10 ? '0' + Math.ceil(N / H) : Math.ceil(N / H);
 //   console.log(layer + room);
 // });
-
-// 2164번
-const N = Number(require("fs").readFileSync("./input.txt", "utf-8").trim());
-let i = 0;
-while (2 ** i < N) i++;
-console.log(2 ** i - 2 * (2 ** i - N));
-// const card = new Array(N).fill(0).map((e, i) => (e += i + 1));
-// while (card.length !== 1) {
-//   card.shift();
-//   const end = card.shift();
-//   card.push(end);
-// }
-// console.log(card.join(""));
 
 // 1252번 문제????????????? 뭐여
 
