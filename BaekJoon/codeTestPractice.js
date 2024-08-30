@@ -2115,31 +2115,70 @@ const { link } = require("fs");
 // console.log(result.join("\n"));
 
 // 2740번 문제
-const arr = require("fs")
-  .readFileSync("./input.txt", "utf-8")
-  .trim()
-  .split("\n");
-const NM = (arr) => arr.shift().split(" ").map(Number);
-const Splice = (arr, N) => arr.splice(0, N);
-const Split = (arr) => arr.map((e) => e.split(" ").map(Number));
-const [N1, M1] = NM(arr);
-let A = Splice(arr, N1);
-const [N2, M2] = NM(arr);
-let B = Splice(arr, N2);
-let result = Array.from(Array(N1), () => new Array(M2));
-A = Split(A);
-B = Split(B);
-A.forEach((e, k) => {
-  for (let i = 0; i < M2; i++) {
-    let sum = 0;
-    for (let j = 0; j < N2; j++) {
-      sum += e[j] * B[j][i];
-    }
-    result[k][i] = sum;
-  }
-});
-result = result.map((e) => e.join(" ")).join("\n");
-console.log(result);
+// const arr = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const NM = (arr) => arr.shift().split(" ").map(Number);
+// const Splice = (arr, N) => arr.splice(0, N);
+// const Split = (arr) => arr.map((e) => e.split(" ").map(Number));
+// const [N1, M1] = NM(arr);
+// let A = Splice(arr, N1);
+// const [N2, M2] = NM(arr);
+// let B = Splice(arr, N2);
+// let result = Array.from(Array(N1), () => new Array(M2));
+// A = Split(A);
+// B = Split(B);
+// A.forEach((e, k) => {
+//   for (let i = 0; i < M2; i++) {
+//     let sum = 0;
+//     for (let j = 0; j < N2; j++) {
+//       sum += e[j] * B[j][i];
+//     }
+//     result[k][i] = sum;
+//   }
+// });
+// result = result.map((e) => e.join(" ")).join("\n");
+// console.log(result);
+
+// 1972번 문제 풀어야함. map을 활용할것.
+// const problem = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// problem.pop();
+// const changed = problem.map((e) => e.split(""));
+// const characterArr = [];
+// const result = new Array(problem.length).fill(" ");
+// const duplicateChar = new Array(problem.length).fill(0);
+// changed.forEach((e, j) => {
+//   let line = [];
+//   let count = 0;
+//   if (e.length < 2) line.push(...e);
+//   for (let i = 1; i < e.length; i++) {
+//     if (e[i - 1] === e[i]) count += 1;
+//     duplicateChar[j] = count;
+//     line.push(e[i - 1] + e[i]);
+//   }
+//   characterArr.push(line);
+// });
+// const mapList = new Map();
+// characterArr.forEach((e, i) => {
+//   mapList[i] = e;
+// });
+// characterArr.forEach((e, j) => {
+//   let target = e.shift();
+//   if (duplicateChar[j] >= 2) result[j] = " NOT ";
+//   for (let i = 0; i < e.length; i++) {
+//     if (e[i] === target) {
+//       result[j] = " NOT ";
+//       break;
+//     }
+//   }
+// });
+// result.forEach((e, i) => {
+//   console.log(`${problem[i]} is${e}surprising.`);
+// });
 
 // 8979번 문제 8점 받음.. 다시 풀기
 // const [standard, ...nation] = require("fs")
@@ -2324,22 +2363,19 @@ console.log(result);
 //   console.log(layer + room);
 // });
 
-// 2164번 문제 아직 못품..
-// const N = parseInt(
-//   require('fs').readFileSync('./input.txt', 'utf-8').trim(),
-//   10
-// );
-// console.time();
+// 2164번
+const N = Number(require("fs").readFileSync("./input.txt", "utf-8").trim());
+let i = 0;
+while (2 ** i < N) i++;
+console.log(2 ** i - 2 * (2 ** i - N));
 // const card = new Array(N).fill(0).map((e, i) => (e += i + 1));
-// while (1) {
-//   if (card.length === 1) break;
+// while (card.length !== 1) {
 //   card.shift();
-//   const end = card.splice(0, 1);
-//   card.push(...end);
-//   console.log(card);
+//   const end = card.shift();
+//   card.push(end);
 // }
-// console.log(card.join(''));
-// console.timeEnd();
+// console.log(card.join(""));
+
 // 1252번 문제????????????? 뭐여
 
 // const [A, B] = require('fs')
