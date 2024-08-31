@@ -2148,21 +2148,114 @@ const { link } = require("fs");
 // console.log(2 ** i - 2 * (2 ** i - N));
 
 // 5086번 문제
-const arr = require("fs")
+// const arr = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// arr.pop();
+// const newArr = arr.map((e) => e.split(" ").map(Number));
+// const result = new Array(newArr.length).fill();
+// newArr.forEach((e, i) => {
+//   result[i] = !(e[0] % e[1])
+//     ? "multiple"
+//     : !(e[1] % e[0])
+//     ? "factor"
+//     : "neither";
+// });
+// console.log(result.join("\n"));
+
+// 2720번 문제
+// const [_, ...arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n")
+//   .map(Number);
+// const change = [25, 10, 5, 1];
+// const result = [];
+// let i = 0;
+// arr.forEach((e) => {
+//   let line = new Array(change.length).fill(0);
+//   while (i < 4) {
+//     if (e / change[i] > 0) {
+//       line[i] = Math.floor(e / change[i]);
+//       e -= Math.floor(e / change[i]) * change[i];
+//     }
+//     i++;
+//   }
+//   result.push(line.join(" "));
+//   i = 0;
+// });
+// console.log(result.join("\n"));
+
+// 10250번.
+// const [T, ...Q] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const result = new Array(T);
+// Q.forEach((e, i) => {
+//   const [H, W, N] = e.split(" ").map(Number);
+//   const layer = !(N % H) ? H : N % H;
+//   const room = !(N % H) ? N / H : parseInt(N / H, 10) + 1;
+//   result[i] = `${layer}${room < 10 ? "0" + room : room}`;
+// });
+// console.log(result.join("\n"));
+
+// 11050번 문제
+// const [N, K] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(Number);
+// let [x, y] = [1, 1];
+// for (let i = 0; i < K; i++) {
+//   y *= i + 1;
+//   x *= N - i;
+// }
+// console.log(x / y);
+
+// 30802번 문제
+const [N, ...arr] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-arr.pop();
-const newArr = arr.map((e) => e.split(" ").map(Number));
-const result = new Array(newArr.length).fill();
-newArr.forEach((e, i) => {
-  result[i] = !(e[0] % e[1])
-    ? "multiple"
-    : !(e[1] % e[0])
-    ? "factor"
-    : "neither";
-});
-console.log(result.join("\n"));
+const bigN = BigInt(N);
+const size = arr[0].split(" ").map(BigInt);
+const [T, P] = arr[1].split(" ").map(BigInt);
+let count = new Array(size.length);
+size.forEach((e, i) =>
+  e % T > BigInt(0) ? (count[i] = e / T + BigInt(1)) : (count[i] = e / T)
+);
+const total = count.reduce((acc, cur) => acc + cur, BigInt(0));
+const num = Number(bigN / P);
+console.log(Number(total));
+console.log(num, N - Number(P) * num);
+
+// 2563번 문제 푸는중..
+// const [N, ...arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const newArr = arr.map((e) => e.split(" ").map(Number));
+// newArr.sort((a, b) => a[0] - b[0]);
+// const len = newArr.length;
+// let initialExtent = N * 100;
+// let duplicateExtent = 0;
+// console.log(newArr);
+// for (let i = 0; i < len; i++) {
+//   let target = newArr.shift();
+//   for (let j = 0; j < newArr.length; j++) {
+//     // console.log(newArr[j][0], newArr[j][1]);
+//     if (target[0] + 10 > newArr[j][0]) {
+//       console.log(
+//         (target[0] + 10 - newArr[j][0]) * (newArr[j][1] + 10 - target[1])
+//       );
+//       duplicateExtent +=
+//         (target[0] + 10 - newArr[j][0]) * (newArr[j][1] + 10 - target[1]);
+//     }
+//   }
+// }
+// console.log(initialExtent - duplicateExtent);
 
 // 1972번 문제 풀어야함. map을 활용할것.
 // const problem = require("fs")
@@ -2373,18 +2466,6 @@ console.log(result.join("\n"));
 // }
 // console.log(arr);
 // console.log(arr[N]);
-
-// 10250번 문제 풀어야함.
-// const [T, ...Q] = require('fs')
-//   .readFileSync('./input.txt', 'utf-8')
-//   .trim()
-//   .split('\n');
-// Q.forEach((e) => {
-//   const [H, W, N] = e.split(' ').map(Number);
-//   const layer = N % H === 0 ? H : N % H;
-//   let room = Math.ceil(N / H) < 10 ? '0' + Math.ceil(N / H) : Math.ceil(N / H);
-//   console.log(layer + room);
-// });
 
 // 1252번 문제????????????? 뭐여
 
