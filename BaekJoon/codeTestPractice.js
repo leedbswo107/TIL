@@ -2215,21 +2215,39 @@ const { link } = require("fs");
 // console.log(x / y);
 
 // 30802번 문제
-const [N, ...arr] = require("fs")
+// const [N, ...arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const bigN = BigInt(N);
+// const size = arr[0].split(" ").map(BigInt);
+// const [T, P] = arr[1].split(" ").map(BigInt);
+// let count = new Array(size.length);
+// size.forEach((e, i) =>
+//   e % T > BigInt(0) ? (count[i] = e / T + BigInt(1)) : (count[i] = e / T)
+// );
+// const total = count.reduce((acc, cur) => acc + cur, BigInt(0));
+// const num = Number(bigN / P);
+// console.log(Number(total));
+// console.log(num, N - Number(P) * num);
+
+//1978번
+const [N, nums] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-const bigN = BigInt(N);
-const size = arr[0].split(" ").map(BigInt);
-const [T, P] = arr[1].split(" ").map(BigInt);
-let count = new Array(size.length);
-size.forEach((e, i) =>
-  e % T > BigInt(0) ? (count[i] = e / T + BigInt(1)) : (count[i] = e / T)
-);
-const total = count.reduce((acc, cur) => acc + cur, BigInt(0));
-const num = Number(bigN / P);
-console.log(Number(total));
-console.log(num, N - Number(P) * num);
+const arr = nums.split(" ").map(Number);
+let count = 0;
+arr.forEach((e) => {
+  let j = 1;
+  let checkCount = 0;
+  while (e >= j) {
+    !(e % j) && checkCount++;
+    j++;
+  }
+  checkCount === 2 && count++;
+});
+console.log(count);
 
 // 2563번 문제 푸는중..
 // const [N, ...arr] = require("fs")
