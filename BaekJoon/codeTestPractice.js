@@ -2232,22 +2232,76 @@ const { link } = require("fs");
 // console.log(num, N - Number(P) * num);
 
 //1978번
-const [N, nums] = require("fs")
+// const [N, nums] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const arr = nums.split(" ").map(Number);
+// let count = 0;
+// arr.forEach((e) => {
+//   let j = 1;
+//   let checkCount = 0;
+//   while (e >= j) {
+//     !(e % j) && checkCount++;
+//     j++;
+//   }
+//   checkCount === 2 && count++;
+// });
+// console.log(count);
+
+// 2798번 문제
+const [nums, card] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-const arr = nums.split(" ").map(Number);
-let count = 0;
-arr.forEach((e) => {
-  let j = 1;
-  let checkCount = 0;
-  while (e >= j) {
-    !(e % j) && checkCount++;
-    j++;
+const [N, M] = nums.split(" ").map(Number);
+const cardList = card.split(" ").map(Number);
+const arr = [];
+let sum = 0;
+let result = 0;
+while (cardList.length >= 3) {
+  sum = 0;
+  let target = cardList.shift();
+  for (let j = 0; j < cardList.length; j++) {
+    let next = cardList[j];
+    for (let i = j + 1; i < cardList.length; i++) {
+      let third = cardList[i];
+      sum = target + next + third;
+      arr.push(sum);
+    }
   }
-  checkCount === 2 && count++;
-});
-console.log(count);
+}
+arr.sort((a, b) => a - b);
+for (let i = 0; i < arr.length; i++) {
+  if (arr[i] > M) {
+    result = arr[i - 1];
+    break;
+  }
+  result = arr[i];
+}
+console.log(result);
+
+// 10816번 문제 푸는중. 이진탐색
+// const arr = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const numbers = arr[1]
+//   .split(" ")
+//   .map(Number)
+//   .sort((a, b) => a - b);
+// const numberM = arr[3].split(" ").map(Number);
+// const result = new Array(numberM.length).fill(0);
+// const half = numberM.forEach((el, i) =>
+//   numbers.filter((e) => e === el && result[i]++)
+// );
+// console.log(result.join(" "));
+
+// numberM.forEach((e, i) => {
+//   for (let j = 0; j < numbers.length; j++) {
+//     if (e === numbers[j]) result[i] += 1;
+//   }
+// });
 
 // 2563번 문제 푸는중..
 // const [N, ...arr] = require("fs")
