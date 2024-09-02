@@ -2250,35 +2250,50 @@ const { link } = require("fs");
 // console.log(count);
 
 // 2798번 문제
-const [nums, card] = require("fs")
+// const [nums, card] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const [N, M] = nums.split(" ").map(Number);
+// const cardList = card.split(" ").map(Number);
+// const arr = [];
+// let sum = 0;
+// let result = 0;
+// while (cardList.length >= 3) {
+//   sum = 0;
+//   let target = cardList.shift();
+//   for (let j = 0; j < cardList.length; j++) {
+//     let next = cardList[j];
+//     for (let i = j + 1; i < cardList.length; i++) {
+//       let third = cardList[i];
+//       sum = target + next + third;
+//       arr.push(sum);
+//     }
+//   }
+// }
+// arr.sort((a, b) => a - b);
+// for (let i = 0; i < arr.length; i++) {
+//   if (arr[i] > M) {
+//     result = arr[i - 1];
+//     break;
+//   }
+//   result = arr[i];
+// }
+// console.log(result);
+
+//28702번 문제
+const arr = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-const [N, M] = nums.split(" ").map(Number);
-const cardList = card.split(" ").map(Number);
-const arr = [];
-let sum = 0;
-let result = 0;
-while (cardList.length >= 3) {
-  sum = 0;
-  let target = cardList.shift();
-  for (let j = 0; j < cardList.length; j++) {
-    let next = cardList[j];
-    for (let i = j + 1; i < cardList.length; i++) {
-      let third = cardList[i];
-      sum = target + next + third;
-      arr.push(sum);
-    }
-  }
-}
-arr.sort((a, b) => a - b);
-for (let i = 0; i < arr.length; i++) {
-  if (arr[i] > M) {
-    result = arr[i - 1];
-    break;
-  }
-  result = arr[i];
-}
+let numbers = [];
+arr.forEach((e) => !isNaN(e) && numbers.push(Number(e)));
+let num = numbers[0] + arr.length - arr.indexOf(`${numbers[0]}`);
+let result;
+if (!(num % 15)) result = "FizzBuzz";
+else if (!(num % 3) && num % 5 !== 0) result = "Fizz";
+else if (!(num % 5) && num % 3 !== 0) result = "Buzz";
+else result = num;
 console.log(result);
 
 // 10816번 문제 푸는중. 이진탐색
