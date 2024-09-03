@@ -24,6 +24,7 @@
 // }
 // console.log(arr.join(' '));
 
+const { Worker } = require("cluster");
 const { link } = require("fs");
 
 // 10810번 문제
@@ -2282,20 +2283,43 @@ const { link } = require("fs");
 // console.log(result);
 
 //28702번 문제
-const arr = require("fs")
+// const arr = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// let numbers = [];
+// arr.forEach((e) => !isNaN(e) && numbers.push(Number(e)));
+// let num = numbers[0] + arr.length - arr.indexOf(`${numbers[0]}`);
+// let result;
+// if (!(num % 15)) result = "FizzBuzz";
+// else if (!(num % 3) && num % 5 !== 0) result = "Fizz";
+// else if (!(num % 5) && num % 3 !== 0) result = "Buzz";
+// else result = num;
+// console.log(result);
+
+// 11557번 문제
+const [T, ...arr] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-let numbers = [];
-arr.forEach((e) => !isNaN(e) && numbers.push(Number(e)));
-let num = numbers[0] + arr.length - arr.indexOf(`${numbers[0]}`);
-let result;
-if (!(num % 15)) result = "FizzBuzz";
-else if (!(num % 3) && num % 5 !== 0) result = "Fizz";
-else if (!(num % 5) && num % 3 !== 0) result = "Buzz";
-else result = num;
-console.log(result);
-
+const N = [];
+const caseList = [];
+const result = new Array(Number(T));
+for (let i = 0; i < T; i++) {
+  let n = Number(arr.shift());
+  let list = arr.splice(0, n);
+  N.push(n);
+  caseList.push(list);
+}
+caseList.forEach((e, i) => {
+  let processedArr = e.map((el) => el.split(" "));
+  let maxNum = ["", 0];
+  processedArr.forEach(
+    (e) => maxNum[1] < Number(e[1]) && (maxNum = [e[0], e[1]])
+  );
+  result[i] = maxNum[0];
+});
+console.log(result.join("\n"));
 // 10816번 문제 푸는중. 이진탐색
 // const arr = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
