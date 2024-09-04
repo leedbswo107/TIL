@@ -2298,28 +2298,77 @@ const { link } = require("fs");
 // console.log(result);
 
 // 11557번 문제
-const [T, ...arr] = require("fs")
+// const [T, ...arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const N = [];
+// const caseList = [];
+// const result = new Array(Number(T));
+// for (let i = 0; i < T; i++) {
+//   let n = Number(arr.shift());
+//   let list = arr.splice(0, n);
+//   N.push(n);
+//   caseList.push(list);
+// }
+// caseList.forEach((e, i) => {
+//   let processedArr = e.map((el) => el.split(" "));
+//   let maxNum = ["", 0];
+//   processedArr.forEach(
+//     (e) => maxNum[1] < Number(e[1]) && (maxNum = [e[0], e[1]])
+//   );
+//   result[i] = maxNum[0];
+// });
+// console.log(result.join("\n"));
+
+// 1021번 문제
+// const [A, B] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const [N, M] = A.split(" ").map(Number);
+// const arr = B.split(" ").map(Number);
+// const targetArr = new Array(N).fill(0).map((e, i) => (e += i + 1));
+// let count = 0;
+// arr.forEach((e) => {
+//   let target = targetArr.indexOf(e);
+//   let move;
+//   while (true) {
+//     if (target === 0) {
+//       targetArr.shift();
+//       break;
+//     }
+//     if (Math.ceil(targetArr.length / 2) >= target + 1) {
+//       move = targetArr.shift();
+//       targetArr.push(move);
+//       target = targetArr.indexOf(e);
+//     } else {
+//       move = targetArr.pop();
+//       targetArr.unshift(move);
+//       target = targetArr.indexOf(e);
+//     }
+//     count++;
+//   }
+// });
+// console.log(count);
+
+// 2559번 문제
+const [A, B] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-const N = [];
-const caseList = [];
-const result = new Array(Number(T));
-for (let i = 0; i < T; i++) {
-  let n = Number(arr.shift());
-  let list = arr.splice(0, n);
-  N.push(n);
-  caseList.push(list);
+const [N, K] = A.split(" ").map(Number);
+const arr = B.split(" ").map(Number);
+const targetIndex = N - K + 1;
+const sumList = new Array(targetIndex).fill(0);
+for (let i = 0; i < targetIndex; i++) {
+  let sum = 0;
+  for (let j = i; j < i + K; j++) {
+    sum += arr[j];
+  }
+  sumList[i] = sum;
 }
-caseList.forEach((e, i) => {
-  let processedArr = e.map((el) => el.split(" "));
-  let maxNum = ["", 0];
-  processedArr.forEach(
-    (e) => maxNum[1] < Number(e[1]) && (maxNum = [e[0], e[1]])
-  );
-  result[i] = maxNum[0];
-});
-console.log(result.join("\n"));
+console.log(Math.max(...sumList));
 // 10816번 문제 푸는중. 이진탐색
 // const arr = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
