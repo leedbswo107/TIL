@@ -2353,22 +2353,51 @@ const { link } = require("fs");
 // console.log(count);
 
 // 2559번 문제
-const [A, B] = require("fs")
+// const [A, B] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const [N, K] = A.split(" ").map(Number);
+// const arr = B.split(" ").map(Number);
+// const targetIndex = N - K + 1;
+// const sumList = new Array(targetIndex).fill(0);
+// for (let i = 0; i < targetIndex; i++) {
+//   let sum = 0;
+//   for (let j = i; j < i + K; j++) {
+//     sum += arr[j];
+//   }
+//   sumList[i] = sum;
+// }
+// console.log(Math.max(...sumList));
+
+// 2903번 문제
+// const N = Number(require("fs").readFileSync("./input.txt", "utf-8").trim());
+// let num = 2;
+// for (let i = 0; i < N; i++) num += num - 1;
+// console.log(num ** 2);
+
+// 2292번 문제
+// const N = Number(require("fs").readFileSync("./input.txt", "utf-8").trim());
+// let i = 0;
+// let j = 1;
+// while (1 + i * 6 < N) {
+//   i += j;
+//   j++;
+// }
+// console.log(j);
+
+// 2501번 문제
+const [N, K] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
-  .split("\n");
-const [N, K] = A.split(" ").map(Number);
-const arr = B.split(" ").map(Number);
-const targetIndex = N - K + 1;
-const sumList = new Array(targetIndex).fill(0);
-for (let i = 0; i < targetIndex; i++) {
-  let sum = 0;
-  for (let j = i; j < i + K; j++) {
-    sum += arr[j];
-  }
-  sumList[i] = sum;
-}
-console.log(Math.max(...sumList));
+  .split(" ")
+  .map(Number);
+const measure = [];
+
+for (let i = 1; i <= N; i++) !(N % i) && measure.push(i);
+measure.sort((a, b) => a - b);
+console.log(measure.length < K ? 0 : measure[K - 1]);
+
 // 10816번 문제 푸는중. 이진탐색
 // const arr = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
