@@ -2387,16 +2387,59 @@ const { link } = require("fs");
 // console.log(j);
 
 // 2501번 문제
-const [N, K] = require("fs")
+// const [N, K] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(Number);
+// const measure = [];
+
+// for (let i = 1; i <= N; i++) !(N % i) && measure.push(i);
+// measure.sort((a, b) => a - b);
+// console.log(measure.length < K ? 0 : measure[K - 1]);
+
+// 2581번 문제
+// let [M, N] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n")
+//   .map(Number);
+// const result = [];
+// while (M <= N) {
+//   const measure = [];
+//   for (let j = 1; j <= M; j++) !(M % j) && measure.push(j);
+//   measure.length === 2 && result.push(M);
+//   M++;
+// }
+// result.sort((a, b) => a - b);
+// const sum = result.reduce((acc, cur) => acc + cur, 0);
+// console.log(result.length ? `${sum}\n${result[0]}` : -1);
+
+// 9506번 문제
+const arr = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
-  .split(" ")
+  .split("\n")
   .map(Number);
-const measure = [];
-
-for (let i = 1; i <= N; i++) !(N % i) && measure.push(i);
-measure.sort((a, b) => a - b);
-console.log(measure.length < K ? 0 : measure[K - 1]);
+const lineArr = [];
+const result = [];
+arr.pop();
+arr.forEach((e) => {
+  const line = [];
+  let i = 1;
+  while (e !== i) {
+    !(e % i) && line.push(i);
+    i++;
+  }
+  lineArr.push(line);
+});
+lineArr.forEach((e, i) => {
+  let sum = e.reduce((acc, cur) => acc + cur, 0);
+  sum === arr[i]
+    ? result.push(`${arr[i]} = ${e.join(" + ")}`)
+    : result.push(`${arr[i]} is NOT perfect.`);
+});
+console.log(result.join("\n"));
 
 // 10816번 문제 푸는중. 이진탐색
 // const arr = require("fs")
