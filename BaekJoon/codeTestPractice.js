@@ -2416,30 +2416,58 @@ const { link } = require("fs");
 // console.log(result.length ? `${sum}\n${result[0]}` : -1);
 
 // 9506번 문제
-const arr = require("fs")
-  .readFileSync("./input.txt", "utf-8")
-  .trim()
-  .split("\n")
-  .map(Number);
-const lineArr = [];
-const result = [];
-arr.pop();
-arr.forEach((e) => {
-  const line = [];
-  let i = 1;
-  while (e !== i) {
-    !(e % i) && line.push(i);
-    i++;
-  }
-  lineArr.push(line);
-});
-lineArr.forEach((e, i) => {
-  let sum = e.reduce((acc, cur) => acc + cur, 0);
-  sum === arr[i]
-    ? result.push(`${arr[i]} = ${e.join(" + ")}`)
-    : result.push(`${arr[i]} is NOT perfect.`);
-});
-console.log(result.join("\n"));
+// const arr = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n")
+//   .map(Number);
+// const lineArr = [];
+// const result = [];
+// arr.pop();
+// arr.forEach((e) => {
+//   const line = [];
+//   let i = 1;
+//   while (e !== i) {
+//     !(e % i) && line.push(i);
+//     i++;
+//   }
+//   lineArr.push(line);
+// });
+// lineArr.forEach((e, i) => {
+//   let sum = e.reduce((acc, cur) => acc + cur, 0);
+//   sum === arr[i]
+//     ? result.push(`${arr[i]} = ${e.join(" + ")}`)
+//     : result.push(`${arr[i]} is NOT perfect.`);
+// });
+// console.log(result.join("\n"));
+
+// 3009번 문제
+// let arr = require("fs").readFileSync("./input.txt", "utf-8").trim().split("\n");
+// arr = arr.map((e) => e.split(" ").map(Number));
+// arr.sort((a, b) => a[0] - b[0]);
+// const setLArr = new Set(arr.map((e) => e[0]));
+// const setRArr = new Set(arr.map((e) => e[1]));
+// const result = [];
+// const solution = (setArr, num) =>
+//   Array.from(setArr).forEach((e) => {
+//     let count = 0;
+//     for (let i = 0; i < arr.length; i++) e === arr[i][num] && count++;
+//     count === 1 && result.push(e);
+//   });
+// solution(setLArr, 0);
+// solution(setRArr, 1);
+// console.log(result.join(" "));
+
+// 24266번문제
+// const n = require("fs").readFileSync("./input.txt", "utf-8").trim();
+// function solution(n) {
+//   let sum = 0;
+//   for (let i = 1; i < n; i++) sum += i;
+//   return sum;
+// }
+// console.log(`${solution(n)}\n${1}`);
+// const n = BigInt(require("fs").readFileSync("./input.txt", "utf-8").trim());
+// console.log(`${n * n * n}\n${3}`);
 
 // 10816번 문제 푸는중. 이진탐색
 // const arr = require("fs")
