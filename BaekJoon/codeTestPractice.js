@@ -2469,6 +2469,77 @@ const { link } = require("fs");
 // const n = BigInt(require("fs").readFileSync("./input.txt", "utf-8").trim());
 // console.log(`${n * n * n}\n${3}`);
 
+// 1026번 문제
+// const [N, ...arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const [A, B] = arr.map((e) => e.split(" ").map(Number));
+// const sortedA = new Array(N);
+// let result = 0;
+// let j = 0;
+// A.sort((a, b) => a - b);
+// while (j < B.length) {
+//   const target = B[j];
+//   let indexNum = 0;
+//   for (let i = 0; i < B.length; i++) target > B[i] && indexNum++;
+//   result += A[A.length - indexNum - 1] * B[j];
+//   sortedA[j] = A[A.length - 1 - indexNum];
+//   j++;
+// }
+// console.log(result);
+// const [A, B] = arr.map((e) =>
+//   e
+//     .split(" ")
+//     .map(Number)
+//     .sort((a, b) => a - b)
+// );
+// let sum = 0;
+// A.forEach((e, i) => {
+//   sum += e * B[B.length - 1 - i];
+// });
+// console.log(sum);
+
+// 9237번 문제
+// let [_, arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// arr = arr
+//   .split(" ")
+//   .map(Number)
+//   .sort((a, b) => b - a);
+// let date = 1;
+// for (let i = 0; i < arr.length; i++) {
+//   arr[i] += date;
+//   date++;
+// }
+// console.log(Math.max(...arr) + 1);
+
+// 14659번 문제
+const [_, arr] = require("fs")
+  .readFileSync("./input.txt", "utf-8")
+  .trim()
+  .split("\n");
+const processedArr = arr.split(" ").map(Number);
+const countOutput = [];
+while (processedArr.length) {
+  let count = 0;
+  const target = processedArr.shift();
+  for (let i = 0; i < processedArr.length; i++) {
+    if (target < processedArr[i]) {
+      countOutput.push(count);
+      break;
+    } else if (target > processedArr[i] && i === processedArr.length - 1) {
+      count++;
+      countOutput.push(count);
+      break;
+    }
+    count++;
+  }
+}
+console.log(Math.max(...countOutput));
+
 // 10816번 문제 푸는중. 이진탐색
 // const arr = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
