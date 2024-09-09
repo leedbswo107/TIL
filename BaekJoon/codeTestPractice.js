@@ -2517,29 +2517,59 @@ const { link } = require("fs");
 // console.log(Math.max(...arr) + 1);
 
 // 14659번 문제
-const [_, arr] = require("fs")
+// const [_, arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const processedArr = arr.split(" ").map(Number);
+// const countOutput = [];
+// while (processedArr.length) {
+//   let count = 0;
+//   const target = processedArr.shift();
+//   for (let i = 0; i < processedArr.length; i++) {
+//     if (target < processedArr[i]) {
+//       countOutput.push(count);
+//       break;
+//     } else if (target > processedArr[i] && i === processedArr.length - 1) {
+//       count++;
+//       countOutput.push(count);
+//       break;
+//     }
+//     count++;
+//   }
+// }
+// console.log(Math.max(...countOutput));
+
+// 1874번 문제
+const [n, ...target] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
-  .split("\n");
-const processedArr = arr.split(" ").map(Number);
-const countOutput = [];
-while (processedArr.length) {
-  let count = 0;
-  const target = processedArr.shift();
-  for (let i = 0; i < processedArr.length; i++) {
-    if (target < processedArr[i]) {
-      countOutput.push(count);
-      break;
-    } else if (target > processedArr[i] && i === processedArr.length - 1) {
-      count++;
-      countOutput.push(count);
-      break;
-    }
-    count++;
-  }
-}
-console.log(Math.max(...countOutput));
+  .split("\n")
+  .map(Number);
+const arr = new Array(n).fill(1).map((e, i) => (e += i));
+const result = [];
+let errorMsg = "";
+const stack = [];
 
+target.forEach((e) => {
+  while (true) {
+    if (stack.includes(e)) {
+      if (stack[stack.length - 1] === e) {
+        stack.pop();
+        result.push("-");
+        break;
+      }
+      if (stack.length - 1 !== stack.indexOf(e)) {
+        errorMsg = "NO";
+        break;
+      }
+    }
+    const element = arr.shift();
+    stack.push(element);
+    result.push("+");
+  }
+});
+console.log(errorMsg ? errorMsg : result.join("\n"));
 // 10816번 문제 푸는중. 이진탐색
 // const arr = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
