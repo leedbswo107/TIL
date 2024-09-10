@@ -2541,35 +2541,95 @@ const { link } = require("fs");
 // console.log(Math.max(...countOutput));
 
 // 1874번 문제
-const [n, ...target] = require("fs")
-  .readFileSync("./input.txt", "utf-8")
-  .trim()
-  .split("\n")
-  .map(Number);
-const arr = new Array(n).fill(1).map((e, i) => (e += i));
-const result = [];
-let errorMsg = "";
-const stack = [];
+// const [n, ...target] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n")
+//   .map(Number);
+// const arr = new Array(n).fill(1).map((e, i) => (e += i));
+// const result = [];
+// let errorMsg = "";
+// const stack = [];
 
-target.forEach((e) => {
-  while (true) {
-    if (stack.includes(e)) {
-      if (stack[stack.length - 1] === e) {
-        stack.pop();
-        result.push("-");
-        break;
-      }
-      if (stack.length - 1 !== stack.indexOf(e)) {
-        errorMsg = "NO";
-        break;
-      }
-    }
-    const element = arr.shift();
-    stack.push(element);
-    result.push("+");
-  }
-});
-console.log(errorMsg ? errorMsg : result.join("\n"));
+// for (let i = 0; i < target.length; i++) {
+//   if (errorMsg) break;
+//   while (true) {
+//     if (stack.includes(target[i])) {
+//       if (stack[stack.length - 1] === target[i]) {
+//         stack.pop();
+//         result.push("-");
+//         break;
+//       }
+//       if (stack.length - 1 !== stack.indexOf(target[i])) {
+//         errorMsg = "NO";
+//         break;
+//       }
+//     }
+//     const element = arr.shift();
+//     stack.push(element);
+//     result.push("+");
+//   }
+// }
+// console.log(errorMsg ? errorMsg : result.join("\n"));
+// target.forEach((e) => {
+//   while (true) {
+//     if (stack.includes(e)) {
+//       if (stack[stack.length - 1] === e) {
+//         stack.pop();
+//         result.push("-");
+//         break;
+//       }
+//       if (stack.length - 1 !== stack.indexOf(e)) {
+//         errorMsg = "NO";
+//         break;
+//       }
+//     }
+//     const element = arr.shift();
+//     stack.push(element);
+//     result.push("+");
+//   }
+// });
+// console.log(errorMsg ? errorMsg : result.join("\n"));
+
+// 9063번 문제
+// let [N, ...point] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// point = point.map((e) => e.split(" ").map(Number));
+// const x = [];
+// const y = [];
+// point.forEach((e) => x.push(e[0]) && y.push(e[1]));
+// const result =
+//   (Math.max(...x) - Math.min(...x)) * (Math.max(...y) - Math.min(...y));
+// console.log(result);
+
+//15894번 문제
+const n = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+console.log(n * 4);
+
+// 1929번 문제 푸는중..
+// const [M, N] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(Number);
+// const nums = new Array(N - M + 1).fill(0).map((e, i) => (e += i + M));
+// const newNums = [...nums];
+// newNums.forEach((e) => {
+//   if (
+//     e === 1 ||
+//     (e !== 2 && !(e % 2)) ||
+//     (e !== 3 && !(e % 3)) ||
+//     (e !== 5 && !(e % 5)) ||
+//     (e !== 7 && !(e % 7))
+//   ) {
+//     const deleteIndex = nums.indexOf(e);
+//     nums.splice(deleteIndex, 1);
+//   }
+// });
+// console.log(nums.join("\n"));
+
 // 10816번 문제 푸는중. 이진탐색
 // const arr = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
