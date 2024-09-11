@@ -2605,8 +2605,58 @@ const { link } = require("fs");
 // console.log(result);
 
 //15894번 문제
-const n = +require("fs").readFileSync("./input.txt", "utf-8").trim();
-console.log(n * 4);
+// const n = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// console.log(n * 4);
+
+// 25305번 문제
+// const [A, B] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const [N, k] = A.split(" ").map(Number);
+// const arr = B.split(" ")
+//   .map(Number)
+//   .sort((a, b) => b - a);
+// console.log(arr[k - 1]);
+
+//24267번 문제
+// const n = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// console.log(`${(BigInt(n) * BigInt(n - 1) * BigInt(n - 2)) / BigInt(6)}\n3`);
+
+//24313번 문제
+let [A, c, n0] = require("fs")
+  .readFileSync("./input.txt", "utf-8")
+  .trim()
+  .split("\n");
+let [a1, a0] = A.split(" ").map(Number);
+let result = 1;
+c = +c;
+n0 = +n0;
+for (let n = n0; n <= 100; n++) {
+  if (a1 * n + a0 > c * n) {
+    result = 0;
+    break;
+  }
+}
+console.log(result);
+// console.log(a1 * n0 + a0 <= c * n0 ? 1 : 0);
+
+// 19532번 문제 푸는중...
+// const [a, b, c, d, e, f] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(Number);
+// let x = 0;
+// for (x; x <= 999; x++) {
+//   if (a * (-1 * x) + b * ((f - d * (-1 * x)) / e) === c) {
+//     x *= -1;
+//     break;
+//   } else if (a * x + b * ((f - d * x) / e) === c) break;
+// }
+// x = x !== 1000 ? x : 0;
+// let y = x !== 0 ? (c - a * x) / b || (f - d * x) / e : 0;
+// console.log(`${x} ${y}`);
 
 // 1929번 문제 푸는중..
 // const [M, N] = require("fs")
