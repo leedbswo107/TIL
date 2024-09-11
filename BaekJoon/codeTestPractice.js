@@ -2624,22 +2624,45 @@ const { link } = require("fs");
 // console.log(`${(BigInt(n) * BigInt(n - 1) * BigInt(n - 2)) / BigInt(6)}\n3`);
 
 //24313번 문제
-let [A, c, n0] = require("fs")
-  .readFileSync("./input.txt", "utf-8")
-  .trim()
-  .split("\n");
-let [a1, a0] = A.split(" ").map(Number);
+// let [A, c, n0] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// let [a1, a0] = A.split(" ").map(Number);
+// let result = 1;
+// c = +c;
+// n0 = +n0;
+// for (let n = n0; n <= 100; n++) {
+//   if (a1 * n + a0 > c * n) {
+//     result = 0;
+//     break;
+//   }
+// }
+// console.log(result);
+
+// 10870번 문제
+// const n = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// const result = [0, 1];
+// let i = 2;
+// function fibonacci(num) {
+//   result.push(result[num - 1] + result[num - 2]);
+//   num < n && fibonacci((i += 1));
+// }
+// fibonacci(i);
+// console.log(result[n]);
+
+// 27433번 문제
+const n = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+let i = 1;
 let result = 1;
-c = +c;
-n0 = +n0;
-for (let n = n0; n <= 100; n++) {
-  if (a1 * n + a0 > c * n) {
-    result = 0;
-    break;
+function factorial(num) {
+  if (num <= n && num !== 0) {
+    result *= num;
+    factorial((i += 1));
   }
 }
+factorial(i);
 console.log(result);
-// console.log(a1 * n0 + a0 <= c * n0 ? 1 : 0);
 
 // 19532번 문제 푸는중...
 // const [a, b, c, d, e, f] = require("fs")
