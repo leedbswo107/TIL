@@ -2652,17 +2652,178 @@ const { link } = require("fs");
 // console.log(result[n]);
 
 // 27433번 문제
-const n = +require("fs").readFileSync("./input.txt", "utf-8").trim();
-let i = 1;
-let result = 1;
-function factorial(num) {
-  if (num <= n && num !== 0) {
-    result *= num;
-    factorial((i += 1));
+// const n = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// let i = 1;
+// let result = 1;
+// function factorial(num) {
+//   if (num <= n && num !== 0) {
+//     result *= num;
+//     factorial((i += 1));
+//   }
+// }
+// factorial(i);
+// console.log(result);
+
+// 2407번 문제
+// const [n, m] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(BigInt);
+// let a = BigInt(1);
+// let b = BigInt(1);
+// for (let i = BigInt(1); i <= m; i++) {
+//   a *= i;
+//   b *= n - i + BigInt(1);
+// }
+// console.log(`${b / a}`);
+
+// 15740번 문제
+// const [A, B] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(BigInt);
+// console.log(`${A + B}`);
+
+// 10826번 문제
+// const n = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// const memo = new Array(n + 1).fill(0);
+// const fibo = (i) => {
+//   // if (i === 0) return 0;
+//   if (i <= 1) return BigInt(i);
+//   if (memo[i] !== 0) return memo[i];
+//   return (memo[i] = fibo(i - 1) + fibo(i - 2));
+// };
+// console.log(`${fibo(n)}`);
+
+// 2309번 문제
+const arr = require("fs")
+  .readFileSync("./input.txt", "utf-8")
+  .trim()
+  .split("\n")
+  .map(Number);
+const allArr = [];
+let result = [];
+const processedArr = [...arr.sort((a, b) => a - b)];
+let sum = processedArr.reduce((acc, cur) => acc + cur, 0);
+while (processedArr.length) {
+  let firstElement = processedArr.shift();
+  for (let i = 0; i < arr.length; i++) {
+    const line = [firstElement, processedArr[i]];
+    allArr.push(line);
   }
 }
-factorial(i);
-console.log(result);
+allArr.forEach((e) => e[0] + e[1] === sum - 100 && (result = [e[0], e[1]]));
+arr.splice(arr.indexOf(result[0]), 1);
+arr.splice(arr.indexOf(result[1]), 1);
+console.log(arr.join("\n"));
+
+// 2504번 문제 푸는중. 재귀함수로 관리 해야할거 같음.
+// const problem = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("");
+// let sum = 0;
+// const duplicate1 = () => {
+
+// }
+// while (problem.length > 0) {
+//   const target = problem.pop();
+//   const next = problem[problem.length - 1];
+//   console.log("target", target);
+//   console.log("next", next);
+//   if ((target === ")" && next === "[") || (target === "]" && next === "(")) {
+//     sum = 0;
+//     console.log("break");
+//     break;
+//   }
+//   if ((target === ")" && next === ")") || (target === ")" && next === "]")) {
+//     let innerSum = 0;
+//     console.log("시작1");
+//     for (let i = problem.length - 1; i >= 0; i--) {
+//       const innerTarget = problem.pop();
+//       const innerNext = problem[problem.length - 1];
+//       if (innerTarget === ")" && innerNext === "(") innerSum += 2;
+//       if (innerTarget === "]" && innerNext === "[") innerSum += 3;
+//       if ((innerTarget === "(" && innerNext === "(") || "[") {
+//         innerSum *= 2;
+//         sum += innerSum;
+//         break;
+//       }
+//     }
+//   } else if (
+//     (target === "]" && next === "]") ||
+//     (target === "]" && next === ")")
+//   ) {
+//     let innerSum = 0;
+//     console.log("시작2");
+//     for (let i = problem.length - 1; i >= 0; i--) {
+//       const innerTarget = problem.pop();
+//       const innerNext = problem[problem.length - 1];
+//       console.log("innerTarget", innerTarget);
+//       console.log("innerNext", innerNext);
+//       if (innerTarget === ")" && innerNext === "(") innerSum += 2;
+//       if (innerTarget === "]" && innerNext === "[") innerSum += 3;
+//       if ((innerTarget === "[" && innerNext === "(") || "[") {
+//         innerSum *= 3;
+//         sum += innerSum;
+//         console.log("innerSum", innerSum);
+//         break;
+//       }
+//     }
+//   } else {
+//     if (target === ")" && next === "(") sum += 2;
+//     if (target === "]" && next === "[") sum += 3;
+//   }
+// }
+// console.log(sum);
+
+// 10819번 문제 풀어야함.
+// const [N, A] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const result = [];
+// const arr = A.split(" ")
+//   .map(Number)
+//   .sort((a, b) => a - b);
+// const min = arr.splice(0, Math.round(arr.length / 2));
+// let sum = 0;
+// arr.sort((a, b) => b - a);
+// for (let i = 0; i < min.length; i++) {
+//   if (arr[i] === undefined) {
+//     if (result[0] === min[i]) {
+//       result.push(min[i]);
+//     } else {
+//       result.unshift(min[i]);
+//     }
+//   } else {
+//     if (i % 2) {
+//       result.unshift(min[i]);
+//       result.push(arr[i]);
+//     } else {
+//       result.unshift(arr[i]);
+//       result.push(min[i]);
+//     }
+//   }
+// }
+// for (let i = 1; i < result.length; i++)
+//   sum += Math.abs(result[i - 1] - result[i]);
+// console.log(arr);
+// console.log(min);
+// console.log(result);
+// console.log(sum);
+
+// const list = [];
+// while (arr.length) {
+//   let max = arr.pop();
+//   let min = arr.shift();
+//   if(i%2){
+
+//   }
+
+// }
 
 // 19532번 문제 푸는중...
 // const [a, b, c, d, e, f] = require("fs")
