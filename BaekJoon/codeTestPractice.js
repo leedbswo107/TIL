@@ -2733,17 +2733,76 @@ const { link } = require("fs");
 // console.log(`${result.length}\n${result.join("\n")}`);
 
 // 2231번 문제
-const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
-let i = 0;
-let sum;
-while (i <= 1000000) {
-  if (sum === N) break;
-  sum = 0;
-  const arr = i.toString().split("").map(Number);
-  sum += i + arr.reduce((acc, cur) => acc + cur, 0);
-  i++;
+// const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// let i = 0;
+// let sum;
+// while (i <= 1000000) {
+//   if (sum === N) break;
+//   sum = 0;
+//   const arr = i.toString().split("").map(Number);
+//   sum += i + arr.reduce((acc, cur) => acc + cur, 0);
+//   i++;
+// }
+// console.log(i > 1000000 ? 0 : i - 1);
+
+// 9093번 문제
+// const [N, ...arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const processedArr = arr.map((e) => e.split(" "));
+// const microArr = [];
+// processedArr.map((e) => {
+//   const line = [];
+//   e.forEach((el) => {
+//     const innerLine = el.split("");
+//     line.push(innerLine.reverse().join(""));
+//   });
+//   microArr.push(line.join(" "));
+// });
+// console.log(microArr.join("\n"));
+
+// 1436번 문제
+// const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// let series = 0;
+// const result = [];
+// while (result.length - 1 < N) {
+//   if (series.toString().includes("666")) result.push(series);
+//   series++;
+// }
+// console.log(result[N - 1]);
+
+// 19532번 문제
+const [a, b, c, d, e, f] = require("fs")
+  .readFileSync("./input.txt", "utf-8")
+  .trim()
+  .split(" ")
+  .map(Number);
+let result = [];
+for (let x = -999; x <= 999; x++) {
+  for (let y = -999; y <= 999; y++) {
+    if (a * x + b * y === c && d * x + e * y === f) {
+      result = [x, y];
+      break;
+    }
+  }
 }
-console.log(i > 1000000 ? 0 : i - 1);
+console.log(result.join(" "));
+
+// 11478번 문제 푸는중
+// const S = require("fs").readFileSync("./input.txt", "utf-8").trim().split("");
+// const textList = [...S];
+// let k = 1;
+// while (k <= S.length) {
+//   for (let i = 0; i < S.length - k; i++) {
+//     let text = [];
+//     for (let j = i; j <= i + k; j++) text.push(S[j]);
+//     textList.push(text.join(""));
+//   }
+//   k++;
+// }
+// const result = new Set(textList.map((e) => e));
+// console.log(result.size);
 
 // 1629번 문제 푸는중..
 // const [A, B, C] = require("fs")
