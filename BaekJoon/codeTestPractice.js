@@ -2698,26 +2698,66 @@ const { link } = require("fs");
 // console.log(`${fibo(n)}`);
 
 // 2309번 문제
-const arr = require("fs")
-  .readFileSync("./input.txt", "utf-8")
-  .trim()
-  .split("\n")
-  .map(Number);
-const allArr = [];
-let result = [];
-const processedArr = [...arr.sort((a, b) => a - b)];
-let sum = processedArr.reduce((acc, cur) => acc + cur, 0);
-while (processedArr.length) {
-  let firstElement = processedArr.shift();
-  for (let i = 0; i < arr.length; i++) {
-    const line = [firstElement, processedArr[i]];
-    allArr.push(line);
-  }
+// const arr = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n")
+//   .map(Number);
+// const allArr = [];
+// let result = [];
+// const processedArr = [...arr.sort((a, b) => a - b)];
+// let sum = processedArr.reduce((acc, cur) => acc + cur, 0);
+// while (processedArr.length) {
+//   let firstElement = processedArr.shift();
+//   for (let i = 0; i < arr.length; i++) {
+//     const line = [firstElement, processedArr[i]];
+//     allArr.push(line);
+//   }
+// }
+// allArr.forEach((e) => e[0] + e[1] === sum - 100 && (result = [e[0], e[1]]));
+// arr.splice(arr.indexOf(result[0]), 1);
+// arr.splice(arr.indexOf(result[1]), 1);
+// console.log(arr.join("\n"));
+
+// 1764번 문제
+// const [A, ...arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const [N, M] = A.split(" ").map(Number);
+// const noListen = new Map(arr.splice(0, N).map((e, i) => [i, e]));
+// const noSee = new Set(arr.map((e) => e));
+// const result = [];
+// for (const el of noListen) noSee.has(el[1]) && result.push(el[1]);
+// result.sort();
+// console.log(`${result.length}\n${result.join("\n")}`);
+
+// 2231번 문제
+const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+let i = 0;
+let sum;
+while (i <= 1000000) {
+  if (sum === N) break;
+  sum = 0;
+  const arr = i.toString().split("").map(Number);
+  sum += i + arr.reduce((acc, cur) => acc + cur, 0);
+  i++;
 }
-allArr.forEach((e) => e[0] + e[1] === sum - 100 && (result = [e[0], e[1]]));
-arr.splice(arr.indexOf(result[0]), 1);
-arr.splice(arr.indexOf(result[1]), 1);
-console.log(arr.join("\n"));
+console.log(i > 1000000 ? 0 : i - 1);
+
+// 1629번 문제 푸는중..
+// const [A, B, C] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(BigInt);
+// let result = BigInt(1);
+// const divideSearch = (b) => {
+//   if (b === BigInt(0)) return result;
+//   if (b > BigInt(0)) return (result = divideSearch(b - BigInt(1)) * A);
+// };
+// divideSearch(B - BigInt(1));
+// console.log(`${result % C}`);
 
 // 2504번 문제 푸는중. 재귀함수로 관리 해야할거 같음.
 // const problem = require("fs")
