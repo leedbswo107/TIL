@@ -2773,22 +2773,33 @@ const { link } = require("fs");
 // console.log(result[N - 1]);
 
 // 19532번 문제
-const [a, b, c, d, e, f] = require("fs")
+// const [a, b, c, d, e, f] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(Number);
+// let result = [];
+// for (let x = -999; x <= 999; x++) {
+//   for (let y = -999; y <= 999; y++) {
+//     if (a * x + b * y === c && d * x + e * y === f) {
+//       result = [x, y];
+//       break;
+//     }
+//   }
+// }
+// console.log(result.join(" "));
+
+// 1037번 문제
+let [N, arr] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
+  .split("\n");
+arr = arr
   .split(" ")
-  .map(Number);
-let result = [];
-for (let x = -999; x <= 999; x++) {
-  for (let y = -999; y <= 999; y++) {
-    if (a * x + b * y === c && d * x + e * y === f) {
-      result = [x, y];
-      break;
-    }
-  }
-}
-console.log(result.join(" "));
-
+  .map(Number)
+  .sort((a, b) => a - b);
+let result = +N === 1 ? arr[0] * arr[0] : arr[0] * arr[arr.length - 1];
+console.log(result);
 // 11478번 문제 푸는중
 // const S = require("fs").readFileSync("./input.txt", "utf-8").trim().split("");
 // const textList = [...S];
