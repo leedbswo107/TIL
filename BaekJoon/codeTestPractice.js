@@ -2790,16 +2790,85 @@ const { link } = require("fs");
 // console.log(result.join(" "));
 
 // 1037번 문제
-let [N, arr] = require("fs")
+// let [N, arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// arr = arr
+//   .split(" ")
+//   .map(Number)
+//   .sort((a, b) => a - b);
+// let result = +N === 1 ? arr[0] * arr[0] : arr[0] * arr[arr.length - 1];
+// console.log(result);
+
+// 24416번 문제
+// const n = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// const count = [1, 1];
+// const f = [];
+// const fib = (n) => {
+//   if (n === 0) return 0;
+//   if (n === 1 || n === 2) return 1;
+//   count[0]++;
+//   return fib(n - 1) + fib(n - 2);
+// };
+// const fibonacci = (n) => {
+//   f[0] = 0;
+//   n === (1 || 2) && f[n] === 1;
+//   for (let i = 3; i < n; i++) {
+//     f[i] = f[i - 1] + f[i - 2];
+//     count[1]++;
+//   }
+//   return f[n];
+// };
+// fib(n);
+// fibonacci(n);
+// console.log(count.join(" "));
+
+// 14490번 문제
+const [n, m] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
-  .split("\n");
-arr = arr
-  .split(" ")
-  .map(Number)
-  .sort((a, b) => a - b);
-let result = +N === 1 ? arr[0] * arr[0] : arr[0] * arr[arr.length - 1];
-console.log(result);
+  .split(":")
+  .map(Number);
+let [A, B] = n > m ? [n, m] : [m, n];
+while (B !== 0) [A, B] = [B, A % B];
+console.log(`${n / A}:${m / A}`);
+
+// 18110번 문제 푸는중
+// let [n, ...arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n")
+//   .map(Number);
+// const sum1 = arr.reduce((acc, cur) => acc + cur, 0);
+// const avg = parseInt(sum1 / n, 10);
+// const solvedAvg = Math.round(avg * 0.15);
+// arr.sort((a, b) => a - b);
+// for (let i = 0; i < solvedAvg; i++) {
+//   arr.shift();
+//   arr.pop();
+// }
+// const sum2 = arr.reduce((acc, cur) => acc + cur, 0);
+// const result = Math.round(sum2 / (n - solvedAvg * 2));
+// console.log(result);
+
+// 1932번 문제 푸는중
+// const [n, ...arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const triangle = arr.map((e) => e.split(" ").map(Number));
+// const memo = [];
+// const maxValue = (arr) => {
+//   for (let i = 0; i < arr.length; i++) {
+//     for (let j = i; j < i+1; j++) {
+
+//     }
+//   }
+// }
+// for(let i = 0; i < triangle.length; i++){
+
+// }
 // 11478번 문제 푸는중
 // const S = require("fs").readFileSync("./input.txt", "utf-8").trim().split("");
 // const textList = [...S];
