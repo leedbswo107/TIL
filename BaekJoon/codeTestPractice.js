@@ -2825,14 +2825,42 @@ const { link } = require("fs");
 // console.log(count.join(" "));
 
 // 14490번 문제
-const [n, m] = require("fs")
+// const [n, m] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(":")
+//   .map(Number);
+// let [A, B] = n > m ? [n, m] : [m, n];
+// while (B !== 0) [A, B] = [B, A % B];
+// console.log(`${n / A}:${m / A}`);
+
+// 17219번 문제
+const [A, ...arr] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
-  .split(":")
-  .map(Number);
-let [A, B] = n > m ? [n, m] : [m, n];
-while (B !== 0) [A, B] = [B, A % B];
-console.log(`${n / A}:${m / A}`);
+  .split("\n");
+const [N, M] = A.split(" ").map(Number);
+const uriList = arr.splice(0, N);
+const uriAndPW = uriList.map((e) => e.split(" "));
+const uriAndPWMap = new Map(uriAndPW.map((e) => [e[0], e[1]]));
+const result = new Array(+M);
+arr.forEach((e, i) => (result[i] = uriAndPWMap.get(e)));
+console.log(result.join("\n"));
+// 3273번 문제 푸는중
+// let [n, arr, target] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// arr = arr
+//   .split(" ")
+//   .map(Number)
+//   .sort((a, b) => a - b);
+// const result = [];
+// let i = +n - 1;
+// for (let j = 0; j < i; j++) {
+//   if (arr[i] + arr[j] === +target) result.push([arr[i], arr[j]]) && i--;
+// }
+// console.log(result.length);
 
 // 18110번 문제 푸는중
 // let [n, ...arr] = require("fs")
