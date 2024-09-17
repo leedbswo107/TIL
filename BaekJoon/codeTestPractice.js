@@ -2835,17 +2835,33 @@ const { link } = require("fs");
 // console.log(`${n / A}:${m / A}`);
 
 // 17219번 문제
-const [A, ...arr] = require("fs")
-  .readFileSync("./input.txt", "utf-8")
-  .trim()
-  .split("\n");
-const [N, M] = A.split(" ").map(Number);
-const uriList = arr.splice(0, N);
-const uriAndPW = uriList.map((e) => e.split(" "));
-const uriAndPWMap = new Map(uriAndPW.map((e) => [e[0], e[1]]));
-const result = new Array(+M);
-arr.forEach((e, i) => (result[i] = uriAndPWMap.get(e)));
+// const [A, ...arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const [N, M] = A.split(" ").map(Number);
+// const uriList = arr.splice(0, N);
+// const uriAndPW = uriList.map((e) => e.split(" "));
+// const uriAndPWMap = new Map(uriAndPW.map((e) => [e[0], e[1]]));
+// const result = new Array(+M);
+// arr.forEach((e, i) => (result[i] = uriAndPWMap.get(e)));
+// console.log(result.join("\n"));
+
+// 2523번 문제
+const n = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+const result = [];
+for (let i = 0; i < n * 2 - 1; i++) {
+  let star = "";
+  if (i < n) {
+    for (let j = 0; j <= i; j++) star += "*";
+  } else {
+    for (let j = n * 2 - 1 - i; j > 0; j--) star += "*";
+  }
+  result.push(star);
+}
 console.log(result.join("\n"));
+// console.log(n);
+
 // 3273번 문제 푸는중
 // let [n, arr, target] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
