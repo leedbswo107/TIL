@@ -2848,19 +2848,37 @@ const { link } = require("fs");
 // console.log(result.join("\n"));
 
 // 2523번 문제
-const n = +require("fs").readFileSync("./input.txt", "utf-8").trim();
-const result = [];
-for (let i = 0; i < n * 2 - 1; i++) {
-  let star = "";
-  if (i < n) {
-    for (let j = 0; j <= i; j++) star += "*";
-  } else {
-    for (let j = n * 2 - 1 - i; j > 0; j--) star += "*";
-  }
-  result.push(star);
-}
-console.log(result.join("\n"));
-// console.log(n);
+// const n = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// const result = [];
+// for (let i = 0; i < n * 2 - 1; i++) {
+//   let star = "";
+//   if (i < n) {
+//     for (let j = 0; j <= i; j++) star += "*";
+//   } else {
+//     for (let j = n * 2 - 1 - i; j > 0; j--) star += "*";
+//   }
+//   result.push(star);
+// }
+// console.log(result.join("\n"));
+
+// 1269번 문제
+let [_, A, B] = require("fs")
+  .readFileSync("./input.txt", "utf-8")
+  .trim()
+  .split("\n");
+A = new Set(
+  A.split(" ")
+    .map(Number)
+    .map((e) => e)
+);
+B = new Set(
+  B.split(" ")
+    .map(Number)
+    .map((e) => e)
+);
+let count = 0;
+A.forEach((e) => B.has(e) && count++);
+console.log(A.size - count + B.size - count);
 
 // 3273번 문제 푸는중
 // let [n, arr, target] = require("fs")
