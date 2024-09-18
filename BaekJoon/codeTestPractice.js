@@ -2862,23 +2862,76 @@ const { link } = require("fs");
 // console.log(result.join("\n"));
 
 // 1269번 문제
-let [_, A, B] = require("fs")
+// let [_, A, B] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// A = new Set(
+//   A.split(" ")
+//     .map(Number)
+//     .map((e) => e)
+// );
+// B = new Set(
+//   B.split(" ")
+//     .map(Number)
+//     .map((e) => e)
+// );
+// let count = 0;
+// A.forEach((e) => B.has(e) && count++);
+// console.log(A.size - count + B.size - count);
+
+// 10101번 문제
+// const angles = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n")
+//   .map(Number);
+// let result = "";
+// const sum = angles.reduce((acc, cur) => acc + cur, 0);
+// const setAngles = new Set(angles.map((e) => e));
+// const solution = (list) => {
+//   if (sum !== 180) return (result = "Error");
+//   if (list.size === 3) return (result = "Scalene");
+//   if (list.size === 2) return (result = "Isosceles");
+//   if (list.size === 1) return (result = "Equilateral");
+// };
+// solution(setAngles);
+// console.log(result);
+
+// 10815번 문제
+// const [N, A, M, B] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const setA = new Set(
+//   A.split(" ")
+//     .map(Number)
+//     .map((e) => e)
+// );
+// const setB = new Set(
+//   B.split(" ")
+//     .map(Number)
+//     .map((e) => e)
+// );
+// const result = new Array(setB.size).fill(0);
+// let i = 0;
+// setB.forEach((e) => {
+//   setA.has(e) && (result[i] = 1);
+//   i++;
+// });
+// console.log(result.join(" "));
+
+// 14425번 문제
+const input = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-A = new Set(
-  A.split(" ")
-    .map(Number)
-    .map((e) => e)
-);
-B = new Set(
-  B.split(" ")
-    .map(Number)
-    .map((e) => e)
-);
-let count = 0;
-A.forEach((e) => B.has(e) && count++);
-console.log(A.size - count + B.size - count);
+const [N, M] = input.shift().split(" ").map(Number);
+const A = new Set(input.splice(0, N));
+const B = input;
+const result = [];
+B.forEach((e) => A.has(e) && result.push(e));
+console.log(result.length);
 
 // 3273번 문제 푸는중
 // let [n, arr, target] = require("fs")
