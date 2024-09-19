@@ -2697,6 +2697,20 @@ const { link } = require("fs");
 // };
 // console.log(`${fibo(n)}`);
 
+// const n = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// const fibo = (n) => {
+//   if (n <= 1) return BigInt(n);
+//   let prev = BigInt(0);
+//   let curr = BigInt(1);
+//   for (let i = 2; i <= n; i++) {
+//     const next = prev + curr;
+//     prev = curr;
+//     curr = next;
+//   }
+//   return curr;
+// };
+// console.log(`${fibo(n)}`);
+
 // 2309번 문제
 // const arr = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
@@ -2922,17 +2936,49 @@ const { link } = require("fs");
 // console.log(result.join(" "));
 
 // 14425번 문제
-const input = require("fs")
-  .readFileSync("./input.txt", "utf-8")
-  .trim()
-  .split("\n");
-const [N, M] = input.shift().split(" ").map(Number);
-const A = new Set(input.splice(0, N));
-const B = input;
-const result = [];
-B.forEach((e) => A.has(e) && result.push(e));
-console.log(result.length);
+// const input = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const [N, M] = input.shift().split(" ").map(Number);
+// const A = new Set(input.splice(0, N));
+// const B = input;
+// const result = [];
+// B.forEach((e) => A.has(e) && result.push(e));
+// console.log(result.length);
 
+// 7567번 문제
+const arr = require("fs").readFileSync("./input.txt", "utf-8").trim().split("");
+let result = 0;
+while (arr.length > 0) {
+  let target = arr.shift();
+  result += target !== arr[0] ? 10 : 5;
+}
+console.log(result);
+// 26069번 문제 푸는중
+// let [N, ...arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// arr = arr.map((e) => e.split(" "));
+// let count = 1;
+// let cur = "";
+// console.log(arr);
+// for (let i = 0; i < arr.length; i++) {
+//   if (arr[i][0] === cur) {
+//     count++;
+//     cur = arr[i][1];
+//     if (i === arr.length - 1) {
+//       count++;
+//       break;
+//     }
+//   }
+//   if (arr[i].includes("ChongChong")) {
+//     cur = arr[i][Number(!arr[i].indexOf("ChongChong"))];
+//     i++;
+//   }
+// }
+// console.log(count);
 // 3273번 문제 푸는중
 // let [n, arr, target] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
