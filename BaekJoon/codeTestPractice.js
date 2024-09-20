@@ -25,6 +25,7 @@
 // console.log(arr.join(' '));
 
 const { Worker } = require("cluster");
+const { reverse } = require("dns");
 const { link } = require("fs");
 
 // 10810번 문제
@@ -2948,13 +2949,48 @@ const { link } = require("fs");
 // console.log(result.length);
 
 // 7567번 문제
-const arr = require("fs").readFileSync("./input.txt", "utf-8").trim().split("");
-let result = 0;
-while (arr.length > 0) {
-  let target = arr.shift();
-  result += target !== arr[0] ? 10 : 5;
-}
-console.log(result);
+// const arr = require("fs").readFileSync("./input.txt", "utf-8").trim().split("");
+// let result = 0;
+// while (arr.length > 0) {
+//   let target = arr.shift();
+//   result += target !== arr[0] ? 10 : 5;
+// }
+// console.log(result);
+
+// 1463번 문제
+// let N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// const solution = (X) => {
+//   const memo = new Array(X + 1).fill(0);
+//   for (let i = 2; i < memo.length; i++) {
+//     memo[i] = memo[i - 1] + 1;
+//     if (!(i % 2)) memo[i] = Math.min(memo[i], memo[i / 2] + 1);
+//     if (!(i % 3)) memo[i] = Math.min(memo[i], memo[i / 3] + 1);
+//   }
+//   return memo[memo.length - 1];
+// };
+// console.log(solution(N));
+
+// 25501번 문제
+let [T, ...arr] = require("fs")
+  .readFileSync("./input.txt", "utf-8")
+  .trim()
+  .split("\n");
+const setArr = new Set(arr);
+let count = new Array(+T).fill(0);
+let i = 0;
+let result = new Array(+T);
+const recursion = (s, l, r) => {
+  count[i]++;
+  if (l >= r) return 1;
+  else if (s.charAt(l) != s.charAt(r)) return 0;
+  else return recursion(s, l + 1, r - 1);
+};
+const isPalindrome = (s) => {
+  return recursion(s, 0, s.length - 1);
+};
+setArr.forEach((e) => ((result[i] = `${isPalindrome(e)} ${count[i]}`), i++));
+console.log(result.join("\n"));
+
 // 26069번 문제 푸는중
 // let [N, ...arr] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
@@ -3524,28 +3560,6 @@ console.log(result);
 // console.log(result.join(''));
 // arr.forEach((e) => result.unshift(1 * e[0] + 2 * e[1] + 4 * e[2]));
 // console.log(result.join(''));
-
-// 1463번 문제 -> DP 알고리즘 디자인으로 푸는 문제. 추가 학습후 다시 풀어볼것.
-// let N = +require('fs').readFileSync('./input.txt', 'utf-8').trim();
-// const minFuncToOne = (N) => {
-//   const dp = new Array(N + 1).fill(0);
-//   for (let i = 2; i < dp.length; i++) {
-//     console.log(dp);
-//     dp[i] = dp[i - 1] + 1;
-//     console.log(dp[i]);
-//     if (i % 2 === 0) {
-//       dp[i] = Math.min(dp[i], dp[i / 2] + 1);
-//       console.log('test1 : ', dp[i]);
-//     }
-//     if (i % 3 === 0) {
-//       dp[i] = Math.min(dp[i], dp[i / 3] + 1);
-//       console.log('test2 : ', dp[i]);
-//     }
-//   }
-//   console.log('dp', dp);
-//   return dp[N];
-// };
-// console.log(minFuncToOne(N));
 
 // 15719번 문제 메모리 초과로 풀지 못한 문제임
 // const [N, A] = require('fs')
