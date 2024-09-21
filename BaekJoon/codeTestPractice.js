@@ -2971,25 +2971,61 @@ const { link } = require("fs");
 // console.log(solution(N));
 
 // 25501번 문제
-let [T, ...arr] = require("fs")
-  .readFileSync("./input.txt", "utf-8")
-  .trim()
-  .split("\n");
-const setArr = new Set(arr);
-let count = new Array(+T).fill(0);
-let i = 0;
-let result = new Array(+T);
-const recursion = (s, l, r) => {
-  count[i]++;
-  if (l >= r) return 1;
-  else if (s.charAt(l) != s.charAt(r)) return 0;
-  else return recursion(s, l + 1, r - 1);
-};
-const isPalindrome = (s) => {
-  return recursion(s, 0, s.length - 1);
-};
-setArr.forEach((e) => ((result[i] = `${isPalindrome(e)} ${count[i]}`), i++));
-console.log(result.join("\n"));
+// let [T, ...arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const setArr = new Set(arr);
+// let count = new Array(+T).fill(0);
+// let i = 0;
+// let result = new Array(+T);
+// const recursion = (s, l, r) => {
+//   count[i]++;
+//   if (l >= r) return 1;
+//   else if (s.charAt(l) != s.charAt(r)) return 0;
+//   else return recursion(s, l + 1, r - 1);
+// };
+// const isPalindrome = (s) => {
+//   return recursion(s, 0, s.length - 1);
+// };
+// setArr.forEach((e) => ((result[i] = `${isPalindrome(e)} ${count[i]}`), i++));
+// console.log(result.join("\n"));
+
+// 1003번 문제 푸는중
+// const [T, ...arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n")
+//   .map(Number);
+// const result = new Array(T);
+// let one = [];
+// let zero = [];
+// let line = [0, 0];
+// let dp = [];
+
+// const fibo = (n) => {
+//   console.log(dp);
+//   if (n === 0) {
+//     line[0]++;
+//     // zero.push(0);
+//     return (dp[n] = 0);
+//   }
+//   if (n === 1) {
+//     line[1]++;
+//     // one.push(1);
+//     return (dp[n] = 1);
+//   }
+//   if (Boolean(dp[n])) return dp[n];
+//   return (dp[n] = fibo(n - 1) + fibo(n - 2));
+// };
+// arr.forEach((e, i) => {
+//   fibo(e);
+//   result.push(line.join(" "));
+
+//   // line = [0, 0];
+//   dp = [];
+// });
+// console.log(result.join("\n"));
 
 // 26069번 문제 푸는중
 // let [N, ...arr] = require("fs")
@@ -3067,19 +3103,18 @@ console.log(result.join("\n"));
 
 // }
 // 11478번 문제 푸는중
-// const S = require("fs").readFileSync("./input.txt", "utf-8").trim().split("");
-// const textList = [...S];
-// let k = 1;
-// while (k <= S.length) {
-//   for (let i = 0; i < S.length - k; i++) {
-//     let text = [];
-//     for (let j = i; j <= i + k; j++) text.push(S[j]);
-//     textList.push(text.join(""));
-//   }
-//   k++;
-// }
-// const result = new Set(textList.map((e) => e));
-// console.log(result.size);
+const S = require("fs").readFileSync("./input.txt", "utf-8").trim().split("");
+const textList = [...S];
+let text = "";
+for (let i = 0; i < S.length; i++) {
+  for (let j = 0; j < S.length - i; j++) {
+    text += S[j + i];
+    textList.push(text);
+  }
+  text = "";
+}
+const result = new Set(textList);
+console.log(result.size);
 
 // 1629번 문제 푸는중..
 // const [A, B, C] = require("fs")
