@@ -24,10 +24,6 @@
 // }
 // console.log(arr.join(' '));
 
-const { Worker } = require("cluster");
-const { reverse } = require("dns");
-const { link } = require("fs");
-
 // 10810번 문제
 // const fs = require('fs');
 // const input = fs.readFileSync('./input.txt').toString().trim().split('\n');
@@ -2991,6 +2987,127 @@ const { link } = require("fs");
 // setArr.forEach((e) => ((result[i] = `${isPalindrome(e)} ${count[i]}`), i++));
 // console.log(result.join("\n"));
 
+// 11478번 문제
+// const S = require("fs").readFileSync("./input.txt", "utf-8").trim().split("");
+// const textList = [...S];
+// let text = "";
+// for (let i = 0; i < S.length; i++) {
+//   for (let j = 0; j < S.length - i; j++) {
+//     text += S[j + i];
+//     textList.push(text);
+//   }
+//   text = "";
+// }
+// const result = new Set(textList);
+// console.log(result.size);
+
+// 9085번 문제
+// let [T, ...arr] = require("fs").readFileSync("./input.txt", "utf-8").trim().split("\n");
+// const result = [];
+// arr = arr.map((e) => e.split(" ").map(Number));
+// for (let i = 0; i < +T; i++) result.push(arr[i * 2 + 1].reduce((acc, cur) => acc + cur, 0));
+// console.log(result.join('\n'));
+
+// 9656번 문제 DP로 풀 필요가 있나?
+// let N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// const dp = new Array(N + 1).fill(false);
+// dp[1] = false;
+// if (N >= 2) dp[2] = true;
+// if (N >= 3) dp[3] = false;
+// for (let i = 4; i <= N; i++) {
+//   if (!dp[i - 1] || !dp[i - 3]) dp[i] = false;
+//   else dp[i] = true;
+// }
+// console.log(dp[N] ? "CY" : "SK");
+
+// const dp = [N];
+// let i = 1;
+// while (dp[i - 1] > 1) {
+//   if (dp[i - 1] > 3) dp[i] = dp[i - 1] - 3;
+//   else dp[i] = dp[i - 1] - 1;
+//   i++;
+// }
+// console.log(dp.length % 2 ? "CY" : "SK");
+
+// 16395번 문제
+const [n, k] = require("fs")
+  .readFileSync("./input.txt", "utf-8")
+  .trim()
+  .split(" ")
+  .map(Number);
+const arr = [];
+const pascal = (i) => {
+  const line = [1];
+  if (i === 0) return (arr[i] = line);
+  for (let j = 1; j < i; j++) line.push(arr[i - 1][j - 1] + arr[i - 1][j]);
+  line.push(1);
+  arr[i] = line;
+};
+for (let i = 0; i < n; i++) pascal(i);
+console.log(arr[n - 1][k - 1]);
+// arr.forEach((e, i) => {
+//   pascal(i);
+//   // console.log(`${i} ${e}`);
+//   console.log(e);
+// });
+// console.log(arr);
+// 11444번 문제 푸는중 dp는 아닌듯 싶다.
+// const n = BigInt(require("fs").readFileSync("./input.txt", "utf-8").trim());
+// const dp = [];
+// const fibo = (i) => {
+//   for (let j = BigInt(0); j <= i; j++) {
+//     if (j <= BigInt(1)) dp[j] = j;
+//     else if (dp[j]) dp[j];
+//     else dp[j] = dp[j - BigInt(1)] + dp[j - BigInt(2)];
+//   }
+//   return dp[i];
+// };
+// console.log(`${fibo(n) % BigInt(1000000007)}`);
+// fibo(n);
+// console.log(dp[n-BigInt(1)]);
+// let cur = 0;
+// let prev = 0;
+// for (let i = BigInt(1); i <= n; i++) {
+//   if (i <= 1) {
+//     prev = i - BigInt(1);
+//     cur = i;
+//   } else {
+//     cur += prev;
+//     prev = cur - prev;
+//   }
+// }
+// console.log(`${cur % BigInt(1000000007)}`);
+// 25192번 문제 푸는중
+// const [N, ...chat] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// let result = 0;
+// chat.shift();
+// for (let i = 0; i <= chat.length; i++) {
+//   if (i === chat.length) {
+//     const user = new Set(chat).size;
+//     result += user;
+//   }
+//   if (chat[i] === "ENTER") {
+//     const talk = chat.splice(0, i);
+//     const user = new Set(talk).size;
+//     result += user;
+//     chat.shift();
+//     i = 0;
+//   }
+// }
+// console.log(result);
+// let chatList = chat.join(" ").split("ENTER");
+// let total = 0;
+// chatList.shift();
+// chatList = chatList.map((e) => e.trim().split(" "));
+// chatList.forEach((e) => {
+//   const chatSet = new Set(e);
+//   total += chatSet.size;
+// });
+// console.log(total);
+
 // 1003번 문제 푸는중
 // const [T, ...arr] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
@@ -3102,19 +3219,6 @@ const { link } = require("fs");
 // for(let i = 0; i < triangle.length; i++){
 
 // }
-// 11478번 문제 푸는중
-const S = require("fs").readFileSync("./input.txt", "utf-8").trim().split("");
-const textList = [...S];
-let text = "";
-for (let i = 0; i < S.length; i++) {
-  for (let j = 0; j < S.length - i; j++) {
-    text += S[j + i];
-    textList.push(text);
-  }
-  text = "";
-}
-const result = new Set(textList);
-console.log(result.size);
 
 // 1629번 문제 푸는중..
 // const [A, B, C] = require("fs")
