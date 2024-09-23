@@ -3070,25 +3070,75 @@
 // console.log(result.join("\n"));
 
 // 1924번 문제
-const [x, y] = require("fs")
+// const [x, y] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(Number);
+// const date = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+// let day = 0;
+// x >= 2 && (day += 31);
+// x >= 3 && (day += 28);
+// x >= 4 && (day += 31);
+// x >= 5 && (day += 30);
+// x >= 6 && (day += 31);
+// x >= 7 && (day += 30);
+// x >= 8 && (day += 31);
+// x >= 9 && (day += 31);
+// x >= 10 && (day += 30);
+// x >= 11 && (day += 31);
+// x >= 12 && (day += 30);
+// console.log(date[(day + y) % 7]);
+
+// 5522번 문제
+// const score = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n")
+//   .map(Number);
+// console.log(score.reduce((acc, cur) => acc + cur, 0));
+
+// 15232번 문제
+// const [R, C] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n")
+//   .map(Number);
+// const result = [];
+// for (let i = 0; i < R; i++) {
+//   const line = [];
+//   for (let j = 0; j < C; j++) line.push("*");
+//   result.push(line.join(""));
+// }
+// console.log(result.join("\n"));
+
+// 14924번 문제
+const [S, T, D] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split(" ")
   .map(Number);
-const date = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
-let day = 0;
-x >= 2 && (day += 31);
-x >= 3 && (day += 28);
-x >= 4 && (day += 31);
-x >= 5 && (day += 30);
-x >= 6 && (day += 31);
-x >= 7 && (day += 30);
-x >= 8 && (day += 31);
-x >= 9 && (day += 31);
-x >= 10 && (day += 30);
-x >= 11 && (day += 31);
-x >= 12 && (day += 30);
-console.log(date[(day + y) % 7]);
+const F = (D / (S * 2)) * T;
+console.log(F);
+
+// 1837번 문제 푸는중
+// const [P, K] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(BigInt);
+// let [p, q] = [0, 0];
+// for (let i = BigInt(2); i < P; i++) {
+//   if (!(P % i)) {
+//     p = i;
+//     for (let j = BigInt(2); j <= P / i; j++) {
+//       if (!((P / i) % j) && j !== P) break;
+//       else q = P / i;
+//     }
+//   }
+// }
+// const result = (p || q) < K ? `BAD ${p < q ? p : q}` : "GOOD";
+// console.log(result);
 
 // 1966번 문제 풀 예정
 // let [T, ...arr] = require("fs")
