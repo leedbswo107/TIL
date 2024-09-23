@@ -3030,27 +3030,74 @@
 // console.log(dp.length % 2 ? "CY" : "SK");
 
 // 16395번 문제
-const [n, k] = require("fs")
-  .readFileSync("./input.txt", "utf-8")
-  .trim()
-  .split(" ")
-  .map(Number);
-const arr = [];
-const pascal = (i) => {
-  const line = [1];
-  if (i === 0) return (arr[i] = line);
-  for (let j = 1; j < i; j++) line.push(arr[i - 1][j - 1] + arr[i - 1][j]);
-  line.push(1);
-  arr[i] = line;
-};
-for (let i = 0; i < n; i++) pascal(i);
-console.log(arr[n - 1][k - 1]);
+// const [n, k] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(Number);
+// const arr = [];
+// const pascal = (i) => {
+//   const line = [1];
+//   if (i === 0) return (arr[i] = line);
+//   for (let j = 1; j < i; j++) line.push(arr[i - 1][j - 1] + arr[i - 1][j]);
+//   line.push(1);
+//   arr[i] = line;
+// };
+// for (let i = 0; i < n; i++) pascal(i);
+// console.log(arr[n - 1][k - 1]);
 // arr.forEach((e, i) => {
 //   pascal(i);
 //   // console.log(`${i} ${e}`);
 //   console.log(e);
 // });
 // console.log(arr);
+
+// 11721번 문제
+// const N = require("fs").readFileSync("./input.txt", "utf-8").trim().split("");
+// const result = [];
+// while (N.length > 0) {
+//   let line = [];
+//   for (let i = 0; i < 10; i++) {
+//     const char = N.shift();
+//     if (N.length === 0) {
+//       line.push(char);
+//       break;
+//     }
+//     line.push(char);
+//   }
+//   result.push(line.join(""));
+// }
+// console.log(result.join("\n"));
+
+// 1924번 문제
+const [x, y] = require("fs")
+  .readFileSync("./input.txt", "utf-8")
+  .trim()
+  .split(" ")
+  .map(Number);
+const date = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+let day = 0;
+x >= 2 && (day += 31);
+x >= 3 && (day += 28);
+x >= 4 && (day += 31);
+x >= 5 && (day += 30);
+x >= 6 && (day += 31);
+x >= 7 && (day += 30);
+x >= 8 && (day += 31);
+x >= 9 && (day += 31);
+x >= 10 && (day += 30);
+x >= 11 && (day += 31);
+x >= 12 && (day += 30);
+console.log(date[(day + y) % 7]);
+
+// 1966번 문제 풀 예정
+// let [T, ...arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// arr = arr.map((e) => e.split(" ").map(Number));
+// console.log(arr);
+
 // 11444번 문제 푸는중 dp는 아닌듯 싶다.
 // const n = BigInt(require("fs").readFileSync("./input.txt", "utf-8").trim());
 // const dp = [];
