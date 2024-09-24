@@ -3113,13 +3113,61 @@
 // console.log(result.join("\n"));
 
 // 14924번 문제
-const [S, T, D] = require("fs")
+// const [S, T, D] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(Number);
+// const F = (D / (S * 2)) * T;
+// console.log(F);
+
+// 1094번 문제
+// const X = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// let count = 0;
+// let bar = 64;
+// let sum = 0;
+// while (sum !== X) {
+//   if (sum + bar <= X) {
+//     count++;
+//     sum += bar;
+//   }
+//   bar /= 2;
+// }
+// console.log(count);
+
+// 5635번 문제
+let [n, ...peoples] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
-  .split(" ")
-  .map(Number);
-const F = (D / (S * 2)) * T;
-console.log(F);
+  .split("\n");
+const result = new Array(2);
+peoples = peoples.map((e) => e.split(" "));
+peoples.forEach((e) => {
+  for (let i = 1; i < e.length - 1; i++) {
+    e[i] = e[i].split("");
+    if (e[i].length !== 2) e[i].unshift("0");
+    e[i] = e[i].join("");
+  }
+  let date = "";
+  for (let j = e.length - 1; j > 0; j--) date += e[j];
+  e.push(Number(date));
+});
+peoples.sort((a, b) => b[4] - a[4]);
+result[0] = peoples[0][0];
+result[1] = peoples[peoples.length - 1][0];
+console.log(result.join("\n"));
+// 1476번 문제 메모리 초과 -> 이전 성공 기록들도 다 4MB를 초과한 답임. 이 코드가 맞는것으로 보이나 통과하진 못함.
+// const [E, S, M] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(Number);
+// let year = 0;
+// while (true) {
+//   if (year % 15 === E && year % 28 === S && year % 19 === M) break;
+//   year++;
+// }
+// console.log(year);
 
 // 1837번 문제 푸는중
 // const [P, K] = require("fs")
