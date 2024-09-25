@@ -3136,26 +3136,49 @@
 // console.log(count);
 
 // 5635번 문제
-let [n, ...peoples] = require("fs")
+// let [n, ...peoples] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const result = new Array(2);
+// peoples = peoples.map((e) => e.split(" "));
+// peoples.forEach((e) => {
+//   for (let i = 1; i < e.length - 1; i++) {
+//     e[i] = e[i].split("");
+//     if (e[i].length !== 2) e[i].unshift("0");
+//     e[i] = e[i].join("");
+//   }
+//   let date = "";
+//   for (let j = e.length - 1; j > 0; j--) date += e[j];
+//   e.push(Number(date));
+// });
+// peoples.sort((a, b) => b[4] - a[4]);
+// result[0] = peoples[0][0];
+// result[1] = peoples[peoples.length - 1][0];
+// console.log(result.join("\n"));
+
+// 1543번 문제
+let [doc, target] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-const result = new Array(2);
-peoples = peoples.map((e) => e.split(" "));
-peoples.forEach((e) => {
-  for (let i = 1; i < e.length - 1; i++) {
-    e[i] = e[i].split("");
-    if (e[i].length !== 2) e[i].unshift("0");
-    e[i] = e[i].join("");
+doc = doc.split("");
+target = target.split("");
+let result = 0;
+for (let i = 0; i < doc.length; i++) {
+  if (doc[i] === target[0]) {
+    let count = 1;
+    for (let j = 1; j < target.length; j++) {
+      if (doc[i + j] === target[j]) count++;
+      else break;
+    }
+    if (count === target.length) {
+      result++;
+      i += target.length - 1;
+    }
   }
-  let date = "";
-  for (let j = e.length - 1; j > 0; j--) date += e[j];
-  e.push(Number(date));
-});
-peoples.sort((a, b) => b[4] - a[4]);
-result[0] = peoples[0][0];
-result[1] = peoples[peoples.length - 1][0];
-console.log(result.join("\n"));
+}
+console.log(result);
 // 1476번 문제 메모리 초과 -> 이전 성공 기록들도 다 4MB를 초과한 답임. 이 코드가 맞는것으로 보이나 통과하진 못함.
 // const [E, S, M] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
