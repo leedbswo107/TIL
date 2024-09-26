@@ -3158,27 +3158,94 @@
 // console.log(result.join("\n"));
 
 // 1543번 문제
-let [doc, target] = require("fs")
+// let [doc, target] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// doc = doc.split("");
+// target = target.split("");
+// let result = 0;
+// for (let i = 0; i < doc.length; i++) {
+//   if (doc[i] === target[0]) {
+//     let count = 1;
+//     for (let j = 1; j < target.length; j++) {
+//       if (doc[i + j] === target[j]) count++;
+//       else break;
+//     }
+//     if (count === target.length) {
+//       result++;
+//       i += target.length - 1;
+//     }
+//   }
+// }
+// console.log(result);
+
+// 1439번 문제
+// const S = require("fs").readFileSync("./input.txt", "utf-8").trim();
+// const count = [0, 0];
+// const solution = (str, num) => str.split(`${num}`);
+// const counter = (arr, index) => arr.forEach((e) => e !== "" && count[index]++);
+// const one = solution(S, 1);
+// const zero = solution(S, 0);
+// counter(zero, 0);
+// counter(one, 1);
+// console.log(Math.min(...count));
+
+// 4949번 문제
+// let arr = require("fs").readFileSync("./input.txt", "utf-8").trim().split("\n");
+// arr.pop();
+// const result = new Array(arr.length).fill("no");
+// arr = arr.map((e) => e.split(""));
+// arr.forEach((e, i) => {
+//   const stack = [];
+//   for (let i = 0; i < e.length; i++) {
+//     switch (e[i]) {
+//       case "(":
+//         stack.push(e[i]);
+//         break;
+//       case ")":
+//         stack.push(e[i]);
+//         break;
+//       case "[":
+//         stack.push(e[i]);
+//         break;
+//       case "]":
+//         stack.push(e[i]);
+//         break;
+
+//       default:
+//         break;
+//     }
+//   }
+//   for (let i = 1; i <= stack.length; i++) {
+//     if (
+//       (stack[i - 1] === "(" && stack[i] === ")") ||
+//       (stack[i - 1] === "[" && stack[i] === "]")
+//     ) {
+//       stack.splice(i - 1, 2);
+//       i = 0;
+//     }
+//   }
+//   if (!stack.length) result[i] = "yes";
+// });
+// console.log(result.join("\n"));
+
+// 1302번 문제
+const [N, ...arr] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-doc = doc.split("");
-target = target.split("");
-let result = 0;
-for (let i = 0; i < doc.length; i++) {
-  if (doc[i] === target[0]) {
-    let count = 1;
-    for (let j = 1; j < target.length; j++) {
-      if (doc[i + j] === target[j]) count++;
-      else break;
-    }
-    if (count === target.length) {
-      result++;
-      i += target.length - 1;
-    }
-  }
-}
-console.log(result);
+arr.sort();
+const target = new Set(arr);
+const countList = [];
+target.forEach((e) => {
+  let count = 0;
+  arr.forEach((el) => el === e && count++);
+  countList.push(count);
+});
+console.log(Array.from(target)[countList.indexOf(Math.max(...countList))]);
+// console.log(target[countList.indexOf(Math.max(...countList))]);
+
 // 1476번 문제 메모리 초과 -> 이전 성공 기록들도 다 4MB를 초과한 답임. 이 코드가 맞는것으로 보이나 통과하진 못함.
 // const [E, S, M] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
