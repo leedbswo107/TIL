@@ -3231,20 +3231,57 @@
 // console.log(result.join("\n"));
 
 // 1302번 문제
-const [N, ...arr] = require("fs")
+// const [N, ...arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// arr.sort();
+// const target = new Set(arr);
+// const countList = [];
+// target.forEach((e) => {
+//   let count = 0;
+//   arr.forEach((el) => el === e && count++);
+//   countList.push(count);
+// });
+// console.log(Array.from(target)[countList.indexOf(Math.max(...countList))]);
+
+// 2217번 문제
+// const [N, ...W] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n")
+//   .map(Number);
+// W.sort((a, b) => b - a);
+// const weight = [];
+// for (let i = 0; i < W.length; i++) {
+//   weight.push(W[i] * (i + 1));
+// }
+// console.log(Math.max(...weight));
+
+// 2108번 문제 arrow function로 재사용 가능한 함수 형식으로 다듬어보자.
+const [N, ...nums] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
-  .split("\n");
-arr.sort();
-const target = new Set(arr);
-const countList = [];
+  .split("\n")
+  .map(Number);
+nums.sort((a, b) => a - b);
+const avg = Math.round(nums.reduce((acc, cur) => acc + cur, 0) / N);
+const target = [...new Set(nums)];
+const b = [];
+const d = [];
+let c = 0;
 target.forEach((e) => {
   let count = 0;
-  arr.forEach((el) => el === e && count++);
-  countList.push(count);
+  for (let i = 0; i < nums.length; i++) e === nums[i] && count++;
+  b.push(count);
 });
-console.log(Array.from(target)[countList.indexOf(Math.max(...countList))]);
-// console.log(target[countList.indexOf(Math.max(...countList))]);
+b.forEach((e, i) => Math.max(...b) === e && d.push(target[i]));
+c = d.length !== 1 ? d[1] : d[0];
+console.log(
+  `${avg === 0 ? Math.abs(avg) : avg}\n${nums[(nums.length - 1) / 2]}\n${c}\n${
+    Math.max(...nums) - Math.min(...nums)
+  }`
+);
 
 // 1476번 문제 메모리 초과 -> 이전 성공 기록들도 다 4MB를 초과한 답임. 이 코드가 맞는것으로 보이나 통과하진 못함.
 // const [E, S, M] = require("fs")
