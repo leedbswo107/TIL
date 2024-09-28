@@ -3259,29 +3259,94 @@
 // console.log(Math.max(...weight));
 
 // 2108번 문제 arrow function로 재사용 가능한 함수 형식으로 다듬어보자.
-const [N, ...nums] = require("fs")
+// const [N, ...nums] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n")
+//   .map(Number);
+// nums.sort((a, b) => a - b);
+// const avg = Math.round(nums.reduce((acc, cur) => acc + cur, 0) / N);
+// const target = [...new Set(nums)];
+// const b = [];
+// const d = [];
+// let c = 0;
+// target.forEach((e) => {
+//   let count = 0;
+//   for (let i = 0; i < nums.length; i++) e === nums[i] && count++;
+//   b.push(count);
+// });
+// b.forEach((e, i) => Math.max(...b) === e && d.push(target[i]));
+// c = d.length !== 1 ? d[1] : d[0];
+// console.log(
+//   `${avg === 0 ? Math.abs(avg) : avg}\n${nums[(nums.length - 1) / 2]}\n${c}\n${
+//     Math.max(...nums) - Math.min(...nums)
+//   }`
+// );
+
+// 11656번 문제
+// const S = require("fs").readFileSync("./input.txt", "utf-8").trim().split("");
+// const result = [];
+// while (S.length > 0) {
+//   result.push(S.join(""));
+//   S.shift();
+// }
+// result.sort();
+// console.log(result.join("\n"));
+
+// 9372번 문제 forEach 반복문으로 이미 갖고 있는 값인지 순회하면서 체크하면 트리구조로 구현 가능할듯?
+// let [T, ...arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const result = new Array(+T).fill(0);
+// for (let i = 0; i < +T; i++) {
+//   const [N, M] = arr.shift().split(" ").map(Number);
+//   const nation = new Set(
+//     arr
+//       .splice(0, M)
+//       .map((e) => e.split(" ").map(Number))
+//       .flat()
+//   );
+//   result[i] = nation.size - 1;
+// }
+// console.log(result.join("\n"));
+
+// 2485번 문제 푸는중
+const [N, ...position] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n")
   .map(Number);
-nums.sort((a, b) => a - b);
-const avg = Math.round(nums.reduce((acc, cur) => acc + cur, 0) / N);
-const target = [...new Set(nums)];
-const b = [];
-const d = [];
-let c = 0;
-target.forEach((e) => {
-  let count = 0;
-  for (let i = 0; i < nums.length; i++) e === nums[i] && count++;
-  b.push(count);
-});
-b.forEach((e, i) => Math.max(...b) === e && d.push(target[i]));
-c = d.length !== 1 ? d[1] : d[0];
+let result = 0;
+let max = position[1] - position[0];
+let min = position[1] - position[0];
+for (let i = 2; i < position.length; i++) {
+  max = Math.max(max, position[i] - position[i - 1]);
+  min = Math.min(min, position[i] - position[i - 1]);
+}
+const gcd = (A, B) => {
+  if (B === 0) return A;
+  else return gcd(B, A % B);
+};
+let A = gcd(max, min);
 console.log(
-  `${avg === 0 ? Math.abs(avg) : avg}\n${nums[(nums.length - 1) / 2]}\n${c}\n${
-    Math.max(...nums) - Math.min(...nums)
-  }`
+  position[position.length - 1] % 2
+    ? Math.ceil(position[position.length - 1] / A - position.length)
+    : position[position.length - 1] / A - position.length
 );
+// if (A !== 1) {
+//   for (let i = position[0]; i <= position[position.length - 1]; i += A) {
+//     !position.includes(i) && result++;
+//   }
+// }
+// console.log((result = A !== 1 ? result : position[position.length - 1] - position.length));
+// console.log(list);
+// for (let i = 1; i < position.length; i++) {
+//   if (position[i] - position[i - 1] !== A) {
+//     position.splice(i, 0, position[i - 1] + A);
+//     result++ && (i -= 1);
+//   }
+// }
 
 // 1476번 문제 메모리 초과 -> 이전 성공 기록들도 다 4MB를 초과한 답임. 이 코드가 맞는것으로 보이나 통과하진 못함.
 // const [E, S, M] = require("fs")
