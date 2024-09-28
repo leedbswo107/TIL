@@ -3311,42 +3311,33 @@
 // }
 // console.log(result.join("\n"));
 
-// 2485번 문제 푸는중
+// 2485번 문제
 const [N, ...position] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n")
   .map(Number);
-let result = 0;
-let max = position[1] - position[0];
-let min = position[1] - position[0];
-for (let i = 2; i < position.length; i++) {
-  max = Math.max(max, position[i] - position[i - 1]);
-  min = Math.min(min, position[i] - position[i - 1]);
+const gapList = [];
+for (let i = 1; i < position.length; i++) {
+  const gap = position[i] - position[i - 1];
+  gapList.push(gap);
 }
 const gcd = (A, B) => {
   if (B === 0) return A;
   else return gcd(B, A % B);
 };
-let A = gcd(max, min);
+const gcdN = (arr) => {
+  let processed = arr.shift();
+  arr.forEach((e) => (processed = gcd(processed, e)));
+  return processed;
+};
+const A = gcdN(gapList);
 console.log(
-  position[position.length - 1] % 2
-    ? Math.ceil(position[position.length - 1] / A - position.length)
-    : position[position.length - 1] / A - position.length
+  Math.ceil(position[position.length - 1] / A) -
+    Math.ceil(position[0] / A) +
+    1 -
+    N
 );
-// if (A !== 1) {
-//   for (let i = position[0]; i <= position[position.length - 1]; i += A) {
-//     !position.includes(i) && result++;
-//   }
-// }
-// console.log((result = A !== 1 ? result : position[position.length - 1] - position.length));
-// console.log(list);
-// for (let i = 1; i < position.length; i++) {
-//   if (position[i] - position[i - 1] !== A) {
-//     position.splice(i, 0, position[i - 1] + A);
-//     result++ && (i -= 1);
-//   }
-// }
 
 // 1476번 문제 메모리 초과 -> 이전 성공 기록들도 다 4MB를 초과한 답임. 이 코드가 맞는것으로 보이나 통과하진 못함.
 // const [E, S, M] = require("fs")
