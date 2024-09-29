@@ -3312,32 +3312,69 @@
 // console.log(result.join("\n"));
 
 // 2485번 문제
-const [N, ...position] = require("fs")
+// const [N, ...position] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n")
+//   .map(Number);
+// const gapList = [];
+// for (let i = 1; i < position.length; i++) {
+//   const gap = position[i] - position[i - 1];
+//   gapList.push(gap);
+// }
+// const gcd = (A, B) => {
+//   if (B === 0) return A;
+//   else return gcd(B, A % B);
+// };
+// const gcdN = (arr) => {
+//   let processed = arr.shift();
+//   arr.forEach((e) => (processed = gcd(processed, e)));
+//   return processed;
+// };
+// const A = gcdN(gapList);
+// console.log(
+//   Math.ceil(position[position.length - 1] / A) -
+//     Math.ceil(position[0] / A) +
+//     1 -
+//     N
+// );
+
+// 4375번 문제
+// const n = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n")
+//   .map(BigInt);
+// const result = new Array(n.length);
+// let j = BigInt(1);
+// for (let i = 0; i < n.length; i++) {
+//   let target = BigInt(1);
+//   while (1) {
+//     if (!(target % n[i])) {
+//       result[i] = target.toString().split("").length;
+//       target = BigInt(1);
+//       j = BigInt(1);
+//       break;
+//     }
+//     target += BigInt(10) ** j;
+//     j++;
+//   }
+// }
+// console.log(result.join("\n"));
+
+// 1475번 문제
+const N = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
-  .split("\n")
+  .split("")
   .map(Number);
-const gapList = [];
-for (let i = 1; i < position.length; i++) {
-  const gap = position[i] - position[i - 1];
-  gapList.push(gap);
-}
-const gcd = (A, B) => {
-  if (B === 0) return A;
-  else return gcd(B, A % B);
-};
-const gcdN = (arr) => {
-  let processed = arr.shift();
-  arr.forEach((e) => (processed = gcd(processed, e)));
-  return processed;
-};
-const A = gcdN(gapList);
-console.log(
-  Math.ceil(position[position.length - 1] / A) -
-    Math.ceil(position[0] / A) +
-    1 -
-    N
-);
+const nums = new Array(10).fill(0).map((e, i) => e + i);
+const count = new Array(10).fill(0);
+N.forEach((e) => count[nums.indexOf(e)]++);
+count[6] += count[9];
+count[9] = 0;
+count[6] = !(count[6] % 2) ? count[6] / 2 : (count[6] - 1) / 2 + 1;
+console.log(Math.max(...count));
 
 // 1476번 문제 메모리 초과 -> 이전 성공 기록들도 다 4MB를 초과한 답임. 이 코드가 맞는것으로 보이나 통과하진 못함.
 // const [E, S, M] = require("fs")
@@ -3795,23 +3832,31 @@ console.log(
 // });
 
 // 8979번 문제 8점 받음.. 다시 풀기
-// const [standard, ...nation] = require("fs")
+// let [standard, ...nation] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
 //   .trim()
 //   .split("\n");
 // const [N, K] = standard.split(" ").map(Number);
+// nation = nation.map((e) => e.split(" ").map(Number));
+// const newMap = new Map(nation.map((e) => [e.shift(), Number(e.join(""))]));
+// const rank = Array.from(newMap).sort((a, b) => b[1] - a[1]);
+// let nRank = 1;
+// for (let i = 0; i < rank.length - 1; i++) {
+//   if (rank[i][0] === K) break;
+//   if (rank[i][1] === rank[i + 1][1]) nRank++;
+//   else nRank++;
+// }
+// console.log(nRank);
 // // const result = [];
 // const result = new Array(N);
 // const mapResult = {};
-// nation.sort();
+// // nation.sort();
 // const scoreNation = nation.map((e) => e.split(" ").map(Number));
-// scoreNation.map((e, i) => {
-//   // e.shift();
-//   result[i] = Number(e.join(""));
-//   // result.push(Number(e.join("")));
-// });
+// console.log(scoreNation);
+// scoreNation.map((e, i) => (result[i] = Number(e.join(""))));
 // result.sort((a, b) => (b % 1000) - (a % 1000));
-// // console.log(result);
+// console.log(scoreNation);
+// console.log("result", result);
 // let j = 1;
 // for (let i = 0; i < result.length; i++) {
 //   let prev = result[i - 1] % 1000;
