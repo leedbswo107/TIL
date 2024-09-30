@@ -3363,18 +3363,83 @@
 // console.log(result.join("\n"));
 
 // 1475번 문제
-const N = require("fs")
+// const N = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("")
+//   .map(Number);
+// const nums = new Array(10).fill(0).map((e, i) => e + i);
+// const count = new Array(10).fill(0);
+// N.forEach((e) => count[nums.indexOf(e)]++);
+// count[6] += count[9];
+// count[9] = 0;
+// count[6] = !(count[6] % 2) ? count[6] / 2 : (count[6] - 1) / 2 + 1;
+// console.log(Math.max(...count));
+
+// 14912번 문제
+const [n, d] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
-  .split("")
+  .split(" ")
   .map(Number);
-const nums = new Array(10).fill(0).map((e, i) => e + i);
-const count = new Array(10).fill(0);
-N.forEach((e) => count[nums.indexOf(e)]++);
-count[6] += count[9];
-count[9] = 0;
-count[6] = !(count[6] % 2) ? count[6] / 2 : (count[6] - 1) / 2 + 1;
-console.log(Math.max(...count));
+const arr = new Array(n)
+  .fill(1)
+  .map((e, i) => (e + i).toString().split("").map(Number));
+let count = 0;
+arr.forEach((e) => {
+  for (let i = 0; i < e.length; i++) e[i] === d && count++;
+});
+console.log(count);
+
+// 1340번 문제 푸는 중
+// let [month, date, year, time] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ");
+// const monthL = [
+//   "January",
+//   "February",
+//   "March",
+//   "April",
+//   "May",
+//   "June",
+//   "July",
+//   "August",
+//   "September",
+//   "October",
+//   "November",
+//   "December",
+// ];
+// // month = BigInt(monthL.indexOf(`${month}`) + 1);
+// date = date.split(",");
+// date.pop();
+// // date = BigInt(date);
+// // console.log(month);
+// let [hour, minute] = time.split(":").map(Number);
+// let totalDate = date !== 1 ? Number(...date) : 0;
+// console.log(totalDate);
+// const yearToDate =
+//   !(year % 400) || (!(year % 4) && year % 100 !== 0) ? 366 : 365;
+// const fullYearMinute = parseFloat(yearToDate * 24 * 60);
+// // console.log(fullYearMinute);
+// for (let i = 0; i < monthL.length; i++) {
+//   if (month === monthL[i]) break;
+//   if (i === 2 || 4 || 6 || 7 || 9 || 11) {
+//     if (i === 2) {
+//       totalDate += !(year % 400) || (!(year % 4) && year % 100 !== 0) ? 29 : 28;
+//     } else {
+//       totalDate += 30;
+//     }
+//   } else {
+//     totalDate += 31;
+//   }
+// }
+// console.log(totalDate);
+// const totalMinute = (totalDate * 24 + hour) * 60 + minute;
+
+// console.log(totalMinute / parseFloat(fullYearMinute));
+
+// console.log(month, date, year, hour, minute);
 
 // 1476번 문제 메모리 초과 -> 이전 성공 기록들도 다 4MB를 초과한 답임. 이 코드가 맞는것으로 보이나 통과하진 못함.
 // const [E, S, M] = require("fs")
