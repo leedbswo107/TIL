@@ -3377,19 +3377,96 @@
 // console.log(Math.max(...count));
 
 // 14912번 문제
-const [n, d] = require("fs")
+// const [n, d] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(Number);
+// const arr = new Array(n)
+//   .fill(1)
+//   .map((e, i) => (e + i).toString().split("").map(Number));
+// let count = 0;
+// arr.forEach((e) => {
+//   for (let i = 0; i < e.length; i++) e[i] === d && count++;
+// });
+// console.log(count);
+
+// 2535번 문제
+let [N, ...arr] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
-  .split(" ")
-  .map(Number);
-const arr = new Array(n)
-  .fill(1)
-  .map((e, i) => (e + i).toString().split("").map(Number));
-let count = 0;
-arr.forEach((e) => {
-  for (let i = 0; i < e.length; i++) e[i] === d && count++;
-});
-console.log(count);
+  .split("\n");
+arr = arr.map((e) => e.split(" ").map(Number));
+arr.sort((a, b) => b[2] - a[2]);
+let result = [];
+
+for (let j = 0; j < arr.length; j++) {
+  if (result.length === 3) break;
+  let count = 0;
+  result.forEach((e) => arr[j][0] === e[0] && count++);
+  count < 2 && result.push([arr[j][0], arr[j][1]]);
+}
+result = result.map((e) => e.join(" "));
+console.log(result.join("\n"));
+// console.log(setArr);
+
+// 1308번 문제 푸는중
+// const [today, dday] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const years = [];
+// const parseDate = (arr) => {
+//   const [year, month, date] = arr.split(" ").map(Number);
+//   years.push(year);
+//   let totalDate = date;
+//   for (let i = 2; i <= month; i++) {
+//     switch (i) {
+//       case 3:
+//         totalDate +=
+//           !(year % 400) || (!(year % 4) && year % 100 !== 0) ? 29 : 28;
+//         break;
+//       case 5:
+//         totalDate += 30;
+//         break;
+//       case 7:
+//         totalDate += 30;
+//         break;
+//       case 10:
+//         totalDate += 30;
+//         break;
+//       case 12:
+//         totalDate += 30;
+//         break;
+//       default:
+//         totalDate += 31;
+//         break;
+//     }
+//   }
+//   const yearCount =
+//     (year +
+//       parseInt(year / 400, 10) +
+//       parseInt(year / 4, 10) -
+//       parseInt(year / 100, 10)) *
+//     365;
+//   totalDate += yearCount;
+//   // for (let i = 1; i <= year; i++) {
+//   //   totalDate += !(i % 400) || (!(i % 4) && i % 100 !== 0) ? i * 366 : i * 365;
+//   // }
+//   return totalDate;
+// };
+// const todayDate = parseDate(today);
+// const ddayDate = parseDate(dday);
+// const yearGap = ddayDate - todayDate;
+// console.log(todayDate);
+// console.log(ddayDate);
+
+// console.log("test", yearGap);
+// console.log(
+//   yearGap / 365 > 1000
+//     ? "gg"
+//     : `D-${yearGap > 0 ? ddayDate - todayDate + 1 : ddayDate - todayDate}`
+// );
 
 // 1340번 문제 푸는 중
 // let [month, date, year, time] = require("fs")
