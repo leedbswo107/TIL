@@ -3392,23 +3392,84 @@
 // console.log(count);
 
 // 2535번 문제
-let [N, ...arr] = require("fs")
+// let [N, ...arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// arr = arr.map((e) => e.split(" ").map(Number));
+// arr.sort((a, b) => b[2] - a[2]);
+// let result = [];
+
+// for (let j = 0; j < arr.length; j++) {
+//   if (result.length === 3) break;
+//   let count = 0;
+//   result.forEach((e) => arr[j][0] === e[0] && count++);
+//   count < 2 && result.push([arr[j][0], arr[j][1]]);
+// }
+// result = result.map((e) => e.join(" "));
+// console.log(result.join("\n"));
+
+// 10709번 문제
+let [A, ...arr] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-arr = arr.map((e) => e.split(" ").map(Number));
-arr.sort((a, b) => b[2] - a[2]);
-let result = [];
-
-for (let j = 0; j < arr.length; j++) {
-  if (result.length === 3) break;
-  let count = 0;
-  result.forEach((e) => arr[j][0] === e[0] && count++);
-  count < 2 && result.push([arr[j][0], arr[j][1]]);
-}
-result = result.map((e) => e.join(" "));
+const [H, W] = A.split(" ").map(Number);
+const result = [];
+arr = arr.map((e) => e.split(""));
+arr.forEach((e) => {
+  let line = new Array(e.length).fill(-1);
+  if (e.includes("c")) {
+    let target = e.indexOf("c");
+    let num = 0;
+    for (let i = target; i < e.length; i++) {
+      if (e[i] === "c") {
+        num = 0;
+        line[i] = num;
+      } else line[i] = num;
+      num++;
+    }
+  }
+  result.push(line.join(" "));
+});
 console.log(result.join("\n"));
-// console.log(setArr);
+
+// 4134번 문제 푸는중
+/**
+ * 문제
+ * 정수 n(0 ≤ n ≤ 4*109)가 주어졌을 때, n보다 크거나 같은 소수 중 가장 작은 소수 찾는
+ * 프로그램을 작성하시오.
+ *
+ * 입력
+ * 첫째 줄에 테스트 케이스의 개수가 주어진다. 각 테스트 케이스는 한 줄로 이루어져 있고, 정수 n이
+ * 주어진다.
+ *
+ * 출력
+ * 각각의 테스트 케이스에 대해서 n보다 크거나 같은 소수 중 가장 작은 소수를 한 줄에 하나씩
+ * 출력한다.
+ */
+// const [T, ...N] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n")
+//   .map(BigInt);
+// const result = new Array(T).fill(BigInt(0));
+// const solution = (max) => {
+//   let i = max;
+//   while (true) {
+//     if (
+//       i !== BigInt(1) &&
+//       (i === BigInt(2) || (i !== BigInt(2) && i % BigInt(2) !== BigInt(0))) &&
+//       (i === BigInt(3) || (i !== BigInt(3) && i % BigInt(3) !== BigInt(0))) &&
+//       (i === BigInt(5) || (i !== BigInt(5) && i % BigInt(5) !== BigInt(0))) &&
+//       (i === BigInt(7) || (i !== BigInt(7) && i % BigInt(7) !== BigInt(0)))
+//     )return i;
+
+//     i++;
+//   }
+// };
+// N.forEach((e, i) => (result[i] = solution(e)));
+// console.log(result.join("\n"));
 
 // 1308번 문제 푸는중
 // const [today, dday] = require("fs")
