@@ -3410,29 +3410,91 @@
 // console.log(result.join("\n"));
 
 // 10709번 문제
-let [A, ...arr] = require("fs")
+// let [A, ...arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const [H, W] = A.split(" ").map(Number);
+// const result = [];
+// arr = arr.map((e) => e.split(""));
+// arr.forEach((e) => {
+//   let line = new Array(e.length).fill(-1);
+//   if (e.includes("c")) {
+//     let target = e.indexOf("c");
+//     let num = 0;
+//     for (let i = target; i < e.length; i++) {
+//       if (e[i] === "c") {
+//         num = 0;
+//         line[i] = num;
+//       } else line[i] = num;
+//       num++;
+//     }
+//   }
+//   result.push(line.join(" "));
+// });
+// console.log(result.join("\n"));
+
+// 1235번 문제
+// let [N, ...students] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// students = students.map((e) => e.split(""));
+// let textLen = 1;
+// while (true) {
+//   const line = [];
+//   students.forEach((e) => {
+//     const text = [];
+//     for (let i = e.length - 1; i > e.length - 1 - textLen; i--) text.push(e[i]);
+//     line.push(text.join(""));
+//   });
+//   const duplicateCheck = new Set(line);
+//   if (line.length === duplicateCheck.size) break;
+//   else textLen++;
+// }
+// console.log(textLen);
+
+// 1358번 문제
+let [A, ...B] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-const [H, W] = A.split(" ").map(Number);
-const result = [];
-arr = arr.map((e) => e.split(""));
-arr.forEach((e) => {
-  let line = new Array(e.length).fill(-1);
-  if (e.includes("c")) {
-    let target = e.indexOf("c");
-    let num = 0;
-    for (let i = target; i < e.length; i++) {
-      if (e[i] === "c") {
-        num = 0;
-        line[i] = num;
-      } else line[i] = num;
-      num++;
-    }
+const [W, H, X, Y, P] = A.split(" ").map(Number);
+const R = H / 2;
+let total = 0;
+B = B.map((e) => e.split(" ").map(Number));
+B.forEach((e) => {
+  const [x, y] = [e[0], e[1]];
+  if (x <= X) {
+    Math.abs(x - X) ** 2 + Math.abs(y - (Y + R)) ** 2 <= R ** 2 && total++;
+  } else if (x > X && x < X + W) {
+    y >= Y && y <= Y + H && total++;
+  } else if (x >= X + W) {
+    Math.abs(x - (X + W)) ** 2 + Math.abs(y - (Y + R)) ** 2 <= R ** 2 &&
+      total++;
   }
-  result.push(line.join(" "));
 });
-console.log(result.join("\n"));
+console.log(total);
+// 11051번 문제 푸는중 dp를 어떻게 적용해야 바른 방식일지..
+// let [N, K] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(BigInt);
+// const dp = [BigInt(1), BigInt(1)];
+// const solution = (n, k) => {
+//   let test = 0;
+//   while (k >= 1) {
+//     dp[0] *= n;
+//     dp[1] *= k;
+//     n--;
+//     k--;
+//     test++;
+//   }
+// };
+// solution(N, K);
+// // console.log(dp);
+// console.log((dp[0] / dp[1]) % BigInt(10007));
 
 // 4134번 문제 푸는중
 /**
