@@ -3455,26 +3455,80 @@
 // console.log(textLen);
 
 // 1358번 문제
-let [A, ...B] = require("fs")
-  .readFileSync("./input.txt", "utf-8")
-  .trim()
-  .split("\n");
-const [W, H, X, Y, P] = A.split(" ").map(Number);
-const R = H / 2;
-let total = 0;
-B = B.map((e) => e.split(" ").map(Number));
-B.forEach((e) => {
-  const [x, y] = [e[0], e[1]];
-  if (x <= X) {
-    Math.abs(x - X) ** 2 + Math.abs(y - (Y + R)) ** 2 <= R ** 2 && total++;
-  } else if (x > X && x < X + W) {
-    y >= Y && y <= Y + H && total++;
-  } else if (x >= X + W) {
-    Math.abs(x - (X + W)) ** 2 + Math.abs(y - (Y + R)) ** 2 <= R ** 2 &&
-      total++;
+// let [A, ...B] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const [W, H, X, Y, P] = A.split(" ").map(Number);
+// const R = H / 2;
+// let total = 0;
+// B = B.map((e) => e.split(" ").map(Number));
+// B.forEach((e) => {
+//   const [x, y] = [e[0], e[1]];
+//   if (x <= X) {
+//     Math.abs(x - X) ** 2 + Math.abs(y - (Y + R)) ** 2 <= R ** 2 && total++;
+//   } else if (x > X && x < X + W) {
+//     y >= Y && y <= Y + H && total++;
+//   } else if (x >= X + W) {
+//     Math.abs(x - (X + W)) ** 2 + Math.abs(y - (Y + R)) ** 2 <= R ** 2 &&
+//       total++;
+//   }
+// });
+// console.log(total);
+
+// 9507번 문제
+// const [t, ...nums] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n")
+//   .map(BigInt);
+// const result = [];
+// const dp = [];
+// const koong = (n) => {
+//   for (let i = 0; i <= n; i++) {
+//     if (i < 2) dp[i] = BigInt(1);
+//     if (i === 2) dp[i] = BigInt(2);
+//     if (i === 3) dp[i] = BigInt(4);
+//     if (dp[i]) dp[i];
+//     if (i > 3) dp[i] = dp[i - 1] + dp[i - 2] + dp[i - 3] + dp[i - 4];
+//   }
+//   return dp[n];
+// };
+// nums.forEach((e) => result.push(koong(e)));
+// console.log(result.join("\n"));
+
+// 13699번 문제
+// const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// const dp = [];
+// const solution = (n) => {
+//   for (let i = 0; i <= n; i++) {
+//     if (i === 0) dp[i] = BigInt(1);
+//     if (dp[i]) dp[i];
+//     if (i > 0) {
+//       let sum = BigInt(0);
+//       for (let j = 0; j < i; j++) sum += dp[j] * dp[i - 1 - j];
+//       dp[i] = sum;
+//     }
+//   }
+// };
+// solution(N);
+// console.log(`${dp[N]}`);
+
+// 14495번 문제
+const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+const dp = [];
+const solution = (n) => {
+  for (let i = 0; i < n; i++) {
+    if (i === 0) dp[i] = BigInt(1);
+    if (i === 1) dp[i] = BigInt(1);
+    if (i === 2) dp[i] = BigInt(1);
+    if (dp[i]) dp[i];
+    if (i > 2) dp[i] = dp[i - 1] + dp[i - 3];
   }
-});
-console.log(total);
+};
+solution(N);
+console.log(`${dp[N - 1]}`);
+
 // 11051번 문제 푸는중 dp를 어떻게 적용해야 바른 방식일지..
 // let [N, K] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
