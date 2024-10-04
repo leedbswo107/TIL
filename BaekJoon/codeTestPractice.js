@@ -24,6 +24,8 @@
 // }
 // console.log(arr.join(' '));
 
+const { sourceMapsEnabled } = require("process");
+
 // 10810번 문제
 // const fs = require('fs');
 // const input = fs.readFileSync('./input.txt').toString().trim().split('\n');
@@ -3515,19 +3517,61 @@
 // console.log(`${dp[N]}`);
 
 // 14495번 문제
-const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
-const dp = [];
-const solution = (n) => {
-  for (let i = 0; i < n; i++) {
-    if (i === 0) dp[i] = BigInt(1);
-    if (i === 1) dp[i] = BigInt(1);
-    if (i === 2) dp[i] = BigInt(1);
-    if (dp[i]) dp[i];
-    if (i > 2) dp[i] = dp[i - 1] + dp[i - 3];
+// const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// const dp = [];
+// const solution = (n) => {
+//   for (let i = 0; i < n; i++) {
+//     if (i === 0) dp[i] = BigInt(1);
+//     if (i === 1) dp[i] = BigInt(1);
+//     if (i === 2) dp[i] = BigInt(1);
+//     if (dp[i]) dp[i];
+//     if (i > 2) dp[i] = dp[i - 1] + dp[i - 3];
+//   }
+// };
+// solution(N);
+// console.log(`${dp[N - 1]}`);
+
+// 2960번 문제
+/**
+ * 1. 2부터 N까지 모든 정수를 적는다.
+ * 2. 아직 지우지 않은 수 중 가장 작은 수를 찾는다. 이것을 P라고 하고, 이 수는 소수이다.
+ * 3. P를 지우고, 아직 지우지 않은 P의 배수를 크기 순서대로 지운다.
+ * 4. 아직 모든 수를 지우지 않았다면, 다시 2번 단계로 간다.
+ * */
+const [N, K] = require("fs")
+  .readFileSync("./input.txt", "utf-8")
+  .trim()
+  .split(" ")
+  .map(Number);
+const arr = new Array(N - 1).fill(2).map((e, i) => e + i);
+let result = [];
+let count = 0;
+let P = arr[0];
+while (true) {
+  if (count === K) break;
+  P = arr[0];
+  for (let i = 0; i < arr.length; i++) {
+    if (count === K) break;
+    if (!(arr[i] % P)) {
+      result.push(...arr.splice(i, 1));
+      count++;
+    }
   }
-};
-solution(N);
-console.log(`${dp[N - 1]}`);
+}
+console.log(result.pop());
+
+// 1002번 문제 푸는중
+// let [T, ...position] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// // position = position.map((e) => e.split(" ").map(Number));
+// const solution = (arr) => {
+//   const [x1,y1,r1,x2,y2,r2] = arr.split(' ').map(Number);
+
+//   console.log(x1,y1,r1,x2,y2,r2);
+// }
+// solution(position[1]);
 
 // 11051번 문제 푸는중 dp를 어떻게 적용해야 바른 방식일지..
 // let [N, K] = require("fs")
