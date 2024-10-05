@@ -3561,41 +3561,63 @@ const { sourceMapsEnabled } = require("process");
 // console.log(result.pop());
 
 // 28463번 문제
-let [direction, ...skill] = require("fs")
+// let [direction, ...skill] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const skills = {
+//   T: ".PO.",
+//   F: "P..I",
+//   Lz: "P..O",
+// };
+// const result = [];
+// skill = skill.map((e) => e.split(""));
+// switch (direction) {
+//   case "E":
+//     [[skill[0][0], skill[0][1]], [skill[1][0], skill[1][1]]] = [
+//       [skill[0][1], skill[1][1]],
+//       [skill[0][0], skill[1][0]],
+//     ];
+//     break;
+//   case "S":
+//     [skill[0][0], skill[0][1]] = [skill[0][1], skill[0][0]];
+//     [skill[1][0], skill[1][1]] = [skill[1][1], skill[1][0]];
+//     [skill[0], skill[1]] = [skill[1], skill[0]];
+//     break;
+//   case "W":
+//     [[skill[0][0], skill[0][1]], [skill[1][0], skill[1][1]]] = [
+//       [skill[1][0], skill[0][0]],
+//       [skill[1][1], skill[0][1]],
+//     ];
+//     break;
+//   default:
+//     break;
+// }
+// skill = skill.flat().join("");
+// for (const key in skills) skills[key] === skill && result.push(key);
+// console.log(result.length !== 0 ? result[0] : "?");
+
+// 12904번 문제
+let [S, T] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-const skills = {
-  T: ".PO.",
-  F: "P..I",
-  Lz: "P..O",
-};
-const result = [];
-skill = skill.map((e) => e.split(""));
-switch (direction) {
-  case "E":
-    [[skill[0][0], skill[0][1]], [skill[1][0], skill[1][1]]] = [
-      [skill[0][1], skill[1][1]],
-      [skill[0][0], skill[1][0]],
-    ];
+S = S.split("");
+T = T.split("");
+const Len = T.length - S.length;
+let result = 0;
+for (let i = 0; i <= Len; i++) {
+  if (T.join("") === S.join("")) {
+    result = 1;
     break;
-  case "S":
-    [skill[0][0], skill[0][1]] = [skill[0][1], skill[0][0]];
-    [skill[1][0], skill[1][1]] = [skill[1][1], skill[1][0]];
-    [skill[0], skill[1]] = [skill[1], skill[0]];
-    break;
-  case "W":
-    [[skill[0][0], skill[0][1]], [skill[1][0], skill[1][1]]] = [
-      [skill[1][0], skill[0][0]],
-      [skill[1][1], skill[0][1]],
-    ];
-    break;
-  default:
-    break;
+  }
+  if (T[T.length - 1] === "B") {
+    T.pop();
+    T.reverse();
+  } else if (T[T.length - 1] === "A") T.pop();
 }
-skill = skill.flat().join("");
-for (const key in skills) skills[key] === skill && result.push(key);
-console.log(result.length !== 0 ? result[0] : "?");
+console.log(result);
+
 // 1002번 문제 푸는중
 // let [T, ...position] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
