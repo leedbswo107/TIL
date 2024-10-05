@@ -3538,40 +3538,82 @@ const { sourceMapsEnabled } = require("process");
  * 3. P를 지우고, 아직 지우지 않은 P의 배수를 크기 순서대로 지운다.
  * 4. 아직 모든 수를 지우지 않았다면, 다시 2번 단계로 간다.
  * */
-const [N, K] = require("fs")
+// const [N, K] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(Number);
+// const arr = new Array(N - 1).fill(2).map((e, i) => e + i);
+// let result = [];
+// let count = 0;
+// let P = arr[0];
+// while (true) {
+//   if (count === K) break;
+//   P = arr[0];
+//   for (let i = 0; i < arr.length; i++) {
+//     if (count === K) break;
+//     if (!(arr[i] % P)) {
+//       result.push(...arr.splice(i, 1));
+//       count++;
+//     }
+//   }
+// }
+// console.log(result.pop());
+
+// 28463번 문제
+let [direction, ...skill] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
-  .split(" ")
-  .map(Number);
-const arr = new Array(N - 1).fill(2).map((e, i) => e + i);
-let result = [];
-let count = 0;
-let P = arr[0];
-while (true) {
-  if (count === K) break;
-  P = arr[0];
-  for (let i = 0; i < arr.length; i++) {
-    if (count === K) break;
-    if (!(arr[i] % P)) {
-      result.push(...arr.splice(i, 1));
-      count++;
-    }
-  }
+  .split("\n");
+const skills = {
+  T: ".PO.",
+  F: "P..I",
+  Lz: "P..O",
+};
+const result = [];
+skill = skill.map((e) => e.split(""));
+switch (direction) {
+  case "E":
+    [[skill[0][0], skill[0][1]], [skill[1][0], skill[1][1]]] = [
+      [skill[0][1], skill[1][1]],
+      [skill[0][0], skill[1][0]],
+    ];
+    break;
+  case "S":
+    [skill[0][0], skill[0][1]] = [skill[0][1], skill[0][0]];
+    [skill[1][0], skill[1][1]] = [skill[1][1], skill[1][0]];
+    [skill[0], skill[1]] = [skill[1], skill[0]];
+    break;
+  case "W":
+    [[skill[0][0], skill[0][1]], [skill[1][0], skill[1][1]]] = [
+      [skill[1][0], skill[0][0]],
+      [skill[1][1], skill[0][1]],
+    ];
+    break;
+  default:
+    break;
 }
-console.log(result.pop());
-
+skill = skill.flat().join("");
+for (const key in skills) skills[key] === skill && result.push(key);
+console.log(result.length !== 0 ? result[0] : "?");
 // 1002번 문제 푸는중
 // let [T, ...position] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
 //   .trim()
 //   .split("\n");
-// // position = position.map((e) => e.split(" ").map(Number));
-// const solution = (arr) => {
-//   const [x1,y1,r1,x2,y2,r2] = arr.split(' ').map(Number);
-
-//   console.log(x1,y1,r1,x2,y2,r2);
-// }
-// solution(position[1]);
+// let count = new Array(+T).fill(0);
+// const solution = (arr, index) => {
+//   const [x1, y1, r1, x2, y2, r2] = arr.split(" ").map(Number);
+//   for (let x = -10000; x < 10000; x++) {
+//     for (let y = -10000; y < 10000; y++) {
+//       if ((x - x1) ** 2 + (y - y1) ** 2 - r1 ** 2 === 0) {
+//         if ((x - x2) ** 2 + (y - y2) ** 2 - r2 ** 2 === 0) count[index]++;
+//       }
+//     }
+//   }
+// };
+// position.forEach((e, i) => solution(e, i));
+// count.forEach((e) => console.log(e !== Infinity ? e : -1));
 
 // 11051번 문제 푸는중 dp를 어떻게 적용해야 바른 방식일지..
 // let [N, K] = require("fs")
