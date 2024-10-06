@@ -3598,25 +3598,94 @@ const { sourceMapsEnabled } = require("process");
 // console.log(result.length !== 0 ? result[0] : "?");
 
 // 12904번 문제
-let [S, T] = require("fs")
+// let [S, T] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// S = S.split("");
+// T = T.split("");
+// const Len = T.length - S.length;
+// let result = 0;
+// for (let i = 0; i <= Len; i++) {
+//   if (T.join("") === S.join("")) {
+//     result = 1;
+//     break;
+//   }
+//   if (T[T.length - 1] === "B") {
+//     T.pop();
+//     T.reverse();
+//   } else if (T[T.length - 1] === "A") T.pop();
+// }
+// console.log(result);
+
+// 16953번 문제
+// let [A, B] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(BigInt);
+// let result = -1;
+// let count = 1;
+// while (true) {
+//   if (A === B) break;
+//   if (B < A) break;
+//   B % BigInt(10) === BigInt(1)
+//     ? (B = (B - (B % BigInt(10))) / BigInt(10))
+//     : (B /= BigInt(2));
+//   count++;
+// }
+// result = B !== A ? result : count;
+// console.log(result);
+
+// 9613번 문제
+let [T, ...N] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-S = S.split("");
-T = T.split("");
-const Len = T.length - S.length;
-let result = 0;
-for (let i = 0; i <= Len; i++) {
-  if (T.join("") === S.join("")) {
-    result = 1;
-    break;
+const result = new Array(+T).fill(0);
+N = N.map((e) => e.split(" ").map(Number));
+N = N.map((e) => {
+  e.shift();
+  return e.sort((a, b) => b - a);
+});
+N.forEach((e, k) => {
+  for (let i = 0; i < e.length - 1; i++) {
+    for (let j = i + 1; j < e.length; j++) {
+      let [A, B] = [e[i], e[j]];
+      while (B !== 0) [A, B] = [B, A % B];
+      result[k] += A;
+    }
   }
-  if (T[T.length - 1] === "B") {
-    T.pop();
-    T.reverse();
-  } else if (T[T.length - 1] === "A") T.pop();
-}
-console.log(result);
+});
+console.log(result.join("\n"));
+// 12919번 문제 푸는중
+// let [S, T] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// S = S.split("");
+// T = T.split("");
+// let result = 0;
+// const solution = (t) => {
+//   console.log(t);
+//   if (t.length === S.length) {
+//     if (t.join("") === S.join("")) {
+//       return (result = 1);
+//     }
+//   } else {
+//     if (t[t.length - 1] === "A") {
+//       t.pop();
+//       solution(t);
+//     }
+//     if (t[t.length - 1] === "B") {
+//       t.reverse();
+//       t.pop();
+//       solution(t);
+//     }
+//   }
+// };
+// solution(T);
+// console.log(result);
 
 // 1002번 문제 푸는중
 // let [T, ...position] = require("fs")
