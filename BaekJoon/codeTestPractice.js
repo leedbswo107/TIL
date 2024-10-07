@@ -3638,26 +3638,41 @@ const { sourceMapsEnabled } = require("process");
 // console.log(result);
 
 // 9613번 문제
-let [T, ...N] = require("fs")
-  .readFileSync("./input.txt", "utf-8")
-  .trim()
-  .split("\n");
-const result = new Array(+T).fill(0);
-N = N.map((e) => e.split(" ").map(Number));
-N = N.map((e) => {
-  e.shift();
-  return e.sort((a, b) => b - a);
-});
-N.forEach((e, k) => {
-  for (let i = 0; i < e.length - 1; i++) {
-    for (let j = i + 1; j < e.length; j++) {
-      let [A, B] = [e[i], e[j]];
-      while (B !== 0) [A, B] = [B, A % B];
-      result[k] += A;
-    }
+// let [T, ...N] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const result = new Array(+T).fill(0);
+// N = N.map((e) => e.split(" ").map(Number));
+// N = N.map((e) => {
+//   e.shift();
+//   return e.sort((a, b) => b - a);
+// });
+// N.forEach((e, k) => {
+//   for (let i = 0; i < e.length - 1; i++) {
+//     for (let j = i + 1; j < e.length; j++) {
+//       let [A, B] = [e[i], e[j]];
+//       while (B !== 0) [A, B] = [B, A % B];
+//       result[k] += A;
+//     }
+//   }
+// });
+// console.log(result.join("\n"));
+
+// 9625번 문제
+const K = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+const dp = new Array(K + 1);
+const solution = (K) => {
+  for (let i = 0; i <= K; i++) {
+    if (i === 0) dp[i] = [1, 0];
+    if (i === 1) dp[i] = [0, 1];
+    if (dp[i]) dp[i];
+    else dp[i] = [dp[i - 1][0] + dp[i - 2][0], dp[i - 1][1] + dp[i - 2][1]];
   }
-});
-console.log(result.join("\n"));
+};
+solution(K);
+console.log(dp[K].join(" "));
+
 // 12919번 문제 푸는중
 // let [S, T] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
