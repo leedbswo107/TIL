@@ -3660,18 +3660,32 @@ const { sourceMapsEnabled } = require("process");
 // console.log(result.join("\n"));
 
 // 9625번 문제
-const K = +require("fs").readFileSync("./input.txt", "utf-8").trim();
-const dp = new Array(K + 1);
-const solution = (K) => {
-  for (let i = 0; i <= K; i++) {
-    if (i === 0) dp[i] = [1, 0];
-    if (i === 1) dp[i] = [0, 1];
-    if (dp[i]) dp[i];
-    else dp[i] = [dp[i - 1][0] + dp[i - 2][0], dp[i - 1][1] + dp[i - 2][1]];
-  }
-};
-solution(K);
-console.log(dp[K].join(" "));
+// const K = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// const dp = new Array(K + 1);
+// const solution = (K) => {
+//   for (let i = 0; i <= K; i++) {
+//     if (i === 0) dp[i] = [1, 0];
+//     if (i === 1) dp[i] = [0, 1];
+//     if (dp[i]) dp[i];
+//     else dp[i] = [dp[i - 1][0] + dp[i - 2][0], dp[i - 1][1] + dp[i - 2][1]];
+//   }
+// };
+// solution(K);
+// console.log(dp[K].join(" "));
+
+// 5347번 문제
+let [n, ...arr] = require("fs")
+  .readFileSync("./input.txt", "utf-8")
+  .trim()
+  .split("\n");
+const result = [];
+arr = arr.map((e) => e.split(" ").map(Number));
+arr.forEach((e, i) => {
+  let [A, B] = e[0] > e[1] ? [e[0], e[1]] : [e[1], e[0]];
+  while (B !== 0) [A, B] = [B, A % B];
+  result[i] = (e[0] * e[1]) / A;
+});
+console.log(result.join('\n'));
 
 // 12919번 문제 푸는중
 // let [S, T] = require("fs")
