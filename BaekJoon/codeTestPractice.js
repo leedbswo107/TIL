@@ -3674,18 +3674,38 @@ const { sourceMapsEnabled } = require("process");
 // console.log(dp[K].join(" "));
 
 // 5347번 문제
-let [n, ...arr] = require("fs")
+// let [n, ...arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const result = [];
+// arr = arr.map((e) => e.split(" ").map(Number));
+// arr.forEach((e, i) => {
+//   let [A, B] = e[0] > e[1] ? [e[0], e[1]] : [e[1], e[0]];
+//   while (B !== 0) [A, B] = [B, A % B];
+//   result[i] = (e[0] * e[1]) / A;
+// });
+// console.log(result.join('\n'));
+
+// 2003번 문제
+const [A, B] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-const result = [];
-arr = arr.map((e) => e.split(" ").map(Number));
-arr.forEach((e, i) => {
-  let [A, B] = e[0] > e[1] ? [e[0], e[1]] : [e[1], e[0]];
-  while (B !== 0) [A, B] = [B, A % B];
-  result[i] = (e[0] * e[1]) / A;
-});
-console.log(result.join('\n'));
+const [N, M] = A.split(" ").map(Number);
+const arr = B.split(" ").map(Number);
+let count = 0;
+for (let i = 0; i < arr.length; i++) {
+  let sum = 0;
+  for (let j = i; j <= arr.length; j++) {
+    if (sum === M) {
+      count++;
+      break;
+    }
+    sum += arr[j];
+  }
+}
+console.log(count);
 
 // 12919번 문제 푸는중
 // let [S, T] = require("fs")
