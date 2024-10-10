@@ -3708,29 +3708,42 @@ const { sourceMapsEnabled } = require("process");
 // console.log(count);
 
 // 15649번 문제
-const [N, M] = require("fs")
+// const [N, M] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(Number);
+// const arr = new Array(N).fill(1).map((e, i) => e + i);
+// const result = [];
+// const BT = (arr, line) => {
+//   if (line.length === M) return result.push(line.join(" "));
+//   for (let i = 0; i < arr.length; i++) {
+//     const childArr = [...arr];
+//     const childLine = [...line];
+//     childLine.push(...childArr.splice(i, 1));
+//     BT(childArr, childLine);
+//   }
+// };
+// for (let i = 0; i < arr.length; i++) {
+//   const childArr = [...arr];
+//   const childLine = [];
+//   childLine.push(...childArr.splice(i, 1));
+//   BT(childArr, childLine);
+// }
+// console.log(result.join("\n"));
+
+// 2847번 문제
+const [N, ...nums] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
-  .split(" ")
+  .split("\n")
   .map(Number);
-const arr = new Array(N).fill(1).map((e, i) => e + i);
-const result = [];
-const BT = (arr, line) => {
-  if (line.length === M) return result.push(line.join(" "));
-  for (let i = 0; i < arr.length; i++) {
-    const childArr = [...arr];
-    const childLine = [...line];
-    childLine.push(...childArr.splice(i, 1));
-    BT(childArr, childLine);
-  }
-};
-for (let i = 0; i < arr.length; i++) {
-  const childArr = [...arr];
-  const childLine = [];
-  childLine.push(...childArr.splice(i, 1));
-  BT(childArr, childLine);
+let count = 0;
+nums.reverse();
+for (let i = 0; i < nums.length - 1; i++) {
+  while (nums[i] <= nums[i + 1]) nums[i + 1]-- && count++;
 }
-console.log(result.join("\n"));
+console.log(count);
 
 // 12919번 문제 푸는중
 // let [S, T] = require("fs")
