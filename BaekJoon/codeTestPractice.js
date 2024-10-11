@@ -3733,18 +3733,57 @@ const { sourceMapsEnabled } = require("process");
 // console.log(result.join("\n"));
 
 // 2847번 문제
-const [N, ...nums] = require("fs")
+// const [N, ...nums] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n")
+//   .map(Number);
+// let count = 0;
+// nums.reverse();
+// for (let i = 0; i < nums.length - 1; i++) {
+//   while (nums[i] <= nums[i + 1]) nums[i + 1]-- && count++;
+// }
+// console.log(count);
+
+// 9417번 문제
+let [n, ...arr] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
-  .split("\n")
-  .map(Number);
-let count = 0;
-nums.reverse();
-for (let i = 0; i < nums.length - 1; i++) {
-  while (nums[i] <= nums[i + 1]) nums[i + 1]-- && count++;
-}
-console.log(count);
+  .split("\n");
+const result = [];
+arr = arr.map((e) => e.split(" ").map(Number));
+arr.forEach((e) => {
+  const line = [];
+  e.sort((a, b) => a - b);
+  for (let i = 0; i < e.length - 1; i++) {
+    for (let j = i + 1; j < e.length; j++) {
+      let [A, B] = [e[j], e[i]];
+      while (B !== 0) [A, B] = [B, A % B];
+      line.push(A);
+    }
+  }
+  result.push(Math.max(...line));
+});
+console.log(result.join("\n"));
 
+// 15624번 문제 푸는중
+// const n = BigInt(require("fs").readFileSync("./input.txt", "utf-8").trim());
+// const num = BigInt(1000000007);
+// const fibo = (i) => {
+//   if(i === BigInt(0)) return BigInt(0);
+//   else if(i === BigInt(1)) return BigInt(1);
+//   else return fibo(i) = (fibo(i-BigInt(1))+fibo(i-BigInt(2)))%num;
+// }
+// console.log(fibo(n));
+// const fibo = (i) => {
+//   for (let j = BigInt(0); j < i; j++) {
+//     if (j <= BigInt(1)) dp[j] = j;
+//     else if (dp[j]) dp[j];
+//     else dp[j] = (dp[j - BigInt(2)] + dp[j - BigInt(1)]) % num;
+//   }
+// };
+// fibo(n + BigInt(1));
+// console.log(`${dp[n]}`);
 // 12919번 문제 푸는중
 // let [S, T] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
