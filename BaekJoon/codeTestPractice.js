@@ -3746,25 +3746,38 @@ const { sourceMapsEnabled } = require("process");
 // console.log(count);
 
 // 9417번 문제
-let [n, ...arr] = require("fs")
+// let [n, ...arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const result = [];
+// arr = arr.map((e) => e.split(" ").map(Number));
+// arr.forEach((e) => {
+//   const line = [];
+//   e.sort((a, b) => a - b);
+//   for (let i = 0; i < e.length - 1; i++) {
+//     for (let j = i + 1; j < e.length; j++) {
+//       let [A, B] = [e[j], e[i]];
+//       while (B !== 0) [A, B] = [B, A % B];
+//       line.push(A);
+//     }
+//   }
+//   result.push(Math.max(...line));
+// });
+// console.log(result.join("\n"));
+
+// 2090번 문제
+let [N, A] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-const result = [];
-arr = arr.map((e) => e.split(" ").map(Number));
-arr.forEach((e) => {
-  const line = [];
-  e.sort((a, b) => a - b);
-  for (let i = 0; i < e.length - 1; i++) {
-    for (let j = i + 1; j < e.length; j++) {
-      let [A, B] = [e[j], e[i]];
-      while (B !== 0) [A, B] = [B, A % B];
-      line.push(A);
-    }
-  }
-  result.push(Math.max(...line));
-});
-console.log(result.join("\n"));
+let [n1, n2] = [BigInt(1), BigInt(0)];
+A = A.split(" ").map(BigInt);
+A.forEach((e) => (n1 *= e));
+A.forEach((e) => (n2 += n1 / e));
+let [a, b] = [n2, n1];
+while (b !== BigInt(0)) [a, b] = [b, a % b];
+console.log(`${n1 / a}/${n2 / a}`);
 
 // 15624번 문제 푸는중
 // const n = BigInt(require("fs").readFileSync("./input.txt", "utf-8").trim());
