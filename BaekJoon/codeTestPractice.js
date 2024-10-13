@@ -3767,17 +3767,45 @@ const { sourceMapsEnabled } = require("process");
 // console.log(result.join("\n"));
 
 // 2090번 문제
-let [N, A] = require("fs")
-  .readFileSync("./input.txt", "utf-8")
-  .trim()
-  .split("\n");
-let [n1, n2] = [BigInt(1), BigInt(0)];
-A = A.split(" ").map(BigInt);
-A.forEach((e) => (n1 *= e));
-A.forEach((e) => (n2 += n1 / e));
-let [a, b] = [n2, n1];
-while (b !== BigInt(0)) [a, b] = [b, a % b];
-console.log(`${n1 / a}/${n2 / a}`);
+// let [N, A] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// let [n1, n2] = [BigInt(1), BigInt(0)];
+// A = A.split(" ").map(BigInt);
+// A.forEach((e) => (n1 *= e));
+// A.forEach((e) => (n2 += n1 / e));
+// let [a, b] = [n2, n1];
+// while (b !== BigInt(0)) [a, b] = [b, a % b];
+// console.log(`${n1 / a}/${n2 / a}`);
+
+// 3049번 문제
+const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+let num = 1;
+for (let i = N; i > N - 4; i--) num *= i;
+console.log(num / 24);
+
+// 3986번 문제 왜 틀린겨..
+// let [N, ...arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// let count = 0;
+// arr = arr.map((e) => e.split(""));
+// for (let j = 0; j < +N; j++) {
+//   const A = [...arr[j]];
+//   let len = A.length;
+//   if (len % 2) break;
+//   for (let i = 0; i < len - 1; i++) {
+//     if (A[i] === A[i + 1]) {
+//       A.splice(i, 2);
+//       i = -1;
+//       len -= 2;
+//     }
+//   }
+//   !len && count++;
+// }
+// console.log(count);
 
 // 15624번 문제 푸는중
 // const n = BigInt(require("fs").readFileSync("./input.txt", "utf-8").trim());
