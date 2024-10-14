@@ -3780,11 +3780,76 @@ const { sourceMapsEnabled } = require("process");
 // console.log(`${n1 / a}/${n2 / a}`);
 
 // 3049번 문제
-const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
-let num = 1;
-for (let i = N; i > N - 4; i--) num *= i;
-console.log(num / 24);
+// const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// let num = 1;
+// for (let i = N; i > N - 4; i--) num *= i;
+// console.log(num / 24);
 
+// 1850번 문제
+// const [A, B] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(BigInt);
+// let [a, b] = A > B ? [A, B] : [B, A];
+// let result = "";
+// while (b !== BigInt(0)) [a, b] = [b, a % b];
+// for (let i = BigInt(0); i < a; i++) result += "1";
+// console.log(result);
+
+// 11008번 문제
+const [T, ...texts] = require("fs")
+  .readFileSync("./input.txt", "utf-8")
+  .trim()
+  .split("\n");
+const result = [];
+const solution = (text) => {
+  let [s, p] = text.split(" ");
+  const totalLen = s.split("").length;
+  const num = s.split(p).join("").split("").length;
+  const pLen = p.split("").length;
+  result.push((totalLen - num) / pLen + num);
+};
+texts.forEach((e) => solution(e));
+console.log(result.join("\n"));
+
+// 20291번 문제 왜 초과일까..
+// let [N, ...files] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// files = files.map((e) => e.split("."));
+// let extension = new Set(files.map((e) => e[1]));
+// extension = Array.from(extension).sort();
+// const result = new Array(extension.length).fill(0);
+// extension.forEach((e, i) => {
+//   for (let j = 0; j < files.length; j++) {
+
+//   }
+//   const data = files.filter((el) => e === el[1]);
+//   result[i] = `${e} ${data.length}`;
+// });
+// console.log(result.join("\n"));
+
+// 2436번 문제 푸는중
+// let [A, B] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(Number);
+// let [a, b] = [0, 0];
+// let i = 2;
+// const nums = [];
+// while (true) {
+//   if (a > 100000000 || b > 100000000) break;
+//   [a, b] = [A * i, A];
+//   if ((a * b) / A === B) {
+//     console.log(a, b);
+//     nums.push([a, b]);
+//   }
+//   i++;
+// }
+// console.log(nums);
 // 3986번 문제 왜 틀린겨..
 // let [N, ...arr] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
