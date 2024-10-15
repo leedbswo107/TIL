@@ -3230,6 +3230,10 @@
 // });
 // console.log(result.join("\n"));
 
+// 16394번 문제
+// const n = +require('fs').readFileSync('/dev/stdin','utf-8').trim();
+// console.log(n-1946);
+
 // 1302번 문제
 const [N, ...arr] = require("fs")
   .readFileSync("./input.txt", "utf-8")
