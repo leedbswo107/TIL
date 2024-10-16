@@ -3234,6 +3234,12 @@
 // const n = +require('fs').readFileSync('/dev/stdin','utf-8').trim();
 // console.log(n-1946);
 
+// 24883번 문제
+// const n =require('fs').readFileSync('/dev/stdin','utf-8').trim();
+// let result = 'Naver Whale';
+// if(n === 'n'|| n==='N') result = "Naver D2";
+// console.log(result);
+
 // 1302번 문제
 const [N, ...arr] = require("fs")
   .readFileSync("./input.txt", "utf-8")
