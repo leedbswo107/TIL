@@ -3798,19 +3798,41 @@ const { sourceMapsEnabled } = require("process");
 // console.log(result);
 
 // 11008번 문제
-const [T, ...texts] = require("fs")
+// const [T, ...texts] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const result = [];
+// const solution = (text) => {
+//   let [s, p] = text.split(" ");
+//   const totalLen = s.split("").length;
+//   const num = s.split(p).join("").split("").length;
+//   const pLen = p.split("").length;
+//   result.push((totalLen - num) / pLen + num);
+// };
+// texts.forEach((e) => solution(e));
+// console.log(result.join("\n"));
+
+// 11292번 문제
+const arr = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
 const result = [];
-const solution = (text) => {
-  let [s, p] = text.split(" ");
-  const totalLen = s.split("").length;
-  const num = s.split(p).join("").split("").length;
-  const pLen = p.split("").length;
-  result.push((totalLen - num) / pLen + num);
-};
-texts.forEach((e) => solution(e));
+while (true) {
+  if (arr[0] === "0") break;
+  else {
+    const T = +arr.shift();
+    const line = [];
+    let peoples = arr.splice(0, T);
+    peoples = peoples.map((e) => e.split(" "));
+    peoples = peoples.map((e) => [e[0], +e[1]]);
+    peoples.sort((a, b) => b[1] - a[1]);
+    const max = peoples[0];
+    peoples.forEach((e) => e[1] === max[1] && line.push(e[0]));
+    result.push(line.join(" "));
+  }
+}
 console.log(result.join("\n"));
 
 // 20291번 문제 왜 초과일까..
