@@ -3814,26 +3814,113 @@ const { sourceMapsEnabled } = require("process");
 // console.log(result.join("\n"));
 
 // 11292번 문제
-const arr = require("fs")
+// const arr = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const result = [];
+// while (true) {
+//   if (arr[0] === "0") break;
+//   else {
+//     const T = +arr.shift();
+//     const line = [];
+//     let peoples = arr.splice(0, T);
+//     peoples = peoples.map((e) => e.split(" "));
+//     peoples = peoples.map((e) => [e[0], +e[1]]);
+//     peoples.sort((a, b) => b[1] - a[1]);
+//     const max = peoples[0];
+//     peoples.forEach((e) => e[1] === max[1] && line.push(e[0]));
+//     result.push(line.join(" "));
+//   }
+// }
+// console.log(result.join("\n"));
+
+// 1755번 문제
+const [M, N] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
-  .split("\n");
+  .split(" ")
+  .map(Number);
+const speak = [
+  "zero",
+  "one",
+  "two",
+  "three",
+  "four",
+  "five",
+  "six",
+  "seven",
+  "eight",
+  "nine",
+];
 const result = [];
-while (true) {
-  if (arr[0] === "0") break;
-  else {
-    const T = +arr.shift();
-    const line = [];
-    let peoples = arr.splice(0, T);
-    peoples = peoples.map((e) => e.split(" "));
-    peoples = peoples.map((e) => [e[0], +e[1]]);
-    peoples.sort((a, b) => b[1] - a[1]);
-    const max = peoples[0];
-    peoples.forEach((e) => e[1] === max[1] && line.push(e[0]));
-    result.push(line.join(" "));
-  }
+let nums = new Array(N - M + 1).fill(M).map((e, i) => e + i);
+nums = nums.map((e) => String(e).split("").map(Number));
+const speakNums = [];
+nums.forEach((e, i) => {
+  const line = [];
+  e.forEach((el) => line.push(speak[el]));
+  speakNums.push(line.join(" "));
+});
+speakNums.sort();
+speakNums.forEach((e, i) => {
+  const inNums = e.split(" ");
+  const line = [];
+  inNums.forEach((e) => line.push(speak.indexOf(e)));
+  result[i] = line.join("");
+});
+const len = Math.ceil(result.length / 10);
+for (let i = 0; i < len; i++) {
+  const line = result.splice(0, result.length >= 10 ? 10 : result.length);
+  console.log(line.join(" "));
 }
-console.log(result.join("\n"));
+
+// 13717번 문제 푸는중
+// let [N, ...arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// let pokemon = [];
+// let total = 0;
+// let max = 0;
+// let result = "";
+// for (let i = 0; i < arr.length / 2; i++)
+//   pokemon[i] = [arr[i * 2], arr[2 * i + 1].split(" ").map(Number)];
+// pokemon.sort((a, b) => a[1][1] / a[1][0] - b[1][1] / b[1][0]);
+// pokemon.forEach((e) => {
+//   const [a, b] = e[1];
+//   const returnCandy = parseInt(b / a, 10);
+//   const count = parseInt((b + returnCandy * 2) / a, 10);
+//   if (max < count) result = e[0];
+//   if (max <= count) max = count;
+//   total += count;
+// });
+// console.log(`${total}\n${result}`);
+
+// 1931번 문제 시간 초과
+// let [N, ...rooms] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// rooms = rooms.map((e) => e.split(" ").map(Number));
+// rooms.sort((a, b) => a[0] - b[0]);
+// const counts = new Array(+N).fill(1);
+// let [i, j] = [0, 1];
+// let time = rooms[0][1];
+// while (true) {
+//   if (j >= N) {
+//     i++;
+//     j = i + 1;
+//     time = rooms[i][1];
+//     if (j === +N) break;
+//   }
+//   if (time <= rooms[j][0]) {
+//     time = rooms[j][1];
+//     counts[i]++;
+//   }
+//   j++;
+// }
+// console.log(Math.max(...counts));
 
 // 20291번 문제 왜 초과일까..
 // let [N, ...files] = require("fs")
