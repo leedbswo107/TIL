@@ -3836,50 +3836,109 @@ const { sourceMapsEnabled } = require("process");
 // console.log(result.join("\n"));
 
 // 1755번 문제
-const [M, N] = require("fs")
-  .readFileSync("./input.txt", "utf-8")
-  .trim()
-  .split(" ")
-  .map(Number);
-const speak = [
-  "zero",
-  "one",
-  "two",
-  "three",
-  "four",
-  "five",
-  "six",
-  "seven",
-  "eight",
-  "nine",
-];
-const result = [];
-let nums = new Array(N - M + 1).fill(M).map((e, i) => e + i);
-nums = nums.map((e) => String(e).split("").map(Number));
-const speakNums = [];
-nums.forEach((e, i) => {
-  const line = [];
-  e.forEach((el) => line.push(speak[el]));
-  speakNums.push(line.join(" "));
-});
-speakNums.sort();
-speakNums.forEach((e, i) => {
-  const inNums = e.split(" ");
-  const line = [];
-  inNums.forEach((e) => line.push(speak.indexOf(e)));
-  result[i] = line.join("");
-});
-const len = Math.ceil(result.length / 10);
-for (let i = 0; i < len; i++) {
-  const line = result.splice(0, result.length >= 10 ? 10 : result.length);
-  console.log(line.join(" "));
-}
-
-// 13717번 문제 푸는중
-// let [N, ...arr] = require("fs")
+// const [M, N] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
 //   .trim()
-//   .split("\n");
+//   .split(" ")
+//   .map(Number);
+// const speak = [
+//   "zero",
+//   "one",
+//   "two",
+//   "three",
+//   "four",
+//   "five",
+//   "six",
+//   "seven",
+//   "eight",
+//   "nine",
+// ];
+// const result = [];
+// let nums = new Array(N - M + 1).fill(M).map((e, i) => e + i);
+// nums = nums.map((e) => String(e).split("").map(Number));
+// const speakNums = [];
+// nums.forEach((e, i) => {
+//   const line = [];
+//   e.forEach((el) => line.push(speak[el]));
+//   speakNums.push(line.join(" "));
+// });
+// speakNums.sort();
+// speakNums.forEach((e, i) => {
+//   const inNums = e.split(" ");
+//   const line = [];
+//   inNums.forEach((e) => line.push(speak.indexOf(e)));
+//   result[i] = line.join("");
+// });
+// const len = Math.ceil(result.length / 10);
+// for (let i = 0; i < len; i++) {
+//   const line = result.splice(0, result.length >= 10 ? 10 : result.length);
+//   console.log(line.join(" "));
+// }
+
+// 5344번 문제
+let [n, ...arr] = require("fs")
+  .readFileSync("./input.txt", "utf-8")
+  .trim()
+  .split("\n");
+arr = arr.map((e) => e.split(" ").map(BigInt));
+const result = new Array(n);
+arr.forEach((e, i) => {
+  e = e.filter((el) => el !== 0n);
+  let [A, B] = e[0] < e[1] ? [e[1], e[0]] : [e[0], e[1]];
+  while (B !== 0n) [A, B] = [B, A % B];
+  result[i] = A;
+});
+console.log(result.join("\n"));
+
+// 13717번 문제 푸는중
+// const fs = require("fs"); // 제출시 삭제
+// const path = "./input.txt"; // 제출시 삭제
+
+// const readline = require("readline");
+// const rl = readline.createInterface({
+//   // input: process.stdin, // 제출시 활성화
+//   input: fs.createReadStream(path), // 제출시 삭제
+//   output: process.stdout,
+// });
+
+// let input = [];
+// const counts = [];
+// let max = 0;
+// let result = "";
+// rl.on("line", function (line) {
+//   input.push(line);
+// }).on("close", function () {
+//   let [N, ...arr] = input;
+//   const pokemon = [];
+//   for (let i = 0; i < arr.length / 2; i++)
+//     pokemon[i] = [arr[2 * i], arr[2 * i + 1].split(" ").map(Number)];
+//   pokemon.forEach((e) => counting(e));
+//   const countSum = counts.reduce((acc, cur) => acc + cur, 0);
+//   console.log(`\n${countSum}\n${result}`);
+//   process.exit();
+// });
+// function counting(pokemon) {
+//   const [a, b] = pokemon[1];
+//   let returnCandy = b % a ? Math.floor(b / a) * 2 : (b / a) * 2;
+//   let totalReturnCandy = returnCandy;
+//   while (returnCandy >= a) {
+//     returnCandy =
+//       returnCandy % a ? Math.floor(returnCandy / a) * 2 : (returnCandy / a) * 2;
+//     totalReturnCandy += returnCandy;
+//   }
+//   let count =
+//     (b + totalReturnCandy) % a
+//       ? Math.floor((b + totalReturnCandy) / a)
+//       : (b + totalReturnCandy) / a;
+//   counts.push(count);
+//   if (max < count) {
+//     max = count;
+//     result = pokemon[0];
+//   }
+// }
+// 위 방식으로 해야함
+
+// let [N, ...arr] = require('fs').readFileSync('./input.txt','utf-8').trim().split('\n');
 // let pokemon = [];
 // let total = 0;
 // let max = 0;
@@ -3889,8 +3948,13 @@ for (let i = 0; i < len; i++) {
 // pokemon.sort((a, b) => a[1][1] / a[1][0] - b[1][1] / b[1][0]);
 // pokemon.forEach((e) => {
 //   const [a, b] = e[1];
-//   const returnCandy = parseInt(b / a, 10);
-//   const count = parseInt((b + returnCandy * 2) / a, 10);
+//   let returnCandy = Math.floor(b / a) * 2;
+//   let totalReturnCandy = returnCandy;
+//   while (returnCandy >= a) {
+//     returnCandy = Math.floor((returnCandy / a) * 2);
+//     totalReturnCandy += returnCandy;
+//   }
+//   const count = Math.floor((b + totalReturnCandy) / a);
 //   if (max < count) result = e[0];
 //   if (max <= count) max = count;
 //   total += count;
