@@ -3891,30 +3891,51 @@ const { sourceMapsEnabled } = require("process");
 // console.log(result.join("\n"));
 
 // 1431번 문제
-let [N, ...serial] = require("fs")
+// let [N, ...serial] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// serial.sort();
+// serial = serial.map((e) => e.split(""));
+// serial.sort((a, b) => {
+//   let aLen = 0;
+//   let bLen = 0;
+//   for (let i = 0; i < a.length; i++) {
+//     const aEl = Number(a[i]);
+//     if (isNaN(aEl)) aLen += 0;
+//     else aLen += aEl;
+//   }
+//   for (let i = 0; i < b.length; i++) {
+//     const bEl = Number(b[i]);
+//     if (isNaN(bEl)) bLen += 0;
+//     else bLen += bEl;
+//   }
+//   return aLen - bLen;
+// });
+// serial.sort((a, b) => a.length - b.length);
+// serial = serial.map((e) => e.join(""));
+// console.log(serial.join("\n"));
+
+// 2312번 문제
+const [T, ...N] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
-  .split("\n");
-serial.sort();
-serial = serial.map((e) => e.split(""));
-serial.sort((a, b) => {
-  let aLen = 0;
-  let bLen = 0;
-  for (let i = 0; i < a.length; i++) {
-    const aEl = Number(a[i]);
-    if (isNaN(aEl)) aLen += 0;
-    else aLen += aEl;
+  .split("\n")
+  .map(Number);
+const result = [];
+N.forEach((e) => {
+  let j = 2;
+  let num = e;
+  const line = {};
+  while (num !== 1) {
+    if (!(num % j)) {
+      num /= j;
+      line[j] ? line[j]++ : (line[j] = 1);
+    } else j++;
   }
-  for (let i = 0; i < b.length; i++) {
-    const bEl = Number(b[i]);
-    if (isNaN(bEl)) bLen += 0;
-    else bLen += bEl;
-  }
-  return aLen - bLen;
+  for (const key in line) result.push(`${key} ${line[key]}`);
 });
-serial.sort((a, b) => a.length - b.length);
-serial = serial.map((e) => e.join(""));
-console.log(serial.join("\n"));
+console.log(result.join("\n"));
 
 // 13717번 문제 푸는중
 // const fs = require("fs"); // 제출시 삭제
