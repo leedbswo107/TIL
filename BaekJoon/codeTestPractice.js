@@ -3917,25 +3917,50 @@ const { sourceMapsEnabled } = require("process");
 // console.log(serial.join("\n"));
 
 // 2312번 문제
-const [T, ...N] = require("fs")
-  .readFileSync("./input.txt", "utf-8")
-  .trim()
-  .split("\n")
-  .map(Number);
-const result = [];
-N.forEach((e) => {
-  let j = 2;
-  let num = e;
-  const line = {};
-  while (num !== 1) {
-    if (!(num % j)) {
-      num /= j;
-      line[j] ? line[j]++ : (line[j] = 1);
-    } else j++;
+// const [T, ...N] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n")
+//   .map(Number);
+// const result = [];
+// N.forEach((e) => {
+//   let j = 2;
+//   let num = e;
+//   const line = {};
+//   while (num !== 1) {
+//     if (!(num % j)) {
+//       num /= j;
+//       line[j] ? line[j]++ : (line[j] = 1);
+//     } else j++;
+//   }
+//   for (const key in line) result.push(`${key} ${line[key]}`);
+// });
+// console.log(result.join("\n"));
+
+// 2992번 문제
+const X = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+const arrX = X.toString().split("").map(Number);
+let result = [];
+let line = [];
+const backTracking = (arr, line) => {
+  const len = arr.length;
+  if (len !== 0) {
+    for (let i = 0; i < len; i++) {
+      const newLine = [...line];
+      const copyXArr = [...arr];
+      const num = copyXArr.splice(i, 1);
+      newLine.push(num);
+      backTracking(copyXArr, newLine);
+    }
+  } else {
+    result.push(Number.parseInt(line.join("")));
+    line = [];
   }
-  for (const key in line) result.push(`${key} ${line[key]}`);
-});
-console.log(result.join("\n"));
+};
+backTracking(arrX, line);
+result.sort((a, b) => a - b);
+result = result.filter((e) => e > X);
+console.log(result.length ? result[0] : 0);
 
 // 13717번 문제 푸는중
 // const fs = require("fs"); // 제출시 삭제
