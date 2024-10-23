@@ -3938,29 +3938,62 @@ const { sourceMapsEnabled } = require("process");
 // console.log(result.join("\n"));
 
 // 2992번 문제
-const X = +require("fs").readFileSync("./input.txt", "utf-8").trim();
-const arrX = X.toString().split("").map(Number);
-let result = [];
+// const X = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// const arrX = X.toString().split("").map(Number);
+// let result = [];
+// let line = [];
+// const backTracking = (arr, line) => {
+//   const len = arr.length;
+//   if (len !== 0) {
+//     for (let i = 0; i < len; i++) {
+//       const newLine = [...line];
+//       const copyXArr = [...arr];
+//       const num = copyXArr.splice(i, 1);
+//       newLine.push(num);
+//       backTracking(copyXArr, newLine);
+//     }
+//   } else {
+//     result.push(Number.parseInt(line.join("")));
+//     line = [];
+//   }
+// };
+// backTracking(arrX, line);
+// result.sort((a, b) => a - b);
+// result = result.filter((e) => e > X);
+// console.log(result.length ? result[0] : 0);
+
+// 15650번 문제
+const [N, M] = require("fs")
+  .readFileSync("./input.txt", "utf-8")
+  .trim()
+  .split(" ")
+  .map(Number);
+const nums = new Array(N).fill(1).map((e, i) => e + i);
+const result = [];
 let line = [];
+const numsLen = nums.length;
 const backTracking = (arr, line) => {
   const len = arr.length;
-  if (len !== 0) {
+  if (line.length !== M) {
     for (let i = 0; i < len; i++) {
       const newLine = [...line];
-      const copyXArr = [...arr];
-      const num = copyXArr.splice(i, 1);
-      newLine.push(num);
-      backTracking(copyXArr, newLine);
+      const newArr = [...arr];
+      const num = newArr.splice(i, 1);
+      newLine.push(...num);
+      backTracking(newArr, newLine);
     }
   } else {
-    result.push(Number.parseInt(line.join("")));
-    line = [];
+    const compareLine = [...line];
+    compareLine.sort((a, b) => a - b);
+    line.join("") === compareLine.join("") && result.push(line.join(" "));
   }
 };
-backTracking(arrX, line);
-result.sort((a, b) => a - b);
-result = result.filter((e) => e > X);
-console.log(result.length ? result[0] : 0);
+for (let i = 0; i < numsLen; i++) {
+  line.push(nums.shift());
+  backTracking(nums, line);
+  line = [];
+}
+console.log(result.join("\n"));
 
 // 13717번 문제 푸는중
 // const fs = require("fs"); // 제출시 삭제
