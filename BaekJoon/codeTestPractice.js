@@ -3996,27 +3996,54 @@ const { sourceMapsEnabled } = require("process");
 // console.log(result.join("\n"));
 
 // 15651번 문제
+// const [N, M] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(Number);
+// const nums = new Array(N).fill(1).map((e, i) => e + i);
+// const result = [];
+// const line = [];
+// const backTracking = (arr, line) => {
+//   if (line.length !== M) {
+//     for (let i = 0; i < N; i++) {
+//       const copyLine = [...line];
+//       copyLine.push(arr[i]);
+//       backTracking(arr, copyLine);
+//     }
+//   } else {
+//     result.push(line.join(" "));
+//     line = [];
+//   }
+// };
+// backTracking(nums, line);
+// console.log(result.join("\n"));
+
+// 15652번 문제
 const [N, M] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split(" ")
   .map(Number);
 const nums = new Array(N).fill(1).map((e, i) => e + i);
-const result = [];
-const line = [];
+let result = [];
 const backTracking = (arr, line) => {
   if (line.length !== M) {
-    for (let i = 0; i < N; i++) {
+    const len = arr.length;
+    for (let i = 0; i < len; i++) {
       const copyLine = [...line];
-      copyLine.push(arr[i]);
-      backTracking(arr, copyLine);
+      const num = arr[i];
+      if (!copyLine.length || num >= copyLine[copyLine.length - 1]) {
+        copyLine.push(num);
+        backTracking(arr, copyLine);
+      } else continue;
     }
   } else {
     result.push(line.join(" "));
     line = [];
   }
 };
-backTracking(nums, line);
+backTracking(nums, []);
 console.log(result.join("\n"));
 
 // 13717번 문제 푸는중
