@@ -4020,23 +4020,52 @@ const { sourceMapsEnabled } = require("process");
 // console.log(result.join("\n"));
 
 // 15652번 문제
-const [N, M] = require("fs")
+// const [N, M] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(Number);
+// const nums = new Array(N).fill(1).map((e, i) => e + i);
+// let result = [];
+// const backTracking = (arr, line) => {
+//   if (line.length !== M) {
+//     const len = arr.length;
+//     for (let i = 0; i < len; i++) {
+//       const copyLine = [...line];
+//       const num = arr[i];
+//       if (!copyLine.length || num >= copyLine[copyLine.length - 1]) {
+//         copyLine.push(num);
+//         backTracking(arr, copyLine);
+//       } else continue;
+//     }
+//   } else {
+//     result.push(line.join(" "));
+//     line = [];
+//   }
+// };
+// backTracking(nums, []);
+// console.log(result.join("\n"));
+
+// 15663번 문제
+const input = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
+  .split("\n");
+const [N, M] = input.shift().split(" ").map(Number);
+const nums = input[0]
   .split(" ")
-  .map(Number);
-const nums = new Array(N).fill(1).map((e, i) => e + i);
+  .map(Number)
+  .sort((a, b) => a - b);
 let result = [];
 const backTracking = (arr, line) => {
   if (line.length !== M) {
     const len = arr.length;
     for (let i = 0; i < len; i++) {
+      const copyArr = [...arr];
       const copyLine = [...line];
-      const num = arr[i];
-      if (!copyLine.length || num >= copyLine[copyLine.length - 1]) {
-        copyLine.push(num);
-        backTracking(arr, copyLine);
-      } else continue;
+      const num = copyArr.splice(i, 1);
+      copyLine.push(num);
+      backTracking(copyArr, copyLine);
     }
   } else {
     result.push(line.join(" "));
@@ -4044,7 +4073,9 @@ const backTracking = (arr, line) => {
   }
 };
 backTracking(nums, []);
-console.log(result.join("\n"));
+result = new Set(result);
+result = Array.from(result).join("\n");
+console.log(result);
 
 // 13717번 문제 푸는중
 // const fs = require("fs"); // 제출시 삭제
