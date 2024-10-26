@@ -4047,36 +4047,64 @@ const { sourceMapsEnabled } = require("process");
 // console.log(result.join("\n"));
 
 // 15663번 문제
-const input = require("fs")
+// const input = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const [N, M] = input.shift().split(" ").map(Number);
+// const nums = input[0]
+//   .split(" ")
+//   .map(Number)
+//   .sort((a, b) => a - b);
+// let result = [];
+// const backTracking = (arr, line) => {
+//   if (line.length !== M) {
+//     const len = arr.length;
+//     for (let i = 0; i < len; i++) {
+//       const copyArr = [...arr];
+//       const copyLine = [...line];
+//       const num = copyArr.splice(i, 1);
+//       copyLine.push(num);
+//       backTracking(copyArr, copyLine);
+//     }
+//   } else {
+//     result.push(line.join(" "));
+//     line = [];
+//   }
+// };
+// backTracking(nums, []);
+// result = new Set(result);
+// result = Array.from(result).join("\n");
+// console.log(result);
+
+// 12919번 문제
+let [S, T] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-const [N, M] = input.shift().split(" ").map(Number);
-const nums = input[0]
-  .split(" ")
-  .map(Number)
-  .sort((a, b) => a - b);
-let result = [];
-const backTracking = (arr, line) => {
-  if (line.length !== M) {
-    const len = arr.length;
-    for (let i = 0; i < len; i++) {
-      const copyArr = [...arr];
-      const copyLine = [...line];
-      const num = copyArr.splice(i, 1);
-      copyLine.push(num);
-      backTracking(copyArr, copyLine);
-    }
-  } else {
-    result.push(line.join(" "));
-    line = [];
+S = S.split("");
+T = T.split("");
+let result = 0;
+const solution = (t) => {
+  if (S.length === t.length) {
+    S.join("") === t.join("") && (result = 1);
+    return;
   }
-};
-backTracking(nums, []);
-result = new Set(result);
-result = Array.from(result).join("\n");
-console.log(result);
+  const copyA = [...t];
+  const copyB = [...t];
+  if (t[t.length - 1] === "A") {
+    copyA.pop();
+    solution(copyA);
+  }
+  if (t[0] === "B") {
+    copyB.reverse().pop();
 
+    solution(copyB);
+  }
+  return;
+};
+solution(T);
+console.log(result);
 // 13717번 문제 푸는중
 // const fs = require("fs"); // 제출시 삭제
 // const path = "./input.txt"; // 제출시 삭제
@@ -4250,34 +4278,6 @@ console.log(result);
 // };
 // fibo(n + BigInt(1));
 // console.log(`${dp[n]}`);
-// 12919번 문제 푸는중
-// let [S, T] = require("fs")
-//   .readFileSync("./input.txt", "utf-8")
-//   .trim()
-//   .split("\n");
-// S = S.split("");
-// T = T.split("");
-// let result = 0;
-// const solution = (t) => {
-//   console.log(t);
-//   if (t.length === S.length) {
-//     if (t.join("") === S.join("")) {
-//       return (result = 1);
-//     }
-//   } else {
-//     if (t[t.length - 1] === "A") {
-//       t.pop();
-//       solution(t);
-//     }
-//     if (t[t.length - 1] === "B") {
-//       t.reverse();
-//       t.pop();
-//       solution(t);
-//     }
-//   }
-// };
-// solution(T);
-// console.log(result);
 
 // 1002번 문제 푸는중
 // let [T, ...position] = require("fs")
