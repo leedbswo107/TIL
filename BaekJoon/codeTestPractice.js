@@ -24,8 +24,6 @@
 // }
 // console.log(arr.join(' '));
 
-const { sourceMapsEnabled } = require("process");
-
 // 10810번 문제
 // const fs = require('fs');
 // const input = fs.readFileSync('./input.txt').toString().trim().split('\n');
@@ -4078,33 +4076,61 @@ const { sourceMapsEnabled } = require("process");
 // console.log(result);
 
 // 12919번 문제
-let [S, T] = require("fs")
+// let [S, T] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// S = S.split("");
+// T = T.split("");
+// let result = 0;
+// const solution = (t) => {
+//   if (S.length === t.length) {
+//     S.join("") === t.join("") && (result = 1);
+//     return;
+//   }
+//   const copyA = [...t];
+//   const copyB = [...t];
+//   if (t[t.length - 1] === "A") {
+//     copyA.pop();
+//     solution(copyA);
+//   }
+//   if (t[0] === "B") {
+//     copyB.reverse().pop();
+
+//     solution(copyB);
+//   }
+//   return;
+// };
+// solution(T);
+// console.log(result);
+
+// 15654번 문제
+const input = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-S = S.split("");
-T = T.split("");
-let result = 0;
-const solution = (t) => {
-  if (S.length === t.length) {
-    S.join("") === t.join("") && (result = 1);
-    return;
-  }
-  const copyA = [...t];
-  const copyB = [...t];
-  if (t[t.length - 1] === "A") {
-    copyA.pop();
-    solution(copyA);
-  }
-  if (t[0] === "B") {
-    copyB.reverse().pop();
-
-    solution(copyB);
-  }
-  return;
+const [N, M] = input.shift().split(" ").map(Number);
+const nums = input[0]
+  .split(" ")
+  .map(Number)
+  .sort((a, b) => a - b);
+const result = [];
+const backTracking = (arr, line) => {
+  const len = arr.length;
+  if (line.length !== M) {
+    for (let i = 0; i < len; i++) {
+      const copyArr = [...arr];
+      const num = copyArr.splice(i, 1);
+      const copyLine = [...line];
+      copyLine.push(num);
+      backTracking(copyArr, copyLine);
+    }
+  } else result.push(line.join(" "));
+  line = [];
 };
-solution(T);
-console.log(result);
+backTracking(nums, []);
+console.log(result.join("\n"));
+
 // 13717번 문제 푸는중
 // const fs = require("fs"); // 제출시 삭제
 // const path = "./input.txt"; // 제출시 삭제
