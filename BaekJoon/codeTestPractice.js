@@ -4113,22 +4113,62 @@
 // console.log(result.join("\n"));
 
 // 16953번 문제
-let [A, B] = require("fs")
-  .readFileSync("./input.txt", "utf-8")
-  .trim()
-  .split(" ")
-  .map(BigInt);
-let result = -1;
-let count = 1;
-while (true) {
-  if (A >= B) break;
-  if (B % BigInt(10) === BigInt(1)) B = (B - (B % BigInt(10))) / BigInt(10);
-  else if (!(B % BigInt(2))) B /= BigInt(2);
-  else break;
-  count++;
-}
-result = B !== A ? result : count;
-console.log(result);
+// let [A, B] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(BigInt);
+// let result = -1;
+// let count = 1;
+// while (true) {
+//   if (A >= B) break;
+//   if (B % BigInt(10) === BigInt(1)) B = (B - (B % BigInt(10))) / BigInt(10);
+//   else if (!(B % BigInt(2))) B /= BigInt(2);
+//   else break;
+//   count++;
+// }
+// result = B !== A ? result : count;
+// console.log(result);
+
+// 15655번 문제
+// const input = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const [N, M] = input[0].split(" ").map(Number);
+// const nums = input[1]
+//   .split(" ")
+//   .map(Number)
+//   .sort((a, b) => a - b);
+// const result = [];
+// const backTracking = (arr, line) => {
+//   if (line.length !== M) {
+//     const len = arr.length;
+//     for (let i = 0; i < len; i++) {
+//       const copyArr = [...arr];
+//       const num = copyArr[i];
+//       const copyLine = [...line];
+//       if (copyLine[copyLine.length - 1] < num || copyLine.length === 0) {
+//         copyLine.push(num);
+//         backTracking(copyArr, copyLine);
+//       }
+//     }
+//   } else {
+//     result.push(line.join(" "));
+//     line = [];
+//   }
+// };
+// backTracking(nums, []);
+// console.log(result.join("\n"));
+
+// 24389번 문제
+let N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+const origin = N >>> 0;
+const notOrigin = (~N >>> 0) + 1;
+const result = ((origin ^ notOrigin) >>> 0).toString(2).split("").map(Number);
+let count = 0;
+result.forEach((e) => e === 1 && count++);
+console.log(count);
 
 // 13717번 문제 푸는중
 // const fs = require("fs"); // 제출시 삭제
