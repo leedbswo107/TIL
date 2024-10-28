@@ -3616,25 +3616,6 @@
 // }
 // console.log(result);
 
-// 16953번 문제
-// let [A, B] = require("fs")
-//   .readFileSync("./input.txt", "utf-8")
-//   .trim()
-//   .split(" ")
-//   .map(BigInt);
-// let result = -1;
-// let count = 1;
-// while (true) {
-//   if (A === B) break;
-//   if (B < A) break;
-//   B % BigInt(10) === BigInt(1)
-//     ? (B = (B - (B % BigInt(10))) / BigInt(10))
-//     : (B /= BigInt(2));
-//   count++;
-// }
-// result = B !== A ? result : count;
-// console.log(result);
-
 // 9613번 문제
 // let [T, ...N] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
@@ -4105,31 +4086,49 @@
 // console.log(result);
 
 // 15654번 문제
-const input = require("fs")
+// const input = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const [N, M] = input.shift().split(" ").map(Number);
+// const nums = input[0]
+//   .split(" ")
+//   .map(Number)
+//   .sort((a, b) => a - b);
+// const result = [];
+// const backTracking = (arr, line) => {
+//   const len = arr.length;
+//   if (line.length !== M) {
+//     for (let i = 0; i < len; i++) {
+//       const copyArr = [...arr];
+//       const num = copyArr.splice(i, 1);
+//       const copyLine = [...line];
+//       copyLine.push(num);
+//       backTracking(copyArr, copyLine);
+//     }
+//   } else result.push(line.join(" "));
+//   line = [];
+// };
+// backTracking(nums, []);
+// console.log(result.join("\n"));
+
+// 16953번 문제
+let [A, B] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
-  .split("\n");
-const [N, M] = input.shift().split(" ").map(Number);
-const nums = input[0]
   .split(" ")
-  .map(Number)
-  .sort((a, b) => a - b);
-const result = [];
-const backTracking = (arr, line) => {
-  const len = arr.length;
-  if (line.length !== M) {
-    for (let i = 0; i < len; i++) {
-      const copyArr = [...arr];
-      const num = copyArr.splice(i, 1);
-      const copyLine = [...line];
-      copyLine.push(num);
-      backTracking(copyArr, copyLine);
-    }
-  } else result.push(line.join(" "));
-  line = [];
-};
-backTracking(nums, []);
-console.log(result.join("\n"));
+  .map(BigInt);
+let result = -1;
+let count = 1;
+while (true) {
+  if (A >= B) break;
+  if (B % BigInt(10) === BigInt(1)) B = (B - (B % BigInt(10))) / BigInt(10);
+  else if (!(B % BigInt(2))) B /= BigInt(2);
+  else break;
+  count++;
+}
+result = B !== A ? result : count;
+console.log(result);
 
 // 13717번 문제 푸는중
 // const fs = require("fs"); // 제출시 삭제
