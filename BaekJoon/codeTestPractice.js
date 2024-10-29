@@ -4162,13 +4162,68 @@
 // console.log(result.join("\n"));
 
 // 24389번 문제
-let N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
-const origin = N >>> 0;
-const notOrigin = (~N >>> 0) + 1;
-const result = ((origin ^ notOrigin) >>> 0).toString(2).split("").map(Number);
-let count = 0;
-result.forEach((e) => e === 1 && count++);
-console.log(count);
+// let N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// const origin = N >>> 0;
+// const notOrigin = (~N >>> 0) + 1;
+// const result = ((origin ^ notOrigin) >>> 0).toString(2).split("").map(Number);
+// let count = 0;
+// result.forEach((e) => e === 1 && count++);
+// console.log(count);
+
+// 15656번 문제
+const input = require("fs")
+  .readFileSync("./input.txt", "utf-8")
+  .trim()
+  .split("\n");
+const [N, M] = input[0].split(" ").map(Number);
+const nums = input[1]
+  .split(" ")
+  .map(Number)
+  .sort((a, b) => a - b);
+const result = [];
+const backTracking = (arr, line) => {
+  if (line.length !== M) {
+    const len = arr.length;
+    for (let i = 0; i < len; i++) {
+      const copyLine = [...line];
+      const num = arr[i];
+      copyLine.push(num);
+      backTracking(arr, copyLine);
+    }
+  } else {
+    result.push(line.join(" "));
+    line = [];
+  }
+};
+backTracking(nums, []);
+console.log(result.join("\n"));
+
+// 10973번 문제 메모리 초과
+// const [N, ...arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const nums = new Array(+N).fill(1).map((e, i) => e + i);
+// const numList = [];
+// const solution = (arr, line) => {
+//   if (line.length !== +N) {
+//     for (let i = 0; i < arr.length; i++) {
+//       const copyArr = [...arr];
+//       const copyLine = [...line];
+//       const num = copyArr.splice(i, 1);
+//       copyLine.push(num);
+//       solution(copyArr, copyLine);
+//     }
+//   } else {
+//     numList.push(line.join(" "));
+//     line = [];
+//   }
+// };
+// solution(nums, []);
+// const result = numList.indexOf(...arr)
+//   ? numList[numList.indexOf(...arr) - 1]
+//   : -1;
+// console.log(result);
 
 // 13717번 문제 푸는중
 // const fs = require("fs"); // 제출시 삭제
