@@ -4171,6 +4171,34 @@
 // console.log(count);
 
 // 15656번 문제
+// const input = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const [N, M] = input[0].split(" ").map(Number);
+// const nums = input[1]
+//   .split(" ")
+//   .map(Number)
+//   .sort((a, b) => a - b);
+// const result = [];
+// const backTracking = (arr, line) => {
+//   if (line.length !== M) {
+//     const len = arr.length;
+//     for (let i = 0; i < len; i++) {
+//       const copyLine = [...line];
+//       const num = arr[i];
+//       copyLine.push(num);
+//       backTracking(arr, copyLine);
+//     }
+//   } else {
+//     result.push(line.join(" "));
+//     line = [];
+//   }
+// };
+// backTracking(nums, []);
+// console.log(result.join("\n"));
+
+// 15657번 문제
 const input = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
@@ -4183,12 +4211,13 @@ const nums = input[1]
 const result = [];
 const backTracking = (arr, line) => {
   if (line.length !== M) {
-    const len = arr.length;
-    for (let i = 0; i < len; i++) {
-      const copyLine = [...line];
+    for (let i = 0; i < arr.length; i++) {
       const num = arr[i];
-      copyLine.push(num);
-      backTracking(arr, copyLine);
+      const copyLine = [...line];
+      if (copyLine[copyLine.length - 1] <= num || copyLine.length === 0) {
+        copyLine.push(num);
+        backTracking(arr, copyLine);
+      }
     }
   } else {
     result.push(line.join(" "));
@@ -4197,7 +4226,6 @@ const backTracking = (arr, line) => {
 };
 backTracking(nums, []);
 console.log(result.join("\n"));
-
 // 10973번 문제 메모리 초과
 // const [N, ...arr] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
