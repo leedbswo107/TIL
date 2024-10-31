@@ -3616,28 +3616,6 @@
 // }
 // console.log(result);
 
-// 9613번 문제
-// let [T, ...N] = require("fs")
-//   .readFileSync("./input.txt", "utf-8")
-//   .trim()
-//   .split("\n");
-// const result = new Array(+T).fill(0);
-// N = N.map((e) => e.split(" ").map(Number));
-// N = N.map((e) => {
-//   e.shift();
-//   return e.sort((a, b) => b - a);
-// });
-// N.forEach((e, k) => {
-//   for (let i = 0; i < e.length - 1; i++) {
-//     for (let j = i + 1; j < e.length; j++) {
-//       let [A, B] = [e[i], e[j]];
-//       while (B !== 0) [A, B] = [B, A % B];
-//       result[k] += A;
-//     }
-//   }
-// });
-// console.log(result.join("\n"));
-
 // 9625번 문제
 // const K = +require("fs").readFileSync("./input.txt", "utf-8").trim();
 // const dp = new Array(K + 1);
@@ -4199,33 +4177,120 @@
 // console.log(result.join("\n"));
 
 // 15657번 문제
-const input = require("fs")
+// const input = require("fs")
+
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const [N, M] = input[0].split(" ").map(Number);
+// const nums = input[1]
+//   .split(" ")
+//   .map(Number)
+//   .sort((a, b) => a - b);
+// const result = [];
+// const backTracking = (arr, line) => {
+//   if (line.length !== M) {
+//     for (let i = 0; i < arr.length; i++) {
+//       const num = arr[i];
+//       const copyLine = [...line];
+//       if (copyLine[copyLine.length - 1] <= num || copyLine.length === 0) {
+//         copyLine.push(num);
+//         backTracking(arr, copyLine);
+//       }
+//     }
+//   } else {
+//     result.push(line.join(" "));
+//     line = [];
+//   }
+// };
+// backTracking(nums, []);
+// console.log(result.join("\n"));
+
+// 2870번 문제
+let [N, ...arr] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-const [N, M] = input[0].split(" ").map(Number);
-const nums = input[1]
-  .split(" ")
-  .map(Number)
-  .sort((a, b) => a - b);
+arr = arr.map((e) => e.split("").map(Number));
 const result = [];
-const backTracking = (arr, line) => {
-  if (line.length !== M) {
-    for (let i = 0; i < arr.length; i++) {
-      const num = arr[i];
-      const copyLine = [...line];
-      if (copyLine[copyLine.length - 1] <= num || copyLine.length === 0) {
-        copyLine.push(num);
-        backTracking(arr, copyLine);
-      }
+arr.forEach((e) => {
+  let line = [];
+  for (let i = 0; i < e.length; i++) {
+    if (isNaN(e[i]) || i === e.length - 1) {
+      i === e.length - 1 && !isNaN(e[i]) && line.push(e[i]);
+      line.length !== 0 && result.push(BigInt(line.join("")));
+      line = [];
+    } else {
+      line.push(e[i]);
     }
-  } else {
-    result.push(line.join(" "));
-    line = [];
   }
-};
-backTracking(nums, []);
+});
+result.sort((a, b) => (a > b ? 1 : -1));
 console.log(result.join("\n"));
+// console.log(arr);
+
+// 28279번 문제 시간초과
+// let [N, ...arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// arr = arr.map((e) => e.split(" ").map(Number));
+// const deQue = [];
+// let result = [];
+// for (let i = 0; i < +N; i++) {
+//   let text = "";
+//   switch (arr[i][0]) {
+//     case 1:
+//       deQue.unshift(arr[i][1]);
+//       break;
+//     case 2:
+//       deQue.push(arr[i][1]);
+//       break;
+//     case 3:
+//       deQue.length !== 0 ? (text = deQue.shift()) : (text = -1);
+//       break;
+//     case 4:
+//       deQue.length !== 0 ? (text = deQue.pop()) : (text = -1);
+//       break;
+//     case 5:
+//       text = deQue.length;
+//       break;
+//     case 6:
+//       text = Number(!!deQue);
+//       break;
+//     case 7:
+//       text = !deQue ? -1 : deQue[0];
+//       break;
+//     case 8:
+//       text = !deQue ? -1 : deQue[deQue.length - 1];
+//       break;
+//   }
+//   text !== "" && result.push(text);
+// }
+// console.log(result.join("\n"));
+
+// 9613번 문제 10% 에서 틀림
+// let [T, ...N] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const result = new Array(+T).fill(0n);
+// N = N.map((e) => e.split(" ").map(BigInt));
+// N = N.map((e) => {
+//   e.shift();
+//   return e.sort((a, b) => (a < b ? -1 : 1));
+// });
+// N.forEach((e, k) => {
+//   for (let i = 0; i < e.length - 1; i++) {
+//     for (let j = i + 1; j < e.length; j++) {
+//       let [A, B] = [e[i], e[j]];
+//       while (B !== 0n) [A, B] = [B, A % B];
+//       result[k] += A;
+//     }
+//   }
+// });
+// console.log(result.join("\n"));
+
 // 10973번 문제 메모리 초과
 // const [N, ...arr] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
