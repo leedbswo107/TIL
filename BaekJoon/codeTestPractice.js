@@ -4207,27 +4207,98 @@
 // console.log(result.join("\n"));
 
 // 2870번 문제
-let [N, ...arr] = require("fs")
+// let [N, ...arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// arr = arr.map((e) => e.split("").map(Number));
+// const result = [];
+// arr.forEach((e) => {
+//   let line = [];
+//   for (let i = 0; i < e.length; i++) {
+//     if (isNaN(e[i]) || i === e.length - 1) {
+//       i === e.length - 1 && !isNaN(e[i]) && line.push(e[i]);
+//       line.length !== 0 && result.push(BigInt(line.join("")));
+//       line = [];
+//     } else {
+//       line.push(e[i]);
+//     }
+//   }
+// });
+// result.sort((a, b) => (a > b ? 1 : -1));
+// console.log(result.join("\n"));
+
+// 11286번 문제
+// const [N, ...x] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n")
+//   .map(Number);
+// const heap = [];
+// x.forEach((e) => {
+//   if (e !== 0) heap.push(e);
+//   else {
+//     let copyHeap = [...heap];
+//     copyHeap = copyHeap.map((e) => Math.abs(e));
+//     const min = Math.min(...copyHeap);
+//     const filterHeap = copyHeap.filter((e) => e === min);
+//     const minIndex = [];
+//     const minList = [];
+//     if (filterHeap.length > 1) {
+//       copyHeap.forEach((el, i) => el === min && minIndex.push(i));
+//       minIndex.forEach((el) => minList.push(heap[el]));
+//       const deleteEl = heap.indexOf(Math.min(...minList));
+//       heap.splice(deleteEl,1);
+//     }
+//   }
+// });
+
+// 16165번 문제
+const input = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-arr = arr.map((e) => e.split("").map(Number));
-const result = [];
-arr.forEach((e) => {
-  let line = [];
-  for (let i = 0; i < e.length; i++) {
-    if (isNaN(e[i]) || i === e.length - 1) {
-      i === e.length - 1 && !isNaN(e[i]) && line.push(e[i]);
-      line.length !== 0 && result.push(BigInt(line.join("")));
-      line = [];
-    } else {
-      line.push(e[i]);
+const [N, M] = input.shift().split(" ").map(Number);
+const groupList = new Map();
+const problem = new Map();
+const result = new Array();
+for (let i = 0; i < N; i++) {
+  const groupName = input.shift();
+  const memberNum = +input.shift();
+  const groupMember = input.splice(0, memberNum).sort();
+  groupList[groupName] = groupMember;
+}
+for (let i = 0; i < M; i++) problem[input[i * 2]] = +input[i * 2 + 1];
+for (const key in problem) {
+  if (problem[key] === 1) {
+    for (const group in groupList) {
+      if (groupList[group].includes(key)) {
+        result.push(group);
+        break;
+      }
     }
+  } else {
+    result.push(groupList[key]);
   }
-});
-result.sort((a, b) => (a > b ? 1 : -1));
-console.log(result.join("\n"));
-// console.log(arr);
+}
+console.log(result.flat(1).join("\n"));
+
+// problem.forEach((e, i) => {
+//   for (let j = 0; j < groupList.length; j++) {
+//     if (e[1] === 1) {
+//       if (groupList[j].indexOf(e[0]) !== -1) {
+//         result[i] = groupList[j][0];
+//         break;
+//       }
+//     } else {
+//       if (groupList[j].indexOf(e[0]) !== -1) {
+//         result[i] = groupList[j].splice(1, groupList[j].length);
+//         break;
+//       }
+//     }
+//   }
+// });
+// console.log(result.flat(1).join("\n"));
 
 // 28279번 문제 시간초과
 // let [N, ...arr] = require("fs")
