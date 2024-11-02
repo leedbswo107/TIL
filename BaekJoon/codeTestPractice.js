@@ -4254,34 +4254,104 @@
 // });
 
 // 16165번 문제
-const input = require("fs")
+// const input = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const [N, M] = input.shift().split(" ").map(Number);
+// const groupList = new Map();
+// const problem = new Map();
+// const result = new Array();
+// for (let i = 0; i < N; i++) {
+//   const groupName = input.shift();
+//   const memberNum = +input.shift();
+//   const groupMember = input.splice(0, memberNum).sort();
+//   groupList[groupName] = groupMember;
+// }
+// for (let i = 0; i < M; i++) problem[input[i * 2]] = +input[i * 2 + 1];
+// for (const key in problem) {
+//   if (problem[key] === 1) {
+//     for (const group in groupList) {
+//       if (groupList[group].includes(key)) {
+//         result.push(group);
+//         break;
+//       }
+//     }
+//   } else {
+//     result.push(groupList[key]);
+//   }
+// }
+// console.log(result.flat(1).join("\n"));
+
+// 6603번 문제
+let input = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-const [N, M] = input.shift().split(" ").map(Number);
-const groupList = new Map();
-const problem = new Map();
-const result = new Array();
-for (let i = 0; i < N; i++) {
-  const groupName = input.shift();
-  const memberNum = +input.shift();
-  const groupMember = input.splice(0, memberNum).sort();
-  groupList[groupName] = groupMember;
-}
-for (let i = 0; i < M; i++) problem[input[i * 2]] = +input[i * 2 + 1];
-for (const key in problem) {
-  if (problem[key] === 1) {
-    for (const group in groupList) {
-      if (groupList[group].includes(key)) {
-        result.push(group);
-        break;
+input = input.map((e) => e.split(" ").map(Number));
+const result = [];
+const solution = (arr, line) => {
+  if (line.length !== 6) {
+    const len = arr.length;
+    for (let i = 0; i < len; i++) {
+      const copyArr = [...arr];
+      const copyLine = [...line];
+      const num = copyArr.splice(i, 1);
+      if (copyLine.length === 0 || num[0] > copyLine[copyLine.length - 1]) {
+        copyLine.push(num[0]);
+        solution(copyArr, copyLine);
       }
     }
   } else {
-    result.push(groupList[key]);
+    line.length !== 0 && result.push(line.join(" "));
+    line = [];
   }
-}
-console.log(result.flat(1).join("\n"));
+};
+input.pop();
+input.forEach((e) => {
+  e.shift();
+  const nums = [...e];
+  const lineList = solution(nums, []);
+  result.push(lineList);
+});
+result.pop();
+console.log(result.join("\n"));
+// 11279번 문제 푸는중
+// const [N, ...X] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n")
+//   .map(Number);
+// const heap = [];
+// const result = [];
+// X.forEach((x) => {
+//   switch (x) {
+//     case 0:
+//       result.push(heap.length === 0 ? 0 : heap.splice(heap.indexOf(Math.max(...heap)), 1));
+//       break;
+//     default:
+//       heap.push(x);
+//       break;
+//   }
+// });
+// console.log(result.flat().join("\n"));
+
+// 20291번 문제 왜 초과일까..
+// let [N, ...files] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// files = files.map((e) => e.split("."));
+// console.log(files);
+// let extension = new Set(files.map((e) => e[1]));
+// extension = Array.from(extension).sort();
+// console.log(extension);
+// const result = new Array(extension.length).fill(0);
+// extension.forEach((e, i) => {
+//   const data = files.filter((el) => e === el[1]);
+//   result[i] = `${e} ${data.length}`;
+// });
+// console.log(result.join("\n"));
 
 // problem.forEach((e, i) => {
 //   for (let j = 0; j < groupList.length; j++) {
@@ -4484,24 +4554,6 @@ console.log(result.flat(1).join("\n"));
 //   j++;
 // }
 // console.log(Math.max(...counts));
-
-// 20291번 문제 왜 초과일까..
-// let [N, ...files] = require("fs")
-//   .readFileSync("./input.txt", "utf-8")
-//   .trim()
-//   .split("\n");
-// files = files.map((e) => e.split("."));
-// let extension = new Set(files.map((e) => e[1]));
-// extension = Array.from(extension).sort();
-// const result = new Array(extension.length).fill(0);
-// extension.forEach((e, i) => {
-//   for (let j = 0; j < files.length; j++) {
-
-//   }
-//   const data = files.filter((el) => e === el[1]);
-//   result[i] = `${e} ${data.length}`;
-// });
-// console.log(result.join("\n"));
 
 // 2436번 문제 푸는중
 // let [A, B] = require("fs")
