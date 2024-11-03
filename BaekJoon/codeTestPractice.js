@@ -4284,38 +4284,71 @@
 // console.log(result.flat(1).join("\n"));
 
 // 6603번 문제
-let input = require("fs")
+// let input = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// input = input.map((e) => e.split(" ").map(Number));
+// const result = [];
+// const solution = (arr, line) => {
+//   if (line.length !== 6) {
+//     const len = arr.length;
+//     for (let i = 0; i < len; i++) {
+//       const copyArr = [...arr];
+//       const copyLine = [...line];
+//       const num = copyArr.splice(i, 1);
+//       if (copyLine.length === 0 || num[0] > copyLine[copyLine.length - 1]) {
+//         copyLine.push(num[0]);
+//         solution(copyArr, copyLine);
+//       }
+//     }
+//   } else {
+//     line.length !== 0 && result.push(line.join(" "));
+//     line = [];
+//   }
+// };
+// input.pop();
+// input.forEach((e) => {
+//   e.shift();
+//   const nums = [...e];
+//   const lineList = solution(nums, []);
+//   result.push(lineList);
+// });
+// result.pop();
+// console.log(result.join("\n"));
+
+// 15664번 문제
+const input = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-input = input.map((e) => e.split(" ").map(Number));
-const result = [];
-const solution = (arr, line) => {
-  if (line.length !== 6) {
+const [N, M] = input[0].split(" ").map(Number);
+const nums = input[1]
+  .split(" ")
+  .map(Number)
+  .sort((a, b) => a - b);
+const list = [];
+const backTracking = (arr, line) => {
+  if (line.length !== M) {
     const len = arr.length;
     for (let i = 0; i < len; i++) {
       const copyArr = [...arr];
       const copyLine = [...line];
       const num = copyArr.splice(i, 1);
-      if (copyLine.length === 0 || num[0] > copyLine[copyLine.length - 1]) {
-        copyLine.push(num[0]);
-        solution(copyArr, copyLine);
+      if (copyLine.length === 0 || copyLine[copyLine.length - 1] <= num[0]) {
+        copyLine.push(num);
+        backTracking(copyArr, copyLine);
       }
     }
   } else {
-    line.length !== 0 && result.push(line.join(" "));
+    list.push(line.join(" "));
     line = [];
   }
 };
-input.pop();
-input.forEach((e) => {
-  e.shift();
-  const nums = [...e];
-  const lineList = solution(nums, []);
-  result.push(lineList);
-});
-result.pop();
-console.log(result.join("\n"));
+backTracking(nums, []);
+const result = Array.from(new Set(list)).join("\n");
+console.log(result);
+
 // 11279번 문제 푸는중
 // const [N, ...X] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
