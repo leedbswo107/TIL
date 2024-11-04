@@ -4318,36 +4318,65 @@
 // console.log(result.join("\n"));
 
 // 15664번 문제
-const input = require("fs")
-  .readFileSync("./input.txt", "utf-8")
-  .trim()
-  .split("\n");
-const [N, M] = input[0].split(" ").map(Number);
-const nums = input[1]
-  .split(" ")
-  .map(Number)
-  .sort((a, b) => a - b);
-const list = [];
-const backTracking = (arr, line) => {
-  if (line.length !== M) {
-    const len = arr.length;
-    for (let i = 0; i < len; i++) {
-      const copyArr = [...arr];
-      const copyLine = [...line];
-      const num = copyArr.splice(i, 1);
-      if (copyLine.length === 0 || copyLine[copyLine.length - 1] <= num[0]) {
-        copyLine.push(num);
-        backTracking(copyArr, copyLine);
-      }
-    }
-  } else {
-    list.push(line.join(" "));
-    line = [];
-  }
-};
-backTracking(nums, []);
-const result = Array.from(new Set(list)).join("\n");
-console.log(result);
+// const input = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const [N, M] = input[0].split(" ").map(Number);
+// const nums = input[1]
+//   .split(" ")
+//   .map(Number)
+//   .sort((a, b) => a - b);
+// const list = [];
+// const backTracking = (arr, line) => {
+//   if (line.length !== M) {
+//     const len = arr.length;
+//     for (let i = 0; i < len; i++) {
+//       const copyArr = [...arr];
+//       const copyLine = [...line];
+//       const num = copyArr.splice(i, 1);
+//       if (copyLine.length === 0 || copyLine[copyLine.length - 1] <= num[0]) {
+//         copyLine.push(num);
+//         backTracking(copyArr, copyLine);
+//       }
+//     }
+//   } else {
+//     list.push(line.join(" "));
+//     line = [];
+//   }
+// };
+// backTracking(nums, []);
+// const result = Array.from(new Set(list)).join("\n");
+// console.log(result);
+
+// 9659번 문제
+// const N = BigInt(require("fs").readFileSync("./input.txt", "utf-8").trim());
+console.log(
+  BigInt(require("fs").readFileSync("./input.txt", "utf-8").trim()) % 2n === 1n
+    ? "SK"
+    : "CY"
+);
+
+// 11441번 문제 메모리 초과
+// const input = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const data = {
+//   N: +input.shift(),
+//   nums: [...input.shift().split(" ").map(Number)],
+//   M: +input.shift(),
+//   problems: [
+//     ...input.splice(0, input.length).map((e) => e.split(" ").map(Number)),
+//   ],
+// };
+// const { nums, M, problems } = data;
+// const result = new Array(M).fill(0);
+// problems.forEach(
+//   (e, i) =>
+//     (result[i] = nums.slice(e[0] - 1, e[1]).reduce((acc, cur) => acc + cur, 0))
+// );
+// console.log(result.join("\n"));
 
 // 11279번 문제 푸는중
 // const [N, ...X] = require("fs")
