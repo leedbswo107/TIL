@@ -4351,11 +4351,45 @@
 
 // 9659번 문제
 // const N = BigInt(require("fs").readFileSync("./input.txt", "utf-8").trim());
-console.log(
-  BigInt(require("fs").readFileSync("./input.txt", "utf-8").trim()) % 2n === 1n
-    ? "SK"
-    : "CY"
-);
+// console.log(
+//   BigInt(require("fs").readFileSync("./input.txt", "utf-8").trim()) % 2n === 1n
+//     ? "SK"
+//     : "CY"
+// );
+
+// 17413번 문제 리팩토링 할것.
+const S = require("fs").readFileSync("./input.txt", "utf-8").trim().split("");
+const result = [];
+for (let i = 0; i < S.length; i++) {
+  if (S[0] === "<") {
+    result.push(S.splice(0, S.indexOf(">") + 1).join(""));
+    i = 0;
+  } else {
+    if (S.indexOf("<") === -1) {
+      if (S.indexOf(" ") !== -1)
+        result.push(
+          `${S.splice(0, S.indexOf(" ") + 1)
+            .reverse()
+            .join("")
+            .trim()} `
+        );
+      else result.push(S.splice(0, S.length).reverse().join(""));
+    } else {
+      result.push(
+        S.indexOf(" ") !== -1
+          ? S.indexOf("<") < S.indexOf(" ")
+            ? S.splice(0, S.indexOf("<")).reverse().join("")
+            : `${S.splice(0, S.indexOf(" ") + 1)
+                .reverse()
+                .join("")
+                .trim()} `
+          : S.splice(0, S.indexOf("<")).reverse().join("")
+      );
+    }
+    i = 0;
+  }
+}
+console.log(result.join(""));
 
 // 11441번 문제 메모리 초과
 // const input = require("fs")
