@@ -4357,39 +4357,58 @@
 //     : "CY"
 // );
 
-// 17413번 문제 리팩토링 할것.
-const S = require("fs").readFileSync("./input.txt", "utf-8").trim().split("");
-const result = [];
-for (let i = 0; i < S.length; i++) {
-  if (S[0] === "<") {
-    result.push(S.splice(0, S.indexOf(">") + 1).join(""));
-    i = 0;
-  } else {
-    if (S.indexOf("<") === -1) {
-      if (S.indexOf(" ") !== -1)
-        result.push(
-          `${S.splice(0, S.indexOf(" ") + 1)
-            .reverse()
-            .join("")
-            .trim()} `
-        );
-      else result.push(S.splice(0, S.length).reverse().join(""));
-    } else {
-      result.push(
-        S.indexOf(" ") !== -1
-          ? S.indexOf("<") < S.indexOf(" ")
-            ? S.splice(0, S.indexOf("<")).reverse().join("")
-            : `${S.splice(0, S.indexOf(" ") + 1)
-                .reverse()
-                .join("")
-                .trim()} `
-          : S.splice(0, S.indexOf("<")).reverse().join("")
-      );
+// 1940번 문제
+let [N, M, nums] = require("fs")
+  .readFileSync("./input.txt", "utf-8")
+  .trim()
+  .split("\n");
+nums = nums.split(" ").map(Number);
+let result = 0;
+for (let i = 0; i < nums.length - 1; i++) {
+  const cur = nums[i];
+  for (let j = i + 1; j < nums.length; j++) {
+    const next = nums[j];
+    if (cur + next === +M) {
+      result++;
+      break;
     }
-    i = 0;
   }
 }
-console.log(result.join(""));
+console.log(result);
+
+// 17413번 문제 리팩토링 할것.
+// const S = require("fs").readFileSync("./input.txt", "utf-8").trim().split("");
+// const result = [];
+// for (let i = 0; i < S.length; i++) {
+//   if (S[0] === "<") {
+//     result.push(S.splice(0, S.indexOf(">") + 1).join(""));
+//     i = 0;
+//   } else {
+//     if (S.indexOf("<") === -1) {
+//       if (S.indexOf(" ") !== -1)
+//         result.push(
+//           `${S.splice(0, S.indexOf(" ") + 1)
+//             .reverse()
+//             .join("")
+//             .trim()} `
+//         );
+//       else result.push(S.splice(0, S.length).reverse().join(""));
+//     } else {
+//       result.push(
+//         S.indexOf(" ") !== -1
+//           ? S.indexOf("<") < S.indexOf(" ")
+//             ? S.splice(0, S.indexOf("<")).reverse().join("")
+//             : `${S.splice(0, S.indexOf(" ") + 1)
+//                 .reverse()
+//                 .join("")
+//                 .trim()} `
+//           : S.splice(0, S.indexOf("<")).reverse().join("")
+//       );
+//     }
+//     i = 0;
+//   }
+// }
+// console.log(result.join(""));
 
 // 11441번 문제 메모리 초과
 // const input = require("fs")
