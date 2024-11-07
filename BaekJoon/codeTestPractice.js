@@ -4358,23 +4358,42 @@
 // );
 
 // 1940번 문제
-let [N, M, nums] = require("fs")
+// let [N, M, nums] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// nums = nums.split(" ").map(Number);
+// let result = 0;
+// for (let i = 0; i < nums.length - 1; i++) {
+//   const cur = nums[i];
+//   for (let j = i + 1; j < nums.length; j++) {
+//     const next = nums[j];
+//     if (cur + next === +M) {
+//       result++;
+//       break;
+//     }
+//   }
+// }
+// console.log(result);
+
+// 14241번 문제
+const input = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-nums = nums.split(" ").map(Number);
-let result = 0;
-for (let i = 0; i < nums.length - 1; i++) {
-  const cur = nums[i];
-  for (let j = i + 1; j < nums.length; j++) {
-    const next = nums[j];
-    if (cur + next === +M) {
-      result++;
-      break;
-    }
-  }
+const sizes = input[1]
+  .split(" ")
+  .map(Number)
+  .sort((a, b) => b - a);
+let sum = [];
+let score = [];
+for (let i = 0; i < sizes.length - 1; i++) {
+  sum[i] = !sum.length ? sizes[i] + sizes[i + 1] : sum[i - 1] + sizes[i + 1];
+  score[i] = !score.length
+    ? sizes[i] * sizes[i + 1]
+    : score[i - 1] + sum[i - 1] * sizes[i + 1];
 }
-console.log(result);
+console.log(score.pop());
 
 // 17413번 문제 리팩토링 할것.
 // const S = require("fs").readFileSync("./input.txt", "utf-8").trim().split("");
