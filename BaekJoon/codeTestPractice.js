@@ -3689,6 +3689,32 @@
 // }
 // console.log(result.join("\n"));
 
+// 15649 개선
+const [N, M] = require("fs")
+  .readFileSync("./input.txt", "utf-8")
+  .trim()
+  .split(" ")
+  .map(Number);
+const nums = new Array(N).fill(1).map((e, i) => e + i);
+const result = [];
+const backTracking = (arr, line) => {
+  if (line.length !== M) {
+    const len = arr.length;
+    for (let i = 0; i < len; i++) {
+      const copyArr = [...arr];
+      const copyLine = [...line];
+      const num = copyArr.splice(i, 1);
+      copyLine.push(num);
+      backTracking(copyArr, copyLine);
+    }
+  } else {
+    result.push(line.join(" "));
+    line = [];
+  }
+};
+backTracking(nums, []);
+console.log(result.join("\n"));
+
 // 2847번 문제
 // const [N, ...nums] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
@@ -4377,23 +4403,23 @@
 // console.log(result);
 
 // 14241번 문제
-const input = require("fs")
-  .readFileSync("./input.txt", "utf-8")
-  .trim()
-  .split("\n");
-const sizes = input[1]
-  .split(" ")
-  .map(Number)
-  .sort((a, b) => b - a);
-let sum = [];
-let score = [];
-for (let i = 0; i < sizes.length - 1; i++) {
-  sum[i] = !sum.length ? sizes[i] + sizes[i + 1] : sum[i - 1] + sizes[i + 1];
-  score[i] = !score.length
-    ? sizes[i] * sizes[i + 1]
-    : score[i - 1] + sum[i - 1] * sizes[i + 1];
-}
-console.log(score.pop());
+// const input = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const sizes = input[1]
+//   .split(" ")
+//   .map(Number)
+//   .sort((a, b) => b - a);
+// let sum = [];
+// let score = [];
+// for (let i = 0; i < sizes.length - 1; i++) {
+//   sum[i] = !sum.length ? sizes[i] + sizes[i + 1] : sum[i - 1] + sizes[i + 1];
+//   score[i] = !score.length
+//     ? sizes[i] * sizes[i + 1]
+//     : score[i - 1] + sum[i - 1] * sizes[i + 1];
+// }
+// console.log(score.pop());
 
 // 17413번 문제 리팩토링 할것.
 // const S = require("fs").readFileSync("./input.txt", "utf-8").trim().split("");
