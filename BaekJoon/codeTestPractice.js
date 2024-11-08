@@ -3690,30 +3690,30 @@
 // console.log(result.join("\n"));
 
 // 15649 개선
-const [N, M] = require("fs")
-  .readFileSync("./input.txt", "utf-8")
-  .trim()
-  .split(" ")
-  .map(Number);
-const nums = new Array(N).fill(1).map((e, i) => e + i);
-const result = [];
-const backTracking = (arr, line) => {
-  if (line.length !== M) {
-    const len = arr.length;
-    for (let i = 0; i < len; i++) {
-      const copyArr = [...arr];
-      const copyLine = [...line];
-      const num = copyArr.splice(i, 1);
-      copyLine.push(num);
-      backTracking(copyArr, copyLine);
-    }
-  } else {
-    result.push(line.join(" "));
-    line = [];
-  }
-};
-backTracking(nums, []);
-console.log(result.join("\n"));
+// const [N, M] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(Number);
+// const nums = new Array(N).fill(1).map((e, i) => e + i);
+// const result = [];
+// const backTracking = (arr, line) => {
+//   if (line.length !== M) {
+//     const len = arr.length;
+//     for (let i = 0; i < len; i++) {
+//       const copyArr = [...arr];
+//       const copyLine = [...line];
+//       const num = copyArr.splice(i, 1);
+//       copyLine.push(num);
+//       backTracking(copyArr, copyLine);
+//     }
+//   } else {
+//     result.push(line.join(" "));
+//     line = [];
+//   }
+// };
+// backTracking(nums, []);
+// console.log(result.join("\n"));
 
 // 2847번 문제
 // const [N, ...nums] = require("fs")
@@ -4420,6 +4420,16 @@ console.log(result.join("\n"));
 //     : score[i - 1] + sum[i - 1] * sizes[i + 1];
 // }
 // console.log(score.pop());
+
+// 26517번 문제
+const [k, arr] = require("fs")
+  .readFileSync("./input.txt", "utf-8")
+  .trim()
+  .split("\n");
+const x = +k;
+const [a, b, c, d] = arr.split(" ").map(Number);
+const result = a * x + b === c * x + d ? `Yes ${a * x + b}` : "No";
+console.log(result);
 
 // 17413번 문제 리팩토링 할것.
 // const S = require("fs").readFileSync("./input.txt", "utf-8").trim().split("");
