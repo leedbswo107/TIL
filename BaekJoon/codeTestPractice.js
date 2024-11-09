@@ -4422,14 +4422,49 @@
 // console.log(score.pop());
 
 // 26517번 문제
-const [k, arr] = require("fs")
+// const [k, arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const x = +k;
+// const [a, b, c, d] = arr.split(" ").map(Number);
+// const result = a * x + b === c * x + d ? `Yes ${a * x + b}` : "No";
+// console.log(result);
+
+// 11170번 문제
+const [T, ...arr] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-const x = +k;
-const [a, b, c, d] = arr.split(" ").map(Number);
-const result = a * x + b === c * x + d ? `Yes ${a * x + b}` : "No";
-console.log(result);
+const nums = arr.map((e) => e.split(" ").map(Number));
+const result = new Array(+T).fill(0);
+nums.forEach((e, j) => {
+  for (let i = e[0]; i <= e[1]; i++) {
+    result[j] += i
+      .toString()
+      .split("")
+      .filter((e) => e === "0").length;
+  }
+});
+console.log(result.join("\n"));
+
+// 11576번 문제  푸는중
+// const input = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const [A, B] = input[0].split(" ").map(Number);
+// const n = +input[1];
+// const nums = input[2].split(" ").map(Number).reverse();
+// let originNum = 0;
+// const result = new Array(n);
+// nums.forEach((e, i) => (originNum += A ** i * e));
+// for (let i = n - 1; i >= 0; i--) {
+//   result[i] = Number.parseInt(originNum / B ** i, 10);
+//   originNum %= B ** i;
+// }
+
+// console.log(result.reverse().join(" "));
 
 // 17413번 문제 리팩토링 할것.
 // const S = require("fs").readFileSync("./input.txt", "utf-8").trim().split("");
