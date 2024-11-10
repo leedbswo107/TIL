@@ -4432,21 +4432,31 @@
 // console.log(result);
 
 // 11170번 문제
-const [T, ...arr] = require("fs")
+// const [T, ...arr] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const nums = arr.map((e) => e.split(" ").map(Number));
+// const result = new Array(+T).fill(0);
+// nums.forEach((e, j) => {
+//   for (let i = e[0]; i <= e[1]; i++) {
+//     result[j] += i
+//       .toString()
+//       .split("")
+//       .filter((e) => e === "0").length;
+//   }
+// });
+// console.log(result.join("\n"));
+
+// 2752번 문제
+const arr = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
-  .split("\n");
-const nums = arr.map((e) => e.split(" ").map(Number));
-const result = new Array(+T).fill(0);
-nums.forEach((e, j) => {
-  for (let i = e[0]; i <= e[1]; i++) {
-    result[j] += i
-      .toString()
-      .split("")
-      .filter((e) => e === "0").length;
-  }
-});
-console.log(result.join("\n"));
+  .split(" ")
+  .map(Number)
+  .sort((a, b) => a - b)
+  .join(" ");
+console.log(arr);
 
 // 11576번 문제  푸는중
 // const input = require("fs")
