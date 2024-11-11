@@ -4449,14 +4449,26 @@
 // console.log(result.join("\n"));
 
 // 2752번 문제
-const arr = require("fs")
+// const arr = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(Number)
+//   .sort((a, b) => a - b)
+//   .join(" ");
+// console.log(arr);
+
+// 10797번 문제
+let [T, num] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
-  .split(" ")
-  .map(Number)
-  .sort((a, b) => a - b)
-  .join(" ");
-console.log(arr);
+  .split("\n");
+console.log(
+  num
+    .split(" ")
+    .map(Number)
+    .filter((e) => e === +T).length
+);
 
 // 11576번 문제  푸는중
 // const input = require("fs")
