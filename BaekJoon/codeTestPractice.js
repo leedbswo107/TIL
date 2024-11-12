@@ -4459,17 +4459,43 @@
 // console.log(arr);
 
 // 10797번 문제
-let [T, num] = require("fs")
+// let [T, num] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// console.log(
+//   num
+//     .split(" ")
+//     .map(Number)
+//     .filter((e) => e === +T).length
+// );
+
+// 15665번 문제
+const input = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-console.log(
-  num
-    .split(" ")
-    .map(Number)
-    .filter((e) => e === +T).length
-);
-
+const destructuring = (arr) => arr.split(" ").map(Number);
+const [N, M] = destructuring(input[0]);
+const nums = destructuring(input[1]).sort((a, b) => a - b);
+let result = [];
+const backTracking = (arr, line) => {
+  if (line.length !== M) {
+    const len = arr.length;
+    for (let i = 0; i < len; i++) {
+      const copyLine = [...line];
+      const num = arr[i];
+      copyLine.push(num);
+      backTracking(arr, copyLine);
+    }
+  } else {
+    result.push(line.join(" "));
+    line = [];
+  }
+};
+backTracking(nums, []);
+result = Array.from(new Set(result)).join("\n");
+console.log(result);
 // 11576번 문제  푸는중
 // const input = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
