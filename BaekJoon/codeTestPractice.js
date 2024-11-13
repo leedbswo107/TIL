@@ -4471,22 +4471,53 @@
 // );
 
 // 15665번 문제
-const input = require("fs")
+// const input = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const destructuring = (arr) => arr.split(" ").map(Number);
+// const [N, M] = destructuring(input[0]);
+// const nums = destructuring(input[1]).sort((a, b) => a - b);
+// let result = [];
+// const backTracking = (arr, line) => {
+//   if (line.length !== M) {
+//     const len = arr.length;
+//     for (let i = 0; i < len; i++) {
+//       const copyLine = [...line];
+//       const num = arr[i];
+//       copyLine.push(num);
+//       backTracking(arr, copyLine);
+//     }
+//   } else {
+//     result.push(line.join(" "));
+//     line = [];
+//   }
+// };
+// backTracking(nums, []);
+// result = Array.from(new Set(result)).join("\n");
+// console.log(result);
+
+// 15666번 문제
+const [i1, i2] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
 const destructuring = (arr) => arr.split(" ").map(Number);
-const [N, M] = destructuring(input[0]);
-const nums = destructuring(input[1]).sort((a, b) => a - b);
+const [N, M] = destructuring(i1);
+const nums = destructuring(i2).sort((a, b) => a - b);
 let result = [];
 const backTracking = (arr, line) => {
   if (line.length !== M) {
-    const len = arr.length;
-    for (let i = 0; i < len; i++) {
+    for (let i = 0; i < arr.length; i++) {
+      const copyArr = [...arr];
       const copyLine = [...line];
-      const num = arr[i];
-      copyLine.push(num);
-      backTracking(arr, copyLine);
+      if (
+        copyLine.length === 0 ||
+        copyLine[copyLine.length - 1] <= copyArr[i]
+      ) {
+        copyLine.push(copyArr[i]);
+        backTracking(copyArr, copyLine);
+      }
     }
   } else {
     result.push(line.join(" "));
@@ -4496,6 +4527,7 @@ const backTracking = (arr, line) => {
 backTracking(nums, []);
 result = Array.from(new Set(result)).join("\n");
 console.log(result);
+
 // 11576번 문제  푸는중
 // const input = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
