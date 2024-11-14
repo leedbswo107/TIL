@@ -4498,36 +4498,64 @@
 // console.log(result);
 
 // 15666번 문제
-const [i1, i2] = require("fs")
+// const [i1, i2] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const destructuring = (arr) => arr.split(" ").map(Number);
+// const [N, M] = destructuring(i1);
+// const nums = destructuring(i2).sort((a, b) => a - b);
+// let result = [];
+// const backTracking = (arr, line) => {
+//   if (line.length !== M) {
+//     for (let i = 0; i < arr.length; i++) {
+//       const copyArr = [...arr];
+//       const copyLine = [...line];
+//       if (
+//         copyLine.length === 0 ||
+//         copyLine[copyLine.length - 1] <= copyArr[i]
+//       ) {
+//         copyLine.push(copyArr[i]);
+//         backTracking(copyArr, copyLine);
+//       }
+//     }
+//   } else {
+//     result.push(line.join(" "));
+//     line = [];
+//   }
+// };
+// backTracking(nums, []);
+// result = Array.from(new Set(result)).join("\n");
+// console.log(result);
+
+// 1966번 문제
+let [N, ...input] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-const destructuring = (arr) => arr.split(" ").map(Number);
-const [N, M] = destructuring(i1);
-const nums = destructuring(i2).sort((a, b) => a - b);
-let result = [];
-const backTracking = (arr, line) => {
-  if (line.length !== M) {
-    for (let i = 0; i < arr.length; i++) {
-      const copyArr = [...arr];
-      const copyLine = [...line];
-      if (
-        copyLine.length === 0 ||
-        copyLine[copyLine.length - 1] <= copyArr[i]
-      ) {
-        copyLine.push(copyArr[i]);
-        backTracking(copyArr, copyLine);
-      }
+const result = new Array(+N);
+input = input.map((e) => e.split(" ").map(Number));
+const solution = (arr) => {
+  const [N, M] = arr.shift();
+  let nums = arr.shift();
+  let [num, index] = [nums[M], M];
+  let count = 1;
+  let max = Math.max(...nums);
+  while (max !== num || index !== 0) {
+    if (nums[0] === max) {
+      nums.shift();
+      max = Math.max(...nums);
+      count++;
+    } else {
+      const firstEl = nums.shift();
+      nums = [...nums, firstEl];
     }
-  } else {
-    result.push(line.join(" "));
-    line = [];
+    index = index === 0 ? nums.length - 1 : index - 1;
   }
+  return count;
 };
-backTracking(nums, []);
-result = Array.from(new Set(result)).join("\n");
-console.log(result);
-
+for (let i = 0; i < +N; i++) result[i] = solution(input);
+console.log(result.join("\n"));
 // 11576번 문제  푸는중
 // const input = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
