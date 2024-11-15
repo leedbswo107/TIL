@@ -4529,33 +4529,74 @@
 // console.log(result);
 
 // 1966번 문제
-let [N, ...input] = require("fs")
+// let [N, ...input] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const result = new Array(+N);
+// input = input.map((e) => e.split(" ").map(Number));
+// const solution = (arr) => {
+//   const [N, M] = arr.shift();
+//   let nums = arr.shift();
+//   let [num, index] = [nums[M], M];
+//   let count = 1;
+//   let max = Math.max(...nums);
+//   while (max !== num || index !== 0) {
+//     if (nums[0] === max) {
+//       nums.shift();
+//       max = Math.max(...nums);
+//       count++;
+//     } else {
+//       const firstEl = nums.shift();
+//       nums = [...nums, firstEl];
+//     }
+//     index = index === 0 ? nums.length - 1 : index - 1;
+//   }
+//   return count;
+// };
+// for (let i = 0; i < +N; i++) result[i] = solution(input);
+// console.log(result.join("\n"));
+
+// 9884번 문제
+let [A, B] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
-  .split("\n");
-const result = new Array(+N);
-input = input.map((e) => e.split(" ").map(Number));
-const solution = (arr) => {
-  const [N, M] = arr.shift();
-  let nums = arr.shift();
-  let [num, index] = [nums[M], M];
-  let count = 1;
-  let max = Math.max(...nums);
-  while (max !== num || index !== 0) {
-    if (nums[0] === max) {
-      nums.shift();
-      max = Math.max(...nums);
-      count++;
-    } else {
-      const firstEl = nums.shift();
-      nums = [...nums, firstEl];
-    }
-    index = index === 0 ? nums.length - 1 : index - 1;
+  .split(" ")
+  .map(Number);
+let result = 0;
+while (true) {
+  if (A == B) {
+    result = B;
+    break;
   }
-  return count;
-};
-for (let i = 0; i < +N; i++) result[i] = solution(input);
-console.log(result.join("\n"));
+  [A, B] = [Math.max(A, B) - Math.min(A, B), Math.min(A, B)];
+}
+console.log(result);
+
+// 1912번 문제 메모리 초과
+// const [n, i1] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const nums = i1.split(" ").map(Number);
+// let dp = [];
+// const solution = (arr) => {
+//   let processArr = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     if (i === 0) processArr[i] = arr[i];
+//     else if (processArr[i]) processArr[i];
+//     else processArr[i] = processArr[i - 1] + arr[i];
+//   }
+//   if (nums.length !== 0) {
+//     nums.shift();
+//     dp = [...dp, Math.max(...processArr)];
+//     processArr = [];
+//     solution(nums);
+//   }
+// };
+// solution(nums);
+// console.log(Math.max(...dp));
+
 // 11576번 문제  푸는중
 // const input = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
