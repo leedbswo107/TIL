@@ -4558,20 +4558,40 @@
 // console.log(result.join("\n"));
 
 // 9884번 문제
-let [A, B] = require("fs")
-  .readFileSync("./input.txt", "utf-8")
-  .trim()
-  .split(" ")
-  .map(Number);
-let result = 0;
-while (true) {
-  if (A == B) {
-    result = B;
-    break;
+// let [A, B] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(Number);
+// let result = 0;
+// while (true) {
+//   if (A == B) {
+//     result = B;
+//     break;
+//   }
+//   [A, B] = [Math.max(A, B) - Math.min(A, B), Math.min(A, B)];
+// }
+// console.log(result);
+
+// 10974번 문제
+const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+const nums = new Array(N).fill(1).map((e, i) => e + i);
+const result = [];
+const backTracking = (arr, line) => {
+  if (line.length !== N) {
+    for (let i = 0; i < arr.length; i++) {
+      const copyArr = [...arr];
+      const copyLine = [...line];
+      copyLine.push(copyArr.splice(i, 1));
+      backTracking(copyArr, copyLine);
+    }
+  } else {
+    result.push(line.join(" "));
+    line = [];
   }
-  [A, B] = [Math.max(A, B) - Math.min(A, B), Math.min(A, B)];
-}
-console.log(result);
+};
+backTracking(nums, []);
+console.log(result.join("\n"));
 
 // 1912번 문제 메모리 초과
 // const [n, i1] = require("fs")
