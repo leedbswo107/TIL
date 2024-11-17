@@ -4574,25 +4574,76 @@
 // console.log(result);
 
 // 10974번 문제
-const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
-const nums = new Array(N).fill(1).map((e, i) => e + i);
+// const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// const nums = new Array(N).fill(1).map((e, i) => e + i);
+// const result = [];
+// const backTracking = (arr, line) => {
+//   if (line.length !== N) {
+//     for (let i = 0; i < arr.length; i++) {
+//       const copyArr = [...arr];
+//       const copyLine = [...line];
+//       copyLine.push(copyArr.splice(i, 1));
+//       backTracking(copyArr, copyLine);
+//     }
+//   } else {
+//     result.push(line.join(" "));
+//     line = [];
+//   }
+// };
+// backTracking(nums, []);
+// console.log(result.join("\n"));
+
+// 14650번 문제
+// const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// const nums = [0, 1, 2];
+// const result = [];
+// const backTracking = (arr, line) => {
+//   if (line.length !== N) {
+//     const len = arr.length;
+//     for (let i = 0; i < len; i++) {
+//       const copyArr = [...arr];
+//       const copyLine = [...line];
+//       const num = copyArr[i];
+//       copyLine.push(num);
+//       backTracking(copyArr, copyLine);
+//     }
+//   } else {
+//     const lineNum = +line.join("");
+//     !(lineNum % 3) &&
+//       lineNum !== 0 &&
+//       lineNum.toString().split("").length === N &&
+//       result.push(lineNum);
+//     line = [];
+//   }
+// };
+// backTracking(nums, []);
+// console.log(result.length);
+
+// 1201번 문제
+const [n, k] = require("fs")
+  .readFileSync("./input.txt", "utf-8")
+  .trim()
+  .split(" ")
+  .map(Number);
+const nums = [1, 2, 3];
 const result = [];
 const backTracking = (arr, line) => {
-  if (line.length !== N) {
-    for (let i = 0; i < arr.length; i++) {
+  const sum = line.reduce((acc, cur) => acc + cur, 0);
+  if (sum < n) {
+    const len = arr.length;
+    for (let i = 0; i < len; i++) {
       const copyArr = [...arr];
       const copyLine = [...line];
-      copyLine.push(copyArr.splice(i, 1));
+      copyLine.push(copyArr[i]);
       backTracking(copyArr, copyLine);
     }
   } else {
-    result.push(line.join(" "));
+    sum === n && result.push(line);
     line = [];
   }
 };
 backTracking(nums, []);
-console.log(result.join("\n"));
-
+console.log(Boolean(result[k - 1]) ? result[k - 1].join("+") : -1);
 // 1912번 문제 메모리 초과
 // const [n, i1] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
