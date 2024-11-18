@@ -4620,30 +4620,72 @@
 // console.log(result.length);
 
 // 1201번 문제
-const [n, k] = require("fs")
+// const [n, k] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(Number);
+// const nums = [1, 2, 3];
+// const result = [];
+// const backTracking = (arr, line) => {
+//   const sum = line.reduce((acc, cur) => acc + cur, 0);
+//   if (sum < n) {
+//     const len = arr.length;
+//     for (let i = 0; i < len; i++) {
+//       const copyArr = [...arr];
+//       const copyLine = [...line];
+//       copyLine.push(copyArr[i]);
+//       backTracking(copyArr, copyLine);
+//     }
+//   } else {
+//     sum === n && result.push(line);
+//     line = [];
+//   }
+// };
+// backTracking(nums, []);
+// console.log(Boolean(result[k - 1]) ? result[k - 1].join("+") : -1);
+
+// 16938번 문제 리팩토링 해야할듯... 더 좋은 방식도 있을것으로 보임...
+const [i1, i2] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
-  .split(" ")
-  .map(Number);
-const nums = [1, 2, 3];
-const result = [];
-const backTracking = (arr, line) => {
-  const sum = line.reduce((acc, cur) => acc + cur, 0);
-  if (sum < n) {
+  .split("\n");
+const destructuring = (arr) => arr.split(" ").map(Number);
+const [N, L, R, X] = destructuring(i1);
+const nums = new Array(N).fill(0).map((e, i) => e + i);
+const A = destructuring(i2);
+let backResult = [];
+let result = 0;
+
+const backTracking = (arr, line, aLen) => {
+  if (line.length !== aLen) {
     const len = arr.length;
     for (let i = 0; i < len; i++) {
       const copyArr = [...arr];
       const copyLine = [...line];
-      copyLine.push(copyArr[i]);
-      backTracking(copyArr, copyLine);
+      const num = copyArr.splice(i, 1);
+      if (copyLine[copyLine.length - 1] < num || !copyLine.length) {
+        copyLine.push(...num);
+        backTracking(copyArr, copyLine, aLen);
+      }
     }
   } else {
-    sum === n && result.push(line);
+    const lineA = line.map((e) => A[e]);
+    backResult.push(lineA);
     line = [];
   }
 };
-backTracking(nums, []);
-console.log(Boolean(result[k - 1]) ? result[k - 1].join("+") : -1);
+const resultCheck = (e) => {
+  const sumA = e.reduce((acc, cur) => acc + cur, 0);
+  const diffATopBot = Math.max(...e) - Math.min(...e);
+  if (sumA < L || sumA > R) return;
+  if (diffATopBot < X) return;
+  result++;
+};
+for (let i = 2; i <= N; i++) backTracking(nums, [], i);
+backResult.forEach((e) => resultCheck(e));
+console.log(result);
+
 // 1912번 문제 메모리 초과
 // const [n, i1] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
