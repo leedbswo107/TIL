@@ -4645,41 +4645,112 @@
 // backTracking(nums, []);
 // console.log(Boolean(result[k - 1]) ? result[k - 1].join("+") : -1);
 
-// 9095번 문제 결과적으론 백트래킹으로 풀었음 dp가 아님..
-const [T, ...N] = require("fs")
+// 6996번 문제
+let [T, ...input] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
-  .split("\n")
-  .map(Number);
-// const dp = [1, 2, 4];
-// for (let i = 3; i < 11; i++) dp[i] = dp[i - 3] + dp[i - 2] + dp[i - 1];
-// N.forEach((e) => console.log(dp[e - 1]));
-
-const result = [];
-const solution = (n) => {
-  let dpArr = [];
-  const dp = (line) => {
-    for (let i = 1; i <= 3; i++) {
-      const copyLine = [...line];
-      const sum = copyLine.reduce((acc, cur) => acc + cur, 0);
-      for (let j = i; j <= 3; j++) {
-        if (sum === n) {
-          dpArr.push(copyLine.join(" "));
-          line = [];
-          return;
-        } else if (sum < n) {
-          copyLine.push(j);
-          dp(copyLine);
-        }
-      }
-    }
-  };
-  dp([]);
-  dpArr = Array.from(new Set(dpArr));
-  result.push(dpArr.length);
+  .split("\n");
+input = input.map((e) => e.split(" "));
+const result = {};
+const solution = (str1, str2) => {
+  if (str1.length !== str2.length) return false;
+  const FC1 = {};
+  const FC2 = {};
+  for (const e of str1) FC1[e] = (FC1[e] || 0) + 1;
+  for (const e of str2) FC2[e] = (FC2[e] || 0) + 1;
+  for (const key in FC1) {
+    if (!FC2[key]) return false;
+    if (FC1[key] !== FC2[key]) return false;
+  }
+  return true;
 };
-N.forEach((e) => solution(e));
-console.log(result.join("\n"));
+input.forEach((e) => {
+  const innerResult = solution(e[0], e[1]);
+  result[`${e[0]} & ${e[1]} are `] = innerResult
+    ? "anagrams."
+    : "NOT anagrams.";
+});
+for (const key in result) console.log(`${key}${result[key]}`);
+
+// 1919번 문제 틀림..
+// const [i1, i2] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const FC1 = {};
+// const FC2 = {};
+// let result = 0;
+// for (const e of i1) FC1[e] = (FC1[e] || 0) + 1;
+// for (const e of i2) FC2[e] = (FC2[e] || 0) + 1;
+// for (const key in FC1) !FC2[key] && (result += FC1[key] * 2);
+// console.log(result);
+
+// 6443번 문제 시간 초과
+/**
+ * 단어의 길이는 20보다 작거나 같고, 애너그램의 수가 100,000개 이하인 단어만 입력으로 주어진다.
+ * 단어길이가 조금만 늘어도 연산이 길어지는것을 확인
+ * backTracking 내부 splice 의 반복 중첩으로 O(N^2) 이 나오는것을 확인
+ * splice 를 해결하지 못하면 이 문제의 시간 초과는 해결할 수 없어보임.
+ */
+// let [N, ...text] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// let result = [];
+// text = text.map((e) => e.split("")).reverse();
+// const backTracking = (arr, line, totalLen) => {
+//   if (line.length !== totalLen) {
+//     const len = arr.length;
+//     for (let i = 0; i < len; i++) {
+//       const copyArr = [...arr];
+//       const copyLine = [...line];
+//       copyLine.push(copyArr.splice(i, 1));
+//       backTracking(copyArr, copyLine, totalLen);
+//     }
+//   } else {
+//     result.push(line.join(""));
+//     line = [];
+//   }
+// };
+// while (N--) backTracking(text[N].sort(), [], text[N].length);
+// result = Array.from(new Set(result));
+// console.log(result.join("\n"));
+
+// 9095번 문제 결과적으론 백트래킹으로 풀었음 dp가 아님..
+// const [T, ...N] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n")
+//   .map(Number);
+// // const dp = [1, 2, 4];
+// // for (let i = 3; i < 11; i++) dp[i] = dp[i - 3] + dp[i - 2] + dp[i - 1];
+// // N.forEach((e) => console.log(dp[e - 1]));
+
+// const result = [];
+// const solution = (n) => {
+//   let dpArr = [];
+//   const dp = (line) => {
+//     for (let i = 1; i <= 3; i++) {
+//       const copyLine = [...line];
+//       const sum = copyLine.reduce((acc, cur) => acc + cur, 0);
+//       for (let j = i; j <= 3; j++) {
+//         if (sum === n) {
+//           dpArr.push(copyLine.join(" "));
+//           line = [];
+//           return;
+//         } else if (sum < n) {
+//           copyLine.push(j);
+//           dp(copyLine);
+//         }
+//       }
+//     }
+//   };
+//   dp([]);
+//   dpArr = Array.from(new Set(dpArr));
+//   result.push(dpArr.length);
+// };
+// N.forEach((e) => solution(e));
+// console.log(result.join("\n"));
 
 // 11057번 문제 푸는중
 // const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
