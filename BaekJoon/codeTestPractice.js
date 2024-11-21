@@ -4646,31 +4646,57 @@
 // console.log(Boolean(result[k - 1]) ? result[k - 1].join("+") : -1);
 
 // 6996번 문제
-let [T, ...input] = require("fs")
+// let [T, ...input] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// input = input.map((e) => e.split(" "));
+// const result = {};
+// const solution = (str1, str2) => {
+//   if (str1.length !== str2.length) return false;
+//   const FC1 = {};
+//   const FC2 = {};
+//   for (const e of str1) FC1[e] = (FC1[e] || 0) + 1;
+//   for (const e of str2) FC2[e] = (FC2[e] || 0) + 1;
+//   for (const key in FC1) {
+//     if (!FC2[key]) return false;
+//     if (FC1[key] !== FC2[key]) return false;
+//   }
+//   return true;
+// };
+// input.forEach((e) => {
+//   const innerResult = solution(e[0], e[1]);
+//   result[`${e[0]} & ${e[1]} are `] = innerResult
+//     ? "anagrams."
+//     : "NOT anagrams.";
+// });
+// for (const key in result) console.log(`${key}${result[key]}`);
+
+// 5568번 문제
+const [n, k, ...cards] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
-  .split("\n");
-input = input.map((e) => e.split(" "));
-const result = {};
-const solution = (str1, str2) => {
-  if (str1.length !== str2.length) return false;
-  const FC1 = {};
-  const FC2 = {};
-  for (const e of str1) FC1[e] = (FC1[e] || 0) + 1;
-  for (const e of str2) FC2[e] = (FC2[e] || 0) + 1;
-  for (const key in FC1) {
-    if (!FC2[key]) return false;
-    if (FC1[key] !== FC2[key]) return false;
+  .split("\n")
+  .map(Number);
+let result = [];
+const backTracking = (arr, line) => {
+  if (line.length !== k) {
+    const len = arr.length;
+    for (let i = 0; i < len; i++) {
+      const copyArr = [...arr];
+      const copyLine = [...line];
+      const num = copyArr.splice(i, 1);
+      copyLine.push(num);
+      backTracking(copyArr, copyLine);
+    }
+  } else {
+    result.push(line.join(""));
+    line = [];
   }
-  return true;
 };
-input.forEach((e) => {
-  const innerResult = solution(e[0], e[1]);
-  result[`${e[0]} & ${e[1]} are `] = innerResult
-    ? "anagrams."
-    : "NOT anagrams.";
-});
-for (const key in result) console.log(`${key}${result[key]}`);
+backTracking(cards, []);
+result = Array.from(new Set(result)).length;
+console.log(result);
 
 // 1919번 문제 틀림..
 // const [i1, i2] = require("fs")
@@ -5762,21 +5788,22 @@ for (const key in result) console.log(`${key}${result[key]}`);
 //   .trim()
 //   .split(" ")
 //   .map(Number);
-// const nums = new Array(N - M + 1).fill(0).map((e, i) => (e += i + M));
-// const newNums = [...nums];
-// newNums.forEach((e) => {
-//   if (
-//     e === 1 ||
-//     (e !== 2 && !(e % 2)) ||
-//     (e !== 3 && !(e % 3)) ||
-//     (e !== 5 && !(e % 5)) ||
-//     (e !== 7 && !(e % 7))
-//   ) {
-//     const deleteIndex = nums.indexOf(e);
-//     nums.splice(deleteIndex, 1);
-//   }
-// });
-// console.log(nums.join("\n"));
+// let i = M;
+// const result = [];
+// const eratosthenes = (num) => {
+//   if (num === 1) return;
+//   if (num !== 2 && !(num % 2)) return;
+//   if (num !== 3 && !(num % 3)) return;
+//   if (num !== 5 && !(num % 5)) return;
+//   if (num !== 7 && !(num % 7)) return;
+//   if (num !== 11 && !(num % 11)) return;
+//   if (num !== 13 && !(num % 13)) return;
+//   if (num !== 17 && !(num % 17)) return;
+
+//   return result.push(num);
+// };
+// while (i <= N) eratosthenes(i++);
+// console.log(result.join("\n"));
 
 // 10816번 문제 푸는중. 이진탐색
 // const arr = require("fs")
