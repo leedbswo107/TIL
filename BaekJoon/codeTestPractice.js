@@ -4673,30 +4673,107 @@
 // for (const key in result) console.log(`${key}${result[key]}`);
 
 // 5568번 문제
-const [n, k, ...cards] = require("fs")
+// const [n, k, ...cards] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n")
+//   .map(Number);
+// let result = [];
+// const backTracking = (arr, line) => {
+//   if (line.length !== k) {
+//     const len = arr.length;
+//     for (let i = 0; i < len; i++) {
+//       const copyArr = [...arr];
+//       const copyLine = [...line];
+//       const num = copyArr.splice(i, 1);
+//       copyLine.push(num);
+//       backTracking(copyArr, copyLine);
+//     }
+//   } else {
+//     result.push(line.join(""));
+//     line = [];
+//   }
+// };
+// backTracking(cards, []);
+// result = Array.from(new Set(result)).length;
+// console.log(result);
+
+// 2775번 문제
+const [T, ...input] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n")
   .map(Number);
-let result = [];
-const backTracking = (arr, line) => {
-  if (line.length !== k) {
-    const len = arr.length;
-    for (let i = 0; i < len; i++) {
-      const copyArr = [...arr];
-      const copyLine = [...line];
-      const num = copyArr.splice(i, 1);
-      copyLine.push(num);
-      backTracking(copyArr, copyLine);
+const K = [];
+const N = [];
+const result = [];
+input.map((e, i) => (i % 2 ? N.push(e) : K.push(e)));
+const kLen = Math.max(...K) + 1;
+const nLen = Math.max(...N);
+let dp = new Array(kLen * nLen).fill(0);
+const solution = () => {
+  for (let i = 0; i < dp.length; i++) {
+    if (i < nLen) dp[i] = i + 1;
+    else if (!(i % nLen)) dp[i] = 1;
+    else if (dp[i]) dp[i];
+    else {
+      for (let j = i - nLen - (i % nLen); j <= i - nLen; j++) dp[i] += dp[j];
     }
-  } else {
-    result.push(line.join(""));
-    line = [];
   }
 };
-backTracking(cards, []);
-result = Array.from(new Set(result)).length;
-console.log(result);
+solution();
+for (let i = 0; i < T; i++) result.push(dp[K[i] * nLen + N[i] - 1]);
+console.log(result.join("\n"));
+
+// const testCase = new Array(T)
+//   .fill([])
+//   .map((e, i) => (e = [input[2 * i], input[2 * i + 1]]));
+// const dp = [];
+// const solution = (k, n) => {
+//   for (let i = 0; i < k; i++) {
+//     for (let j = 0; j < n; j++) {
+//       if (j === 0) dp[i][j] = 1;
+//       if (i === 0) dpp[i][j] = j + 1;
+//     }
+//   }
+// };
+// solution(1, 3);
+// console.log(dp);
+// console.log(testCase);
+
+// 11286번 문제 우선순위 큐 학습후 다시 해야함.
+// const [N, ...X] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n")
+//   .map(Number);
+// const heap = [];
+// const result = [];
+// X.forEach((x) => {
+//   switch (x) {
+//     case 0:
+//       if (heap.length) {
+//         const absHeap = heap.map((e) => Math.abs(e));
+//         const minAbsNum = absHeap.indexOf(Math.min(...absHeap));
+//         const filterHeap = heap.filter(
+//           (e) => Math.abs(e) === Math.min(...absHeap)
+//         );
+//         result.push(
+//           ...heap.splice(
+//             (filterHeap.length === 1
+//               ? minAbsNum
+//               : filterHeap.indexOf(Math.min(...filterHeap)),
+//             1)
+//           )
+//         );
+//       } else result.push(0);
+//       break;
+//     default:
+//       heap.push(x);
+//       break;
+//   }
+// });
+// console.log(result.join("\n"));
 
 // 1919번 문제 틀림..
 // const [i1, i2] = require("fs")
