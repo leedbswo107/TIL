@@ -4699,31 +4699,31 @@
 // console.log(result);
 
 // 2775번 문제
-const [T, ...input] = require("fs")
-  .readFileSync("./input.txt", "utf-8")
-  .trim()
-  .split("\n")
-  .map(Number);
-const K = [];
-const N = [];
-const result = [];
-input.map((e, i) => (i % 2 ? N.push(e) : K.push(e)));
-const kLen = Math.max(...K) + 1;
-const nLen = Math.max(...N);
-let dp = new Array(kLen * nLen).fill(0);
-const solution = () => {
-  for (let i = 0; i < dp.length; i++) {
-    if (i < nLen) dp[i] = i + 1;
-    else if (!(i % nLen)) dp[i] = 1;
-    else if (dp[i]) dp[i];
-    else {
-      for (let j = i - nLen - (i % nLen); j <= i - nLen; j++) dp[i] += dp[j];
-    }
-  }
-};
-solution();
-for (let i = 0; i < T; i++) result.push(dp[K[i] * nLen + N[i] - 1]);
-console.log(result.join("\n"));
+// const [T, ...input] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n")
+//   .map(Number);
+// const K = [];
+// const N = [];
+// const result = [];
+// input.map((e, i) => (i % 2 ? N.push(e) : K.push(e)));
+// const kLen = Math.max(...K) + 1;
+// const nLen = Math.max(...N);
+// let dp = new Array(kLen * nLen).fill(0);
+// const solution = () => {
+//   for (let i = 0; i < dp.length; i++) {
+//     if (i < nLen) dp[i] = i + 1;
+//     else if (!(i % nLen)) dp[i] = 1;
+//     else if (dp[i]) dp[i];
+//     else {
+//       for (let j = i - nLen - (i % nLen); j <= i - nLen; j++) dp[i] += dp[j];
+//     }
+//   }
+// };
+// solution();
+// for (let i = 0; i < T; i++) result.push(dp[K[i] * nLen + N[i] - 1]);
+// console.log(result.join("\n"));
 
 // const testCase = new Array(T)
 //   .fill([])
@@ -4740,6 +4740,28 @@ console.log(result.join("\n"));
 // solution(1, 3);
 // console.log(dp);
 // console.log(testCase);
+
+// 28353번 문제
+const [i1, i2] = require("fs")
+  .readFileSync("./input.txt", "utf-8")
+  .trim()
+  .split("\n");
+const [N, K] = i1.split(" ").map(Number);
+const W = i2
+  .split(" ")
+  .map(Number)
+  .sort((a, b) => a - b);
+let count = 0;
+let l = 0;
+let r = N - 1;
+while (l < r) {
+  if (W[l] + W[r] <= K) {
+    count++;
+    l++;
+  }
+  r--;
+}
+console.log(count);
 
 // 11286번 문제 우선순위 큐 학습후 다시 해야함.
 // const [N, ...X] = require("fs")
