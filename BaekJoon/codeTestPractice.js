@@ -4742,26 +4742,87 @@
 // console.log(testCase);
 
 // 28353번 문제
-const [i1, i2] = require("fs")
+// const [i1, i2] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const [N, K] = i1.split(" ").map(Number);
+// const W = i2
+//   .split(" ")
+//   .map(Number)
+//   .sort((a, b) => a - b);
+// let count = 0;
+// let l = 0;
+// let r = N - 1;
+// while (l < r) {
+//   if (W[l] + W[r] <= K) {
+//     count++;
+//     l++;
+//   }
+//   r--;
+// }
+// console.log(count);
+
+// 12605번 문제
+let [N, ...L] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-const [N, K] = i1.split(" ").map(Number);
-const W = i2
-  .split(" ")
-  .map(Number)
-  .sort((a, b) => a - b);
-let count = 0;
-let l = 0;
-let r = N - 1;
-while (l < r) {
-  if (W[l] + W[r] <= K) {
-    count++;
-    l++;
-  }
-  r--;
-}
-console.log(count);
+L = L.map((e, i) => `Case #${i + 1}: ${e.split(" ").reverse().join(" ")}`).join(
+  "\n"
+);
+console.log(L);
+
+// 10799번 문제 못푼 문제.
+// const input = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("");
+// const arr = [];
+// let count = 0;
+// let line = 0;
+// for (let i = 1; i < input.length; i++) {
+//   if (input[i - 1] === "(") {
+//     arr.length >= 1 && line++;
+//     arr.push("(");
+//   }
+//   if (input[i - 1] === ")" && input[i] === ")") {
+//     if (input[i + 1] === "(") {
+//       line++;
+//     }
+//     arr.length >= 1 && line--;
+//     count += line;
+//     arr.pop();
+//   }
+//   console.log(line);
+// }
+// console.log(count);
+// console.log(input);
+
+// 7795번 문제 시간 초과
+// let [T, ...input] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// input = input.reverse();
+// const result = [];
+// for (let i = 0; i < +T; i++) {
+//   const [N, M] = input.pop().split(" ").map(Number);
+//   const A = input.pop().split(" ").map(Number);
+//   const B = input.pop().split(" ").map(Number);
+//   const AB = [...A, ...B];
+//   let [l, r, c] = [0, N, 0];
+//   while (l < N) {
+//     if (r === N + M) {
+//       l++;
+//       r = N;
+//     }
+//     AB[l] > AB[r] && c++;
+//     r++;
+//   }
+//   result.push(c);
+// }
+// console.log(result.join("\n"));
 
 // 11286번 문제 우선순위 큐 학습후 다시 해야함.
 // const [N, ...X] = require("fs")
