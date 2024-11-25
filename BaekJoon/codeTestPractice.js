@@ -4764,14 +4764,26 @@
 // console.log(count);
 
 // 12605번 문제
-let [N, ...L] = require("fs")
+// let [N, ...L] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// L = L.map((e, i) => `Case #${i + 1}: ${e.split(" ").reverse().join(" ")}`).join(
+//   "\n"
+// );
+// console.log(L);
+
+//16212번 문제
+const [N, input] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-L = L.map((e, i) => `Case #${i + 1}: ${e.split(" ").reverse().join(" ")}`).join(
-  "\n"
-);
-console.log(L);
+const nums = input
+  .split(" ")
+  .map(Number)
+  .sort((a, b) => a - b)
+  .join(" ");
+console.log(nums);
 
 // 10799번 문제 못푼 문제.
 // const input = require("fs")
