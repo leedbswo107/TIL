@@ -4774,16 +4774,92 @@
 // console.log(L);
 
 //16212번 문제
-const [N, input] = require("fs")
+// const [N, input] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const nums = input
+//   .split(" ")
+//   .map(Number)
+//   .sort((a, b) => a - b)
+//   .join(" ");
+// console.log(nums);
+
+// 10819번 문제
+let [N, A] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-const nums = input
-  .split(" ")
+const nums = [];
+A = A.split(" ")
   .map(Number)
-  .sort((a, b) => a - b)
-  .join(" ");
-console.log(nums);
+  .sort((a, b) => a - b);
+const numberOfCases = [];
+const backTracking = (arr, line) => {
+  if (line.length !== +N) {
+    const len = arr.length;
+    for (let i = 0; i < len; i++) {
+      const copyArr = [...arr];
+      const copyLine = [...line];
+      const num = copyArr.splice(i, 1);
+      copyLine.push(...num);
+      backTracking(copyArr, copyLine);
+    }
+  } else {
+    numberOfCases.push(line);
+    line = [];
+  }
+};
+backTracking(A, []);
+numberOfCases.forEach((e) => {
+  let sum = 0;
+  for (let i = 1; i < +N; i++) sum += Math.abs(e[i - 1] - e[i]);
+  nums.push(sum);
+});
+console.log(Math.max(...nums));
+
+// 1821번 문제 메모리 초과 -> 재귀함수 빼야할듯.
+// const [N, F] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(Number);
+// const nums = new Array(N).fill(1).map((e, i) => e + i);
+// const numberOfCases = [];
+// const backTracking = (arr, line) => {
+//   if (line.length !== N) {
+//     const len = arr.length;
+//     for (let i = 0; i < len; i++) {
+//       const copyArr = [...arr];
+//       const copyLine = [...line];
+//       const num = copyArr.splice(i, 1);
+//       copyLine.push(...num);
+//       backTracking(copyArr, copyLine);
+//     }
+//   } else {
+//     numberOfCases.push(line);
+//     line = [];
+//   }
+// };
+// const solution = (arr) => {
+//   if (arr.length !== 1) {
+//     while (true) {
+//       let line = [];
+//       if (arr.length === 1) break;
+//       for (let i = 1; i < arr.length; i++) line.push(arr[i] + arr[i - 1]);
+//       arr = [...line];
+//     }
+//     return arr[0] === F;
+//   }
+// };
+// backTracking(nums, []);
+// for (let i = 0; i < numberOfCases.length; i++) {
+//   let result = solution(numberOfCases[i]);
+//   if (result) {
+//     console.log(numberOfCases[i].join(" "));
+//     break;
+//   }
+// }
 
 // 10799번 문제 못푼 문제.
 // const input = require("fs")
