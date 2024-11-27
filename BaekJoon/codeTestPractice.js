@@ -4786,37 +4786,74 @@
 // console.log(nums);
 
 // 10819번 문제
-let [N, A] = require("fs")
+// let [N, A] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const nums = [];
+// A = A.split(" ")
+//   .map(Number)
+//   .sort((a, b) => a - b);
+// const numberOfCases = [];
+// const backTracking = (arr, line) => {
+//   if (line.length !== +N) {
+//     const len = arr.length;
+//     for (let i = 0; i < len; i++) {
+//       const copyArr = [...arr];
+//       const copyLine = [...line];
+//       const num = copyArr.splice(i, 1);
+//       copyLine.push(...num);
+//       backTracking(copyArr, copyLine);
+//     }
+//   } else {
+//     numberOfCases.push(line);
+//     line = [];
+//   }
+// };
+// backTracking(A, []);
+// numberOfCases.forEach((e) => {
+//   let sum = 0;
+//   for (let i = 1; i < +N; i++) sum += Math.abs(e[i - 1] - e[i]);
+//   nums.push(sum);
+// });
+// console.log(Math.max(...nums));
+
+// 16198번 문제
+let [N, W] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-const nums = [];
-A = A.split(" ")
-  .map(Number)
-  .sort((a, b) => a - b);
-const numberOfCases = [];
+W = W.split(" ").map(Number);
+const wSumList = [];
 const backTracking = (arr, line) => {
-  if (line.length !== +N) {
+  if (arr.length > 2) {
     const len = arr.length;
-    for (let i = 0; i < len; i++) {
+    for (let i = 1; i < len - 1; i++) {
       const copyArr = [...arr];
       const copyLine = [...line];
-      const num = copyArr.splice(i, 1);
-      copyLine.push(...num);
+      copyArr.splice(i, 1);
+      copyLine.push(copyArr[i - 1] * copyArr[i]);
       backTracking(copyArr, copyLine);
     }
   } else {
-    numberOfCases.push(line);
+    wSumList.push(line.reduce((acc, cur) => acc + cur, 0));
     line = [];
   }
 };
-backTracking(A, []);
-numberOfCases.forEach((e) => {
-  let sum = 0;
-  for (let i = 1; i < +N; i++) sum += Math.abs(e[i - 1] - e[i]);
-  nums.push(sum);
-});
-console.log(Math.max(...nums));
+backTracking(W, []);
+console.log(Math.max(...wSumList));
+
+// 13706번 문제 시간 초과
+// const [N, store, k] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// let copyStore = [...store.split(" ").map(Number)];
+// for (let i = 1n; i <= BigInt(k); i++) {
+//   for (let j = 0n; j < BigInt(N) / 2n ** BigInt(i); j++)
+//     copyStore.push(...copyStore.splice(0, 2n ** BigInt(i)).sort((a, b) => a - b));
+// }
+// console.log(copyStore.join(" "));
 
 // 1821번 문제 메모리 초과 -> 재귀함수 빼야할듯.
 // const [N, F] = require("fs")
