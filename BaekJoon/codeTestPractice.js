@@ -4819,29 +4819,50 @@
 // console.log(Math.max(...nums));
 
 // 16198번 문제
-let [N, W] = require("fs")
-  .readFileSync("./input.txt", "utf-8")
-  .trim()
-  .split("\n");
-W = W.split(" ").map(Number);
-const wSumList = [];
-const backTracking = (arr, line) => {
-  if (arr.length > 2) {
-    const len = arr.length;
-    for (let i = 1; i < len - 1; i++) {
-      const copyArr = [...arr];
-      const copyLine = [...line];
-      copyArr.splice(i, 1);
-      copyLine.push(copyArr[i - 1] * copyArr[i]);
-      backTracking(copyArr, copyLine);
-    }
-  } else {
-    wSumList.push(line.reduce((acc, cur) => acc + cur, 0));
-    line = [];
-  }
-};
-backTracking(W, []);
-console.log(Math.max(...wSumList));
+// let [N, W] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// W = W.split(" ").map(Number);
+// const wSumList = [];
+// const backTracking = (arr, line) => {
+//   if (arr.length > 2) {
+//     const len = arr.length;
+//     for (let i = 1; i < len - 1; i++) {
+//       const copyArr = [...arr];
+//       const copyLine = [...line];
+//       copyArr.splice(i, 1);
+//       copyLine.push(copyArr[i - 1] * copyArr[i]);
+//       backTracking(copyArr, copyLine);
+//     }
+//   } else {
+//     wSumList.push(line.reduce((acc, cur) => acc + cur, 0));
+//     line = [];
+//   }
+// };
+// backTracking(W, []);
+// console.log(Math.max(...wSumList));
+
+// 10821번 문제
+console.log(
+  require("fs").readFileSync("./input.txt", "utf-8").trim().split(",").length
+);
+// 2357번 문제 메모리 초과
+// const input = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const [N, M] = input.shift().split(" ").map(Number);
+// const nums = input.splice(0, N).map(Number);
+// const result = [];
+
+// input.forEach((e) => {
+//   const [a, b] = e.split(" ").map(Number);
+//   const copyNums = nums.slice(a - 1, b);
+//   const [min, max] = [Math.min(...copyNums), Math.max(...copyNums)];
+//   result.push(`${min} ${max}`);
+// });
+// console.log(result.join("\n"));
 
 // 13706번 문제 시간 초과
 // const [N, store, k] = require("fs")
