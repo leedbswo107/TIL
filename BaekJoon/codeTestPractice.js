@@ -4844,9 +4844,82 @@
 // console.log(Math.max(...wSumList));
 
 // 10821번 문제
-console.log(
-  require("fs").readFileSync("./input.txt", "utf-8").trim().split(",").length
-);
+// console.log(
+//   require("fs").readFileSync("./input.txt", "utf-8").trim().split(",").length
+// );
+
+// 1932번 문제
+// let [T, ...papers] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// let whiteSquare = Array.from({ length: 100 }, () => new Array(100).fill(0));
+// papers = papers.map((e) => e.split(" ").map(Number));
+// const solution = (x, y) => {
+//   for (let i = x; i < x + 10; i++) {
+//     for (let j = y; j < y + 10; j++) whiteSquare[j][i] = 1;
+//   }
+// };
+// papers.forEach((e) => solution(e[0] - 1, e[1] - 1));
+// console.log(whiteSquare.flat().filter((e) => e === 1).length);
+
+// 5073번 문제
+let input = require("fs")
+  .readFileSync("./input.txt", "utf-8")
+  .trim()
+  .split("\n");
+input = input.map((e) => e.split(" ").map(Number));
+input.pop();
+const txt = ["Equilateral", "Isosceles", "Scalene", "Invalid"];
+const result = [];
+input.forEach((e) => {
+  e = e.sort((a, b) => a - b);
+  if (e[2] >= e.slice(0, 2).reduce((acc, cur) => acc + cur, 0)) {
+    result.push(txt[3]);
+  } else {
+    const filteredE = new Set(e).size;
+    result.push(txt[filteredE - 1]);
+  }
+});
+console.log(result.join("\n"));
+
+// 3273번 문제 왜 틀리는겨..
+// let [n, nums, x] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// nums = nums
+//   .split(" ")
+//   .map(Number)
+//   .sort((a, b) => a - b);
+// let [count, left, right] = [0, 0, +n - 1];
+
+// console.log(count);
+
+// 18870번 문제 시간, 메묄 초과
+// let [N, X] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// X = X.split(" ").map(Number);
+// const filterdX = Array.from(new Set(X)).sort((a, b) => a - b);
+// let index = Math.floor(filterdX.length / 2);
+// let i = 0;
+// let copyX = [...filterdX];
+// const result = [];
+// while (i < +N) {
+//   if (copyX[index] >= X[i]) {
+//     copyX = copyX.splice(0, index);
+//     index = Math.floor(copyX.length / 2);
+//   } else {
+//     result.push(copyX.length);
+//     copyX = [...filterdX];
+//     index = Math.floor(filterdX.length / 2);
+//     i++;
+//   }
+// }
+// console.log(result.join(" "));
+
 // 2357번 문제 메모리 초과
 // const input = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
