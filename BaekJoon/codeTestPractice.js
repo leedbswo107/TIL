@@ -4864,24 +4864,59 @@
 // console.log(whiteSquare.flat().filter((e) => e === 1).length);
 
 // 5073번 문제
-let input = require("fs")
+// let input = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// input = input.map((e) => e.split(" ").map(Number));
+// input.pop();
+// const txt = ["Equilateral", "Isosceles", "Scalene", "Invalid"];
+// const result = [];
+// input.forEach((e) => {
+//   e = e.sort((a, b) => a - b);
+//   if (e[2] >= e.slice(0, 2).reduce((acc, cur) => acc + cur, 0)) {
+//     result.push(txt[3]);
+//   } else {
+//     const filteredE = new Set(e).size;
+//     result.push(txt[filteredE - 1]);
+//   }
+// });
+// console.log(result.join("\n"));
+
+// 14215번 문제
+// const lines = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ")
+//   .map(Number)
+//   .sort((a, b) => a - b);
+// let max = lines.pop();
+// const sum = lines[0] + lines[1];
+// console.log(sum > max ? sum + max : sum * 2 - 1);
+
+//  6571번 문제
+let nums = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-input = input.map((e) => e.split(" ").map(Number));
-input.pop();
-const txt = ["Equilateral", "Isosceles", "Scalene", "Invalid"];
-const result = [];
-input.forEach((e) => {
-  e = e.sort((a, b) => a - b);
-  if (e[2] >= e.slice(0, 2).reduce((acc, cur) => acc + cur, 0)) {
-    result.push(txt[3]);
-  } else {
-    const filteredE = new Set(e).size;
-    result.push(txt[filteredE - 1]);
+nums.pop();
+nums = nums.map((e) => e.split(" ").map(BigInt));
+const dp = [];
+const count = [];
+const solution = (start, end) => {
+  let c = 0;
+  for (let i = 0n; i < end; i++) {
+    if (dp[i - 1n] > end) break;
+    if (i <= 2n) dp[i] = i + 1n;
+    else if (dp[i]) dp[i];
+    else dp[i] = dp[i - 1n] + dp[i - 2n];
+    if (dp[i] >= start && dp[i] <= end) c++;
   }
-});
-console.log(result.join("\n"));
+  count.push(c);
+};
+nums.forEach((e) => solution(e[0], e[1]));
+
+console.log(count.join("\n"));
 
 // 3273번 문제 왜 틀리는겨..
 // let [n, nums, x] = require("fs")
