@@ -4895,28 +4895,109 @@
 // console.log(sum > max ? sum + max : sum * 2 - 1);
 
 //  6571번 문제
-let nums = require("fs")
+// let nums = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// nums.pop();
+// nums = nums.map((e) => e.split(" ").map(BigInt));
+// const dp = [];
+// const count = [];
+// const solution = (start, end) => {
+//   let c = 0;
+//   for (let i = 0n; i < end; i++) {
+//     if (dp[i - 1n] > end) break;
+//     if (i <= 2n) dp[i] = i + 1n;
+//     else if (dp[i]) dp[i];
+//     else dp[i] = dp[i - 1n] + dp[i - 2n];
+//     if (dp[i] >= start && dp[i] <= end) c++;
+//   }
+//   count.push(c);
+// };
+// nums.forEach((e) => solution(e[0], e[1]));
+// console.log(count.join("\n"));
+
+// 2669번 문제
+let position = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-nums.pop();
-nums = nums.map((e) => e.split(" ").map(BigInt));
-const dp = [];
-const count = [];
-const solution = (start, end) => {
-  let c = 0;
-  for (let i = 0n; i < end; i++) {
-    if (dp[i - 1n] > end) break;
-    if (i <= 2n) dp[i] = i + 1n;
-    else if (dp[i]) dp[i];
-    else dp[i] = dp[i - 1n] + dp[i - 2n];
-    if (dp[i] >= start && dp[i] <= end) c++;
+let whiteSquare = Array.from({ length: 100 }, () => new Array(100).fill(0));
+position = position.map((e) => e.split(" ").map(Number));
+position.forEach((e) => {
+  const [x1, y1, x2, y2] = [e[0], e[1], e[2], e[3]];
+  for (let x = x1; x < x2; x++) {
+    for (let y = y1; y < y2; y++) whiteSquare[y][x] = 1;
   }
-  count.push(c);
-};
-nums.forEach((e) => solution(e[0], e[1]));
+});
+console.log(whiteSquare.flat().filter((e) => e === 1).length);
 
-console.log(count.join("\n"));
+// 1740번 문제 메모리 초과
+// const N = BigInt(require("fs").readFileSync("./input.txt", "utf-8").trim());
+// let i = 1n;
+// let test = 1n;
+// const nums = [];
+// let sumList = [];
+// const backTracking = (arr, line, len) => {
+//   if (BigInt(line.length) !== len) {
+//     const LEN = arr.length;
+//     for (let i = 0; i < LEN; i++) {
+//       const copyArr = [...arr];
+//       const copyLine = [...line];
+//       const num = copyArr.splice(i, 1);
+//       copyLine.push(...num);
+//       backTracking(copyArr, copyLine, len);
+//     }
+//   } else {
+//     sumList.push(line.reduce((acc, cur) => acc + cur, 0n));
+//     line = [];
+//   }
+// };
+// while (true) {
+//   if (test > N) break;
+//   test *= i;
+//   i++;
+// }
+// for (let j = 0n; j < i; j++) nums.push(3n ** j);
+// for (let j = 1n; j <= i; j++) {
+//   backTracking(nums, [], j);
+// }
+// sumList = Array.from(
+//   new Set(
+//     sumList.sort((a, b) => {
+//       if (a > b) {
+//         return 1;
+//       } else if (a < b) {
+//         return -1;
+//       } else {
+//         return 0;
+//       }
+//     })
+//   )
+// );
+// console.log(`${sumList[N - 1n]}`);
+
+// 6986번 문제 부동 소수점 관련 이슈.
+// const input = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const [N, K] = input[0].split(" ").map(Number);
+// const result = [];
+// let nums = input
+//   .slice(1, input.length)
+//   .map(Number)
+//   .sort((a, b) => a - b);
+// nums = nums.splice(K, nums.length - 2 * K);
+// const sum = nums.reduce((acc, cur) => acc + cur, 0);
+// result.push(((sum + Number.EPSILON) / nums.length).toFixed(2));
+// result.push(
+//   (
+//     (sum + (nums[0] + nums[nums.length - 1]) * K + Number.EPSILON) /
+//     (nums.length + K * 2)
+//   ).toFixed(2)
+// );
+// console.log(result.join("\n"));
 
 // 3273번 문제 왜 틀리는겨..
 // let [n, nums, x] = require("fs")
