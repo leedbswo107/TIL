@@ -4918,19 +4918,28 @@
 // console.log(count.join("\n"));
 
 // 2669번 문제
-let position = require("fs")
+// let position = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// let whiteSquare = Array.from({ length: 100 }, () => new Array(100).fill(0));
+// position = position.map((e) => e.split(" ").map(Number));
+// position.forEach((e) => {
+//   const [x1, y1, x2, y2] = [e[0], e[1], e[2], e[3]];
+//   for (let x = x1; x < x2; x++) {
+//     for (let y = y1; y < y2; y++) whiteSquare[y][x] = 1;
+//   }
+// });
+// console.log(whiteSquare.flat().filter((e) => e === 1).length);
+
+// 5555번 문제
+let [txt, N, ...patterns] = require("fs")
   .readFileSync("./input.txt", "utf-8")
   .trim()
   .split("\n");
-let whiteSquare = Array.from({ length: 100 }, () => new Array(100).fill(0));
-position = position.map((e) => e.split(" ").map(Number));
-position.forEach((e) => {
-  const [x1, y1, x2, y2] = [e[0], e[1], e[2], e[3]];
-  for (let x = x1; x < x2; x++) {
-    for (let y = y1; y < y2; y++) whiteSquare[y][x] = 1;
-  }
-});
-console.log(whiteSquare.flat().filter((e) => e === 1).length);
+let count = 0;
+patterns.forEach((e) => (e + e).includes(txt) && count++);
+console.log(count);
 
 // 1740번 문제 메모리 초과
 // const N = BigInt(require("fs").readFileSync("./input.txt", "utf-8").trim());
