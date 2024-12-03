@@ -4933,13 +4933,52 @@
 // console.log(whiteSquare.flat().filter((e) => e === 1).length);
 
 // 5555번 문제
-let [txt, N, ...patterns] = require("fs")
-  .readFileSync("./input.txt", "utf-8")
-  .trim()
-  .split("\n");
-let count = 0;
-patterns.forEach((e) => (e + e).includes(txt) && count++);
-console.log(count);
+// let [txt, N, ...patterns] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// let count = 0;
+// patterns.forEach((e) => (e + e).includes(txt) && count++);
+// console.log(count);
+
+// 2443번 문제
+const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+const result = [];
+for (let i = 0; i < N; i++)
+  result.push(" ".repeat(i) + "*".repeat(N - i + N - i - 1));
+console.log(result.join("\n"));
+
+// 1182번 문제 시간 초과
+// const [i1, i2] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const destructuring = (str) => str.split(" ").map(Number);
+// const [N, S] = destructuring(i1);
+// const nums = destructuring(i2);
+// const numsIndex = new Array(N).fill(0).map((e, i) => e + i);
+// let count = 0;
+// const backTracking = (arr, line, n) => {
+//   if (line.length !== n) {
+//     const len = arr.length;
+//     for (let i = 0; i < len; i++) {
+//       const copyArr = [...arr];
+//       const copyLine = [...line];
+//       const num = copyArr.splice(i, 1);
+//       if (num[0] >= copyLine[copyLine.length - 1] || !copyLine.length) {
+//         copyLine.push(...num);
+//         backTracking(copyArr, copyLine, n);
+//       }
+//     }
+//   } else {
+//     console.log(line);
+//     line.map((el) => nums[el]).reduce((acc, cur) => acc + cur, 0) === S &&
+//       count++;
+//     line = [];
+//   }
+// };
+// for (let i = 1; i <= N; i++) backTracking(numsIndex, [], i);
+// console.log(count);
 
 // 1740번 문제 메모리 초과
 // const N = BigInt(require("fs").readFileSync("./input.txt", "utf-8").trim());
