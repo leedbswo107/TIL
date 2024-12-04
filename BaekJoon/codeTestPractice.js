@@ -4942,10 +4942,19 @@
 // console.log(count);
 
 // 2443번 문제
+// const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// const result = [];
+// for (let i = 0; i < N; i++)
+//   result.push(" ".repeat(i) + "*".repeat(N - i + N - i - 1));
+// console.log(result.join("\n"));
+
+// 2445번 문제
 const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
 const result = [];
-for (let i = 0; i < N; i++)
-  result.push(" ".repeat(i) + "*".repeat(N - i + N - i - 1));
+for (let i = 1; i <= 2 * N - 1; i++) {
+  const [a, b] = N >= i ? [i, 2 * (N - i)] : [2 * N - i, 2 * (i - N)];
+  result.push("*".repeat(a) + " ".repeat(b) + "*".repeat(a));
+}
 console.log(result.join("\n"));
 
 // 1182번 문제 시간 초과
