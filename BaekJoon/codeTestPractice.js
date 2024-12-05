@@ -4949,11 +4949,20 @@
 // console.log(result.join("\n"));
 
 // 2445번 문제
+// const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// const result = [];
+// for (let i = 1; i <= 2 * N - 1; i++) {
+//   const [a, b] = N >= i ? [i, 2 * (N - i)] : [2 * N - i, 2 * (i - N)];
+//   result.push("*".repeat(a) + " ".repeat(b) + "*".repeat(a));
+// }
+// console.log(result.join("\n"));
+
+// 2522번 문제
 const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
 const result = [];
-for (let i = 1; i <= 2 * N - 1; i++) {
-  const [a, b] = N >= i ? [i, 2 * (N - i)] : [2 * N - i, 2 * (i - N)];
-  result.push("*".repeat(a) + " ".repeat(b) + "*".repeat(a));
+for (let i = 1; i <= N * 2 - 1; i++) {
+  const [a, b] = i <= N ? [N - i, i] : [i - N, 2 * N - i];
+  result.push(" ".repeat(a) + "*".repeat(b));
 }
 console.log(result.join("\n"));
 
