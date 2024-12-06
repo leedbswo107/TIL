@@ -4958,11 +4958,23 @@
 // console.log(result.join("\n"));
 
 // 2522번 문제
+// const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// const result = [];
+// for (let i = 1; i <= N * 2 - 1; i++) {
+//   const [a, b] = i <= N ? [N - i, i] : [i - N, 2 * N - i];
+//   result.push(" ".repeat(a) + "*".repeat(b));
+// }
+// console.log(result.join("\n"));
+
+// 10990번 문제
 const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
 const result = [];
-for (let i = 1; i <= N * 2 - 1; i++) {
-  const [a, b] = i <= N ? [N - i, i] : [i - N, 2 * N - i];
-  result.push(" ".repeat(a) + "*".repeat(b));
+for (let i = 1; i <= N; i++) {
+  result.push(
+    i === 1
+      ? " ".repeat(N - i) + "*"
+      : " ".repeat(N - i) + "*" + " ".repeat(i * 2 - 3) + "*"
+  );
 }
 console.log(result.join("\n"));
 
