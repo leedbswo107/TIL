@@ -4967,17 +4967,23 @@
 // console.log(result.join("\n"));
 
 // 10990번 문제
+// const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// const result = [];
+// for (let i = 1; i <= N; i++) {
+//   result.push(
+//     i === 1
+//       ? " ".repeat(N - i) + "*"
+//       : " ".repeat(N - i) + "*" + " ".repeat(i * 2 - 3) + "*"
+//   );
+// }
+// console.log(result.join("\n"));
+
+// 10991번 문제
 const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
 const result = [];
-for (let i = 1; i <= N; i++) {
-  result.push(
-    i === 1
-      ? " ".repeat(N - i) + "*"
-      : " ".repeat(N - i) + "*" + " ".repeat(i * 2 - 3) + "*"
-  );
-}
+for (let i = 1; i <= N; i++)
+  result.push(" ".repeat(N - i) + (i === 1 ? "*" : "* ".repeat(i - 1) + "*"));
 console.log(result.join("\n"));
-
 // 1182번 문제 시간 초과
 // const [i1, i2] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
