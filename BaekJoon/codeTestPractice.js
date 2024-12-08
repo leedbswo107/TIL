@@ -4979,11 +4979,57 @@
 // console.log(result.join("\n"));
 
 // 10991번 문제
+// const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// const result = [];
+// for (let i = 1; i <= N; i++)
+//   result.push(" ".repeat(N - i) + (i === 1 ? "*" : "* ".repeat(i - 1) + "*"));
+// console.log(result.join("\n"));
+
+// 13015번 문제
 const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
 const result = [];
-for (let i = 1; i <= N; i++)
-  result.push(" ".repeat(N - i) + (i === 1 ? "*" : "* ".repeat(i - 1) + "*"));
+for (let i = 1; i <= N * 2 - 1; i++) {
+  if (i === 1 || i === N * 2 - 1)
+    result.push(
+      "*".repeat(N) + " ".repeat(Math.abs(2 * (N - i)) - 1) + "*".repeat(N)
+    );
+  else {
+    if (i < N) {
+      result.push(
+        " ".repeat(i - 1) +
+          "*" +
+          " ".repeat(N - 2) +
+          "*" +
+          " ".repeat(2 * (N - i) - 1) +
+          "*" +
+          " ".repeat(N - 2) +
+          "*"
+      );
+    } else if (i === N) {
+      result.push(
+        " ".repeat(i - 1) +
+          "*" +
+          " ".repeat(N - 2) +
+          "*" +
+          " ".repeat(N - 2) +
+          "*"
+      );
+    } else {
+      result.push(
+        " ".repeat(N - (i - N) - 1) +
+          "*" +
+          " ".repeat(N - 2) +
+          "*" +
+          " ".repeat(2 * (i - N) - 1) +
+          "*" +
+          " ".repeat(N - 2) +
+          "*"
+      );
+    }
+  }
+}
 console.log(result.join("\n"));
+
 // 1182번 문제 시간 초과
 // const [i1, i2] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
