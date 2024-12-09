@@ -4986,48 +4986,67 @@
 // console.log(result.join("\n"));
 
 // 13015번 문제
-const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// const result = [];
+// for (let i = 1; i <= N * 2 - 1; i++) {
+//   if (i === 1 || i === N * 2 - 1)
+//     result.push(
+//       "*".repeat(N) + " ".repeat(Math.abs(2 * (N - i)) - 1) + "*".repeat(N)
+//     );
+//   else {
+//     if (i < N) {
+//       result.push(
+//         " ".repeat(i - 1) +
+//           "*" +
+//           " ".repeat(N - 2) +
+//           "*" +
+//           " ".repeat(2 * (N - i) - 1) +
+//           "*" +
+//           " ".repeat(N - 2) +
+//           "*"
+//       );
+//     } else if (i === N) {
+//       result.push(
+//         " ".repeat(i - 1) +
+//           "*" +
+//           " ".repeat(N - 2) +
+//           "*" +
+//           " ".repeat(N - 2) +
+//           "*"
+//       );
+//     } else {
+//       result.push(
+//         " ".repeat(N - (i - N) - 1) +
+//           "*" +
+//           " ".repeat(N - 2) +
+//           "*" +
+//           " ".repeat(2 * (i - N) - 1) +
+//           "*" +
+//           " ".repeat(N - 2) +
+//           "*"
+//       );
+//     }
+//   }
+// }
+// console.log(result.join("\n"));
+
+// 1003번 문제
+const [T, ...arr] = require("fs")
+  .readFileSync("./input.txt", "utf-8")
+  .trim()
+  .split("\n")
+  .map(Number);
 const result = [];
-for (let i = 1; i <= N * 2 - 1; i++) {
-  if (i === 1 || i === N * 2 - 1)
-    result.push(
-      "*".repeat(N) + " ".repeat(Math.abs(2 * (N - i)) - 1) + "*".repeat(N)
-    );
-  else {
-    if (i < N) {
-      result.push(
-        " ".repeat(i - 1) +
-          "*" +
-          " ".repeat(N - 2) +
-          "*" +
-          " ".repeat(2 * (N - i) - 1) +
-          "*" +
-          " ".repeat(N - 2) +
-          "*"
-      );
-    } else if (i === N) {
-      result.push(
-        " ".repeat(i - 1) +
-          "*" +
-          " ".repeat(N - 2) +
-          "*" +
-          " ".repeat(N - 2) +
-          "*"
-      );
-    } else {
-      result.push(
-        " ".repeat(N - (i - N) - 1) +
-          "*" +
-          " ".repeat(N - 2) +
-          "*" +
-          " ".repeat(2 * (i - N) - 1) +
-          "*" +
-          " ".repeat(N - 2) +
-          "*"
-      );
-    }
+const fibo = (N) => {
+  let dp = [];
+  for (let i = 0; i <= N; i++) {
+    if (i === 0) dp[i] = [1, 0];
+    else if (i === 1) dp[i] = [0, 1];
+    else dp[i] = [dp[i - 1][0] + dp[i - 2][0], dp[i - 1][1] + dp[i - 2][1]];
   }
-}
+  return dp[N].join(" ");
+};
+arr.forEach((e) => result.push(fibo(e)));
 console.log(result.join("\n"));
 
 // 1182번 문제 시간 초과
@@ -6157,42 +6176,6 @@ console.log(result.join("\n"));
 //   total += chatSet.size;
 // });
 // console.log(total);
-
-// 1003번 문제 푸는중
-// const [T, ...arr] = require("fs")
-//   .readFileSync("./input.txt", "utf-8")
-//   .trim()
-//   .split("\n")
-//   .map(Number);
-// const result = new Array(T);
-// let one = [];
-// let zero = [];
-// let line = [0, 0];
-// let dp = [];
-
-// const fibo = (n) => {
-//   console.log(dp);
-//   if (n === 0) {
-//     line[0]++;
-//     // zero.push(0);
-//     return (dp[n] = 0);
-//   }
-//   if (n === 1) {
-//     line[1]++;
-//     // one.push(1);
-//     return (dp[n] = 1);
-//   }
-//   if (Boolean(dp[n])) return dp[n];
-//   return (dp[n] = fibo(n - 1) + fibo(n - 2));
-// };
-// arr.forEach((e, i) => {
-//   fibo(e);
-//   result.push(line.join(" "));
-
-//   // line = [0, 0];
-//   dp = [];
-// });
-// console.log(result.join("\n"));
 
 // 26069번 문제 푸는중
 // let [N, ...arr] = require("fs")
