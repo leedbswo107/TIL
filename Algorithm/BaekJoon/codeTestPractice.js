@@ -4788,6 +4788,24 @@
 // 여기
 console.log("here");
 
+// 2447번 문제 푸는중.
+// const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// const stars = Array.from({ length: N }, () => new Array(N).fill("*"));
+// const num = Math.floor(Math.log(N) / Math.log(3));
+// console.log(num);
+// const solution = (n) => {
+//   if (n >= N) return;
+//   for (let i = 0; i < N; i++) {
+//     if (!((i - 1) % 3)) {
+//       for (let j = 0; j < 3 ** (num - 1); j++) {
+//         stars[i][j * 3 + 1] = " ";
+//       }
+//     }
+//   }
+//   solution(n + 1);
+// };
+// solution(0);
+// console.log(stars.join("\n"));
 // 1182번 문제 시간 초과
 // const [i1, i2] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
