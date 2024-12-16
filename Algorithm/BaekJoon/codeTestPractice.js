@@ -4787,12 +4787,6 @@
 
 // 여기
 console.log("here");
-// 16430
-const [a, b] = require("fs")
-  .readFileSync("/dev/stdin", "utf-8")
-  .trim()
-  .split(" ");
-console.log(b-a,b);
 
 // 2447번 문제 푸는중.
 // const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
