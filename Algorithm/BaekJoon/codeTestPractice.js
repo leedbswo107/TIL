@@ -5633,25 +5633,6 @@ console.log("here");
 // }
 // console.log(count);
 
-// 15624번 문제 푸는중
-// const n = BigInt(require("fs").readFileSync("./input.txt", "utf-8").trim());
-// const num = BigInt(1000000007);
-// const fibo = (i) => {
-//   if(i === BigInt(0)) return BigInt(0);
-//   else if(i === BigInt(1)) return BigInt(1);
-//   else return fibo(i) = (fibo(i-BigInt(1))+fibo(i-BigInt(2)))%num;
-// }
-// console.log(fibo(n));
-// const fibo = (i) => {
-//   for (let j = BigInt(0); j < i; j++) {
-//     if (j <= BigInt(1)) dp[j] = j;
-//     else if (dp[j]) dp[j];
-//     else dp[j] = (dp[j - BigInt(2)] + dp[j - BigInt(1)]) % num;
-//   }
-// };
-// fibo(n + BigInt(1));
-// console.log(`${dp[n]}`);
-
 // 1002번 문제 푸는중
 // let [T, ...position] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
