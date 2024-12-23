@@ -4788,6 +4788,53 @@
 // 여기
 console.log("here");
 
+// 16922번 문제 푸는중
+// const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// const ROME = [1, 5, 10, 50];
+// let result = [];
+// const backTracking = (arr, line) => {
+//   if (line.length !== N) {
+//     const len = arr.length;
+//     for (let i = 0; i < len; i++) {
+//       const copyArr = [...arr];
+//       const copyLine = [...line];
+//       const num = arr[i];
+//       copyLine.push(num);
+//       backTracking(copyArr, copyLine);
+//     }
+//   } else {
+//     result.push(line.reduce((acc, cur) => acc + cur, 0));
+//     line = [];
+//   }
+// };
+// backTracking(ROME, []);
+// result = Array.from(new Set(result)).length;
+// console.log(result);
+
+// 1120번 문제 푸는중
+// let [A, B] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split(" ");
+// [A, B] = [A.split(""), B.split("")];
+// const solution = (a, b) => {
+//   let curDiff = a.filter((e, i) => e !== b[i]).length;
+//   if (a.length === b.length) return curDiff;
+//   let copyB = [...b];
+//   while (true) {
+//     let minLen = a.filter((e, i) => e !== copyB[i]).length;
+//     if (a.length === copyB.length) return minLen;
+//     if (
+//       a.filter((e, i) => e !== copyB.slice(0, -1)[i]).length >=
+//       a.filter((e, i) => e !== copyB.slice(1)[i]).length
+//     ) {
+//       copyB = [...copyB.slice(1)];
+//     } else copyB = [...copyB.slice(0, -1)];
+//   }
+// };
+// const result = solution(A, B);
+// console.log(result);
+
 // 2447번 문제 푸는중.
 // const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
 // const stars = Array.from({ length: N }, () => new Array(N).fill("*"));
