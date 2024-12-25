@@ -5420,40 +5420,6 @@ console.log("here");
 // });
 // console.log(result.flat().join("\n"));
 
-// 20291번 문제 왜 초과일까..
-// let [N, ...files] = require("fs")
-//   .readFileSync("./input.txt", "utf-8")
-//   .trim()
-//   .split("\n");
-// files = files.map((e) => e.split("."));
-// console.log(files);
-// let extension = new Set(files.map((e) => e[1]));
-// extension = Array.from(extension).sort();
-// console.log(extension);
-// const result = new Array(extension.length).fill(0);
-// extension.forEach((e, i) => {
-//   const data = files.filter((el) => e === el[1]);
-//   result[i] = `${e} ${data.length}`;
-// });
-// console.log(result.join("\n"));
-
-// problem.forEach((e, i) => {
-//   for (let j = 0; j < groupList.length; j++) {
-//     if (e[1] === 1) {
-//       if (groupList[j].indexOf(e[0]) !== -1) {
-//         result[i] = groupList[j][0];
-//         break;
-//       }
-//     } else {
-//       if (groupList[j].indexOf(e[0]) !== -1) {
-//         result[i] = groupList[j].splice(1, groupList[j].length);
-//         break;
-//       }
-//     }
-//   }
-// });
-// console.log(result.flat(1).join("\n"));
-
 // 28279번 문제 시간초과
 // let [N, ...arr] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
