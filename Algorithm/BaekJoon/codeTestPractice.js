@@ -4788,6 +4788,26 @@
 // 여기
 console.log("here");
 
+// 2688번 푸는중
+// const [T, ...N] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n")
+//   .map(Number);
+// const dp = [10, 55, 220];
+// const result = [];
+// const solution = (n) => {
+//   for (let i = 2; i < n; i++) {
+//     if (dp[i]) dp[i];
+//     else dp[i] = dp[i - 1] * 3 + dp[i - 2];
+//   }
+// };
+// N.forEach((e, i) => {
+//   solution(e);
+//   result[i] = dp[e - 1];
+// });
+// console.log(result.join("\n"));
+
 // 10816번 문제 푸는중. 이진탐색
 // let [N, myCards, M, numCards] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
