@@ -11,15 +11,15 @@
  * 숫자가 너무 커질 수 있으니까 답을 109+9(1,000,000,009)로 나눈 나머지를 출력하삼.
  */
 const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
-const dp = [0, 2, 6];
+const dp = [0n, 2n];
 const solution = (n) => {
-  for (let i = 3; i < n; i++) {
+  for (let i = 2; i < n; i++) {
     if (dp[i]) dp[i];
-    else dp[i] = (dp[i - 1] * 3) % 1000000009;
+    else dp[i] = dp[i - 1] * 3n;
   }
 };
 solution(N);
-console.log(dp[N - 1]);
+console.log(`${dp[N - 1] % 1000000009n}`);
 
 // back tracking 검사
 // const result = [];
