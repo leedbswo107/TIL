@@ -4788,6 +4788,53 @@
 // 여기
 console.log("here");
 
+// 6211번 문제 - 시간초과
+// const [i1, i2] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const [C, B] = i1.split(" ").map(Number);
+// const bucket = i2.split(" ").map(Number);
+// const result = [];
+// const backTracking = (arr, line, n) => {
+//   if (line.length !== n) {
+//     const len = arr.length;
+//     for (let i = 0; i < len; i++) {
+//       const copyArr = [...arr];
+//       const copyLine = [...line];
+//       const num = copyArr.splice(i, 1);
+//       if (!copyLine.length || copyLine[copyLine.length - 1] < num) {
+//         copyLine.push(...num);
+//         backTracking(copyArr, copyLine, n);
+//       }
+//     }
+//   } else {
+//     const sum = line.reduce((acc, cur) => acc + cur, 0);
+//     sum < C && result.push(sum);
+//     line = [];
+//   }
+// };
+// for (let i = 1; i < B; i++) backTracking(bucket, [], i);
+// console.log(result.sort((a, b) => a - b).pop());
+
+// 13270번 문제 최소 조합이 무조건 최소 수의 배수가 아닐 수 있지 않을까?
+// const N = BigInt(require("fs").readFileSync("./input.txt", "utf-8").trim());
+// const dp = [];
+// const nums = [];
+// let chicken = [];
+// for (let i = 2n; i < N; i++) !(N % i) && nums.push(i);
+// const solution = (n) => {
+//   for (let i = 0n; i <= n; i++) {
+//     if (i < 2n) dp[i] = i;
+//     else if (dp[i]) dp[i];
+//     else dp[i] = dp[i - 1n] + dp[i - 2n];
+//   }
+// };
+// solution(N);
+// nums.forEach((e, i) => (chicken[i] = dp[e] * (N / e)));
+// chicken = chicken.filter((e) => e < N).sort((a, b) => (a > b ? 1 : -1));
+// console.log(`${chicken[0]} ${chicken[chicken.length - 1]}`);
+
 // 2688번 푸는중
 // const [T, ...N] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
