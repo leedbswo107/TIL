@@ -4788,6 +4788,35 @@
 // 여기
 console.log("here");
 
+// const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// let result = [];
+// const nums = [1, 2, 3];
+// const backTracking = (arr, line, depth) => {
+//   if (line.length !== depth) {
+//     const len = arr.length;
+//     for (let i = 0; i < len; i++) {
+//       const copyArr = [...arr];
+//       const copyLine = [...line];
+//       const num = arr[i];
+
+//       copyLine.push(num);
+//       backTracking(copyArr, copyLine, depth);
+//     }
+//   } else {
+//     const sum = line.reduce((acc, cur) => acc + cur, 0);
+//     if (sum === N) {
+//       line.join("") === line.reverse().join("") && result.push(line.join(" "));
+//     }
+
+//     line = [];
+//   }
+// };
+// for (let i = 1; i <= N; i++) {
+//   backTracking(nums, [], i);
+// }
+// console.log(result);
+// console.log(result.length);
+
 // 6211번 문제 - 시간초과
 // const [i1, i2] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
