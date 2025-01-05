@@ -4884,37 +4884,6 @@ console.log("here");
 // });
 // console.log(result.join("\n"));
 
-// 10816번 문제 푸는중. 이진탐색
-// let [N, myCards, M, numCards] = require("fs")
-//   .readFileSync("./input.txt", "utf-8")
-//   .trim()
-//   .split("\n");
-// const result = new Array(+M);
-// myCards = myCards
-//   .split(" ")
-//   .map(Number)
-//   .sort((a, b) => a - b);
-// numCards = numCards.split(" ").map(Number);
-// const solution = (data, target) => {
-//   const arr = [...data];
-//   let start = 0;
-//   let end = arr.length - 1;
-//   let mid = Math.floor((start + end) / 2);
-//   while (start <= end) {
-//     if (arr[mid] === target) {
-//       if (arr[start] !== target) start++;
-//       else if (arr[end] !== target) end--;
-//       else return end - start + 1;
-//     } else {
-//       arr[mid] < target ? (start = mid + 1) : (end = mid - 1);
-//       mid = Math.floor((start + end) / 2);
-//     }
-//   }
-//   return 0;
-// };
-// numCards.forEach((el, i) => (result[i] = solution(myCards, el)));
-// console.log(result.join(" "));
-
 // 16922번 문제 푸는중
 // const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
 // const ROME = [1, 5, 10, 50];
