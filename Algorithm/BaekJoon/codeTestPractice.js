@@ -4790,9 +4790,10 @@ console.log("here");
 
 // const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
 // let result = [];
-// const nums = [1, 2, 3];
+// const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 // const backTracking = (arr, line, depth) => {
 //   if (line.length !== depth) {
+//     if (line.reduce((acc, cur) => acc + cur, 0) > N) return;
 //     const len = arr.length;
 //     for (let i = 0; i < len; i++) {
 //       const copyArr = [...arr];
@@ -4805,7 +4806,12 @@ console.log("here");
 //   } else {
 //     const sum = line.reduce((acc, cur) => acc + cur, 0);
 //     if (sum === N) {
-//       line.join("") === line.reverse().join("") && result.push(line.join(" "));
+//       if (line.join("") === line.reverse().join("")) {
+//         const target1 = line.slice(0, Math.floor(line.length / 2));
+//         const target2 = line.slice(0, Math.floor(line.length / 2)).reverse();
+
+//         target1.join("") === target2.join("") && result.push(line.join(" "));
+//       }
 //     }
 
 //     line = [];
