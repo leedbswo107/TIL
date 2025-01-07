@@ -4788,6 +4788,33 @@
 // 여기
 console.log("here");
 
+// 1213번 문제 시간 초과
+// const name = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("");
+// let result = [];
+// const nLen = name.length;
+// const NO_PALINDROME = "I'm Sorry Hansoo";
+// const backTracking = (arr, line) => {
+//   if (line.length !== nLen) {
+//     const len = arr.length;
+//     for (let i = 0; i < len; i++) {
+//       const copyArr = [...arr];
+//       const copyLine = [...line];
+//       const txt = copyArr.splice(i, 1);
+//       copyLine.push(txt);
+//       backTracking(copyArr, copyLine);
+//     }
+//   } else {
+//     const reverseLine = [...line].reverse().join("");
+//     line = line.join("");
+//     if (reverseLine === line) !result.includes(line) && result.push(line);
+//     line = [];
+//   }
+// };
+// backTracking(name, []);
+// console.log(!result.length ? NO_PALINDROME : result.sort()[0]);
 // const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
 // let result = [];
 // const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -5053,19 +5080,6 @@ console.log("here");
 //   ).toFixed(2)
 // );
 // console.log(result.join("\n"));
-
-// 3273번 문제 왜 틀리는겨..
-// let [n, nums, x] = require("fs")
-//   .readFileSync("./input.txt", "utf-8")
-//   .trim()
-//   .split("\n");
-// nums = nums
-//   .split(" ")
-//   .map(Number)
-//   .sort((a, b) => a - b);
-// let [count, left, right] = [0, 0, +n - 1];
-
-// console.log(count);
 
 // 18870번 문제 시간, 메묄 초과
 // let [N, X] = require("fs")
