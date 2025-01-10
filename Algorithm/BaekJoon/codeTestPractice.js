@@ -4788,6 +4788,25 @@
 // 여기
 console.log("here");
 
+// const A = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n")
+//   .map(Number);
+// let count = 0;
+// while (true) {
+//   let changed = false;
+//   for (let i = 1; i < A.length; i++) {
+//     if (A[i] > A[i + 1]) {
+//       changed = true;
+//       [A[i], A[i + 1]] = [A[i + 1], A[i]];
+//     }
+//   }
+//   count++;
+//   if (changed === false) break;
+// }
+// console.log(count);
+
 // 1213번 문제 시간 초과
 // const name = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
