@@ -4788,6 +4788,20 @@
 // 여기
 console.log("here");
 
+// let [i1, ...election] = require("fs")
+//   .readFileSync("./input.txt", "utf-8")
+//   .trim()
+//   .split("\n");
+// const [N, M] = i1.split(" ").map(Number);
+// election = election.map((e) => e.split(" ").map(Number));
+// // const score = new Array(M).fill(0).map((e, i) => e + i);
+// const candidate = {};
+// for (let i = 1; i <= M; i++) candidate[i] = 0;
+// election.forEach((e) => e.forEach((el, i) => (candidate[el] += i)));
+// console.log(candidate);
+// // console.log(score);
+// // console.log(election);
+
 // const A = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
 //   .trim()
