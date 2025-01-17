@@ -4788,6 +4788,32 @@
 // 여기
 console.log("here");
 
+// const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
+// const nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+// const result = [];
+// const solution = (arr, line) => {
+//   if (line.length !== N) {
+//     const len = arr.length;
+//     for (let i = 0; i < len; i++) {
+//       const copyArr = [...arr];
+//       const copyLine = [...line];
+//       const num = copyArr[i];
+//       if (
+//         Math.abs(copyLine[copyLine.length - 1] - num) === 1 ||
+//         !copyLine.length
+//       ) {
+//         copyLine.push(num);
+//         solution(copyArr, copyLine);
+//       }
+//     }
+//   } else {
+//     if (line[0] !== 0) result.push(line.join(""));
+//     line = [];
+//   }
+// };
+// solution(nums, []);
+// console.log(result.length);
+
 // let [i1, ...election] = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
 //   .trim()
