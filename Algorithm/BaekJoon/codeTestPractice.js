@@ -4788,6 +4788,33 @@
 // 여기
 console.log("here");
 
+// 25421 번 문제 풀어야함
+// const N = 8;
+// const arr = new Array(9).fill(1).map((e, i) => e + i);
+// const result = [];
+// const solution = (arr, line) => {
+//   if (line.length !== N) {
+//     const len = arr.length;
+//     for (let i = 0; i < len; i++) {
+//       const copyArr = [...arr];
+//       const copyLine = [...line];
+//       const num = copyArr[i];
+//       if (
+//         Math.abs(copyLine[copyLine.length - 1] - num) <= 2 ||
+//         copyLine.length === 0
+//       ) {
+//         copyLine.push(num);
+//         solution(copyArr, copyLine);
+//       }
+//     }
+//   } else {
+//     result.push(line.join(""));
+//     line = [];
+//   }
+// };
+// solution(arr, []);
+// console.log(result.length);
+
 // const N = +require("fs").readFileSync("./input.txt", "utf-8").trim();
 // const nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 // const result = [];
