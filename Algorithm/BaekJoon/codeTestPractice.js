@@ -4788,6 +4788,29 @@
 // 여기
 console.log("here");
 
+// let [i1, ...CD] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n');
+// const [N, M] = i1.split(' ').map(Number);
+// CD.pop();
+// CD = CD.map(e => +e);
+// // console.log(CD.length - Array.from(new Set(CD)).length);
+// const SK = CD.slice(0, N);
+// const SY = CD.slice(N, N + M);
+
+// let [first, second] = [0, 0];
+// let count = 0;
+// while (true) {
+//   if ((first === N || second === M)) break;
+//   if (SK[first] === SY[second]) {
+//     count++;
+//     first++;
+//     second++;
+//   } else if (SK[first] < SY[second]) {
+//     first++;
+//   } else second++;
+// }
+// console.log(count);
+// console.log(CD);
+
 // 25421 번 문제 풀어야함
 // const N = 8;
 // const arr = new Array(9).fill(1).map((e, i) => e + i);
