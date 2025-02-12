@@ -4788,6 +4788,58 @@
 // 여기
 console.log("here");
 
+// 2447 푸는중 2
+// const N = +require('fs').readFileSync('./input.txt', 'utf-8').trim();
+// const k = Number.parseInt(Math.log(N) / Math.log(3));
+// const stars = Array.from({ length: N }, () => new Array(N).fill("*"));
+
+// const verticalSplit = (arr) => {
+//   const arr1 = [];
+//   let arr2 = [];
+//   const arr3 = [];
+//   arr.forEach(e => {
+//     const len = e.length / 3;
+//     arr1.push(e.slice(0, len));
+//     arr2.push(e.slice(len, len * 2));
+//     arr3.push(e.slice(len * 2));
+//   });
+//   return [arr1, arr2, arr3];
+// }
+// const mergeSort = (arr) => {
+//   if (arr.length === 3) {
+//     arr[1][1] = ' ';
+//     arr = arr.map(e => e.join(''));
+//     return arr;
+//   }
+//   else {
+//     const len = arr.length / 3;
+//     let arr1 = verticalSplit(arr.slice(0, len));
+//     let arr2 = verticalSplit(arr.slice(len, 2 * len));
+//     let arr3 = verticalSplit(arr.slice(2 * len));
+//     arr2[1] = [];
+//     for (let i = 0; i < len; i++) {
+//       const arr = [];
+//       for (let j = 0; j < len; j++) arr.push(' ');
+//       arr2[1].push(arr);
+//     }
+//     const splitArr = [...arr1, ...arr2, ...arr3];
+//     const result = [];
+//     splitArr.forEach((e) => {
+//       const test = mergeSort(e);
+//       result.push(test);
+//     });
+//     return result;
+//   }
+// }
+// const processArr = mergeSort(stars);
+// const mergeFunc = (arr) => {
+//   arr.forEach(element => {
+//     console.log(element);
+//   });
+// }
+// const result = mergeFunc(processArr);
+
+
 // let [i1, ...CD] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n');
 // const [N, M] = i1.split(' ').map(Number);
 // CD.pop();
