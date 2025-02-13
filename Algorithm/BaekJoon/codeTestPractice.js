@@ -4788,6 +4788,53 @@
 // 여기
 console.log("here");
 
+// 알약 문제 예제 출력용 코드
+// const arr = ['w', 'h'];
+// const result = [];
+// const solution = (arr, line) => {
+//   if (line.length !== 2) {
+//     for (let i = 0; i < arr.length; i++) {
+//       const copyArr = [...arr];
+//       const copyLine = [...line];
+//       const char = copyArr[i];
+//       const wLen = line.filter(e => e !== 'w').length;
+//       const hLen = line.filter(e => e !== 'h').length;
+//       if (wLen <= hLen) {
+//         if (char === 'w') {
+//           copyLine.push(copyArr[i]);
+//           solution(copyArr, copyLine);
+//         } else {
+//           copyLine.push(copyArr[i]);
+//           solution(copyArr, copyLine);
+//         }
+//       }
+
+//     }
+//   } else {
+//     const wLen = line.filter(e => e !== 'w').length;
+//     const hLen = line.filter(e => e !== 'h').length;
+//     if (wLen === hLen) result.push(line.join(''));
+//     line = [];
+//   }
+// }
+// solution(arr, []);
+// console.log(result, result.length);
+
+
+// const N = 30;
+// const dp = [1, 2];
+// const solution = (n) => {
+//   for (let i = 2; i <= n; i++) {
+//     if (dp[i]) dp[i];
+//     else {
+//       if (!(i % 5)) dp[i] = dp[i - 1] + 3 ** (i - 1) + 10;
+//       else dp[i] = dp[i - 1] + 3 ** (i - 1);
+//     }
+//   }
+// }
+// solution(N);
+// console.log(dp);
+
 // 2447 푸는중 2
 // const N = +require('fs').readFileSync('./input.txt', 'utf-8').trim();
 // const k = Number.parseInt(Math.log(N) / Math.log(3));
