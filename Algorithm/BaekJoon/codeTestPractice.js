@@ -4788,6 +4788,30 @@
 // 여기
 console.log("here");
 
+// const [A, B, C] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split(' ').map(Number);
+// A, B, C is Integer
+
+// const power = (A, B, C) => {
+//   if (B === 0) return 1n;
+//   let half = power(A, Math.floor(B / 2), C);
+//   let result = (half * half) % BigInt(C);
+//   if (B % 2 === 1) result = (result * BigInt(A)) % BigInt(C);
+//   return result;
+// };
+// console.log(power(A, B, C).toString());
+
+// const nums = new Array(B).fill(BigInt(A));
+// const splitAndConquer = (arr) => {
+//   const mergeFunc = (a, b) => (a * (b ? b : 1n)) % BigInt(C);
+//   const splitFunc = (a) => {
+//     if (a.length === 1) return BigInt(a);
+//     return mergeFunc(splitFunc(a.slice(0, Math.floor(a.length / 2))), splitFunc(a.slice(Math.floor(a.length / 2))));
+//   }
+//   return splitFunc(arr);
+// }
+// const result = (splitAndConquer(nums));
+// console.log(result);
+
 // 알약 문제 예제 출력용 코드
 // const arr = ['w', 'h'];
 // const result = [];
