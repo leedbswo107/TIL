@@ -4788,11 +4788,39 @@
 // 여기
 console.log("here");
 
+// 15990
+// const num = [1, 2, 3];
+// const N = 13;
+// const result = [];
+// const solution = (arr, line, j) => {
+//   if (line.length < j) {
+//     for (let i = 0; i < arr.length; i++) {
+//       const copyLine = [...line];
+//       const copyArr = [...arr];
+//       const num = copyArr[i];
+//       if (copyLine[copyLine.length - 1] !== num || copyLine.length === 0) {
+//         copyLine.push(num);
+//         solution(copyArr, copyLine, j);
+//       }
+//     }
+//   } else {
+//     const sum = line.reduce((acc, cur) => acc + cur, 0);
+//     sum === N && result.push(line.join(' '));
+//     line = [];
+//   }
+// }
+// for (let i = 1; i <= N; i++) {
+//   solution(num, [], i);
+// }
+// solution(num, []);
+// console.log(result.length);
+
 // 알약 문제 예제 출력용 코드
 // const arr = ['w', 'h'];
 // const result = [];
+// let i = 5;
 // const solution = (arr, line) => {
-//   if (line.length !== 2) {
+//   if (line.length !== i * 2) {
 //     for (let i = 0; i < arr.length; i++) {
 //       const copyArr = [...arr];
 //       const copyLine = [...line];
