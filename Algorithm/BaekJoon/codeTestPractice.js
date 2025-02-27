@@ -4788,6 +4788,39 @@
 // 여기
 console.log("here");
 
+// const N = +require('fs').readFileSync('./input.txt', 'utf-8').trim();
+// let a = 5;
+// let b = 8;
+// let c = 13;
+// for (let i = 0; i <= N - 2; i++) {
+//   a = b;
+//   b = c;
+//   c = (a + b) % 1_000_000_007;
+// }
+// console.log(`${c} ${N - 2}`);
+
+// 2688 pattern
+// const result = [];
+// const n = 2;
+// const num = new Array(10).fill(0).map((e, i) => e + i);
+// const solution = (arr, line) => {
+//   if (line.length !== n) {
+//     for (let i = 0; i < arr.length; i++) {
+//       const num = arr[i];
+//       const copyLine = [...line];
+//       if (copyLine.length === 0 || copyLine[copyLine.length - 1] <= num) {
+//         copyLine.push(num);
+//         solution(arr, copyLine);
+//       }
+//     }
+//   } else {
+//     result.push(line.join(''));
+//     line = [];
+//   }
+// }
+// solution(num, []);
+// console.log(result);
+
 // 15990
 // const num = [1, 2, 3];
 // const N = 13;
