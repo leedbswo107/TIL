@@ -4788,6 +4788,16 @@
 // 여기
 console.log("here");
 
+// const [T, ...S] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(''));
+// const alpha = new Array(26).fill(0).map((e, i) => e = (i + 65));
+// const result = new Array(T);
+// S.forEach((e, i) => {
+//   let sum = 0;
+//   e.forEach(el => (alpha.includes(el.charCodeAt())) && (sum += el.charCodeAt()));
+//   result[i] = 2015 - sum;
+// })
+// console.log(result.join('\n'));
+
 // const N = +require('fs').readFileSync('./input.txt', 'utf-8').trim();
 // let a = 5;
 // let b = 8;
