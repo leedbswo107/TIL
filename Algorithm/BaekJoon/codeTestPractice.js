@@ -4788,6 +4788,31 @@
 // 여기
 console.log("here");
 
+// 30821 푸는중
+// const N = +require('fs').readFileSync('./input.txt', 'utf-8').trim();
+// let result = [];
+// const test = new Array(N).fill(1).map((e, i) => e + i);
+// const solution = (arr, line) => {
+//   if (line.length !== 5) {
+//     const len = arr.length;
+//     for (let i = 0; i < len; i++) {
+//       const copyArr = [...arr];
+//       const copyLine = [...line];
+//       const num = copyArr.splice(i, 1);
+//       if (copyLine[copyLine.length - 1] < num || copyLine.length === 0) {
+//         copyLine.push(...num);
+//         solution(copyArr, copyLine);
+//       }
+//     }
+//   } else {
+//     result.push(line.join(' '));
+//     line = [];
+//   }
+// }
+// solution(test, []);
+// result = Array.from(new Set(result));
+// console.log(result.length);
+
 // const [T, ...S] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(''));
 // const alpha = new Array(26).fill(0).map((e, i) => e = (i + 65));
 // const result = new Array(T);
