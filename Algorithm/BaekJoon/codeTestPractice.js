@@ -4788,6 +4788,22 @@
 // 여기
 console.log("here");
 
+// 14625 풀기
+// const [start, end, N] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' ').map(Number));
+// const target = N[0];
+// let result = 0;
+// while (true) {
+//   if (target === 0) ((start[0] || start[1]) < 10) && result++;
+//   else if (start.join('').includes(target)) result++;
+//   if (start[0] === end[0] && start[1] === end[1]) break;
+//   if (start[1] === 59) {
+//     start[1] = 0;
+//     start[0]++;
+//   } else start[1]++;
+// }
+// console.log(result);
+
+
 // 30821 푸는중
 // const N = +require('fs').readFileSync('./input.txt', 'utf-8').trim();
 // let result = [];
