@@ -4788,6 +4788,27 @@
 // 여기
 console.log("here");
 
+// 12281 푸는중
+// const [T, ...inputs] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n');
+// const result = new Array(+T);
+// const solution = (n, arr) => {
+//   const processed = new Array(n);
+//   const odd = arr.filter(e => e % 2 !== 0);
+//   const even = arr.filter(e => e % 2 === 0);
+//   const idx = [...odd.map(e => arr.indexOf(e)), ...even.map(e => arr.indexOf(e))];
+//   const sortedNums = [...odd.sort((a, b) => a - b), ...even.sort((a, b) => b - a)];
+//   idx.forEach((e, i) => processed[e] = sortedNums[i]);
+//   return processed;
+// }
+// for (let i = 0; i < +T; i++) {
+//   const N = +inputs[i * 2];
+//   const S = inputs[i * 2 + 1].split(' ').map(Number);
+//   result[i] = `Case #${i + 1}: ${solution(N, S).join(' ')}`;
+// }
+// console.log(result.join('\n'));
+
+
+
 // 14625 풀기
 // const [start, end, N] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' ').map(Number));
 // const target = N[0];
