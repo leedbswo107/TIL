@@ -4788,6 +4788,85 @@
 // 여기
 console.log("here");
 
+// 15233
+// let [_, A, B, G] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' '));
+// const score = [0, 0];
+// const scorer = {};
+// const solution = (a, b) => {
+//   if (a > b) return 'A';
+//   if (b > a) return 'B';
+//   return 'TIE';
+// }
+// G.forEach(e => scorer[e] = scorer[e] ? scorer[e]++ : 1);
+// A.forEach(e => score[0] += (scorer[e] ? scorer[e] : 0));
+// B.forEach(e => score[1] += (scorer[e] ? scorer[e] : 0));
+// const result = solution(score[0], score[1]);
+// console.log(result);
+
+// class Queue {
+//   constructor() {
+//     this.items = {};
+//     this.head = 0;
+//     this.tail = 0;
+//   }
+
+//   enqueue(item) {
+//     this.items[this.tail++] = item;
+//     // console.log(this.items);
+//   }
+
+//   dequeue() {
+//     if (this.isEmpty()) return undefined;
+//     const item = this.items[this.head];
+//     delete this.items[this.head++];
+//     // console.log(this.items);
+//     return item;
+//   }
+
+//   isEmpty() {
+//     return this.size() === 0;
+//   }
+
+//   size() {
+//     return this.tail - this.head;
+//   }
+
+//   front() {
+//     return this.items[this.head];
+//   }
+
+//   toArray() {
+//     return Object.values(this.items);
+//   }
+// }
+
+// // 입력 처리
+// const [_, ...rawStudents] = require('fs')
+//   .readFileSync('./input.txt', 'utf-8')
+//   .trim()
+//   .split('\n')
+//   .map(line => line.split(' '))
+//   .map(([name, num]) => [name, +num]);
+
+// const queue = new Queue();
+// for (const student of rawStudents) {
+//   queue.enqueue(student);
+// }
+
+// // 시뮬레이션
+// while (queue.size() > 1) {
+//   const [name, passCount] = queue.dequeue();
+
+//   for (let i = 0; i < passCount - 1; i++) {
+//     queue.enqueue(queue.dequeue()); // 패스
+//   }
+
+//   queue.dequeue(); // 팀원과 함께 나감
+// }
+
+// // 결과
+// console.log(queue.dequeue()[0]);
+
 // 12281 푸는중
 // const [T, ...inputs] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n');
 // const result = new Array(+T);
