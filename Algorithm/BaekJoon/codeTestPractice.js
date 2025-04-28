@@ -4788,6 +4788,50 @@
 // 여기
 console.log("here");
 
+// 11660 시간초과 -> dp
+// const input = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' ').map(Number));
+// const [N, M] = input.shift();
+// const result = new Array(M);
+// const numbers = input.splice(0, N);
+// const coordinate = [...input];
+// const solution = (x1, y1, x2, y2) => {
+//   let sum = 0;
+//   for (let y = y1 - 1; y <= y2 - 1; y++) sum += numbers[y].slice(x1 - 1, x2).reduce((acc, cur) => acc + cur, 0);
+//   return sum;
+// }
+// coordinate.forEach((e, i) => result[i] = solution(...e));
+// console.log(result.join('\n'));
+
+// 4811 출력 패턴 함수
+// const N = 1;
+// const result = [];
+// const solution = (arr, line) => {
+//   if (line.length !== N * 2) {
+//     for (let i = 0; i < arr.length; i++) {
+//       const copyArr = [...arr];
+//       const copyLine = [...line];
+//       const test = arr[i];
+//       copyLine.push(test);
+//       let w = 0;
+//       let h = 0;
+//       for (let i = 0; i < copyLine.length; i++) {
+//         copyLine[i] === 'w' ? w++ : h++;
+//       }
+//       if (copyLine[0] === 'w') w >= h && solution(copyArr, copyLine);
+//     }
+//   } else {
+//     let w = 0;
+//     let h = 0;
+//     for (let i = 0; i < line.length; i++) {
+//       line[i] === 'w' ? w++ : h++;
+//     }
+//     w === h && result.push(line.join(''));
+//     line = [];
+//   }
+// }
+// solution(['w', 'h'], []);
+// console.log(result.length);
+
 // 15233
 // let [_, A, B, G] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' '));
 // const score = [0, 0];
