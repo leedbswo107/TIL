@@ -4788,6 +4788,34 @@
 // 여기
 console.log("here");
 
+// 16926번 푸는중
+// let [[N, M, R], ...A] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' ').map(Number));
+// const Rotate = () => {
+//   let movedArr = Array.from({ length: N }, () => new Array(M));
+//   for (let i = 0; i < R; i++) {
+//     let num = 0;
+//     while (num < Math.floor(M / 2)) {
+//       for (let y = num; y < N - num; y++) {
+//         for (let x = num; x < M - num; x++) {
+//           // left top-down
+//           if (x === num && y < N - num - 1) movedArr[y + 1][x] = A[y][x];
+//           // bottom left-right
+//           else if (x < M - num - 1 && y === N - num - 1) movedArr[y][x + 1] = A[y][x];
+//           // right down-top
+//           else if (x === M - num - 1 && y > num) movedArr[y - 1][x] = A[y][x];
+//           // top right-left
+//           else if (x > num && y === num) movedArr[y][x - 1] = A[y][x];
+//         }
+//       }
+//       num++;
+//     }
+//   }
+//   return movedArr;
+// }
+// for (let i = 0; i < R; i++) A = Rotate();
+// const result = A.map(e => e.join(' ')).join('\n');
+// console.log(result);
+
 // 11660 시간초과 -> dp
 // const input = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' ').map(Number));
 // const [N, M] = input.shift();
