@@ -4788,6 +4788,28 @@
 // 여기
 console.log("here");
 
+// 13335번 푸는중
+// const [[n, w, L], trucks] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' ').map(Number));
+// let result = 0;
+// let count = 0;
+// while (trucks.length !== 0) {
+//   let total = 0;
+//   for (let i = 0; i < trucks.length; i++) {
+//     total += trucks[i];
+//     if (total > L) {
+//       trucks.splice(0, i);
+//       result += (i + w);
+//       count++;
+//       break;
+//     } else if (i === trucks.length - 1) {
+//       result += (trucks.length + w);
+//       trucks.splice(0,);
+//       break;
+//     }
+//   }
+// }
+// console.log(result - count);
+
 // 16926번 푸는중
 // let [[N, M, R], ...A] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' ').map(Number));
 // const Rotate = () => {
