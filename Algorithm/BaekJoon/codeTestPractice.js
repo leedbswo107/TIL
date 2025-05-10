@@ -4788,6 +4788,94 @@
 // 여기
 console.log("here");
 
+// 28279 번 문제 푸는중
+// const [N, ...input] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n');
+// class Deque {
+//   constructor() {
+//     this.items = {},
+//       this.head = 0,
+//       this.tail = 0
+//   }
+
+//   frontEnqueue(item) {
+//     this.items[this.head--] = item;
+//   }
+
+//   backEnqueue(item) {
+//     if (this.items[this.tail]) this.tail++;
+//     this.items[this.tail++] = item;
+//   }
+
+//   frontDequeue() {
+//     if (this.isEmpty() === 1) return -1;
+//     const num = this.items[this.head + 1];
+//     delete this.items[this.head + 1];
+//     this.head++;
+//     return num;
+//   }
+
+//   backDequeue() {
+//     if (this.isEmpty() === 1) return -1;
+//     const num = this.items[this.tail - 1];
+//     delete this.items[this.tail - 1];
+//     this.tail--;
+//     return num;
+//   }
+
+//   size() {
+//     return (this.tail - this.head) === 0 ? this.tail - this.head : this.tail - this.head - 1;
+//   }
+
+//   isEmpty() {
+//     return this.size() === 0 ? 1 : 0;
+//   }
+
+//   front() {
+//     if (this.isEmpty() === 1) return -1;
+//     return this.items[this.head + 1];
+//   }
+
+//   back() {
+//     if (this.isEmpty() === 1) return -1;
+//     if (this.tail === 0) return this.items[this.tail];
+//     return this.items[this.tail - 1];
+//   }
+// }
+// const deque = new Deque();
+// const result = [];
+// for (let i = 0; i < +N; i++) {
+//   const arr = input[i].split(' ');
+
+//   switch (arr[0]) {
+//     case '1':
+//       deque.frontEnqueue(+arr[1]);
+//       break;
+//     case '2':
+//       deque.backEnqueue(+arr[1]);
+//       break;
+//     case '3':
+//       result.push(deque.frontDequeue());
+//       break;
+//     case '4':
+//       result.push(deque.backDequeue());
+//       break;
+//     case '5':
+//       result.push(deque.size());
+//       break;
+//     case '6':
+//       result.push(deque.isEmpty());
+//       break;
+//     case '7':
+//       result.push(deque.front());
+//       break;
+//     case '8':
+//       result.push(deque.back());
+//       break;
+//   }
+//   console.log(deque)
+// }
+// console.log(result.join('\n'));
+
 // 13335번 푸는중
 // const [[n, w, L], trucks] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' ').map(Number));
 // let result = 0;
