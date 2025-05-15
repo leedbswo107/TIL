@@ -4788,6 +4788,15 @@
 // 여기
 console.log("here");
 
+//2456번 문제 푸는중
+// const [_, ...input] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' ').map(Number));
+// const scores = new Array(3).fill(0);
+// input.forEach((e) => e.forEach((el, i) => scores[i] += (10 ** (el - 1))));
+// const max = scores.indexOf(Math.max(...scores));
+// const maxScores = scores[max].toString().split('').map(Number).reverse().map((e, i) => e * (i + 1)).reduce((acc, cur) => acc + cur, 0);
+// const result = Array.from(new Set(scores)).length === scores.length ? [max + 1, maxScores] : [0, maxScores];
+// console.log(result.join(' '));
+
 // 28279 번 문제 푸는중
 // const [N, ...input] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n');
 // class Deque {
