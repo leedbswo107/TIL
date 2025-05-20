@@ -4788,6 +4788,34 @@
 // 여기
 console.log("here");
 
+// const [[N, K], ...nations] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' ').map(Number));
+// while (true) {
+//   let status = true;
+//   for (let i = 1; i < N; i++) {
+//     if (nations[i - 1][1] === nations[i][1]) {
+//       if (nations[i - 1][2] === nations[i][2]) {
+//         if (nations[i - 1][3] === nations[i][3]) {
+//           if (nations[i - 1][0] === K) [nations[i - 1], nations[i]] = [nations[i - 1], 0];
+//           else[nations[i - 1], nations[i]] = [nations[i], 0];
+//         } else if (nations[i - 1][3] < nations[i][3]) {
+//           [nations[i - 1], nations[i]] = [nations[i], nations[i - 1]];
+//           status = false;
+//         }
+//       } else if (nations[i - 1][2] < nations[i][2]) {
+//         [nations[i - 1], nations[i]] = [nations[i], nations[i - 1]];
+//         status = false;
+//       }
+//     } else if (nations[i - 1][1] < nations[i][1]) {
+//       [nations[i - 1], nations[i]] = [nations[i], nations[i - 1]];
+//       status = false;
+//     }
+//   }
+//   if (status) break;
+// }
+// const processedArr = nations.map(e => e[0]);
+// const result = processedArr.indexOf(K) + 1;
+// console.log(result);
+
 // 10825번 문제 푸는중
 // const [N, ...input] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n');
 // const scores = input.map(e => e.split(' ')).map(el => [el[0], +el[1], +el[2], +el[3]]);
