@@ -4788,6 +4788,62 @@
 // 여기
 console.log("here");
 
+// const graph = {
+//   'A': ['B', 'C'],
+//   'B': ['A', 'D'],
+//   'C': ['A', 'D'],
+//   'D': ['B', 'C']
+// }
+// // Set 활용
+// const visited = new Set();
+// const DFS = (node, graph) => {
+//   // 방문한 노드 등록
+//   visited.add(node);
+
+//   // 인접 노드 순회
+//   for (let neighbor of graph[node]) {
+//     if (!visited.has(neighbor)) {
+//       DFS(neighbor, graph);
+//     }
+//   }
+// };
+// DFS('A', graph);
+
+// const map1 = new Map();
+
+// map1.set("0", "foo");
+// map1.set(1, "bar");
+
+// const iterator1 = map1.entries();
+// console.log(map1)
+// console.log(iterator1);
+// console.log(iterator1.next().value);
+// // Expected output: Array ["0", "foo"]
+
+// console.log(iterator1.next().value);
+// // Expected output: Array [1, "bar"]
+
+
+// 직접 풀어본 것 
+// v : visited check array
+// n : current node value
+// g : graph total
+
+// const visited = ['A'];
+// const DFS = (v, n, g) => {
+//   let check = true;
+//   for (let i = 0; i < g[n].length; i++) {
+//     if (!(v.includes(g[n][i]))) {
+//       v.push(g[n][i]);
+//       DFS(v, g[n][i], g);
+//       check = false;
+//     }
+//   }
+//   if (check) return;
+// }
+// DFS(visited, 'A', graph);
+// console.log(visited);
+
 // const [[N, K], ...nations] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' ').map(Number));
 // while (true) {
 //   let status = true;
