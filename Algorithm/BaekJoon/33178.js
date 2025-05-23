@@ -1,0 +1,1 @@
+console.log(Math.floor(+require('fs').readFileSync('./input.txt', 'utf-8').trim() * 0.1));
