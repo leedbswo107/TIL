@@ -4788,6 +4788,23 @@
 // 여기
 console.log("here");
 
+// 13439번 문제 푸는중
+// const [N, K] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split(' ').map(BigInt);
+// // const dp = Array.from()
+// const S = (n, k) => {
+//   if (n === 0n) return 1n;
+//   else if (k === 0n) return n;
+//   else return S(n, k - 1n) * S(n - 1n, k);
+// }
+// const test = S(N, K);
+// let count = 1;
+// for (let i = 1n; i < test; i++) {
+//   test % i === 0n && count++;
+// }
+
+// console.log(count)
+// console.log(test);
+
 // const graph = {
 //   'A': ['B', 'C'],
 //   'B': ['A', 'D'],
