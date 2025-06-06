@@ -4788,6 +4788,71 @@
 // 여기
 console.log("here");
 
+// class Queue {
+//   constructor() {
+//     this.items = {},
+//       this.head = 0,
+//       this.tail = 0
+//   }
+//   enqueue(item) {
+//     this.items[this.tail++] = item;
+//   }
+//   dequeue() {
+//     if (this.isEmpty()) return;
+//     const value = this.items[this.head];
+//     delete (this.items[this.head++]);
+//     return value;
+//   }
+//   size() {
+//     return this.tail - this.head;
+//   }
+//   isEmpty() {
+//     return (this.size() === 0);
+//   }
+// }
+// const graph = {
+//   'A': ['B', 'C'],
+//   'B': ['A', 'D'],
+//   'C': ['A', 'D'],
+//   'D': ['B', 'C']
+// };
+// const queue = new Queue();
+// const visited = new Set();
+// queue.enqueue('A');
+// while (queue.size() > 0) {
+//   console.log(queue)
+//   const node = queue.dequeue();
+//   if (!visited.has(node)) {
+//     visited.add(node);
+//     for (const neighbor of graph[node]) {
+//       !visited.has(neighbor) && queue.enqueue(neighbor);
+//     }
+//   }
+// }
+// console.log(visited);
+// 반복문 DFS
+// const graph = {
+//   'A': ['B', 'C'],
+//   'B': ['A', 'D'],
+//   'C': ['A', 'D'],
+//   'D': ['B', 'C']
+// }
+// const visited = [];
+
+// // v : visited check array
+// // n : current node value
+// // g : graph total
+// const stack = ['A'];
+// while (stack.length > 0) {
+//   const node = stack.pop();
+//   if (!visited.includes(node)) {
+//     visited.push(node);
+//     for (const neighbor of graph[node]) !visited.includes(neighbor) && stack.push(neighbor);
+//     // 인접 노드를 stack에 넣기
+//   }
+// }
+// console.log(visited);
+
 // 13439번 문제 푸는중
 // const [N, K] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split(' ').map(BigInt);
 // // const dp = Array.from()
