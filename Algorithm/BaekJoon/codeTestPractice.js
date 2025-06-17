@@ -4788,6 +4788,39 @@
 // 여기
 console.log("here");
 
+// 16964 푸는중
+// const fs = require('fs');
+// const input = fs.readFileSync('./input.txt', 'utf-8').trim().split('\n');
+// const orderOfVisit = input.pop().split(' ').map(Number);
+// const [[N], ...nodes] = input.map(e => e.split(' ').map(Number));
+// const graph = Array.from({ length: N + 1 }, () => []);
+// nodes.forEach(([p, n]) => {
+//   graph[p].push(n);
+//   graph[n].push(p);
+// });
+// graph.forEach(e => e.sort((a, b) => a - b));
+// const reversedGraph = Array.from({ length: N + 1 }, () => []);
+// graph.forEach((e, i) => reversedGraph[i] = [...e].sort((a, b) => b - a));
+// const DFS = (g, x) => {
+//   let result = new Array(N + 1).fill(0);
+//   const stack = [x];
+//   let count = 1;
+//   while (stack.length > 0) {
+//     const node = stack.pop();
+//     if (result[node] === 0) {
+//       result[node] = count++;
+//       for (const neighbor of g[node]) {
+//         if (result[neighbor] === 0) stack.push(neighbor);
+//       }
+//     }
+//   }
+//   let status = true;
+//   result.slice(1).forEach((e, i) => (e !== orderOfVisit[i]) && (status = false));
+//   return status;
+// }
+// const result = DFS(graph, 1) || DFS(reversedGraph, 1) ? 1 : 0;
+// console.log(result);
+
 // class Queue {
 //   constructor() {
 //     this.items = {},
