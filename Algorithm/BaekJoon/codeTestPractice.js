@@ -4788,6 +4788,33 @@
 // 여기
 console.log("here");
 
+// 14567 푸는중
+// const [[N, M], ...nodes] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' ').map(Number));
+// const graph = Array.from({ length: N + 1 }, () => []);
+// nodes.forEach(([p, n]) => graph[p].push(n));
+// let result = new Array(N + 1).fill(0);
+// const BFS = (x) => {
+//   const stack = [x];
+//   let count = 2;
+//   const visited = new Set();
+//   while (stack.length > 0) {
+//     const node = stack.shift();
+//     if (!visited.has(node)) {
+//       visited.add(node);
+//       for (const neighbor of graph[node]) {
+//         if (!visited.has(neighbor)) {
+//           result[neighbor] = count;
+//           stack.push(neighbor);
+//         }
+//       }
+//     }
+//     count++;
+//   }
+//   result = result.map(e => e = e === 0 ? 1 : e);
+// }
+// BFS(1);
+// console.log(result.slice(1).join(' '));
+
 // 16964 푸는중
 // const fs = require('fs');
 // const input = fs.readFileSync('./input.txt', 'utf-8').trim().split('\n');
