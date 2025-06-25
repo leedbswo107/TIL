@@ -5,24 +5,51 @@
  * 출력
  * 국어, 영어, 수학, 과학 순서대로 상품을 받는 학생의 번호를 공백으로 구분하여 출력한다.
  */
-const [N, ...input] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n');
-const students = input.map(e => e.split(' ').map(Number));
-// 국 영 수 과
-const result = new Array(4).fill(0);
-result.forEach((_, subjects) => {
-  students.sort((a, b) => a[[0]] - b[[0]]);
-  const scores = Array.from(new Set(students.map(e => e[subjects + 1]))).sort((a, b) => b - a);
-  for (let i = 0; i < scores.length; i++) {
-    let status = false;
-    for (let j = 0; j < students.length; j++) {
-      if (students[j][subjects + 1] === scores[i]) {
-        result[subjects] = students[j][0];
-        students.splice(j, 1);
-        status = true;
-        break;
-      }
+
+// 시간 복잡도 개선
+const students = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').slice(1).map(e => e.split(' ').map(Number));
+const result = [];
+const winner = new Set();
+students.sort((a, b) => a[0] - b[0]);
+for (let i = 1; i <= 4; i++) {
+  let max = -1;
+  let maxSt = -1;
+  for (let j = 0; j < students.length; j++) {
+    const num = students[j][0];
+    if (winner.has(num)) continue;
+    if (max < students[j][i]) {
+      max = students[j][i];
+      maxSt = students[j][0];
     }
-    if (status) break;
   }
-});
+  result.push(maxSt);
+  winner.add(maxSt);
+}
 console.log(result.join(' '));
+
+/**
+ * 이전 버전 
+ * 
+ * const [N, ...input] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n');
+ * const students = input.map(e => e.split(' ').map(Number));
+ * // 국 영 수 과
+ * const result = new Array(4).fill(0);
+ * result.forEach((_, subjects) => {
+ *   students.sort((a, b) => a[[0]] - b[[0]]);
+ *   const scores = Array.from(new Set(students.map(e => e[subjects + 1]))).sort((a, b) => b - a);
+ *   for (let i = 0; i < scores.length; i++) {
+ *     let status = false;
+ *     for (let j = 0; j < students.length; j++) {
+ *       if (students[j][subjects + 1] === scores[i]) {
+ *         result[subjects] = students[j][0];
+ *         students.splice(j, 1);
+ *         status = true;
+ *         break;
+ *       }
+ *     }
+ *     if (status) break;
+ *   }
+ * });
+ * console.log(result.join(' '));
+ */
+
