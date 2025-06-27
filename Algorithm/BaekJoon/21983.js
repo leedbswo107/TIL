@@ -1,0 +1,1 @@
+console.log((Math.sqrt(+require('fs').readFileSync('./input.txt', 'utf-8').trim() * 2 / (3 * Math.sqrt(3))) * 6).toFixed(8));
