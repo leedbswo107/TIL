@@ -1,7 +1,7 @@
-Happy Joy Joy!
-http://icpc.baylor.edu/icpc/
-plain_vanilla
-(**)
-?
-the 7% solution
-#
+6
+55 185
+58 183
+88 186
+60 175
+46 155
+61 176
