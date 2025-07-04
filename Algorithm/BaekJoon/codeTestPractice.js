@@ -4788,6 +4788,71 @@
 // 여기
 console.log("here");
 
+// 17499 푸는중
+// const [[N, Q], a, ...q] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' ').map(Number));
+
+// class Queue {
+//   constructor() {
+//     this.items = {},
+//       this.newItems = {},
+//       this.head = 0,
+//       this.tail = 0
+//     this.result = []
+//   }
+//   enqueue(item) {
+//     this.items[this.tail++] = item;
+//   }
+//   sum(i, x) {
+//     this.items[i - 1] += x;
+//   }
+//   rightShift(s) {
+//     console.log(s);
+//     console.log(this.items);
+//     for (let i = 0; i < s; i++) {
+//       this.items[--this.head] = this.items[--this.tail];
+//       delete (this.items[this.tail]);
+//     }
+//     console.log(this.items);
+//   }
+//   leftShift(s) {
+//     console.log(s);
+//     console.log(this.items);
+//     for (let i = 0; i < s; i++) {
+//       this.items[++this.tail] = this.items[this.head++];
+//       // delete (this.items[this.head]);
+//     }
+//     console.log(this.items);
+//   }
+//   setItems(items) {
+//     for (let i = 0; i < N; i++) {
+//       this.items[i] = items[i];
+//     }
+//   }
+//   returnResult() {
+//     for (let i = 0; i < N; i++) {
+//       this.result[i] = this.items[i];
+//     }
+//     return this.result;
+//   }
+// }
+// const queue = new Queue();
+// a.forEach(e => queue.enqueue(e));
+// q.forEach(e => {
+//   switch (e[0]) {
+//     case 1:
+//       queue.sum(e[1], e[2]);
+//       break;
+//     case 2:
+//       queue.rightShift(e[1]);
+//       break;
+//     case 3:
+//       queue.leftShift(e[1]);
+//       break;
+//   }
+// });
+// console.log(queue.returnResult().join(' '));
+
+
 // 14567 푸는중
 // const [[N, M], ...nodes] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' ').map(Number));
 // const graph = Array.from({ length: N + 1 }, () => []);
