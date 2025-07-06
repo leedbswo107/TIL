@@ -4788,6 +4788,28 @@
 // 여기
 console.log("here");
 
+// 30903 푸는중
+// const [N, A, B, C] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split(' ').map(Number);
+// const alpha = ('A'.repeat(A) + 'B'.repeat(B) + 'C'.repeat(C)).split('');
+// let result = [];
+// const solution = (arr, line) => {
+//   if (line.length !== N) {
+//     const len = arr.length;
+//     for (let i = 0; i < len; i++) {
+//       const copyArr = [...arr];
+//       const copyLine = [...line];
+//       const a = copyArr.splice(i, 1);
+//       copyLine.push(...a);
+//       solution(copyArr, copyLine);
+//     }
+//   } else {
+//     const txt = line.join('');
+//     !result.includes(txt) && result.push(txt);
+//     line = [];
+//   }
+// }
+// solution(alpha, []);
+// console.log(result.length);
 // 17499 푸는중
 // const [[N, Q], a, ...q] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' ').map(Number));
 
