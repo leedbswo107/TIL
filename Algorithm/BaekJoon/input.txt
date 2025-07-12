@@ -1,2 +1,1 @@
-15 15
-a b c d e f g p i q k l n m o
+2 1 5 3 6
