@@ -4788,6 +4788,36 @@
 // 여기
 console.log("here");
 
+// 10844 패턴 파악용
+// const nums = new Array(10).fill(0).map((e, i) => e + i);
+// const N = 15;
+// const numList = [];
+// const solution = (arr, line) => {
+//   if (line.length !== N) {
+//     const len = arr.length;
+//     for (let i = 0; i < len; i++) {
+//       const copyArr = [...arr];
+//       const copyLine = [...line];
+//       const num = arr[i];
+//       if (Math.abs(copyLine[copyLine.length - 1] - num) === 1 || copyLine.length === 0) {
+//         copyLine.push(num);
+//         solution(copyArr, copyLine);
+//       }
+//     }
+//   } else {
+//     const test = +line.join('');
+//     if (test > 0) {
+//       if (test.toString().length === N) numList.push(test);
+//     }
+//     // line = [];
+//   }
+// }
+// solution(nums, []);
+
+// console.log(nums);
+// console.log(numList);
+// console.log(numList.length)
+
 // 17499 푸는중
 // const [[N, Q], a, ...q] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' ').map(Number));
 
