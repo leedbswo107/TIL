@@ -1,0 +1,1 @@
+console.log('WelcomeToSMUPC'[((+require('fs').readFileSync('./input.txt', 'utf-8').trim() - 1) % 14)]);
