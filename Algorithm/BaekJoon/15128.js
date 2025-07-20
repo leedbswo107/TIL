@@ -1,0 +1,2 @@
+const [p1, q1, p2, q2] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split(' ').map(Number);
+console.log((((p1 / q1) * (p2 / q2)) % 2 === 0 || ((p1 / q2) * (p2 / q1)) % 2 === 0) ? 1 : 0);
