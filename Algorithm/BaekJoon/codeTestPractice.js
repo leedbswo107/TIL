@@ -4788,6 +4788,43 @@
 // 여기
 console.log("here");
 
+// 4134
+// const [T, ...N] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(BigInt);
+// const result = new Array(T).fill(0n);
+// const solution = (num) => {
+//   const bigintSqrt = (n) => {
+//     if (n < 2n) return n;
+//     let [left, right] = [1n, n];
+//     let result = 1n;
+//     while (left <= right) {
+//       const mid = (left + right) / 2n;
+//       const square = mid * mid;
+//       if (square === n) return mid;
+//       else if (square < n) {
+//         result = mid;
+//         left = mid + 1n;
+//       } else right = mid - 1n;
+//     }
+//     return result;
+//   }
+//   while (1) {
+//     if (num <= 1n) num = 2n;
+//     let rootN = bigintSqrt(num);
+//     let status = true;
+//     for (let i = 2n; i <= rootN; i++) {
+//       if (num % i === 0n) {
+//         status = false;
+//         num++;
+//         break;
+//       }
+//     }
+//     if (status) break;
+//   }
+//   return num;
+// }
+// N.forEach((e, i) => result[i] = solution(e));
+// console.log(result.join('\n'));
+
 // 10844 패턴 파악용
 // const nums = new Array(10).fill(0).map((e, i) => e + i);
 // const N = 15;
