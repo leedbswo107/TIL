@@ -4788,6 +4788,33 @@
 // 여기
 console.log("here");
 
+// 1644 시간 초과
+// const N = +require('fs').readFileSync('./input.txt', 'utf-8').trim();
+// let nums = new Array(N).fill(1).map((e, i) => e + i);
+// let result = 0;
+// for (let i = 2; i <= N; i++) {
+//   for (let j = 0; j < N; j++) {
+//     if (nums[j] === 2) continue;
+//     else if (nums[j] === 1) {
+//       nums[j] = 0;
+//       continue;
+//     }
+//     nums[j] !== i && nums[j] % i === 0 && (nums[j] = 0);
+//   }
+// }
+// nums = nums.filter(e => e !== 0);
+// let i = 0;
+// while (i < N) {
+//   let sum = 0;
+//   for (let j = i; j < N; j++) {
+//     if (sum >= N) break;
+//     sum += nums[j];
+//   }
+//   if (sum === N) result++;
+//   i++;
+// }
+// console.log(result);
+
 // 4134
 // const [T, ...N] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(BigInt);
 // const result = new Array(T).fill(0n);
