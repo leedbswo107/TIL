@@ -4788,6 +4788,88 @@
 // 여기
 console.log("here");
 
+// 1308 푸는중
+/**
+ * condition
+ * 1. 서력기원 연수가 4로 나누어떨어지는 해는 우선 윤년
+ * 2. 100으로 나누어떨어지는 해는 평년
+ * 3. 400으로 나누어떨어지는 해는 다시 윤년
+ */
+
+// const [[ty, tm, td], [dy, dm, dd]] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' ').map(Number));
+// let result = 0;
+// const dayCount = (year, month, day, isEnd) => {
+//   if (isEnd) {
+//     let date = day;
+//     for (let i = 1; i < month; i++) {
+//       switch (month) {
+//         case 2:
+//           if ((((year % 4 === 0) && (year % 100 !== 0)) ||
+//             ((year % 4 === 0) && (year % 100 === 0) && (year % 400 === 0)))
+//           ) {
+//             date += 30;
+//           } else date += 29;
+//           break;
+//         case 4:
+//           date += 30;
+//           break;
+//         case 6:
+//           date += 30;
+//           break;
+//         case 9:
+//           date += 30;
+//           break;
+//         case 11:
+//           date += 30;
+//           break;
+//         default:
+//           date += 31;
+//           break;
+//       }
+//     }
+//     return date;
+//   } else {
+//     let date = -day;
+//     for (let i = month; i <= 12; i++) {
+//       switch (month) {
+//         case 2:
+//           if ((((year % 4 === 0) && (year % 100 !== 0)) ||
+//             ((year % 4 === 0) && (year % 100 === 0) && (year % 400 === 0)))
+//           ) {
+//             date += 30;
+//           } else date += 29;
+//           break;
+//         case 4:
+//           date += 30;
+//           break;
+//         case 6:
+//           date += 30;
+//           break;
+//         case 9:
+//           date += 30;
+//           break;
+//         case 11:
+//           date += 30;
+//           break;
+//         default:
+//           date += 31;
+//           break;
+//       }
+//     }
+//     return date;
+//   }
+// }
+// for (let y = ty; y <= dy; y++) {
+//   if (y === ty) {
+//     result += dayCount(y, tm, td, false);
+//   } else if (y === dy) {
+//     result += dayCount(y, dm, dd, true);
+//   } else {
+//     result += dayCount(y, 1, 0, false);
+//   }
+// }
+// console.log(result <= 0 ? 'gg' : `D-${result}`);
+
 // 1644 시간 초과
 // const N = +require('fs').readFileSync('./input.txt', 'utf-8').trim();
 // let nums = new Array(N).fill(1).map((e, i) => e + i);
