@@ -1,0 +1,1 @@
+console.log(require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').slice(1).map(e => parseInt(e, 2)).join('\n'));
