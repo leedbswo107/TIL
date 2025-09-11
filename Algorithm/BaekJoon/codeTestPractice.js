@@ -4788,6 +4788,34 @@
 // 여기
 console.log("here");
 
+// 15464 푸는중
+// let [[N], A, ID] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' '));
+// let tmp = [...ID];
+// A = A.map((e, i) => e - 1 === i ? 0 : +e);
+// const rCount = A.filter((e, i) => e !== 0).length;
+// for (let i = 0; i < rCount - 1; i++) {
+//   let inTmp = new Array(+N);
+//   for (let j = 0; j < +N; j++) inTmp[j] = A[j] === 0 ? tmp[j] : tmp[A[j] - 1];
+//   tmp = [...inTmp];
+// }
+// const result = [...tmp].join('\n');
+// console.log(result);
+// console.log(A);
+// console.log(ID);
+
+/**
+ * 1. 1234567 5555555 2222222 3333333 4444444
+ * 2. 1234567 4444444 5555555 2222222 3333333
+ * 3. 1234567 3333333 4444444 5555555 2222222
+ * 4. 1234567 2222222 3333333 4444444 5555555
+ * 5. 1234567 5555555 2222222 3333333 4444444
+ *
+ * 1. 1234567 3333333 2222222
+ * 2. 1234567 2222222 3333333
+ * 3. 1234567 3333333 2222222
+ * 4. 1234567 2222222 3333333
+ */
+
 // 1308 푸는중
 /**
  * condition
