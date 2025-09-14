@@ -1,1 +1,15 @@
-1000
+Tie-fighter
+V-wing
+Starfighter
+Starfighter
+Tie-fighter
+Tri-fighter
+V-wing
+Starfighter
+Tie-fighter
+V-wing
+Tri-fighter
+V-wing
+Starfighter
+Tie-fighter
+0
