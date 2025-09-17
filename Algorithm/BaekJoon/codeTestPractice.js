@@ -4788,6 +4788,24 @@
 // 여기
 console.log("here");
 
+// 30504 중복 값 처리 need
+// let [N, A, B] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n');
+// N = +N;
+// A = A.split(' ').map(Number);
+// B = B.split(' ').map(Number).sort((a, b) => a - b);
+// let result = [];
+// const test = [...A].sort((a, b) => a - b);
+// let oj = {};
+// for (let i = 0; i < test.length; i++) {
+//   if (test[i] > B[i]) {
+//     result = -1;
+//     break;
+//   }
+//   oj[test[i]] = B[i];
+// }
+// A.forEach((e, i) => result[i] = oj[e]);
+// console.log(result !== -1 ? result.join(' ') : result);
+
 // 15464 푸는중
 // let [[N], A, ID] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' '));
 // let tmp = [...ID];
