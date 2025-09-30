@@ -5301,37 +5301,6 @@ console.log("here");
 // const result = processedArr.indexOf(K) + 1;
 // console.log(result);
 
-// 10825번 문제 푸는중
-// const [N, ...input] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n');
-// const scores = input.map(e => e.split(' ')).map(el => [el[0], +el[1], +el[2], +el[3]]);
-// while (true) {
-//   let status = true;
-//   for (let i = 1; i < +N; i++) {
-//     if (scores[i - 1][1] === scores[i][1]) {
-//       if (scores[i - 1][2] === scores[i][2]) {
-//         if (scores[i - 1][3] === scores[i][3]) {
-//           if (scores[i - 1][0].charCodeAt() > scores[i][0].charCodeAt()) {
-//             [scores[i - 1], scores[i]] = [scores[i], scores[i - 1]];
-//             status = false;
-//           }
-//         } else if (scores[i - 1][3] < scores[i][3]) {
-//           [scores[i - 1], scores[i]] = [scores[i], scores[i - 1]];
-//           status = false;
-//         }
-//       } else if (scores[i - 1][2] > scores[i][2]) {
-//         [scores[i - 1], scores[i]] = [scores[i], scores[i - 1]];
-//         status = false;
-//       }
-//     } else if (scores[i - 1][1] < scores[i][1]) {
-//       [scores[i - 1], scores[i]] = [scores[i], scores[i - 1]];
-//       status = false;
-//     }
-//   }
-//   if (status) break;
-// }
-// const result = scores.map(e => e[0]).join('\n');
-// console.log(result);
-
 //2456번 문제 푸는중
 // const [_, ...input] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' ').map(Number));
 // const scores = new Array(3).fill(0);
