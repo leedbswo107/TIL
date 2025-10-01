@@ -4788,6 +4788,28 @@
 // 여기
 console.log("here");
 
+// 25374 푸는중
+// const [[N], A] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' ').map(Number));
+// let result = new Array(9).fill(0);
+// let score = new Array(N + 1).fill(0);
+// let grade = [4, 7, 12, 17, 20, 17, 12, 7, 4];
+// A.sort((a, b) => b - a).forEach(e => score[e] += 1);
+// score = score.filter(v => v !== 0);
+// score.forEach(e => {
+//   let [cur, sc] = [0, e];
+//   for (let i = cur; i < grade.length; i++) {
+//     if (grade[i] < sc) {
+//       sc -= grade[i];
+//       grade[i] = 0;
+//       cur++;
+//     } else {
+//       (grade[i] !== 0) && (result[i] += e);
+//       grade[i] -= sc;
+//     }
+//   }
+// });
+// console.log(result.reverse().join('\n'));
+
 // 30504 중복 값 처리 need
 // let [N, A, B] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n');
 // N = +N;
@@ -4914,7 +4936,7 @@ console.log("here");
 //     result += dayCount(y, 1, 0, false);
 //   }
 // }
-// console.log(result <= 0 ? 'gg' : `D-${result}`);
+// console.log(result <= 0 ? 'gg' : `D - ${ result }`);
 
 // 1644 시간 초과
 // const N = +require('fs').readFileSync('./input.txt', 'utf-8').trim();
@@ -5586,7 +5608,7 @@ console.log("here");
 // for (let i = 0; i < +T; i++) {
 //   const N = +inputs[i * 2];
 //   const S = inputs[i * 2 + 1].split(' ').map(Number);
-//   result[i] = `Case #${i + 1}: ${solution(N, S).join(' ')}`;
+//   result[i] = `Case #${ i + 1}: ${ solution(N, S).join(' ') }`;
 // }
 // console.log(result.join('\n'));
 
@@ -5652,7 +5674,7 @@ console.log("here");
 //   b = c;
 //   c = (a + b) % 1_000_000_007;
 // }
-// console.log(`${c} ${N - 2}`);
+// console.log(`${ c } ${ N - 2}`);
 
 // 2688 pattern
 // const result = [];
@@ -6019,7 +6041,7 @@ console.log("here");
 // solution(N);
 // nums.forEach((e, i) => (chicken[i] = dp[e] * (N / e)));
 // chicken = chicken.filter((e) => e < N).sort((a, b) => (a > b ? 1 : -1));
-// console.log(`${chicken[0]} ${chicken[chicken.length - 1]}`);
+// console.log(`${ chicken[0]} ${ chicken[chicken.length - 1]}`);
 
 // 2688번 푸는중
 // const [T, ...N] = require("fs")
@@ -6181,7 +6203,7 @@ console.log("here");
 //     })
 //   )
 // );
-// console.log(`${sumList[N - 1n]}`);
+// console.log(`${ sumList[N - 1n]}`);
 
 // 6986번 문제 부동 소수점 관련 이슈.
 // const input = require("fs")
@@ -6242,7 +6264,7 @@ console.log("here");
 //   const [a, b] = e.split(" ").map(Number);
 //   const copyNums = nums.slice(a - 1, b);
 //   const [min, max] = [Math.min(...copyNums), Math.max(...copyNums)];
-//   result.push(`${min} ${max}`);
+//   result.push(`${ min } ${ max }`);
 // });
 // console.log(result.join("\n"));
 
@@ -6596,7 +6618,7 @@ console.log("here");
 //     if (S.indexOf("<") === -1) {
 //       if (S.indexOf(" ") !== -1)
 //         result.push(
-//           `${S.splice(0, S.indexOf(" ") + 1)
+//           `${ S.splice(0, S.indexOf(" ") + 1)
 //             .reverse()
 //             .join("")
 //             .trim()} `
