@@ -4788,6 +4788,31 @@
 // 여기
 console.log("here");
 
+// 11660
+// const [[N, M], ...input] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' ').map(Number));
+// const matrix = Array.from({ length: N + 1 }, () => new Array(N + 1).fill(0));
+// const tmp = input.splice(0, N);
+// for (let i = 1; i < N + 1; i++) {
+//   for (let j = 1; j < N + 1; j++) matrix[i][j] = tmp[i - 1][j - 1];
+// }
+// // input.splice(0, N);
+// const arr = Array.from({ length: N + 1 }, () => new Array(N + 1).fill(0));
+// for (let i = 1; i < N + 1; i++) {
+//   for (let j = 1; j < N + 1; j++) {
+//     if (j === 1) arr[i][j] = arr[i - 1][N] + matrix[i][j];
+//     else arr[i][j] = arr[i][j - 1] + matrix[i][j];
+//   }
+// }
+// console.log(arr.join('\n'))
+// const result = input.map(([x1, y1, x2, y2]) => {
+//   console.log(arr[x1][y1], arr[x2][y2]);
+//   if (y1 - 1 === 0) return arr[x2][y2] - arr[x1 - 1][N];
+//   if (x1 === x2 && y1 === y2) return arr[x2][y2] - arr[x1][y1 - 1];
+//   else return arr[x2][y2] - arr[x1][y1] - matrix[x2 - 1][y1 - 1];
+// }).join('\n');
+// console.log(result);
+// console.log(matrix.join('\n'))
+
 // 25374 푸는중
 // const [[N], A] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' ').map(Number));
 // let result = new Array(9).fill(0);
