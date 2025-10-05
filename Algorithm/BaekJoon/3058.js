@@ -1,0 +1,1 @@
+console.log(require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').slice(1).map(e => e.split(' ').map(Number)).map(e => `${e.filter(v => v % 2 === 0).reduce((acc, cur) => acc + cur, 0)} ${Math.min(...e.filter(v => v % 2 === 0))}`).join('\n'));
