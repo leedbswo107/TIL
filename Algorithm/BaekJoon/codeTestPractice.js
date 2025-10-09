@@ -4788,6 +4788,29 @@
 // 여기
 console.log("here");
 
+// 13732
+// const input = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n');
+// const [R, C] = input[0].split(' ').map(Number);
+// let grid = input.slice(1).map(e => e.split(''));
+// while (true) {
+//   let status = true;
+//   for (let i = R - 2; i >= 0; i--) {
+//     for (let j = 0; j < C; j++) {
+//       if (grid[i + 1][j] === '.') {
+//         if (grid[i][j] === '#') continue;
+//         else if (grid[i][j] === '.') continue;
+//         [grid[i][j], grid[i + 1][j]] = [grid[i + 1][j], grid[i][j]];
+//         status = false;
+//         break;
+//       }
+//     }
+//   }
+//   if (status) break;
+// }
+// const result = grid.map(e => e.join('')).join('\n');
+// console.log(result);
+
+
 // 25374 푸는중
 // const [[N], A] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' ').map(Number));
 // let result = new Array(9).fill(0);
