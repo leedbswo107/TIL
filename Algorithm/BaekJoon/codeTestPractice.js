@@ -4788,6 +4788,15 @@
 // 여기
 console.log("here");
 
+// 19951
+// const [[N, M], H, ...orders] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' ').map(Number));
+// const arr = new Array(N).fill(0);
+// orders.forEach(([a, b, k]) => {
+//   for (let i = a - 1; i < b; i++) arr[i] += k;
+// });
+// const result = H.map((e, i) => e + arr[i]).join(' ');
+// console.log(result);
+
 // 13732
 // const input = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n');
 // const [R, C] = input[0].split(' ').map(Number);
