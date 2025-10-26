@@ -4788,6 +4788,28 @@
 // 여기
 console.log("here");
 
+// 16205
+// let [N, txt] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split(' ');
+// N = +N - 1;
+// const toPascalCase = (arr) => arr.map(e => e.split('').map((el, i) => i === 0 ? el.toLocaleUpperCase() : el).join('')).join('');
+// const toCamelCase = (arr) => arr[0] + toPascalCase(arr.slice(1));
+// const toSnakeCase = (arr) => arr.join('_');
+// let status = txt.includes('_') ? true : false;
+// let text = status ? txt.split('_').map(e => e.split('').map((el, i) => i === 0 ? el.toLocaleUpperCase() : el).join('')).join('') : txt;
+// const tmp = text.toLocaleLowerCase().split('');
+// const spTxt = [];
+// let prev = 0;
+// for (let i = 1; i < txt.length; i++) {
+//   if (text[i] !== tmp[i]) {
+//     console.log('this', text[i], tmp[i], prev, i)
+//     console.log('??', tmp.slice(prev, i - prev).join(''));
+//     spTxt.push(tmp.slice(prev, i).join(''));
+//     prev = i;
+//   } else if (i === txt.length - 1) spTxt.push(tmp.slice(prev).join(''));
+// }
+// const result = [toCamelCase(spTxt), toSnakeCase(spTxt), toPascalCase(spTxt)].join('\n');
+// console.log(result);
+
 // 19951
 // const [[N, M], H, ...orders] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' ').map(Number));
 // const arr = new Array(N).fill(0);
