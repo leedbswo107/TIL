@@ -4788,6 +4788,62 @@
 // 여기
 console.log("here");
 
+// 1009
+// const [_, ...T] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' ').map(Number));
+// const r = {
+//   '2': [8, 2, 4, 6],
+//   '3': [1, 3, 9, 7],
+//   '4': [6, 4],
+//   '7': [1, 7, 9, 3],
+//   '8': [6, 8, 4, 2],
+//   '9': [1, 9]
+// }
+// const result = T.map(([a, b]) => {
+//   a %= 10;
+//   if (a === 0) return 10;
+//   if (a === 1 || a === 5 || a === 6) return a;
+//   b %= (a === 4 || a === 9) ? 2 : 4;
+//   if (b === 0) return 1;
+//   return r[a][b];
+// });
+// // const result = T.map(([a, b]) => {
+// //   a %= 10;
+// //   if (a === 0) return 10;
+// //   if (a === 1 || a === 5 || a === 6) return a;
+// //   else return r[a][b % ((a === 4 || a === 9) ? 2 : 4)];
+// // });
+// console.log(result.join('\n'));
+
+// 10859
+// const N = BigInt(require('fs').readFileSync('./input.txt', 'utf-8').trim());
+// let isNum = true;
+// let result = 'no';
+// const isEven = (n) => {
+//   if (n !== 2n && n % 2n === 0n) return false;
+//   let status = true;
+//   for (let i = 3n; i < n; i += 2n) {
+//     if (n !== 2n && n % i === 0n) {
+//       status = false;
+//       break;
+//     }
+//   }
+//   return status;
+// }
+// if (isEven(N)) {
+//   const arr = N.toString().split('').map(Number);
+//   let tmp = '';
+//   for (let i = arr.length - 1; i >= 0; i--) {
+//     if (arr[i] === (3 || 4 || 7)) {
+//       isNum = false;
+//       break;
+//     }
+//     if (arr[i] === 6) tmp += 9;
+//     else if (arr[i] === 9) tmp += 6;
+//     else tmp += arr[i];
+//   }
+//   isNum && isEven(BigInt(tmp)) && (result = 'yes');
+// }
+// console.log(result);
 // 16205
 // let [N, txt] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split(' ');
 // N = +N - 1;
