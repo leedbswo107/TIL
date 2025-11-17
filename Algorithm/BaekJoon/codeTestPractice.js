@@ -4788,6 +4788,30 @@
 // 여기
 console.log("here");
 
+// 6995
+// const [[T], ...input] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' ').map(Number));
+// const solution = (arr) => {
+//   const [rb, sp] = [[], []];
+//   const spread = [];
+//   arr.map((e, i) => (i % 2 === 0 ? rb : sp).push(e));
+//   for (let i = 0; i < sp.length - 1; i++) {
+//     console.log('sp[i] : ', sp[i]);
+//     for (let j = i + 1; j < sp.length; j++) {
+//       console.log(sp[j]);
+//       spread.push(sp[j] - sp[i]);
+//     }
+//   }
+//   let [isSpread, isRainbow] = [
+//     (spread.length === new Set(spread).size) ?
+//       "Have a spread.          " : "Do not have a spread.   ",
+//     (rb.length === new Set(rb).size) ?
+//       "Have a rainbow." : "Do not have a rainbow."
+//   ];
+//   return [isSpread, isRainbow];
+// }
+// const result = input.map(e => solution(e).join('')).join('\n');
+// console.log(result);
+
 // 1009
 // const [_, ...T] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' ').map(Number));
 // const r = {
