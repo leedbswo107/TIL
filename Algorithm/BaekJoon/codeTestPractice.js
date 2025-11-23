@@ -6385,7 +6385,24 @@ console.log("here");
 // }
 // console.log(result.join(" "));
 
-// 2357번 문제 메모리 초과
+// 2357번 문제
+// 시간 초과
+// const input = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n');
+// const [N, M] = input[0].split(' ').map(Number);
+// const nums = input.slice(1, N + 1).map(Number);
+// const problems = input.slice(N + 1, N + M + 1).map(e => e.split(' ').map(Number));
+// const solution = (start, end) => {
+//   let [min, max] = [nums[start - 1], nums[start - 1]];
+//   for (let i = start; i < end; i++) {
+//     if (nums[i] < min) min = nums[i];
+//     if (nums[i] > max) max = nums[i];
+//   }
+//   return `${min} ${max}`;
+// }
+// const result = problems.map(([st, ed]) => solution(st, ed)).join('\n');
+// console.log(result);
+
+// 메모리 초과
 // const input = require("fs")
 //   .readFileSync("./input.txt", "utf-8")
 //   .trim()
