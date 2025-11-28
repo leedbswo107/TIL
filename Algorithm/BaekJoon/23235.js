@@ -1,0 +1,1 @@
+console.log(require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').slice(0, - 1).map((_, i) => `Case ${i + 1}: Sorting... done!`).join('\n'));
