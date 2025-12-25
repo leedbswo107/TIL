@@ -1,7 +1,5 @@
-6
-juku tul 3
-mari har 5
-mari har 4
-juku har 4
-mari tul 1
-mari tul 5
+4
+Algorithm
+Network
+CyberSecurity
+Startup
