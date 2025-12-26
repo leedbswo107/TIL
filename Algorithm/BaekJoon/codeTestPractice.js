@@ -4788,16 +4788,6 @@
 // 여기
 console.log("here");
 
-// 29882 문제 푸는중
-// const [_, ...input] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' '));
-// const tasks = input.map(([a, b, c]) => [a, b, +c]);
-// const attendance = Array.from(new Set(tasks.map(e => e[0])));
-// let scores = {};
-// attendance.map(e => scores[e] = { 'tul': 0, 'har': 0 });
-// tasks.forEach(([people, subject, score]) => scores[people][subject] = scores[people][subject] > score ? scores[people][subject] : score);
-// const result = attendance.map(e => [e, scores[e]['tul'] + scores[e]['har']]).sort((a, b) => b[1] - a[1]).map(e => e.join(' ')).join('\n');
-// console.log(result);
-
 // 6995
 // const [[T], ...input] = require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n').map(e => e.split(' ').map(Number));
 // const solution = (arr) => {
