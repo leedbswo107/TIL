@@ -1,0 +1,1 @@
+console.log(new Array(+require('fs').readFileSync('./input.txt', 'utf-8').trim()).fill('I love DGU').join('\n'));
