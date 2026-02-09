@@ -1,0 +1,1 @@
+console.log(+require('fs').readFileSync('./input.txt', 'utf-8').trim() > 10000 ? 'Time limit exceeded' : 'Accepted');
