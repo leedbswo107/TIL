@@ -1,0 +1,1 @@
+console.log((new Set(require('fs').readFileSync('./input.txt', 'utf-8').trim().split('\n'))).size === 1 ? 0 : 1550);
