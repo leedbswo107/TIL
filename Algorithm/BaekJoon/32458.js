@@ -1,0 +1,1 @@
+console.log(Math.trunc(+require('fs').readFileSync('./input.txt', 'utf-8').trim()));
