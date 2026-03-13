@@ -1,0 +1,2 @@
+const [_, ...input] = require('fs').readFileSync(0, 'utf-8').trim().split('\n').map((e, i) => `Case ${i}: ${e.split(' ').map(Number).reduce((acc, cur) => acc + cur, 0)}`);
+console.log(input.join('\n'));
